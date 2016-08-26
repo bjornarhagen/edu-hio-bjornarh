@@ -1,0 +1,102 @@
+.font {
+    &-huge {
+        font-size: 5em;
+    }
+
+    &-large {
+        font-size: 4em;
+    }
+
+    &-medium {
+        font-size: 3em;
+    }
+
+    &-small {
+        font-size: 2em;
+    }
+
+    &-tiny {
+        font-size: 1em;
+    }
+
+    &-mini {
+        font-size: 0.7em;
+    }
+
+    &-italic {
+        font-style: italic;
+        font-family: $font_italic;
+    }
+
+    &-thickest {
+        font-weight: bloder;
+        font-family: $font_bold;
+    }
+
+    &-thick {
+        font-weight: blod;
+        font-family: $font_bold;
+    }
+
+    &-regular {
+        font-weight: normal;
+        font-family: $font_normal;
+    }
+
+    &-thin {
+        font-weight: lighter;
+        font-family: $font_light;
+    }
+
+    &-brand {
+        font-family: $font_brand;
+    }
+}
+
+p {
+    font-family: $font_p;
+    line-height: $font_p_lineheight;
+}
+
+blockquote {
+    font-size: 1.25em;
+    font-family: $font_q;
+    line-height: $font_q_lineheight;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: $font_h;
+    line-height: $font_h_lineheight;
+    word-break: break-word;
+    word-wrap: break-word;
+    font-weight: 400 !important;
+}
+
+h1 {
+    font-size: 2em;
+}
+
+h2 {
+    font-size: 1.75em;
+}
+
+h3 {
+    font-size: 1.5em;
+}
+
+h4 {
+    font-size: 1.25em;
+}
+
+h5 {
+    font-size: 1.125em;
+}
+
+h6 {
+    font-size: 1em;
+}

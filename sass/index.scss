@@ -1,0 +1,40 @@
+@import "_config/_getConfig.scss";
+
+html,
+body {
+    height: 100%;
+}
+
+#header {
+    &-main {
+        position: relative;
+        text-align: center;
+        height: 300px;
+        font-size: 3em;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-attachment: fixed;
+    }
+}
+
+main {
+    @include center('block');
+    width: 100%;
+    max-width: 800px;
+
+    article,
+    aside {
+        padding: $padding-small;
+    }
+
+    article {
+        float: left;
+        width: 70%;
+    }
+
+    aside {
+        float: right;
+        width: 30%;
+    }
+}

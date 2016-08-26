@@ -1,0 +1,63 @@
+@import "_config/_getConfig.scss";
+
+#nav-main {
+    width: 100%;
+    height: $navigation-height;
+    padding: 0 $padding-small / 2;
+
+    &-wrapper {
+        @include clear();
+        @include center('block');
+        width: 100%;
+        max-width: 800px;
+    }
+
+    ul {
+        margin: 0;
+        padding: 0;
+        height: $navigation-height;
+        list-style: none;
+
+        li {
+            float: left;
+            line-height: $navigation-height;
+
+            a {
+                @include transition(0.3s);
+                display: block;
+                padding: 0 $padding-small;
+                line-height: $navigation-height;
+
+                &:focus,
+                &:hover {
+                    @include transition(0.15s);
+                    color: darken($cAccent, 25%);
+                }
+            }
+
+            &:first-child {
+                a {
+                    padding-left: 0;
+                }
+            }
+
+            &:last-child {
+                a {
+                    padding-right: 0;
+                }
+            }
+        }
+    }
+
+    &-logo {
+        float: left;
+    }
+
+    &-menu {
+        float: right;
+    }
+}
+
+footer {
+    text-align: center;
+}
