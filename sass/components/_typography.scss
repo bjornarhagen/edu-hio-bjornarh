@@ -58,6 +58,11 @@ p {
     line-height: $font_p_lineheight;
 }
 
+li,
+tr {
+    line-height: $font_p_lineheight;
+}
+
 blockquote {
     font-size: 1.25em;
     font-family: $font_q;

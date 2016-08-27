@@ -12,82 +12,80 @@
     <link rel="stylesheet" href="css/index.css">
     <link rel="stylesheet" href="fonts/lato/lato.css">
     <link rel="stylesheet" href="fonts/lora/lora.css">
-    <link rel="stylesheet" href="fonts/streamline/styles.css">
     <meta name="theme-color" content="#fcb653">
     <meta name="msapplication-TileColor" content="#fcb653">
     <meta name="msapplication-navbutton-color" content="#fcb653">
 </head>
 <body>
-    <nav id="nav-main" class="accent-bg">
-        <div id="nav-main-wrapper">
-            <ul id="nav-main-logo">
-                <li>
-                    <a href="#">Bjørnar Hagen</a>
-                </li>
-            </ul>
-            <ul id="nav-main-menu">
-                <li>
-                    <a href="#">Menu 1</a>
-                </li>
-                <li>
-                    <a href="#">Menu 2</a>
-                </li>
-                <li>
-                    <a href="#">Menu 3</a>
-                </li>
-            </ul>
-        </div>
-    </nav>
-    <header id="header-main" class="grey-bg white-text" style="background-image:url('images/graphics/nyan.gif')">
-        <div class="center-v-h">
-            <h1><i class="icon-html5"></i></h1>
-        </div>
-    </header>
-    <main class="clear">
-        <article>
-            <h1><span>Article</span></h1>
-            <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam posuere fermentum purus. Quisque porta
-                elit ac ipsum fringilla pulvinar. Donec rutrum dapibus varius. Vivamus arcu diam, aliquam nec nisl in,
-                ultricies accumsan odio.
-            </p>
-            <section>
-                <h2>Heading 2</h2>
+    <main>
+        <header id="hjem" class="full-page primary-bg">
+            <section class="full-page-inner center-align">
+                <h1>Bjørnar Hagen</h1>
                 <p>
-                    In in viverra nibh. Curabitur consequat venenatis justo eget aliquam. Aliquam erat volutpat. Fusce
-                    quis lectus sit amet dui fermentum tincidunt. Sed sit amet lacus rutrum, congue nunc sit amet, varius
-                    enim. Donec laoreet et neque in elementum. Etiam et purus quis tortor bibendum efficitur sed sit amet
-                    dolor. Donec facilisis egestas nunc vitae imperdiet. Aenean porttitor tortor eu urna mollis placerat.
-                    Vivamus cursus posuere ipsum, eget lobortis ex feugiat fermentum.
+                    Mitt navn er Bjørnar Hagen, jeg er en web-designer & front-end utvikler. Jeg spesialiserer meg i
+                    brukervennlige, vakre og responsive nettsider.
                 </p>
-                <blockquote>
-                    Pellentesque faucibus cursus ante in consectetur. In commodo accumsan mauris, vel volutpat neque
-                    congue sit amet. Nulla sollicitudin turpis ut diam rhoncus sodales. Nam ac dapibus arcu.
-                    <br><b>- Someone 2016</b>
-                </blockquote>
-                <p>
-                    Proin id congue urna. Nullam placerat mollis lectus gravida scelerisque. Nunc vitae semper leo, et
-                    fringilla odio. Fusce dictum dictum consectetur. Mauris id tellus elementum massa consectetur laoreet
-                    id quis ipsum.
-                </p>
+                <i class="icon-mouse-1 font-medium"></i>
+                <img src="images/graphics/cutout-web.png" alt="Bjørnar Hagen">
             </section>
-        </article>
-        <aside>
-            <h2>Sidebar</h2>
-            <ul>
-                <li>Lorem</li>
-                <li>Ipsum</li>
-                <li>Dolor</li>
-                <li>Sit Amet</li>
-            </ul>
-            <div class="btn primary"><span>Lorem</span></div>
-        </aside>
+        </header>
+        <section id="prosjekter" class="full-page accent-bg">
+            <div class="layout-square-medium space-v-medium center-align">
+                <i class="icon-layers-1 font-huge"></i>
+                <h1>Prosjekter</h1>
+                <div class="row space-v-large">
+                    <div class="col s12 m6 l4">Prosjekt 1</div>
+                    <div class="col s12 m6 l4">Prosjekt 2</div>
+                    <div class="col s12 m6 l4">Prosjekt 3</div>
+                </div>
+            </div>
+        </section>
+        <section id="om" class="full-page blue-bg">
+            <div class="layout-square-medium space-v-medium center-align">
+                <i class="icon-profile-1 font-huge"></i>
+                <h1>Om meg</h1>
+                <div class="row space-v-large">
+                    <div class="col s12 l4">
+                        <img src="images/graphics/me.jpg" alt="">
+                    </div>
+                    <div class="col s12 l8">
+                        Lorem ipsum dolor sit amet
+                    </div>
+                </div>
+            </div>
+        </section>
     </main>
-    <footer class="grey-bg space-v-small">
-        <p>Bjørnar Hagen - 2016</p>
-    </footer>
-    <div id="hio-pattern"></div>
+    <div id="border">
+        <div id="border-t">
+            <img id="logo" src="images/brand/logo/logo-black-1x1.png" class="center" alt="Logo">
+        </div>
+        <div id="border-r"></div>
+        <div id="border-b">
+            <nav id="nav-main">
+                <ul>
+                    <li>
+                        <a href="#hjem" title="Hjem">
+                            <i class="icon-house-2"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#prosjekter" title="Prosjekter">
+                            <i class="icon-layers-1"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#om" title="Om meg">
+                            <i class="icon-user-2"></i>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+        <div id="border-l"></div>
+    </div>
+    <link rel="stylesheet" href="fonts/streamline/styles.css">
     <script src="js/jquery-1.11.3.min.js"></script>
+    <script src="js/global.js"></script>
     <link rel="stylesheet" href="fonts/lato-extra/lato-extra.css">
 </body>
 </html>
