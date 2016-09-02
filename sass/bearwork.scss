@@ -1,3 +1,7 @@
+/*! bearworks.css | bearhagen.com | A mini framework by Bjørnar Hagen*/
+
+@import "normalize.scss";
+
 @import "_config/_getConfig.scss";
 
 @import "components/_buttons.scss";
@@ -7,11 +11,6 @@
 @import "components/_icons.scss";
 @import "components/_typography.scss";
 @import "components/_forms.scss";
-
-/*
-* Author: Bear Hagen
-* Author URI: http://bearhagen.com/
-*/
 
 /* --- Main --- */
 
@@ -107,15 +106,15 @@ a {
 	}
 }
 
-::selection {
-	color: $cBlack;
-	background: $cAccent;
+::-webkit-selection {
+	color: $cWhite;
+	background: $cBlack;
 	text-shadow: none !important;
 }
 
 ::-moz-selection {
-	color: $cBlack;
-	background: $cAccent;
+	color: $cWhite;
+	background: $cBlack;
 	text-shadow: none !important;
 }
 
@@ -158,34 +157,5 @@ hr {
 	&-large {
 		@extend .layout-square;
 		max-width: $width-large;
-	}
-}
-
-.content {
-	p {
-		margin: 2em auto;
-
-		&:first-of-type {
-			margin-top: 0;
-
-			&:last-child {
-				margin-bottom: 0;
-			}
-		}
-	}
-
-	h2,
-	h3,
-	h4,
-	h5,
-	h6 {
-		color: $cBlack;
-		margin-top: 2em;
-		margin-bottom: 0;
-
-		&:first-of-type {
-			margin-top: 2em;
-			margin-bottom: 1em;
-		}
 	}
 }

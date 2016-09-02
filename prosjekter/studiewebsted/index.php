@@ -6,6 +6,7 @@
         <header>
             <h1>Studiewebsted (WIP)</h1>
             <p>I GRIT 2016 uke 2 fikk vi i oppgave å lage personelig studiewebsted.</p>
+            <p>All koden til siden er tillgjenglig på <a href="https://github.com/bearhagen/edu-hio-bjornarh" target="_blank">GitHub</a></p>
             <a href="/~bjornarh" class="btn black white-text">Se resultat</a>
         </header>
         <section>

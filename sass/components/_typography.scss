@@ -72,7 +72,7 @@ h5,
 h6 {
     font-family: $font_h;
     line-height: $font_h_lineheight;
-    word-break: break-word;
+    word-break: normal;
     word-wrap: break-word;
     font-weight: 400;
 }
