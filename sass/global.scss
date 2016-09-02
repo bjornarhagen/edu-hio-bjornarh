@@ -1,63 +1,205 @@
 @import "_config/_getConfig.scss";
 
-#nav-main {
-    width: 100%;
-    height: $navigation-height;
-    padding: 0 $padding-small / 2;
+body {
+    &.light {
+        color: $cBlack;
+        background-color: $cGrey;
 
-    &-wrapper {
-        @include clear();
-        @include center('block');
-        width: 100%;
-        max-width: 800px;
-    }
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            color: $cBlackLight;
+        }
 
-    ul {
-        margin: 0;
-        padding: 0;
-        height: $navigation-height;
-        list-style: none;
+        p {
+            color: $cGreyDark;
+        }
 
-        li {
-            float: left;
-            line-height: $navigation-height;
-
-            a {
-                @include transition(0.3s);
-                display: block;
-                padding: 0 $padding-small;
-                line-height: $navigation-height;
-
-                &:focus,
-                &:hover {
-                    @include transition(0.15s);
-                    color: darken($cAccent, 25%);
-                }
-            }
-
-            &:first-child {
+        &.article {
+            article {
                 a {
-                    padding-left: 0;
-                }
-            }
+                    color: $cGreyBlue;
+                    border-bottom: 1px solid $cGreyBlue;
 
-            &:last-child {
-                a {
-                    padding-right: 0;
+                    &:focus,
+                    &:hover {
+                        color: $cBlack;
+                        border-bottom-width: 2px;
+                    }
+
+                    &.btn {
+                        border: none;
+                    }
                 }
             }
         }
     }
 
-    &-logo {
-        float: left;
+    &.dark {
+        color: $cWhite;
+        background-color: $cBlackLight;
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            color: $cWhite;
+        }
+
+        p {
+            color: $cGrey;
+        }
+
+        &.article {
+            article {
+                a {
+                    color: $cGrey;
+                    border-bottom: 1px solid $cGrey;
+
+                    &:focus,
+                    &:hover {
+                        color: $cWhite;
+                        border-bottom-width: 2px;
+                    }
+
+                    &.btn {
+                        border: none;
+                    }
+                }
+            }
+        }
     }
 
-    &-menu {
-        float: right;
+    &.article {
+        padding-top: $navigation-height;
+
+        nav {
+            position: absolute;
+            top: 0;
+            left: 0;
+            margin: 0;
+            width: 100%;
+            padding: $padding-small / 2;
+            height: $navigation-height;
+            text-align: center;
+            opacity: 0.5;
+
+            ul {
+                margin: 0;
+                padding: 0;
+                list-style: none;
+
+                li {
+                    display: inline-block;
+                    padding: 0 $padding-small;
+
+                    &#nav-main-toggle {
+                        > a {
+                            display: none;
+                        }
+                    }
+                }
+            }
+
+            &:hover {
+                opacity: 1;
+            }
+        }
+
+        article,
+        section {
+            width: 100%;
+        }
+
+        article {
+            padding-top: $padding-large;
+
+            header {
+                h1 {
+                    font-family: $font-bold;
+                    font-size: 3em;
+                }
+            }
+
+            h2,
+            h3,
+            h4,
+            h5,
+            h6 {
+                margin: $padding-medium 0 $padding-small/2;
+            }
+
+            p {
+                line-height: 200%;
+                font-size: 1.25em;
+            }
+
+            &.small,
+            &.medium,
+            &.large {
+                header,
+                section {
+                    display: block;
+                    margin: 0 auto;
+                }
+            }
+
+            &.small {
+                header,
+                section {
+                    max-width: $width-small;
+                }
+            }
+
+            &.medium {
+                header,
+                section {
+                    max-width: $width-medium;
+                }
+            }
+
+            &.large {
+                header,
+                section {
+                    max-width: $width-large;
+                }
+            }
+        }
+
+        .image {
+            img,
+            video,
+            iframe {
+                width: 100%;
+            }
+
+            &.full {
+                max-width: 100%;
+            }
+
+            &-figure {
+                text-align: center;
+                font-size: 1em;
+            }
+        }
     }
 }
 
 footer {
+    padding: $padding-large 0 0;
     text-align: center;
+
+    #color-bar {
+        @include center('block');
+        width: $width-small;
+        width: 100%;
+        height: 10px;
+        background-size: 1000%;
+        background-image: linear-gradient(135deg, $cRed, $cPurple, $cRed, $cOrange, $cYellow, $cGreen, $cBlue);
+    }
 }

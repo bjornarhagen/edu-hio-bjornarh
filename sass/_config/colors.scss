@@ -1,6 +1,7 @@
 $cWhite:        #FFFFFF;
 $cGrey:         #F7F7F7;
 $cGreyDark:     #5F5F5F;
+$cGreyBlue:     #687689;
 $cBlack:        #171717;
 $cBlackLight:   #272727;
 $cRed:          #FF5254;
@@ -30,6 +31,7 @@ $colors:
     'white' $cWhite,
     'grey' $cGrey,
     'greyDark' $cGreyDark,
+    'greyBlue' $cGreyBlue,
     'black' $cBlack,
     'blackLight' $cBlackLight,
     'red' $cRed,
@@ -42,24 +44,24 @@ $colors:
 
 $colors_light:
     'white' $cWhite,
-    'grey' $cGrey;
-
-$colors_dark:
+    'grey' $cGrey,
     'primary' $cOrange,
     'accent' $cBlue,
-    'alert' $cRed,
-    'warning' $cYellow,
     'success' $cGreen,
+    'warning' $cYellow,
+    'green' $cGreen,
+    'orange' $cOrange
+    'blue' $cBlue,
+    'yellow' $cYellow;
+
+$colors_dark:
+    'alert' $cRed,
     'info' $cInfo,
     'greyDark' $cGreyDark,
     'black' $cBlack,
     'blackLight' $cBlackLight,
     'red' $cRed,
-    'purple' $cPurple,
-    'blue' $cBlue,
-    'green' $cGreen,
-    'yellow' $cYellow,
-    'orange' $cOrange;
+    'purple' $cPurple;
 
 $cHioWhite:        #ffffff;
 $cHioGrey:         #ECEAE5;

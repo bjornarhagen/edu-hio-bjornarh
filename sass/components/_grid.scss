@@ -5,6 +5,7 @@
 
 	.col {
 		float: left;
+		word-wrap: break-word;
 		@include box-sizing(border-box);
 
 		$i: 1;

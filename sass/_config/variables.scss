@@ -11,15 +11,15 @@ $padding-large:  100px !default;
 
 // Fonts
 $fonts:         sans-serif, Helmet, Freesans !default;
-$font_normal:  'loraregular', $fonts !default;
+$font_normal:  'latoregular', $fonts !default;
 $font_p:       'loraregular', $fonts !default;   // Paragraphs
-$font_a:       'latolight', $fonts !default;   // Links
-$font_h:       'latoregular', $fonts !default; // Headings
-$font_q:       'latolight_italic', $fonts !default; // Quotes
-$font_bold:    'lorabold', $fonts !default;
-$font_italic:  'loraitalic', $fonts !default;
-$font_light:   'loralight', $fonts !default;
-$font_brand:   'latoregular', $fonts !default;
+$font_a:       'loraregular', $fonts !default;   // Links
+$font_h:       'latobold', $fonts !default; // Headings
+$font_q:       'loraregular', $fonts !default; // Quotes
+$font_bold:    'latobold', $fonts !default;
+$font_italic:  'latoitalic', $fonts !default;
+$font_light:   'latolight', $fonts !default;
+$font_brand:   'loraregular', $fonts !default;
 
 $font_p_lineheight: 200% !default;
 $font_h_lineheight: 100% !default;

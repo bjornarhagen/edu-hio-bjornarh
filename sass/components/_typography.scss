@@ -29,12 +29,12 @@
     }
 
     &-thickest {
-        font-weight: bloder;
+        font-weight: 900;
         font-family: $font_bold;
     }
 
     &-thick {
-        font-weight: blod;
+        font-weight: 700;
         font-family: $font_bold;
     }
 
@@ -74,7 +74,7 @@ h6 {
     line-height: $font_h_lineheight;
     word-break: break-word;
     word-wrap: break-word;
-    font-weight: 400 !important;
+    font-weight: 400;
 }
 
 h1 {

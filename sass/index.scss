@@ -5,36 +5,239 @@ body {
     height: 100%;
 }
 
-#header {
-    &-main {
-        position: relative;
-        text-align: center;
-        height: 300px;
-        font-size: 3em;
-        background-size: cover;
-        background-repeat: no-repeat;
-        background-position: center;
-        background-attachment: fixed;
+body {
+    color: $cWhite;
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    p,
+    a,
+    li,
+    .btn {
+        font-family: 'hack';
+    }
+
+    font-family: 'hack';
+    background-size: 1000%;
+    background-image: linear-gradient(135deg, $cRed, $cPurple, $cRed, $cOrange, $cYellow, $cGreen, $cBlue);
+    -webkit-animation: backgroundGradient 180s cubic-bezier(.4,0,.2,1) infinite;
+    -moz-animation: backgroundGradient 180s cubic-bezier(.4,0,.2,1) infinite;
+    animation: backgroundGradient 180s cubic-bezier(.4,0,.2,1) infinite;
+    overflow: hidden;
+
+    @-webkit-keyframes backgroundGradient {
+        0% {background-position:0% 0%}
+        50% {background-position:100% 50%}
+        100% {background-position:0% 0%}
+    }
+
+    @-moz-keyframes backgroundGradient {
+        0% {background-position:0% 0%}
+        50% {background-position:100% 50%}
+        100% {background-position:0% 0%}
+    }
+
+    @keyframes backgroundGradient { 
+        0% {background-position:0% 0%}
+        50% {background-position:100% 50%}
+        100% {background-position:0% 0%}
     }
 }
 
-main {
+article {
+    a {
+        text-decoration: underline;
+    }
+}
+
+footer {
+    display: none;
+}
+
+.tabs {
+    display: none;
+    width: 100%;
+    height: 100%;
+
+    &-wrapper {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        z-index: 2;
+        overflow-y: auto;
+    }
+
+    &-close {
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+
+    h2 {
+        text-transform: uppercase;
+    }
+
+    &.active {
+        display: block;
+    }
+}
+
+#nav {
+    &-main {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 50px;
+
+        ul {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            text-align: center;
+
+            li {
+                a {
+                    color: rgba($cWhite, 0.7);
+                }
+
+                &#nav-main-toggle {
+                    display: block;
+                    padding: 25px;
+
+                    ul {
+                        display: none;
+
+                        li {
+                            display: inline-block;
+
+                            i,
+                            span {
+                                display: block
+                            }
+
+                            i {
+                                font-size: 1.5em;
+                            }
+                        }
+                    }
+
+                    &:hover {
+                        & > a {
+                            color: $cWhite;
+                        }
+
+                        ul {
+                            display: block;
+
+                            li {
+                                a {
+                                    &:focus,
+                                    &:hover {
+                                        color: rgba($cWhite, 1);
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+#me {
+    @include transition(0.25s);
     @include center('block');
     width: 100%;
-    max-width: 800px;
+    max-width: 256px;
+    border-radius: 100%;
 
-    article,
-    aside {
-        padding: $padding-small;
+    &:hover {
+        border-radius: 0;
+    }
+}
+
+#prosjekter {
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        a {
+            text-decoration: none;
+        }
     }
 
     article {
-        float: left;
-        width: 70%;
+        padding: $padding-medium $padding-small/2;
     }
 
-    aside {
-        float: right;
-        width: 30%;
+    .prosjekter {
+        &-actions {
+            padding: $padding-small 0;
+        }
+    }
+}
+
+#om {
+    &-logo {
+        @include center('block');
+        margin-top: $padding-medium;
+        width: 100%;
+        max-width: 32px;
+    }
+}
+
+@media screen and (max-width: 1240px) {
+    #nav {
+        &-main {
+            ul {
+                li {
+                    a {
+                        padding: 0 $padding-small;
+                    }
+                }
+            }
+        }
+    }
+
+    .tabs {
+        padding: $padding-small / 2;
+
+        &-inner {
+            padding: $padding-large $padding-small / 2;
+        }
+    }
+}
+
+@media screen and (min-width: 1241px) {
+    #hjem {
+        font-size: 2em;
+        text-transform: uppercase;
+    }
+
+    #nav {
+        &-main {
+            ul {
+                li {
+                    a {
+                        padding: 0 $padding-medium;
+                    }
+                }
+            }
+        }
+    }
+
+    .tabs {
+        padding: $padding-small;
+        &-inner {
+            padding: $padding-large $padding-small;
+        }
     }
 }
