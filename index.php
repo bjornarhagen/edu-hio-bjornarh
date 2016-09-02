@@ -14,50 +14,42 @@
             <button class="tabs-close btn white"><i class="icon-arrow-31"></i><span>Tilbake</span></button>
             <div class="tabs-inner layout-square-large">
                 <h2>Prosjekter</h2>
-                <div class="row">
-                    <article class="col s12 l4">
-                        <h3>
-                            <i class="icon-text-wrapping-1"></i>
-                            <a href="prosjekter/studiewebsted" target="_blank" title="Studiewebsted">Studiewebsted (WIP)</a>
-                        </h3>
-                        <p>I GRIT 2016 uke 2 fikk vi i oppgave å lage personelig studiewebsted.</p>
-                        <div class="prosjekter-actions">
-                            <a href="prosjekter/studiewebsted" target="_blank" title="Se prosjektet" class="btn black">
-                                <i class="icon-preview-1"></i>
-                                <span>Les mer</span>
-                            </a>
-                        </div>
-                    </article>
-                    <article class="col s12 l4">
-                        <h3>
-                            <i class="icon-file-image-1"></i>
-                            <a href="prosjekter/images/ukesplaner-34-35.png" target="_blank" title="Ukesplaner">Ukesplaner</a>
-                        </h3>
-                    </article>
-                    <article class="col s12 l4">
-                        <h3>
-                            <a href="https://youtu.be/86H79BdGKP4" target="_blank" title="Se makerspace video">
-                                <i class="icon-movie-play-4"></i>
-                                <span>Makerspace</span>
-                            </a>
-                        </h3>
-                    </article>
-                </div>
-                <div class="row">
-                    <article class="col s12 l4">
-                        <h3>
-                            <i class="icon-text-wrapping-1"></i>
-                            <a href="prosjekter/superbrukere_kan_alt" target="_blank" title="Superbrukere kan alt">Superbrukere kan alt</a>
-                        </h3>
-                        <p>Som IT-student regner alle med at man kan alt. Min GRIT gruppe jobbet sammen om 4 oppgaver.</p>
-                        <div class="prosjekter-actions">
-                            <a href="prosjekter/superbrukere_kan_alt" target="_blank" title="Se prosjektet" class="btn black">
-                                <i class="icon-preview-1"></i>
-                                <span>Les mer</span>
-                            </a>
-                        </div>
-                    </article>
-                </div>
+                    <?php
+                        require_once('prosjekter.php');
+
+                        $i = 1;
+                        // Start first row
+                        echo '<div class="row">';
+
+                        foreach ($projects as $project) {
+                            echo '<article id="prosjekt-' . $project['slug'] . '" class="col s12 l4">';
+
+                            switch ($project['type']) {
+                                case 'article':
+                                    include('templates/project-article.php');
+                                    break;
+
+                                case 'media':
+                                    include('templates/project-media.php');
+                                    break;
+
+                                default:
+                                    echo 'Error: Fant ikke prosjekt';
+                                    break;
+                            }
+
+                            echo '</article>';
+
+                            // Close row after 3 columns, and start a new row
+                            if ($i++ % 3 == 0) {
+                                echo '</div>';
+                                echo '<div class="row">';
+                            }
+                        }
+
+                        // Close last row when done
+                        echo '</div>';
+                    ?>
             </div>
         </div>
     </section>
