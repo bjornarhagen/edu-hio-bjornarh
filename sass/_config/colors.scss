@@ -1,18 +1,18 @@
 $cWhite:        #FFFFFF;
 $cGrey:         #F7F7F7;
 $cGreyDark:     #5F5F5F;
+$cGreyBlue:     #687689;
 $cBlack:        #171717;
 $cBlackLight:   #272727;
 $cRed:          #FF5254;
 $cPurple:       #745cc4;
 $cBlue:         #5CACC4;
-$cBlueGrey:     #687689;
 $cGreen:        #8CD19D;
 $cYellow:       #f4de7c;
 $cOrange:       #FCB859;
 
 $cPrimary:      $cOrange;
-$cAccent:       $cBlueGrey;
+$cAccent:       $cBlue;
 $cText:         $cBlack;
 $cBackground:   $cGrey;
 
@@ -22,15 +22,16 @@ $cSuccess:      $cGreen;
 $cInfo:         $cBlue;
 
 $colors:
-    'primary' $cPrimary,
-    'accent' $cAccent,
-    'alert' $cAlert,
-    'warning' $cWarning,
-    'success' $cSuccess,
+    'primary' $cOrange,
+    'accent' $cBlue,
+    'alert' $cRed,
+    'warning' $cYellow,
+    'success' $cGreen,
     'info' $cInfo,
     'white' $cWhite,
     'grey' $cGrey,
     'greyDark' $cGreyDark,
+    'greyBlue' $cGreyBlue,
     'black' $cBlack,
     'blackLight' $cBlackLight,
     'red' $cRed,
@@ -43,24 +44,24 @@ $colors:
 
 $colors_light:
     'white' $cWhite,
-    'grey' $cGrey;
+    'grey' $cGrey,
+    'primary' $cOrange,
+    'accent' $cBlue,
+    'success' $cGreen,
+    'warning' $cYellow,
+    'green' $cGreen,
+    'orange' $cOrange
+    'blue' $cBlue,
+    'yellow' $cYellow;
 
 $colors_dark:
-    'primary' $cPrimary,
-    'accent' $cAccent,
-    'alert' $cAlert,
-    'warning' $cWarning,
-    'success' $cSuccess,
+    'alert' $cRed,
     'info' $cInfo,
     'greyDark' $cGreyDark,
     'black' $cBlack,
     'blackLight' $cBlackLight,
     'red' $cRed,
-    'purple' $cPurple,
-    'blue' $cBlue,
-    'green' $cGreen,
-    'yellow' $cYellow,
-    'orange' $cOrange;
+    'purple' $cPurple;
 
 $cHioWhite:        #ffffff;
 $cHioGrey:         #ECEAE5;

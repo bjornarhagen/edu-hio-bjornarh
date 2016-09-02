@@ -1,107 +1,205 @@
 @import "_config/_getConfig.scss";
-$border-width: 50px;
 
-html,
-body,
-main {
-    position: relative;
-    height: 100%;
-}
+body {
+    &.light {
+        color: $cBlack;
+        background-color: $cGrey;
 
-main {
-    @include clear();
-}
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            color: $cBlackLight;
+        }
 
-canvas {
-    max-width: 100%;
-}
+        p {
+            color: $cGreyDark;
+        }
 
-#border {
-    &-t,
-    &-r,
-    &-b,
-    &-l,
-     {
-        position: fixed;
-        overflow: hidden;
-        background-color: $cWhite;
+        &.article {
+            article {
+                a {
+                    color: $cGreyBlue;
+                    border-bottom: 1px solid $cGreyBlue;
+
+                    &:focus,
+                    &:hover {
+                        color: $cBlack;
+                        border-bottom-width: 2px;
+                    }
+
+                    &.btn {
+                        border: none;
+                    }
+                }
+            }
+        }
     }
 
-    &-r,
-    &-l {
-        width: $border-width;
-        height: 100%;
+    &.dark {
+        color: $cWhite;
+        background-color: $cBlackLight;
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            color: $cWhite;
+        }
+
+        p {
+            color: $cGrey;
+        }
+
+        &.article {
+            article {
+                a {
+                    color: $cGrey;
+                    border-bottom: 1px solid $cGrey;
+
+                    &:focus,
+                    &:hover {
+                        color: $cWhite;
+                        border-bottom-width: 2px;
+                    }
+
+                    &.btn {
+                        border: none;
+                    }
+                }
+            }
+        }
     }
 
-    &-t,
-    &-b {
-        width: 100%;
-        height: $border-width;
-    }
+    &.article {
+        padding-top: $navigation-height;
 
-    &-t {
-        top: 0;
-        right: 0;
-        left: 0;
-    }
-
-    &-r {
-        top: 0;
-        right: 0;
-        bottom: 0;
-    }
-
-    &-b {
-        right: 0;
-        bottom: 0;
-        left: 0;
-    }
-
-    &-l {
-        top: 0;
-        bottom: 0;
-        left: 0;
-    }
-
-    #logo {
-        width: auto;
-        height: $border-width;
-        padding: $border-width / 6;
-    }
-
-    #nav-main {
-        width: 100%;
-        height: $border-width;
-
-        ul {
-            @include clear();
+        nav {
+            position: absolute;
+            top: 0;
+            left: 0;
             margin: 0;
-            padding: 0;
-            list-style: none;
+            width: 100%;
+            padding: $padding-small / 2;
+            height: $navigation-height;
             text-align: center;
+            opacity: 0.5;
 
-            li {
-                display: inline-block;
-                padding: 0 $padding-small;
-                line-height: $border-width;
+            ul {
+                margin: 0;
+                padding: 0;
+                list-style: none;
+
+                li {
+                    display: inline-block;
+                    padding: 0 $padding-small;
+
+                    &#nav-main-toggle {
+                        > a {
+                            display: none;
+                        }
+                    }
+                }
+            }
+
+            &:hover {
+                opacity: 1;
+            }
+        }
+
+        article,
+        section {
+            width: 100%;
+        }
+
+        article {
+            padding-top: $padding-large;
+
+            header {
+                h1 {
+                    font-family: $font-bold;
+                    font-size: 3em;
+                }
+            }
+
+            h2,
+            h3,
+            h4,
+            h5,
+            h6 {
+                margin: $padding-medium 0 $padding-small/2;
+            }
+
+            p {
+                line-height: 200%;
                 font-size: 1.25em;
+            }
+
+            &.small,
+            &.medium,
+            &.large {
+                header,
+                section {
+                    display: block;
+                    margin: 0 auto;
+                }
+            }
+
+            &.small {
+                header,
+                section {
+                    max-width: $width-small;
+                }
+            }
+
+            &.medium {
+                header,
+                section {
+                    max-width: $width-medium;
+                }
+            }
+
+            &.large {
+                header,
+                section {
+                    max-width: $width-large;
+                }
+            }
+        }
+
+        .image {
+            img,
+            video,
+            iframe {
+                width: 100%;
+            }
+
+            &.full {
+                max-width: 100%;
+            }
+
+            &-figure {
+                text-align: center;
+                font-size: 1em;
             }
         }
     }
 }
 
-.full-page {
-    @include center('block');
-    padding: $border-width + $padding-small;
-    max-width: 100%;
-    width: 100%;
-    height: 100%;
-    min-height: 1000px;
-    overflow: hidden;
+footer {
+    padding: $padding-large 0 0;
+    text-align: center;
 
-    &-inner {
+    #color-bar {
         @include center('block');
-        max-width: $width-small;
+        width: $width-small;
         width: 100%;
+        height: 10px;
+        background-size: 1000%;
+        background-image: linear-gradient(135deg, $cRed, $cPurple, $cRed, $cOrange, $cYellow, $cGreen, $cBlue);
     }
 }
