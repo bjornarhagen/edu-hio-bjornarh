@@ -18,7 +18,25 @@ body {
             color: $cGreyDark;
         }
 
+        nav {
+            ul {
+                li {
+                    a {
+                        color: $cGreyDark;
+                    }
+                }
+            }
+        }
+
         &.article {
+            article,
+            section,
+            header {
+                hr {
+                    background-color: $cBlack;
+                }
+            }
+
             article {
                 a {
                     color: $cGreyBlue;
@@ -55,7 +73,25 @@ body {
             color: $cGrey;
         }
 
+        nav {
+            ul {
+                li {
+                    a {
+                        color: $cWhite;
+                    }
+                }
+            }
+        }
+
         &.article {
+            article,
+            section,
+            header {
+                hr {
+                    background-color: $cWhite;
+                }
+            }
+
             article {
                 a {
                     color: $cGrey;
@@ -112,31 +148,15 @@ body {
         }
 
         article,
-        section {
+        section,
+        header {
+            margin: 0 auto;
             width: 100%;
-        }
 
-        article {
-            padding-top: $padding-large;
-
-            header {
-                h1 {
-                    font-family: $font-bold;
-                    font-size: 3em;
-                }
-            }
-
-            h2,
-            h3,
-            h4,
-            h5,
-            h6 {
-                margin: $padding-medium 0 $padding-small/2;
-            }
-
-            p {
-                line-height: 200%;
-                font-size: 1.25em;
+            hr {
+                margin: $padding-medium auto $padding-small;
+                width: 25%;
+                height: 1px;
             }
 
             &.small,
@@ -150,6 +170,8 @@ body {
             }
 
             &.small {
+                max-width: $width-small;
+
                 header,
                 section {
                     max-width: $width-small;
@@ -157,6 +179,8 @@ body {
             }
 
             &.medium {
+                max-width: $width-medium;
+
                 header,
                 section {
                     max-width: $width-medium;
@@ -164,11 +188,32 @@ body {
             }
 
             &.large {
+                max-width: $width-large;
+
                 header,
                 section {
                     max-width: $width-large;
                 }
             }
+        }
+
+        h1 {
+            margin: $padding-large auto $padding-small;
+            font-family: $font-bold;
+            font-size: 3em;
+        }
+
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            margin: $padding-medium 0 $padding-small/2;
+        }
+
+        p {
+            line-height: 200%;
+            font-size: 1.25em;
         }
 
         .image {
@@ -202,4 +247,13 @@ footer {
         background-size: 1000%;
         background-image: linear-gradient(135deg, $cRed, $cPurple, $cRed, $cOrange, $cYellow, $cGreen, $cBlue);
     }
+}
+
+::-webkit-scrollbar {
+    background-color: $cGrey;
+    width: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: $cBlack;
 }

@@ -16,6 +16,16 @@ body.light p {
   color: #5F5F5F;
 }
 
+body.light nav ul li a {
+  color: #5F5F5F;
+}
+
+body.light.article article hr,
+body.light.article section hr,
+body.light.article header hr {
+  background-color: #171717;
+}
+
 body.light.article article a {
   color: #687689;
   border-bottom: 1px solid #687689;
@@ -46,6 +56,16 @@ body.dark h6 {
 
 body.dark p {
   color: #F7F7F7;
+}
+
+body.dark nav ul li a {
+  color: #FFFFFF;
+}
+
+body.dark.article article hr,
+body.dark.article section hr,
+body.dark.article header hr {
+  background-color: #FFFFFF;
 }
 
 body.dark.article article a {
@@ -98,53 +118,102 @@ body.article nav:hover {
 }
 
 body.article article,
-body.article section {
+body.article section,
+body.article header {
+  margin: 0 auto;
   width: 100%;
 }
 
-body.article article {
-  padding-top: 100px;
-}
-
-body.article article header h1 {
-  font-family: "latobold", sans-serif, Helmet, Freesans;
-  font-size: 3em;
-}
-
-body.article article h2,
-body.article article h3,
-body.article article h4,
-body.article article h5,
-body.article article h6 {
-  margin: 50px 0 12.5px;
-}
-
-body.article article p {
-  line-height: 200%;
-  font-size: 1.25em;
+body.article article hr,
+body.article section hr,
+body.article header hr {
+  margin: 50px auto 25px;
+  width: 25%;
+  height: 1px;
 }
 
 body.article article.small header,
 body.article article.small section, body.article article.medium header,
 body.article article.medium section, body.article article.large header,
-body.article article.large section {
+body.article article.large section,
+body.article section.small header,
+body.article section.small section,
+body.article section.medium header,
+body.article section.medium section,
+body.article section.large header,
+body.article section.large section,
+body.article header.small header,
+body.article header.small section,
+body.article header.medium header,
+body.article header.medium section,
+body.article header.large header,
+body.article header.large section {
   display: block;
   margin: 0 auto;
 }
 
-body.article article.small header,
-body.article article.small section {
+body.article article.small,
+body.article section.small,
+body.article header.small {
   max-width: 480px;
 }
 
-body.article article.medium header,
-body.article article.medium section {
+body.article article.small header,
+body.article article.small section,
+body.article section.small header,
+body.article section.small section,
+body.article header.small header,
+body.article header.small section {
+  max-width: 480px;
+}
+
+body.article article.medium,
+body.article section.medium,
+body.article header.medium {
   max-width: 768px;
 }
 
-body.article article.large header,
-body.article article.large section {
+body.article article.medium header,
+body.article article.medium section,
+body.article section.medium header,
+body.article section.medium section,
+body.article header.medium header,
+body.article header.medium section {
+  max-width: 768px;
+}
+
+body.article article.large,
+body.article section.large,
+body.article header.large {
   max-width: 1200px;
+}
+
+body.article article.large header,
+body.article article.large section,
+body.article section.large header,
+body.article section.large section,
+body.article header.large header,
+body.article header.large section {
+  max-width: 1200px;
+}
+
+body.article h1 {
+  margin: 100px auto 25px;
+  font-family: "latobold", sans-serif, Helmet, Freesans;
+  font-size: 3em;
+}
+
+body.article h2,
+body.article h3,
+body.article h4,
+body.article h5,
+body.article h6 {
+  margin: 50px 0 12.5px;
+}
+
+body.article p {
+  line-height: 200%;
+  font-size: 1.25em;
 }
 
 body.article .image img,
@@ -176,4 +245,13 @@ footer #color-bar {
   height: 10px;
   background-size: 1000%;
   background-image: linear-gradient(135deg, #FF5254, #745cc4, #FF5254, #FCB859, #f4de7c, #8CD19D, #5CACC4);
+}
+
+::-webkit-scrollbar {
+  background-color: #F7F7F7;
+  width: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #171717;
 }
