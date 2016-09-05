@@ -12,7 +12,7 @@
     <section id="prosjekter" class="tabs">
         <div class="tabs-wrapper blackLight-bg">
             <button class="tabs-close btn white"><i class="icon-arrow-31"></i><span>Tilbake</span></button>
-            <div class="tabs-inner layout-square-large">
+            <div class="tabs-inner layout-square-medium">
                 <h2>Prosjekter</h2>
                     <?php
                         require_once('prosjekter.php');
@@ -22,7 +22,7 @@
                         echo '<div class="row">';
 
                         foreach ($projects as $project) {
-                            echo '<article id="prosjekt-' . $project['slug'] . '" class="col s12 l4">';
+                            echo '<article id="prosjekt-' . $project['slug'] . '" class="col s12">';
 
                             switch ($project['type']) {
                                 case 'article':
