@@ -18,10 +18,10 @@ body {
     a,
     li,
     .btn {
-        font-family: 'hack';
+        font-family: 'hackregular';
     }
 
-    font-family: 'hack';
+    font-family: 'hackregular';
     background-size: 1000%;
     background-image: linear-gradient(135deg, $cRed, $cPurple, $cRed, $cOrange, $cYellow, $cGreen, $cBlue);
     animation: backgroundGradient 180s cubic-bezier(.4,0,.2,1) infinite;
@@ -42,6 +42,15 @@ article {
 
 footer {
     display: none;
+}
+
+::-webkit-scrollbar {
+    background-color: $cGrey;
+    width: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: $cGreyDark;
 }
 
 .tabs {

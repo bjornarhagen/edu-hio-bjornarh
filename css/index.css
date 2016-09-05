@@ -5,7 +5,7 @@ body {
 
 body {
   color: #FFFFFF;
-  font-family: 'hack';
+  font-family: 'hackregular';
   background-size: 1000%;
   background-image: linear-gradient(135deg, #FF5254, #745cc4, #FF5254, #FCB859, #f4de7c, #8CD19D, #5CACC4);
   animation: backgroundGradient 180s cubic-bezier(0.4, 0, 0.2, 1) infinite;
@@ -22,7 +22,7 @@ body p,
 body a,
 body li,
 body .btn {
-  font-family: 'hack';
+  font-family: 'hackregular';
 }
 
 @keyframes backgroundGradient {
@@ -43,6 +43,15 @@ article a {
 
 footer {
   display: none;
+}
+
+::-webkit-scrollbar {
+  background-color: #F7F7F7;
+  width: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #5F5F5F;
 }
 
 .tabs {
