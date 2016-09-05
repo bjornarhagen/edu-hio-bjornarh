@@ -6,9 +6,14 @@
                 var target = $(this.hash);
                 target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
                 if (target.length) {
+                    var newHash = this.hash;
+
                     $('html,body').animate({
-                        scrollTop: target.offset().top
-                    }, 250);
+                        scrollTop: target.offset().top - 50
+                    }, 250, function() {
+                        window.location.hash = newHash;
+                    });
+
                     return false;
                 }
             }
