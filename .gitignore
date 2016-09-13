@@ -18,4 +18,5 @@ $RECYCLE.BIN/
 *.lnk
 
 .idea/
+lab/js
 prepros.cfg
