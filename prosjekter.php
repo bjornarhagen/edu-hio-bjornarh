@@ -1,7 +1,7 @@
 <?php
     $projects = [
         [
-            'title' => 'Oblig 1 - Infprog',
+            'title' => 'Oblig 1 - Infprog (WIP)',
             'excerpt' => 'Lag en helt enkel nettside med to ulike knapper og en paragraf. Registrer en hendelse på
                         hver av kappene. Når du trykker på den første knappen, skal paragrafen vise Hei på deg,
                         og med den andre knappen skal Ha det bra vises.',
@@ -9,7 +9,7 @@
             'type' => 'article'
         ],
         [
-            'title' => 'Studiewebsted (WIP)',
+            'title' => 'Studiewebsted',
             'excerpt' => 'I GRIT 2016 uke 2 fikk vi i oppgave å lage personelig studiewebsted.',
             'slug' => 'studiewebsted',
             'type' => 'article'

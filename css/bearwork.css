@@ -1515,7 +1515,7 @@ i.circle {
 }
 
 p {
-  font-family: "loraregular", sans-serif, Helmet, Freesans;
+  font-family: "latoregular", sans-serif, Helmet, Freesans;
   line-height: 200%;
 }
 
@@ -1531,7 +1531,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: "latobold", sans-serif, Helmet, Freesans;
+  font-family: "loraregular", sans-serif, Helmet, Freesans;
   line-height: 100%;
   word-break: normal;
   word-wrap: break-word;
