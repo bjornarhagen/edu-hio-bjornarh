@@ -16,47 +16,51 @@
         </header>
         <section id="result">
             <h2>Resultat</h2>
-            <p id="o1-paragraph">Trykk på en av knappene</p>
             <button id="o1-btn-1" class="btn black">Knapp 1</button>
             <button id="o1-btn-2" class="btn black">Knapp 2</button>
+            <p><code id="o1-output" class="language-html">Trykk på en av knappene</code></p>
             <script>
-                window.onload = load;
+                window.onload = ready;
 
-                function load() {
-                    var paragraph = document.getElementById("o1-paragraph");
+                function ready() {
+                    var output = document.getElementById("o1-output");
 
                     document.getElementById("o1-btn-1").addEventListener("click", function() {
-                        paragraph.innerHTML = "Hei på deg";
+                        output.innerHTML = "Hei på deg";
                     });
 
                     document.getElementById("o1-btn-2").addEventListener("click", function() {
-                        paragraph.innerHTML = "Ha det bra";
+                        output.innerHTML = "Ha det bra";
                     });
                 };
             </script>
         </section>
         <section id="code">
             <h2>Koden</h2>
-            <h3>HTML</h3>
-            <pre class="language-html">
-                <code>
-&lt;p id=&quot;o1-paragraph&quot;&gt;Trykk på en av knappene&lt;/p&gt;
-&lt;button id=&quot;o1-btn-1&quot; class=&quot;btn black&quot;&gt;Knapp 1&lt;/button&gt;
-&lt;button id=&quot;o1-btn-2&quot; class=&quot;btn black&quot;&gt;Knapp 2&lt;/button&gt;
-                </code>
-            </pre>
             <h3>JavaScript</h3>
             <pre class="language-javascript">
                 <code>
-var paragraph = document.getElementById("o1-paragraph");
+window.onload = ready;
 
-document.getElementById("o1-btn-1").addEventListener("click", function() {
-    paragraph.innerHTML = "Hei på deg";
-});
+function ready() {
+    var output = document.getElementById("o1-output");
 
-document.getElementById("o1-btn-2").addEventListener("click", function() {
-    paragraph.innerHTML = "Ha det bra";
-});
+    document.getElementById("o1-btn-1").addEventListener("click", function() {
+        output.innerHTML = "Hei på deg";
+    });
+
+    document.getElementById("o1-btn-2").addEventListener("click", function() {
+        output.innerHTML = "Ha det bra";
+    });
+};
+                </code>
+            </pre>
+            <h3>HTML</h3>
+            <pre class="language-html">
+                <code>
+&lt;button id=&quot;o1-btn-1&quot; class=&quot;btn black&quot;&gt;Knapp 1&lt;/button&gt;
+&lt;button id=&quot;o1-btn-2&quot; class=&quot;btn black&quot;&gt;Knapp 2&lt;/button&gt;
+&lt;p&gt;&lt;code id=&quot;o1-output&quot;&gt;Trykk på en av knappene&lt;/code&gt;&lt;/p&gt;
                 </code>
             </pre>
         </section>

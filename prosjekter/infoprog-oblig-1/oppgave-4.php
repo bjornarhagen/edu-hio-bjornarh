@@ -26,14 +26,16 @@
                 <button class="btn black">7</button>
                 <button class="btn black">8</button>
                 <button class="btn black">9</button>
-                <button class="btn black">10</button>
+                <button class="btn black">0</button>
                 <button id="o4-reset" class="btn alert">Slett</button>
             </div>
             <div class="input-field">
                 <input id="o4-result" type="text" placeholder="Skriv inn et tall ved å trykke på knappene" disabled>
             </div>
             <script>
-                (function () {
+                window.onload = ready;
+
+                function ready() {
                     var o4Buttons = document.getElementById("o4-buttons").querySelectorAll(".btn");
 
                     for (var i = 0; i < o4Buttons.length; i++) {
@@ -45,11 +47,31 @@
                     document.getElementById("o4-reset").onclick = function() {
                         document.getElementById("o4-result").value = "";
                     }
-                })();
+                }
             </script>
         </section>
         <section id="code">
             <h2>Koden</h2>
+            <h3>JavaScript</h3>
+            <pre class="language-javascript">
+                <code>
+window.onload = ready;
+
+function ready() {
+    var o4Buttons = document.getElementById("o4-buttons").querySelectorAll(".btn");
+
+    for (var i = 0; i < o4Buttons.length; i++) {
+        o4Buttons[i].addEventListener("click", function() {
+            document.getElementById("o4-result").value += this.innerHTML;
+        })
+    }
+
+    document.getElementById("o4-reset").onclick = function() {
+        document.getElementById("o4-result").value = "";
+    }
+}
+                </code>
+            </pre>
             <h3>HTML</h3>
             <pre class="language-html">
                 <code>
@@ -66,22 +88,6 @@
     &lt;button class=&quot;btn black&quot;&gt;10&lt;/button&gt;
     &lt;button id=&quot;o4-reset&quot; class=&quot;btn alert&quot;&gt;Slett&lt;/button&gt;
 &lt;/div&gt;
-                </code>
-            </pre>
-            <h3>JavaScript</h3>
-            <pre class="language-javascript">
-                <code>
-var o4Buttons = document.getElementById("o4-buttons").querySelectorAll(".btn");
-
-for (var i = 0; i < o4Buttons.length; i++) {
-    o4Buttons[i].addEventListener("click", function() {
-        document.getElementById("o4-result").value += this.innerHTML;
-    })
-}
-
-document.getElementById("o4-reset").onclick = function() {
-    document.getElementById("o4-result").value = "";
-}
                 </code>
             </pre>
         </section>

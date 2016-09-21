@@ -16,25 +16,85 @@
         </header>
         <section id="result">
             <h2>Resultat</h2>
-            <p>Lorem ipsum</p>
+            <p>Hvis du prøver å legge til noe som allerde er i listen, så vil bare antallet gå opp, så man ikke får
+            flere av samme ting nedover.</p>
+            <div class="row input-field">
+                <input id="o6-item" type="text" placeholder="Varenavn" class="col s7">
+                <input id="o6-amount" type="number" min="1" placeholder="Antall" class="col s3">
+                <button id="o6-add" class="col s2 btn black">+</button>
+            </div>
+            <ul id="o6-list"></ul>
+            <p>Antall varer: <b id="o6-count">0</b></p>
             <script>
-            (function () {
+                window.onload = ready;
 
-            })();
+                function ready() {
+                    document.getElementById("o6-add").onclick = addToList;
+                }
+
+                function addToList() {
+                    var item = document.getElementById("o6-item").value;
+                    var itemSlug = item.replace(/\s+/g, '-').toLowerCase(); // Fjern mellomrom og gjør til små bokstaver
+                    var itemCountAdd = parseInt(document.getElementById("o6-amount").value);
+                    var itemCountCurrent = 0;
+
+                    // Hvis varen finnes fra før, legg til antall i eksisterende
+                    if (document.getElementById(itemSlug)) {
+                        itemCountCurrent = parseInt(document.getElementById(itemSlug + "-count").innerHTML);
+                        document.getElementById(itemSlug + "-count").innerHTML = itemCountCurrent + itemCountAdd;
+                    } else { // Hvis ikke, lag ny
+                        document.getElementById("o6-list").innerHTML += "<li><span id='" + itemSlug + "'>" + item
+                        + "</span> x <span id='" + itemSlug + "-count'>" + document.getElementById("o6-amount").value
+                        + "</span></li>";
+                    }
+
+                    // Total count
+                    document.getElementById("o6-count").innerHTML = parseInt(document.getElementById("o6-count").innerHTML) + itemCountAdd;
+                }
             </script>
         </section>
         <section id="code">
             <h2>Koden</h2>
-            <h3>HTML</h3>
-            <pre class="language-html">
-                <code>
-Lorem ipsum
-                </code>
-            </pre>
             <h3>JavaScript</h3>
             <pre class="language-javascript">
                 <code>
-Lorem ipsum
+window.onload = ready;
+
+function ready() {
+    document.getElementById("o6-add").onclick = addToList;
+}
+
+function addToList() {
+    var item = document.getElementById("o6-item").value;
+    var itemSlug = item.replace(/\s+/g, '-').toLowerCase(); // Fjern mellomrom og gjør til små bokstaver
+    var itemCountAdd = parseInt(document.getElementById("o6-amount").value);
+    var itemCountCurrent = 0;
+
+    // Hvis varen finnes fra før, legg til antall i eksisterende
+    if (document.getElementById(itemSlug)) {
+        itemCountCurrent = parseInt(document.getElementById(itemSlug + "-count").innerHTML);
+        document.getElementById(itemSlug + "-count").innerHTML = itemCountCurrent + itemCountAdd;
+    } else { // Hvis ikke, lag ny
+        document.getElementById("o6-list").innerHTML += "<li><span id='" + itemSlug + "'>" + item
+        + "</span> x <span id='" + itemSlug + "-count'>" + document.getElementById("o6-amount").value
+        + "</span></li>";
+    }
+
+    // Total count
+    document.getElementById("o6-count").innerHTML = parseInt(document.getElementById("o6-count").innerHTML) + itemCountAdd;
+}
+                </code>
+            </pre>
+            <h3>HTML</h3>
+            <pre class="language-html">
+                <code>
+&lt;div class=&quot;row input-field&quot;&gt;
+    &lt;input id=&quot;o6-item&quot; type=&quot;text&quot; placeholder=&quot;Varenavn&quot; class=&quot;col s7&quot;&gt;
+    &lt;input id=&quot;o6-amount&quot; type=&quot;number&quot; min=&quot;1&quot; placeholder=&quot;Antall&quot; class=&quot;col s3&quot;&gt;
+    &lt;button id=&quot;o6-add&quot; class=&quot;col s2 btn black&quot;&gt;+&lt;/button&gt;
+&lt;/div&gt;
+&lt;ul id=&quot;o6-list&quot;&gt;&lt;/ul&gt;
+&lt;p&gt;Antall varer: &lt;b id=&quot;o6-count&quot;&gt;0&lt;/b&gt;&lt;/p&gt;
                 </code>
             </pre>
         </section>

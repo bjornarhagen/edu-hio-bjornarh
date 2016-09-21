@@ -15,6 +15,37 @@
             margin-left: 10px;
             vertical-align: top;
         }
+
+        #o2-modal {
+            display: none;
+            z-index: 2;
+            position: fixed;
+            top: 50%;
+            left: 0;
+            right: 0;
+            margin: auto;
+            padding: 50px;
+            width: 100%;
+            max-width: 320px;
+            color: #000;
+            text-align: center;
+            font-size: 2em;
+            background-color: #F7F7F7;
+            -webkit-transform: translateY(-50%);
+            -moz-transform: translateY(-50%);
+            transform: translateY(-50%);
+        }
+
+        #o2-backdrop {
+            display: none;
+            z-index: 1;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(104, 118, 137, 0.9);
+        }
     </style>
 </head>
 <body>
@@ -54,22 +85,82 @@
                     <span class="o2-status"></span>
                 </li>
             </ul>
+            <div id="o2-modal">Resultat</div>
+            <div id="o2-backdrop"></div>
             <script>
-                (function () {
-                    questions = document.querySelectorAll("#o2-questions li.o2-question");
+                window.onload = ready;
 
+                function ready() {
+                    var o2Modal = document.getElementById("o2-modal");
+                    var o2Backdrop = document.getElementById("o2-backdrop");
+
+                    // Skjul modal og backdrop når brukeren trykker på backdrop
+                    o2Backdrop.onclick = function() {
+                        this.style.display = "none";
+                        o2Modal.style.display = "none";
+                    };
+
+                    // Finner alle spørsmålene inni en liste
+                    var questions = document.querySelectorAll("#o2-questions li.o2-question");
+                    var autoClose;
+
+                    // For hvert spørsmål, lag en eventlistener
                     for (var i = 0; i < questions.length; i++) {
-                        questions[i].addEventListener('click', function(e) {
+                        questions[i].addEventListener("click", function(e) {
                             if (e.target.nodeName == "BUTTON") {
-                                this.getElementsByClassName("o2-status")[0].innerHTML = e.target.dataset.answer;
+                                o2Modal.style.display = "block";
+                                o2Modal.innerHTML = e.target.dataset.answer;
+                                o2Backdrop.style.display = "block";
+                                clearTimeout(autoClose);
+
+                                // Skjul modal og backdrop automatisk etter 2.5 sekunder
+                                autoClose = setTimeout(function() {
+                                    o2Backdrop.click();
+                                }, 2500);
                             }
                         });
                     }
-                })();
+                }
             </script>
         </section>
         <section id="code">
             <h2>Kode</h2>
+            <h3>JavaScript</h3>
+            <pre class="language-javascript">
+                <code>
+window.onload = ready;
+
+function ready() {
+    var o2Modal = document.getElementById("o2-modal");
+    var o2Backdrop = document.getElementById("o2-backdrop");
+
+    // Skjul modal og backdrop når brukeren trykker på backdrop
+    o2Backdrop.onclick = function() {
+        this.style.display = "none";
+        o2Modal.style.display = "none";
+    };
+
+    // Finner alle spørsmålene inni en liste
+    var questions = document.querySelectorAll("#o2-questions li.o2-question");
+
+    // For hvert spørsmål, lag en eventlistener
+    for (var i = 0; i < questions.length; i++) {
+        questions[i].addEventListener("click", function(e) {
+            if (e.target.nodeName == "BUTTON") {
+                o2Modal.style.display = "block";
+                o2Modal.innerHTML = e.target.dataset.answer;
+                o2Backdrop.style.display = "block";
+
+                // Skjul modal og backdrop automatisk etter 2.5 sekunder
+                setTimeout(function() {
+                    o2Backdrop.click();
+                }, 2500);
+            }
+        });
+    }
+}
+                </code>
+            </pre>
             <h3>HTML</h3>
             <pre class="language-html">
                 <code>
@@ -93,18 +184,8 @@
         &lt;span class=&quot;o2-status&quot;&gt;&lt;/span&gt;
     &lt;/li&gt;
 &lt;/ul&gt;
-                </code>
-            </pre>
-            <h3>JavaScript</h3>
-            <pre class="language-javascript">
-                <code>
-questions = document.querySelectorAll("#o2-questions li.o2-question");
-
-for (var i = 0; i < questions.length; i++) {
-    questions[i].addEventListener('click', function(e) {
-        this.getElementsByClassName("o2-status")[0].innerHTML = e.target.dataset.answer;
-    });
-}
+&lt;div id=&quot;o2-modal&quot;&gt;Resultat&lt;/div&gt;
+&lt;div id=&quot;o2-backdrop&quot;&gt;&lt;/div&gt;
                 </code>
             </pre>
         </section>

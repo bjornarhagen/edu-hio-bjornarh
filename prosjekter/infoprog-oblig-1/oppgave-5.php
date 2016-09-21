@@ -23,41 +23,84 @@
         </header>
         <section id="result">
             <h2>Resultat</h2>
-            <canvas id="o5-canvas"></canvas>
+            <canvas id="o5-canvas" width="668" height="256"></canvas>
             <script>
-            (function () {
-                var o5Canvas = document.getElementById("o5-canvas");
-                var o5Ctx = o5Canvas.getContext("2d");
+                window.onload = ready;
 
-                o5Ctx.beginPath();
-                o5Ctx.moveTo(o5Canvas.width / 2 - 25, 50);
-                o5Ctx.lineTo(o5Canvas.width / 2 + 25, 50);
-                o5Ctx.lineTo(o5Canvas.width / 2, 25);
-                o5Ctx.lineTo(o5Canvas.width / 2 - 25, 50);
-                o5Ctx.fillStyle = "red";
-                o5Ctx.strokeStyle = "black";
-                o5Ctx.stroke();
-                o5Ctx.fill();
+                function ready() {
+                    var o5Canvas = document.getElementById("o5-canvas");
+                    var o5Ctx = o5Canvas.getContext("2d");
 
-                o5Ctx.beginPath();
-                o5Ctx.rect(o5Canvas.width / 2 - 25, 51, 50, 50);
-                o5Ctx.fillStyle = "blue";
-                o5Ctx.stroke();
-                o5Ctx.fill();
-            })();
-            </script>        </section>
+                    o5Ctx.beginPath();
+                    o5Ctx.lineTo(o5Canvas.width/2 + 75, 100); // Bruker o5Canvas.width/2 så man starter fra midten.
+                    o5Ctx.lineTo(o5Canvas.width/2, 25);
+                    o5Ctx.lineTo(o5Canvas.width/2 - 75, 100); // Taket
+                    o5Ctx.lineTo(410, 100);
+                    o5Ctx.strokeStyle = "black";
+                    o5Ctx.stroke();
+                    o5Ctx.fillStyle = "#FF5254"; // Rød
+                    o5Ctx.fill();
+
+                    o5Ctx.beginPath();
+                    o5Ctx.rect(o5Canvas.width/2 - 75, 100, 150, 100); // Hele huset
+                    o5Ctx.strokeStyle = "black";
+                    o5Ctx.stroke();
+                    o5Ctx.beginPath();
+                    o5Ctx.rect(o5Canvas.width/2 - 50, 125, 35, 35); // Vindu
+                    o5Ctx.strokeStyle = "black";
+                    o5Ctx.stroke();
+                    o5Ctx.fillStyle = "#5CACC4" // Blå
+                    o5Ctx.fill();
+                    
+                    o5Ctx.beginPath();
+                    o5Ctx.rect(o5Canvas.width/2 + 10, 125, 35, 75);
+                    o5Ctx.strokeStyle = "black";
+                    o5Ctx.stroke();
+                    o5Ctx.fillStyle = "rgba(255, 0, 0, 0.25)"; // Gennomsiktig rød
+                    o5Ctx.fill();
+                }
+            </script>
+        </section>
         <section id="code">
             <h2>Koden</h2>
-            <h3>HTML</h3>
-            <pre class="language-html">
-                <code>
-Lorem ipsum
-                </code>
-            </pre>
             <h3>JavaScript</h3>
             <pre class="language-javascript">
                 <code>
-Lorem ipsum
+window.onload = ready;
+
+function ready() {
+    var o5Canvas = document.getElementById("o5-canvas");
+    var o5Ctx = o5Canvas.getContext("2d");
+
+    o5Ctx.beginPath();
+    o5Ctx.lineTo(o5Canvas.width / 2 + 75, 100);
+    o5Ctx.lineTo(o5Canvas.width / 2, 25);
+    o5Ctx.lineTo(o5Canvas.width / 2-75, 100);
+    o5Ctx.lineTo(410, 100);
+    o5Ctx.strokeStyle = "black";
+    o5Ctx.stroke();
+    o5Ctx.fillStyle = "#FF5254";
+    o5Ctx.fill();
+
+    o5Ctx.beginPath();
+    o5Ctx.rect(o5Canvas.width / 2 - 75, 100, 150, 100);
+    o5Ctx.rect(o5Canvas.width / 2 - 50, 125, 35, 35);
+    o5Ctx.strokeStyle = "black";
+    o5Ctx.stroke();
+    
+    o5Ctx.beginPath();
+    o5Ctx.rect(o5Canvas.width / 2 + 10, 125, 35, 75);
+    o5Ctx.strokeStyle = "black";
+    o5Ctx.stroke();
+    o5Ctx.fillStyle = "rgba(255, 0, 0, 0.25)";
+    o5Ctx.fill();
+}
+                </code>
+            </pre>
+            <h3>HTML</h3>
+            <pre class="language-html">
+                <code>
+&lt;canvas id=&quot;o5-canvas&quot; width=&quot;668&quot; height=&quot;256&quot;&gt;&lt;/canvas&gt;
                 </code>
             </pre>
         </section>

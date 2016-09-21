@@ -35,7 +35,9 @@
                 </div>
             </div>
             <script>
-                (function () {
+                window.onload = ready;
+
+                function ready() {
                     var o3CalcBtns = document.querySelectorAll("#o3-add, #o3-sub, #o3-mul, #o3-div");
 
                     for (var i = 0; i < o3CalcBtns.length; i++) {
@@ -66,11 +68,50 @@
                             }
                         });
                     }
-                })();
+                }
             </script>
         </section>
         <section id="code">
             <h2>Koden</h2>
+            <h3>JavaScript</h3>
+            <pre class="language-javascript">
+                <code>
+window.onload = ready;
+
+function ready() {
+    var o3CalcBtns = document.querySelectorAll("#o3-add, #o3-sub, #o3-mul, #o3-div");
+
+    for (var i = 0; i < o3CalcBtns.length; i++) {
+        o3CalcBtns[i].addEventListener("click", function() {
+            var o3Numb1 = parseInt(document.getElementById("o3-numb-1").value);
+            var o3Numb2 = parseInt(document.getElementById("o3-numb-2").value);
+            var o3Result = document.getElementById("o3-result");
+
+            switch (this.id) {
+                case "o3-add":
+                    o3Result.value = o3Numb1 + o3Numb2;
+                    break;
+
+                case "o3-sub":
+                    o3Result.value = o3Numb1 - o3Numb2;
+                    break;
+
+                case "o3-mul":
+                    o3Result.value = o3Numb1 * o3Numb2;
+                    break;
+
+                case "o3-div":
+                    o3Result.value = o3Numb1 / o3Numb2;
+                    break;
+                default:
+                    o3Result.value = 'Error';
+                    break;
+            }
+        });
+    }
+}
+                </code>
+            </pre>
             <h3>HTML</h3>
             <pre class="language-html">
                 <code>
@@ -91,41 +132,6 @@
         &lt;input id=&quot;o3-result&quot; type=&quot;text&quot; placeholder=&quot;Svar&quot; disabled&gt;
     &lt;/div&gt;
 &lt;/div&gt;
-                </code>
-            </pre>
-            <h3>JavaScript</h3>
-            <pre class="language-javascript">
-                <code>
-var o3CalcBtns = document.querySelectorAll("#o3-add, #o3-sub, #o3-mul, #o3-div");
-
-for (var i = 0; i < o3CalcBtns.length; i++) {
-    o3CalcBtns[i].addEventListener("click", function() {
-        var o3Numb1 = parseInt(document.getElementById("o3-numb-1").value);
-        var o3Numb2 = parseInt(document.getElementById("o3-numb-2").value);
-        var o3Result = document.getElementById("o3-result");
-
-        switch (this.id) {
-            case "o3-add":
-                o3Result.value = o3Numb1 + o3Numb2;
-                break;
-
-            case "o3-sub":
-                o3Result.value = o3Numb1 - o3Numb2;
-                break;
-
-            case "o3-mul":
-                o3Result.value = o3Numb1 * o3Numb2;
-                break;
-
-            case "o3-div":
-                o3Result.value = o3Numb1 / o3Numb2;
-                break;
-            default:
-                o3Result.value = 'Error';
-                break;
-        }
-    });
-}
                 </code>
             </pre>
         </section>
