@@ -246,12 +246,3 @@ footer #color-bar {
   background-size: 1000%;
   background-image: linear-gradient(135deg, #FF5254, #745cc4, #FF5254, #FCB859, #f4de7c, #8CD19D, #5CACC4);
 }
-
-::-webkit-scrollbar {
-  background-color: #F7F7F7;
-  width: 10px;
-}
-
-::-webkit-scrollbar-thumb {
-  background-color: #171717;
-}
