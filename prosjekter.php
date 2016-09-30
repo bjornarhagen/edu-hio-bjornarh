@@ -1,11 +1,21 @@
 <?php
     $projects = [
         [
-            'title' => 'Oblig 1 - Infprog (WIP)',
-            'excerpt' => 'Lag en helt enkel nettside med to ulike knapper og en paragraf. Registrer en hendelse på
-                        hver av kappene. Når du trykker på den første knappen, skal paragrafen vise Hei på deg,
-                        og med den andre knappen skal Ha det bra vises.',
-            'slug' => 'infoprog-oblig-1',
+            'title' => 'Oblig 2 - Infprog',
+            'excerpt' => 'Tema: Valgsetnigner og løkker',
+            'slug' => 'infprog/2016-1/oblig-1',
+            'type' => 'article'
+        ],
+        [
+            'title' => 'GRIT - 4 Datamaskinen',
+            'excerpt' => 'Datamaskinens oppbygning og virkemåte',
+            'slug' => 'grit/4-datamaskinen',
+            'type' => 'article'
+        ],
+        [
+            'title' => 'Oblig 1 - Infprog',
+            'excerpt' => 'Tema: kom i gang',
+            'slug' => 'infprog/2016-1/oblig-1',
             'type' => 'article'
         ],
         [
