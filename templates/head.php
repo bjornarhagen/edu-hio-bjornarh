@@ -1,5 +1,5 @@
 <?php
-    $path = "http://www.it-stud.hiof.no/~bjornarh";
+    $path = "/~bjornarh";
 ?>
 <!DOCTYPE html>
 <html lang="no" prefix="og: http://ogp.me/ns">
