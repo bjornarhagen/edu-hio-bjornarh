@@ -18,7 +18,7 @@
             <h2>Oppgaver</h2>
             <ul>
                 <?php
-                    for ($i=1; $i < 10; $i++) { 
+                    for ($i=1; $i < 4; $i++) { 
                         echo '<li><a href="oppgave-' . $i . '.php">Oppgave ' . $i . '</a></li>';
                     }
                 ?>
