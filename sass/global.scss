@@ -54,6 +54,40 @@ body {
                 }
             }
         }
+
+        kbd {
+            margin-right: 2.5px;
+            margin-left: 2.5px;
+            padding: 3px 10px;
+            color: darken($cGrey, 75%);
+            border: 3px solid darken($cGrey, 15%);
+            border-top: 2px solid darken($cGrey, 10%);
+            border-bottom-color: darken($cGrey, 30%);
+            border-radius: 5px;
+            text-transform: uppercase;
+            font-family: 'latobold';
+            -webkit-transition: all 0.1s cubic-bezier(0.4, 0, 0.2, 1);
+            -moz-transition:    all 0.1s cubic-bezier(0.4, 0, 0.2, 1);
+            -o-transition:      all 0.1s cubic-bezier(0.4, 0, 0.2, 1);
+            transition:         all 0.1s cubic-bezier(0.4, 0, 0.2, 1);
+
+            &:hover {
+                cursor: pointer;
+            }
+
+            &:active {
+                padding: 2px 7px;
+                font-size: 0.9em;
+                margin-left: 6px;
+                margin-right: 7px;
+                border-width: 2px;
+            }
+
+            &::selection {
+                color: $cBlack;
+                background: transparent;
+            }
+        }
     }
 
     &.dark {
@@ -147,9 +181,7 @@ body {
             }
         }
 
-        article,
-        section,
-        header {
+        article {
             margin: 0 auto;
             width: 100%;
 
@@ -163,35 +195,33 @@ body {
             &.medium,
             &.large {
                 header,
-                section {
+                section,
+                footer {
                     display: block;
                     margin: 0 auto;
                 }
             }
 
             &.small {
-                max-width: $width-small;
-
                 header,
-                section {
+                section,
+                footer {
                     max-width: $width-small;
                 }
             }
 
             &.medium {
-                max-width: $width-medium;
-
                 header,
-                section {
+                section,
+                footer {
                     max-width: $width-medium;
                 }
             }
 
             &.large {
-                max-width: $width-large;
-
                 header,
-                section {
+                section,
+                footer {
                     max-width: $width-large;
                 }
             }
@@ -199,7 +229,6 @@ body {
 
         h1 {
             margin: $padding-large auto $padding-small;
-            font-family: $font-bold;
             font-size: 3em;
         }
 
@@ -236,16 +265,18 @@ body {
 }
 
 footer {
+    &#footer {
     padding: $padding-large 0 0;
     text-align: center;
 
-    #color-bar {
-        @include center('block');
-        width: $width-small;
-        width: 100%;
-        height: 10px;
-        background-size: 1000%;
-        background-image: linear-gradient(135deg, $cRed, $cPurple, $cRed, $cOrange, $cYellow, $cGreen, $cBlue);
+        #color-bar {
+            @include center('block');
+            width: $width-small;
+            width: 100%;
+            height: 10px;
+            background-size: 1000%;
+            background-image: linear-gradient(135deg, $cRed, $cPurple, $cRed, $cOrange, $cYellow, $cGreen, $cBlue);
+        }
     }
 }
 

@@ -1,55 +1,6 @@
 <?php require_once('../../../templates/head.php'); ?>
+<link rel="stylesheet" href="<?= $path; ?>/css/number-systems.css">
     <link rel='stylesheet' href='/~bjornarh/fonts/hack/hack.css'>
-    <style>
-        ol {
-            list-style-type: lower-latin;
-        }
-
-        ol li {
-            line-height: 200%;
-        }
-
-        ol li:hover {
-            font-weight: 700;
-        }
-
-        ol li span {
-            display: inline-block;
-            min-width: 50px;
-        }
-
-        ol li span.eq {
-            text-align: center;
-        }
-
-        ol li span.bin {
-            letter-spacing: 5px;
-        }
-
-        ol li span.bin:first-child {
-            min-width: 125px;
-        }
-
-        ol li table {
-            display: inline-block;
-            vertical-align: top;
-            margin-bottom: 25px;
-        }
-
-        ol li table tr {
-            line-height: 200%;
-        }
-
-        ol li table tr td {
-            padding: 0 5px;
-            text-align: right;
-        }
-
-        ol li table tr:last-child td {
-            border-top: 1px solid black;
-            border-bottom: 4px double black;
-        }
-    </style>
 </head>
 <body class="article light">
     <?php require_once('../../../templates/nav.php'); ?>
@@ -219,12 +170,12 @@
                                     <td>0110</td>
                                 </tr>
                                 <tr>
-                                    <td>-</td>
-                                    <td>0010</td>
+                                    <td>+</td>
+                                    <td>11110</td>
                                 </tr>
                                 <tr>
                                     <td>=</td>
-                                    <td>100</td>
+                                    <td>0100</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -236,15 +187,15 @@
                             <tbody>
                                 <tr>
                                     <td></td>
-                                    <td>1110</td>
+                                    <td>01110</td>
                                 </tr>
                                 <tr>
                                     <td>+</td>
-                                    <td>1111</td>
+                                    <td>10001</td>
                                 </tr>
                                 <tr>
                                     <td>=</td>
-                                    <td>0001</td>
+                                    <td>11111</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -256,15 +207,15 @@
                             <tbody>
                                 <tr>
                                     <td></td>
-                                    <td>1000</td>
+                                    <td>11101</td>
                                 </tr>
                                 <tr>
                                     <td>+</td>
-                                    <td>1000</td>
+                                    <td>0111</td>
                                 </tr>
                                 <tr>
                                     <td>=</td>
-                                    <td>2000</td>
+                                    <td>0100</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -276,15 +227,15 @@
                             <tbody>
                                 <tr>
                                     <td></td>
-                                    <td>1000</td>
+                                    <td>11100</td>
                                 </tr>
                                 <tr>
                                     <td>+</td>
-                                    <td>1000</td>
+                                    <td>10110</td>
                                 </tr>
                                 <tr>
                                     <td>=</td>
-                                    <td>2000</td>
+                                    <td>10010</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -292,6 +243,36 @@
                 </ol>
             </section>
         </section>
+        <section>
+            <header>
+                <h2>Vis hvordan tallet 3,56 tall blir lagret binært i en 32-biters flyttall (Intel)</h2>
+            </header>
+            <section>
+                <p>3,56 er binært: 11,10001111010111</p>
+                <p>3,56 = 11,10001111010111 = 1,110001111010111 E1</p>
+                <p>Biased eksponent: 1 + 1111111 = 10000000</p>
+                <p>Mantisse: 110001111010111</p>
+                <p>Mantisse har 0 som fortegn</p>
+                <table class="borders">
+                    <tbody>
+                        <tr>
+                            <td>0</td>
+                            <td>10000000</td>
+                            <td>11000111101011100000000</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+        </section>
+        <footer>
+            <hr>
+            <h2>GRIT - 4 Datamaskinen</h2>
+            <ul>
+                <li><a href="laboppgave.php">Laboppgave</a></li>
+                <li><a href="tallsystemer.php" class="subtle">Tallsystemer</a></li>
+                <li><a href="kjenn-din-pc.php">Kjenn Din PC</a></li>
+            </ul>
+        </footer>
     </article>
     <?php require_once('../../../templates/footer.php'); ?>
 </body>
