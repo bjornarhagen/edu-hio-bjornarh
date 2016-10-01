@@ -11,6 +11,10 @@
                 tilleggsprogrammer. Alle oppgavene skal dokumenteres på din studieweb med tekst og bilder.
             </p>
         </header>
+        <section class="image full image-figure">
+            <img src="images/dell-xps-13.jpeg" alt="Dell XPS 13">
+            <p class="subtle-very">Bilde fra windowscentral.com - Dell XPS 13 versus Razer Blade Stealth</p>
+        </section>
         <section>
             <header>
                 <h2>Spørsmål og svar</h2>
@@ -21,16 +25,15 @@
                 <h3>Hva slags prosessor har maskinen?</h3>
                 <p>Min datamaskin har en Intel Core i5-6200U. Det er en prosessor med 4 logiske kjerner. Prosessoren
                 kjører vanligvis med en klokkehastighet på 2.40GHz, men kan kjøre på 2.80GHz ved overklokking.</p>
+                <img src="images/system.png" alt="Windows 10 - System">
             </section>
             <section>
                 <h3>Hvor mye minne har den?</h3>
-                <p>Datamaskinen eller prosessoren? Datamaskinen min har 8192MB (8GB) med RAM. Prosessoren har 3MB cache.</p>
+                <p>Datamaskinen min har 8192MB (8GB) med RAM.</p>
             </section>
             <section>
                 <h3>Prøv om du kan finne en tastatur-snarvei for å komme til dette kontrollpanelet.</h3>
-                <p>Dette kontrollpanelet? Finnes ingen standard tastatur-snarvei i Windows 10 som går til
-                "Control Panel\System and Security\System". For å komme til det nye Windows 10 kontrollpanelet kan man
-                trykke på <kbd>Windows-knapp</kbd><kbd>+</kbd><kbd>I</kbd>.</p>
+                <p>For å komme til det kontrollpanelet kan man trykke på<br><kbd>Win</kbd><kbd>+</kbd><kbd>Pause/Break</kbd>.</p>
             </section>
             <section>
                 <h3>Beskriv hvilke enheter som er koblet til datamaskinen, og det du kan finne ut om egenskapene deres.</h3>
@@ -38,6 +41,7 @@
                 datamus koblet til maskinen. I device manager kommer denne musen opp som "HID-compliant mouse".</p>
                 <p>Internt i maskinen er det koblet til en god del flere ting. Blant annet skjerm, nettverkskort, tastatur,
                 touchpad, RAM, prosessor, høytalere, SSD og et kamera.</p>
+                <img src="images/device-manager.png" alt="Windows 10 - Enhetsbehandling">
                 <p>I device manager kan man finne frem til hver ting og høyreklikke på ønsket element og velge properties
                 (norsk: egenskaper). Da får man opp et eget vindu som vil inneholde informasjon om enheten.</p>
                 <p>Jeg kan f.eks. se på egenskapene til hver kjerne i prosessoren til maskinen og se hvem som har lagd
@@ -67,6 +71,7 @@
                     </ul>
                     Det finnes ikke en standard tastatur-snarvei i Windows 10 som vil ta deg direkte til instillinger for
                     å endre skjermoppløsningen.</p>
+                <img src="images/resolution.png" alt="Windows 10 - Skift oppløsning">
             </section>
             <section>
                 <h3>Hvilken oppløsning har selve skjermen dere bruker? (Native oppløsning).</h3>
@@ -77,6 +82,7 @@
                 <p>Datamaskinen min har en 256GB SSD. Windows disk manager sier at SSD-en har en kapasitet på
                 244070MB (244,070GB), hvorav 500MB (0,50GB) er reservert. I Windows Explorer står det at disken er på
                 225GB og at jeg har brukt 144GB og har 80,6GB ledig.</p>
+                <img src="images/disk-size.png" alt="Windows 10 - Disk size">
             </section>
             <section>
                 <h3>Hva slags filsystem bruker den? Hvilke andre filsystem finnes (test en minnepenn/minnekort og en cd)?
@@ -94,41 +100,81 @@
             <section>
                 <h3>Prøv også å kjøre programmet ”MSinfo32”, ”msconfig” og ”Task manager” og se om dere finner mer
                 informasjon om programvare og utstyret i maskinen.</h3>
+                <img src="images/msinfo-task_manager.png" alt="Windows 10 - MSInfo og Task MDanager">
             </section>
             <section>
                 <h3>Finn og last ned programmet ”Pirform Speccy” og se om dere finner ytterligere informasjon om
                 hardware. Se om dere finner ut hva slags minnemoduler det er i maskinen</h3>
+                <p>Maskinen min har 8GB med DDR3L-RS dual-channel RAM fra Elpida som kjører på opp til 1600 MHz.</p>
+                <img src="images/speccy.png" alt="Speccy - Minnemodul">
             </section>
             <section>
                 <h3>Hvilke eksterne tilkoblingsmuligheter har din maskin?</h3>
+                <ul>
+                    <li>Thunderbolt 3/USB-C x 1</li>
+                    <li>USB 3.0 x 2</li>
+                    <li>3,5mm audio jack x 1</li>
+                </ul>
+                <p>Man kan også plugge inn et SD kort.</p>
             </section>
             <section>
                 <h3>Bør du velge USB 2.0, USB 3.0, USB-C, eSATA eller Thunderbolt? Begrunn svaret.</h3>
-            </section>
-            <section>
-                <h3>Bør du velge USB 2.0, USB 3.0, USB-C, eSATA eller Thunderbolt? Begrunn svaret.</h3>
+                <p>Om jeg skulle kjøpt en ekstern disk ville jeg kjøpt en som jeg kan koble til med Thunderbolt 3.
+                Thunderbolt 3 er raskere enn noen av de andre standardene (opp til 40GBps) og vil muligens tillate
+                daisy chaining. Thunderbolt 3 bruker også samme port som USB-C, som er veldig kjekk i forhold til de
+                eldre USB standardene, rett og slett fordi det er enklere å putte i kablen.</p>
             </section>
             <section>
                 <h3>Hvilke standarder av trådløst nettverk støtter egentlig min maskin? (For eksempel 802.11b?, g?, a?,
                 n?, ???) Hvilken hastighet kan man forvente når man overfører filer over trådløst nettverk 802.11n?</h3>
+                <p>Maskinen min støtter 802.11ac standarden som tillater hastigheter opp til 1.3Gbps.</p>
+                <p>802.11n standarden fra 2009 støtter en bitrate opp til 600Mbit/s</p>
+                <p>Hvilke faktiske hastigheter man får når man overfører filer spørs veldig. Det kommer ann på hvor
+                mye støy det er i ditt område, hvor mange som er på samme kanal, hvilke ruter man har, hvilket
+                nettverkkort, hvilket abonnement og hvilke filer. Mange små filer vil føre til en tregere overføring
+                enn noen få store. Typisk hastighet å oppleve er 40-50Mbps.</p>
             </section>
             <section>
                 <h3>Sjekk om det er plass til flere minnemoduler i din maskin.</h3>
+                <p>Minne er dessverre loddet til hovedkortet, og det er ingen slots til å putte inn fler.</p>
+                <section class="image full image-figure">
+                    <img src="images/dell-xps-13-motherboard.jpg" alt="Dell XPS 13 - Hovedkort - Minnebrikker">
+                    <p class="subtle">Bilde fra ifixit.com - Dell XPS 13 Teardown</p>
+                </section>
             </section>
             <section>
                 <h3>Finn passende minne og en rask disk til en god pris i en norsk nettbutikk. Oppgi varenr / url i
                 besvarelsen.</h3>
+                <p>Maskinen min bruker en 256GB M.2 SSD. Så om jeg skulle oppgradert ville jeg funnet en med mer
+                lagringsplass. Som sakt er minne loddet fast til hovedkort og kan derfor ikke oppgraders.</p>
+                <p>SSD: <a href="https://www.dustin.no/product/5010819805/850-evo-mz-n5e500bw" class="link" target="_blank">Samsung 850 Evo Mz-N5e500bw</a></p>
             </section>
             <section>
                 <h3>Hvilke tilkoblingsmuligheter er det for å få koblet din maskin til en slik TV?</h3>
+                <p>Jeg kan koble PC-en min opp til en slik TV via thunderbolt 3. Om det er en TV som ikke har støtte,
+                så finnes det adaptere til DisplayPort, HDMI og mer.</p>
             </section>
             <section>
                 <h3>Hva slags skjermutgang må maskinen ha?</h3>
+                <p>HDMI, DisplayPort, USB-C, Thunderbolt eller DVI (Eller deres mini versjoner).</p>
             </section>
             <section>
                 <h3>Hvordan lager du en egen bruker til henne? Hvilken kontotype velger du?</h3>
+                <p>Jeg åpner først settings (<kbd>Win</kbd><kbd>+</kbd><kbd>I</kbd>). Jeg velger "Accounts" -> "Family &
+                other people". Her velger jeg "Add a family member". Så velger jeg "Add a child" og oppretter en
+                standard bruker.</p>
+                <img src="images/user.png" alt="Windows 10 - Legg til familiemedlem">
             </section>
         </section>
+        <footer>
+            <hr>
+            <h2>GRIT - 4 Datamaskinen</h2>
+            <ul>
+                <li><a href="laboppgave.php">Laboppgave</a></li>
+                <li><a href="tallsystemer.php">Tallsystemer</a></li>
+                <li><a href="kjenn-din-pc.php" class="subtle">Kjenn Din PC</a></li>
+            </ul>
+        </footer>
     </article>
     <?php require_once('../../../templates/footer.php'); ?>
 </body>
