@@ -2,18 +2,18 @@
     <link rel="stylesheet" href="/~bjornarh/css/steps.css">
     <link rel='stylesheet' href='/~bjornarh/fonts/hack/hack.css'>
     <style>
-        #o1-login {
+        #o1-form-login {
             display: none;
         }
     </style>
 </head>
 <body>
     <?php
-        $activeStep = 1;
+        $activeStep = 3;
         require_once('steps.php');
     ?>
     <?php require_once('../../../../templates/nav.php'); ?>
-    <article id="oppgave-1">
+    <article>
         <header id="intro">
             <h1>Oppgave 1, 2 & 3</h1>
             <p>Lag et skjema for å opprette en bruker på en nettside som inneholder materiale som kun er egnet for et
@@ -30,10 +30,10 @@
             <p>Hei! :)</p>
             <p>Du kan registrere deg i skjema under. Etter du har registrert deg, vil du kunne logge inn!</p>
             <p>Merk: Brukernavnet ditt må være unikt. Alle passord blir kryptert.</p>
-            <form id="o1-form" action="https://bjornarhagen.no/_/skole/hio/infprog/2016-01/oblig-2/submit.php" method="POST">
-                <div class="row input-field">
-                    <p id="o1-error-msg" class="font-brand"></p>
-                </div>
+            <div class="row input-field">
+                <p id="o1-error-msg" class="font-brand"></p>
+            </div>
+            <form id="o1-form-register" action="https://bjornarhagen.no/_/skole/hio/infprog/2016-01/oblig-2/submit.php" method="POST">
                 <div class="row input-field">
                     <label for="o1-username" class="col s1"><i class="icon-user-2"></i></label>
                     <input type="text" id="o1-username" class="col s11" name="username" placeholder="Brukernavn" required>
@@ -52,6 +52,18 @@
                 </div>
                 <div class="row input-field">
                     <button id="o1-submit" type="submit" class="btn black">Registrer</button>
+                </div>
+            </form>
+            <form id="o1-form-login" action="https://bjornarhagen.no/_/skole/hio/infprog/2016-01/oblig-2/login.php" method="POST">
+                <div class="row input-field">
+                    <label for="o1-username" class="col s1"><i class="icon-user-2"></i></label>
+                    <input type="text" id="o1-username" class="col s11" name="username" placeholder="Brukernavn" required>
+                </div>
+                <div class="row input-field">
+                    <label for="o1-password" class="col s1"><i class="icon-lock-2"></i></label>
+                    <input type="password" id="o1-password" class="col s11" name="password" placeholder="Passord" required>
+                </div>
+                <div class="row input-field">
                     <button id="o1-login" type="submit" class="btn black">Login</button>
                 </div>
             </form>
@@ -59,18 +71,29 @@
                 window.onload = ready;
 
                 function ready() {
+                    var regForm = document.getElementById("o1-form-register");
+                    var logForm = document.getElementById("o1-form-login");
+
                     // Kjør submit function når bruker prøver å submite skjema
-                    document.getElementById("o1-submit").onclick = submit;
-                    document.getElementById("o1-login").onclick = submit;
-                    document.getElementById("o1-form").addEventListener("submit", function(e) {
+                    document.getElementById("o1-submit").onclick = function() {
+                        submit(regForm);
+                    };
+                    document.getElementById("o1-login").onclick = function() {
+                        submit(logForm);
+                    };
+
+                    regForm.addEventListener("submit", function(e) {
                         e.preventDefault(); // Stop skjema fra å sende data
+                    });
+
+                    logForm.addEventListener("submit", function(e) {
+                        e.preventDefault();
                     });
                 }
 
-                function submit() {
+                function submit(form) {
                     document.getElementById("o1-submit").disabled = true;
 
-                    var form = document.getElementById("o1-form");
                     var errorOutput = document.getElementById("o1-error-msg");
                     var formStatus = validate(form); // Kjør validate på skjema og lagre det funksjonen retunerer
 
@@ -202,11 +225,8 @@
                             if ("error" in JSON.parse(this.responseText)) {
                                 document.getElementById("o1-username").focus(); // Sett markør i username feltet
                             } else {
-                                document.getElementById("o1-submit").style.display = "none"; // Skjul registrer knapp
-                                document.getElementById("o1-login").style.display = "block"; // og vis login
-
-                                // Sett form action til login script
-                                form.setAttribute("action", "https://bjornarhagen.no/_/skole/hio/infprog/2016-01/oblig-2/login.php");
+                                document.getElementById("o1-form-register").style.display = "none"; // Skjul registrer knapp
+                                document.getElementById("o1-form-login").style.display = "block"; // og vis login
 
                                 // Tøm skjema
                                 var inputs = form.getElementsByTagName("input");
@@ -260,18 +280,29 @@
 window.onload = ready;
 
 function ready() {
+    var regForm = document.getElementById(&quot;o1-form-register&quot;);
+    var logForm = document.getElementById(&quot;o1-form-login&quot;);
+
     // Kjør submit function når bruker prøver å submite skjema
-    document.getElementById(&quot;o1-submit&quot;).onclick = submit;
-    document.getElementById(&quot;o1-login&quot;).onclick = submit;
-    document.getElementById(&quot;o1-form&quot;).addEventListener(&quot;submit&quot;, function(e) {
+    document.getElementById(&quot;o1-submit&quot;).onclick = function() {
+        submit(regForm);
+    };
+    document.getElementById(&quot;o1-login&quot;).onclick = function() {
+        submit(logForm);
+    };
+
+    regForm.addEventListener(&quot;submit&quot;, function(e) {
         e.preventDefault(); // Stop skjema fra å sende data
+    });
+
+    logForm.addEventListener(&quot;submit&quot;, function(e) {
+        e.preventDefault();
     });
 }
 
-function submit() {
+function submit(form) {
     document.getElementById(&quot;o1-submit&quot;).disabled = true;
 
-    var form = document.getElementById(&quot;o1-form&quot;);
     var errorOutput = document.getElementById(&quot;o1-error-msg&quot;);
     var formStatus = validate(form); // Kjør validate på skjema og lagre det funksjonen retunerer
 
@@ -403,11 +434,8 @@ function sendData(form) {
             if (&quot;error&quot; in JSON.parse(this.responseText)) {
                 document.getElementById(&quot;o1-username&quot;).focus(); // Sett markør i username feltet
             } else {
-                document.getElementById(&quot;o1-submit&quot;).style.display = &quot;none&quot;; // Skjul registrer knapp
-                document.getElementById(&quot;o1-login&quot;).style.display = &quot;block&quot;; // og vis login
-
-                // Sett form action til login script
-                form.setAttribute(&quot;action&quot;, &quot;https://bjornarhagen.no/_/skole/hio/infprog/2016-01/oblig-2/login.php&quot;);
+                document.getElementById(&quot;o1-form-register&quot;).style.display = &quot;none&quot;; // Skjul registrer knapp
+                document.getElementById(&quot;o1-form-login&quot;).style.display = &quot;block&quot;; // og vis login
 
                 // Tøm skjema
                 var inputs = form.getElementsByTagName(&quot;input&quot;);
@@ -588,10 +616,7 @@ function showMessage(msg, type) {
             <h3>HTML</h3>
             <pre class="language-html">
                 <code>
-&lt;form id=&quot;o1-form&quot; action=&quot;submit.php&quot; method=&quot;POST&quot;&gt;
-    &lt;div class=&quot;row input-field&quot;&gt;
-        &lt;p id=&quot;o1-error-msg&quot; class=&quot;font-brand&quot;&gt;&lt;/p&gt;
-    &lt;/div&gt;
+&lt;form id=&quot;o1-form-register&quot; action=&quot;submit.php&quot; method=&quot;POST&quot;&gt;
     &lt;div class=&quot;row input-field&quot;&gt;
         &lt;label for=&quot;o1-username&quot; class=&quot;col s1&quot;&gt;&lt;i class=&quot;icon-user-2&quot;&gt;&lt;/i&gt;&lt;/label&gt;
         &lt;input type=&quot;text&quot; id=&quot;o1-username&quot; class=&quot;col s11&quot; name=&quot;username&quot; placeholder=&quot;Brukernavn&quot; required&gt;
@@ -610,6 +635,18 @@ function showMessage(msg, type) {
     &lt;/div&gt;
     &lt;div class=&quot;row input-field&quot;&gt;
         &lt;button id=&quot;o1-submit&quot; type=&quot;submit&quot; class=&quot;btn black&quot;&gt;Registrer&lt;/button&gt;
+    &lt;/div&gt;
+&lt;/form&gt;
+&lt;form id=&quot;o1-form-login&quot; action=&quot;login.php&quot; method=&quot;POST&quot;&gt;
+    &lt;div class=&quot;row input-field&quot;&gt;
+        &lt;label for=&quot;o1-username&quot; class=&quot;col s1&quot;&gt;&lt;i class=&quot;icon-user-2&quot;&gt;&lt;/i&gt;&lt;/label&gt;
+        &lt;input type=&quot;text&quot; id=&quot;o1-username&quot; class=&quot;col s11&quot; name=&quot;username&quot; placeholder=&quot;Brukernavn&quot; required&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;row input-field&quot;&gt;
+        &lt;label for=&quot;o1-password&quot; class=&quot;col s1&quot;&gt;&lt;i class=&quot;icon-lock-2&quot;&gt;&lt;/i&gt;&lt;/label&gt;
+        &lt;input type=&quot;password&quot; id=&quot;o1-password&quot; class=&quot;col s11&quot; name=&quot;password&quot; placeholder=&quot;Passord&quot; required&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;row input-field&quot;&gt;
         &lt;button id=&quot;o1-login&quot; type=&quot;submit&quot; class=&quot;btn black&quot;&gt;Login&lt;/button&gt;
     &lt;/div&gt;
 &lt;/form&gt;
