@@ -25,7 +25,7 @@
                 <h3>Hva slags prosessor har maskinen?</h3>
                 <p>Min datamaskin har en Intel Core i5-6200U. Det er en prosessor med 4 logiske kjerner. Prosessoren
                 kjører vanligvis med en klokkehastighet på 2.40GHz, men kan kjøre på 2.80GHz ved overklokking.</p>
-                <img src="images/kjenn-din-pc/system.png" alt="Windows 10 - System">
+                <img src="images/kjenn-din-pc/system.png" alt="Windows 10 - System" class="image-zoomable">
             </section>
             <section>
                 <h3>Hvor mye minne har den?</h3>
@@ -41,7 +41,7 @@
                 datamus koblet til maskinen. I device manager kommer denne musen opp som "HID-compliant mouse".</p>
                 <p>Internt i maskinen er det koblet til en god del flere ting. Blant annet skjerm, nettverkskort, tastatur,
                 touchpad, RAM, prosessor, høytalere, SSD og et kamera.</p>
-                <img src="images/kjenn-din-pc/device-manager.png" alt="Windows 10 - Enhetsbehandling">
+                <img src="images/kjenn-din-pc/device-manager.png" alt="Windows 10 - Enhetsbehandling" class="image-zoomable">
                 <p>I device manager kan man finne frem til hver ting og høyreklikke på ønsket element og velge properties
                 (norsk: egenskaper). Da får man opp et eget vindu som vil inneholde informasjon om enheten.</p>
                 <p>Jeg kan f.eks. se på egenskapene til hver kjerne i prosessoren til maskinen og se hvem som har lagd
@@ -71,7 +71,7 @@
                     </ul>
                     Det finnes ikke en standard tastatur-snarvei i Windows 10 som vil ta deg direkte til instillinger for
                     å endre skjermoppløsningen.</p>
-                <img src="images/kjenn-din-pc/resolution.png" alt="Windows 10 - Skift oppløsning">
+                <img src="images/kjenn-din-pc/resolution.png" alt="Windows 10 - Skift oppløsning" class="image-zoomable">
             </section>
             <section>
                 <h3>Hvilken oppløsning har selve skjermen dere bruker? (Native oppløsning).</h3>
@@ -82,7 +82,7 @@
                 <p>Datamaskinen min har en 256GB SSD. Windows disk manager sier at SSD-en har en kapasitet på
                 244070MB (244,070GB), hvorav 500MB (0,50GB) er reservert. I Windows Explorer står det at disken er på
                 225GB og at jeg har brukt 144GB og har 80,6GB ledig.</p>
-                <img src="images/kjenn-din-pc/disk-size.png" alt="Windows 10 - Disk size">
+                <img src="images/kjenn-din-pc/disk-size.png" alt="Windows 10 - Disk size" class="image-zoomable">
             </section>
             <section>
                 <h3>Hva slags filsystem bruker den? Hvilke andre filsystem finnes (test en minnepenn/minnekort og en cd)?
@@ -100,13 +100,13 @@
             <section>
                 <h3>Prøv også å kjøre programmet ”MSinfo32”, ”msconfig” og ”Task manager” og se om dere finner mer
                 informasjon om programvare og utstyret i maskinen.</h3>
-                <img src="images/kjenn-din-pc/msinfo-task_manager.png" alt="Windows 10 - MSInfo og Task MDanager">
+                <img src="images/kjenn-din-pc/msinfo-task_manager.png" alt="Windows 10 - MSInfo og Task MDanager" class="image-zoomable">
             </section>
             <section>
                 <h3>Finn og last ned programmet ”Pirform Speccy” og se om dere finner ytterligere informasjon om
                 hardware. Se om dere finner ut hva slags minnemoduler det er i maskinen</h3>
                 <p>Maskinen min har 8GB med DDR3L-RS dual-channel RAM fra Elpida som kjører på opp til 1600 MHz.</p>
-                <img src="images/kjenn-din-pc/speccy.png" alt="Speccy - Minnemodul">
+                <img src="images/kjenn-din-pc/speccy.png" alt="Speccy - Minnemodul" class="image-zoomable">
             </section>
             <section>
                 <h3>Hvilke eksterne tilkoblingsmuligheter har din maskin?</h3>
@@ -138,7 +138,7 @@
                 <h3>Sjekk om det er plass til flere minnemoduler i din maskin.</h3>
                 <p>Minne er dessverre loddet til hovedkortet, og det er ingen slots til å putte inn fler.</p>
                 <section class="image full image-figure">
-                    <img src="images/kjenn-din-pc/dell-xps-13-motherboard.jpg" alt="Dell XPS 13 - Hovedkort - Minnebrikker">
+                    <img src="images/kjenn-din-pc/dell-xps-13-motherboard.jpg" alt="Dell XPS 13 - Hovedkort - Minnebrikker" class="image-zoomable">
                     <p class="subtle">Bilde fra ifixit.com - Dell XPS 13 Teardown</p>
                 </section>
             </section>
@@ -163,7 +163,7 @@
                 <p>Jeg åpner først settings (<kbd>Win</kbd><kbd>+</kbd><kbd>I</kbd>). Jeg velger "Accounts" -> "Family &
                 other people". Her velger jeg "Add a family member". Så velger jeg "Add a child" og oppretter en
                 standard bruker.</p>
-                <img src="images/kjenn-din-pc/user.png" alt="Windows 10 - Legg til familiemedlem">
+                <img src="images/kjenn-din-pc/user.png" alt="Windows 10 - Legg til familiemedlem" class="image-zoomable">
             </section>
         </section>
         <footer>
