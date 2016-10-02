@@ -13,7 +13,7 @@
         require_once('steps.php');
     ?>
     <?php require_once('../../../../templates/nav.php'); ?>
-    <article id="oppgave-1">
+    <article>
         <header id="intro">
             <h1>Oppgave 1, 2 & 3</h1>
             <p>Lag et skjema for å opprette en bruker på en nettside som inneholder materiale som kun er egnet for et
