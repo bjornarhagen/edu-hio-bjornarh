@@ -1,55 +1,21 @@
 /* Bjørnar Hagen - 2016 */
-(function() {
-    $(function() {
-        $('a[href*=#]:not([href=#])').click(function() {
-            if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
-                var target = $(this.hash);
-                target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
-                if (target.length) {
-                    var newHash = this.hash;
 
-                    $('html,body').animate({
-                        scrollTop: target.offset().top - 50
-                    }, 250, function() {
-                        window.location.hash = newHash;
-                    });
+window.onload = ready;
 
-                    return false;
-                }
-            }
-        });
-    });
+function ready() {
+    imageZoom();
+}
 
-    function loaderShow(element) {
-        var loader = $('#loading-animation');
+function imageZoom() {
+    var imgs = document.getElementsByClassName("image-zoomable");
 
-        if (element) {
-            element.append(loader);
-            element.css('position', 'relative');
-        } else {
-            loader.appendTo('body');
-        }
+    for (var i = 0; i < imgs.length; i++) {
+        var id = "img-" + Math.floor(Math.random() * 1000) + Math.floor(Math.random() * 1000);
 
-        loader.fadeIn('50');
+        imgs[i].insertAdjacentHTML('beforebegin', '<div id="' + id + '" style="position: relative; width:' + imgs[i].width +
+            'px; height:' + imgs[i].height + 'px;"></div>');
+
+        var wrapper = document.getElementById(id);
+        wrapper.appendChild(imgs[i]);
     }
-
-    function loaderHide() {
-        var loaderer = $('#loading-animation');
-        loaderer.fadeOut('50');
-        $('#loading-animation a').off('click');
-    }
-
-    function loaderAbort(callbackfunction) {
-        $('#loading-animation a').click(function(e) {
-            e.preventDefault();
-            
-            if (callbackfunction != 0) {
-                callbackfunction();
-            }
-
-            loaderHide();
-            
-            $('#loading-animation a').off('click');
-        });
-    }
-})();
+}
