@@ -260,6 +260,33 @@ body {
                 text-align: center;
                 font-size: 1em;
             }
+
+            &-zoomable {
+                cursor: -webkit-zoom-in;
+                cursor: zoom-in;
+                background-color: $cWhite;
+
+                &:active {
+                    position: fixed;
+                    top: 50%;
+                    transform: translateY(-50%);
+                    margin: 0 auto;
+                    left: 0;
+                    right: 0;
+                    width: 100%;
+                    height: auto;
+                    z-index: 2;
+                }
+
+                &.zoom-active {
+                    position: absolute;
+                    left: -25%;
+                    right: -25%;
+                    width: 150%;
+                    max-width: 150%;
+                    z-index: 2;
+                }
+            }
         }
     }
 }
