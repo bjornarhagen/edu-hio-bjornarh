@@ -35,7 +35,7 @@
                     <button id="o7-div-2" class="btn black">Delt på 2</button>
                 </div>
                 <div class="col s6 space-v-small">
-                    <button id="o7-divable-3" class="btn black">Delige på 3</button>
+                    <button id="o7-divable-3" class="btn black">Delelige på 3</button>
                 </div>
                 <div class="col s6 space-v-small">
                     <button id="o7-even" class="btn black">Partall</button>
@@ -44,7 +44,7 @@
                     <button id="o7-odd" class="btn black">Oddetall</button>
                 </div>
                 <div class="col s12 space-v-small">
-                    <button id="o7-neg-pos" class="btn black">Anennhvert tall + og -</button>
+                    <button id="o7-neg-pos" class="btn black">Annenhvert tall + og -</button>
                 </div>
             </div>
             <p id="o7-output"></p>
@@ -262,7 +262,7 @@ function empty() {
         &lt;button id=&quot;o7-div-2&quot; class=&quot;btn black&quot;&gt;Delt på 2&lt;/button&gt;
     &lt;/div&gt;
     &lt;div class=&quot;col s6 space-v-small&quot;&gt;
-        &lt;button id=&quot;o7-divable-3&quot; class=&quot;btn black&quot;&gt;Delige på 3&lt;/button&gt;
+        &lt;button id=&quot;o7-divable-3&quot; class=&quot;btn black&quot;&gt;Delelige på 3&lt;/button&gt;
     &lt;/div&gt;
     &lt;div class=&quot;col s6 space-v-small&quot;&gt;
         &lt;button id=&quot;o7-even&quot; class=&quot;btn black&quot;&gt;Partall&lt;/button&gt;
@@ -271,7 +271,7 @@ function empty() {
         &lt;button id=&quot;o7-odd&quot; class=&quot;btn black&quot;&gt;Oddetall&lt;/button&gt;
     &lt;/div&gt;
     &lt;div class=&quot;col s12 space-v-small&quot;&gt;
-        &lt;button id=&quot;o7-neg-pos&quot; class=&quot;btn black&quot;&gt;Anennhvert tall + og -&lt;/button&gt;
+        &lt;button id=&quot;o7-neg-pos&quot; class=&quot;btn black&quot;&gt;Annenhvert tall + og -&lt;/button&gt;
     &lt;/div&gt;
 &lt;/div&gt;
 &lt;p id=&quot;o7-output&quot;&gt;&lt;/p&gt;
