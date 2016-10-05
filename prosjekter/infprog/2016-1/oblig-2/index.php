@@ -10,7 +10,7 @@
     <article id="oppgave-1">
         <header id="intro">
             <h1>Infoprog Oblig 2</h1>
-            <p>Tema: Kom i gang</p>
+            <p>Tema: Valgsetnigner og løkker</p>
             <p>Under er en oversikt over alle oppgavene. Det vil også være en link til hver oppgave på toppen av siden.</p>
             <p>Hver oppgave er delt opp i 3 seksjoner: oppgaveteksten, resultet & koden.</p>
         </header>
