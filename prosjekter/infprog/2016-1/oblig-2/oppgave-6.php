@@ -27,7 +27,7 @@
             <div class="row input-field">
                 <button id="fireaway" class="btn black">Skriv ut</button>
             </div>
-            <ul id="output"></ul>
+            <ol id="output"></ol>
             <script>
                 window.onload = ready;
 
@@ -96,7 +96,7 @@ function ready() {
 &lt;div class=&quot;row input-field&quot;&gt;
     &lt;button id=&quot;fireaway&quot; class=&quot;btn black&quot;&gt;Skriv ut&lt;/button&gt;
 &lt;/div&gt;
-&lt;ul id=&quot;output&quot;&gt;&lt;/ul&gt;
+&lt;ol id=&quot;output&quot;&gt;&lt;/ol&gt;
                 </code>
             </pre>
         </section>

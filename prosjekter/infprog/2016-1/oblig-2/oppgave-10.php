@@ -65,9 +65,6 @@
                     var width = canvas.width;
                     var height = canvas.height;
                     var ctx = canvas.getContext("2d");
-
-                    console.log(col1);
-                    console.log(col2);
                     
                     ctx.clearRect(0, 0, canvas.width, canvas.height);
 
@@ -165,9 +162,6 @@ function drawFigure(val1, val2, col1, col2, follow) {
     var height = canvas.height;
     var ctx = canvas.getContext(&quot;2d&quot;);
 
-    console.log(col1);
-    console.log(col2);
-    
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 
     if (follow === 0) {

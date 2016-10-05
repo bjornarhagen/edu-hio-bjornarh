@@ -40,11 +40,11 @@
                 </div>
                 <div class="row input-field">
                     <label for="o1-password" class="col s1"><i class="icon-lock-2"></i></label>
-                    <input type="password" id="o1-password" class="col s11" name="password" placeholder="Passord" required>
+                    <input type="password" id="o1-password" class="col s11" name="password" placeholder="Passord" required length-min="5">
                 </div>
                 <div class="row input-field">
                     <label for="o1-password-repeat" class="col s1"><i class="icon-lock-2"></i></label>
-                    <input type="password" id="o1-password-repeat" class="col s11" name="password-repeat" placeholder="Passord igjen" required data-match="o1-password">
+                    <input type="password" id="o1-password-repeat" class="col s11" name="password-repeat" placeholder="Passord igjen" required length-min="5" data-match="o1-password">
                 </div>
                 <div class="row input-field">
                     <label for="o1-age" class="col s1"><i class="icon-cake-2"></i></label>
@@ -125,6 +125,17 @@
                             }
 
                             showMessage(errorOutput, "string");
+                        } else if (error.minLengthFields.length > 0) { // Felter som ikke er lange nok
+                            error = error.minLengthFields;
+
+
+                            errorOutput = "Feltene oppfyller ikke krav";
+                            for (var i = 0; i < error.length; i++) {
+                                errorOutput += "<br>";
+                                errorOutput += "<b>" + error[i] + "</b>";
+                            }
+
+                            showMessage(errorOutput, "string");
                         } else if (error.minFields.length > 0) { // Felter som ikke er over minimum verdi
                             error = error.minFields;
 
@@ -143,11 +154,12 @@
                 // Param: form er et form element
                 function validate(form) {
                     var inputs = form.getElementsByTagName("input");
-                    var errors = {};            // Samle errors i et object
-                    var errorCheck = false;     // Bolean man kan skjekke for å se om det har blitt registrert noen errors, eller ikke
-                    errors.requiredFields = []; // Array som skal inneholde alle påkrevde felter som ikke ble fylt ut
-                    errors.matchingFields = []; // Array som skal inneholde alle felter som skal match et annet felt, ment ikke matcher
-                    errors.minFields = [];      // Array som skal inneholde alle felter som ikke er større enn sin minimum verdi
+                    var errors = {};             // Samle errors i et object
+                    var errorCheck = false;      // bolean man kan skjekke for å se om det har blitt registrert noen errors, eller ikke
+                    errors.requiredFields = [];  // påkrevde felter som ikke ble fylt ut
+                    errors.matchingFields = [];  // felter som skal match et annet felt, ment ikke matcher
+                    errors.minFields = [];       // felter som ikke er større enn sin minimum verdi
+                    errors.minLengthFields = []; // felter som ikke er lengere enn sin minimum lengde
 
                     function markField(field) {
                         field.style.backgroundColor = "#FF5254"; // Rød
@@ -187,16 +199,24 @@
                                 errors.matchingFields[errors.matchingFields.length] = match.getAttribute("placeholder");
                                 errors.matchingFields[errors.matchingFields.length] = inputs[i].getAttribute("placeholder");
 
-                                markField(match);     // Marker feltet
+                                markField(match);
+                                markField(inputs[i]);
+                            }
+                        } else if (inputs[i].hasAttribute("length-min")) { // Sjekk om feltene er lange nok
+                            if (inputs[i].value.length < inputs[i].getAttribute("length-min")) {
+                                errorCheck = true;
+
+                                errors.minLengthFields[errors.minLengthFields.length] = inputs[i].getAttribute("placeholder") + " (Må være lengere enn " + inputs[i].getAttribute("length-min") + ")";
+
                                 markField(inputs[i]);
                             }
                         } else if (inputs[i].hasAttribute("data-min")) { // Sjekk om felter er over minimum verdi
                             if (parseInt(inputs[i].value) < inputs[i].getAttribute("data-min")) {
                                 errorCheck = true;
 
-                                errors.minFields[errors.minFields.length] = inputs[i].getAttribute("placeholder");
+                                errors.minFields[errors.minFields.length] = inputs[i].getAttribute("placeholder") + " (Minst " + inputs[i].getAttribute("data-min") + ")";
 
-                                markField(inputs[i]); // Marker feltet
+                                markField(inputs[i]);
                             }
                         }
                     }
@@ -334,6 +354,17 @@ function submit(form) {
             }
 
             showMessage(errorOutput, &quot;string&quot;);
+        } else if (error.minLengthFields.length &gt; 0) { // Felter som ikke er lange nok
+            error = error.minLengthFields;
+
+
+            errorOutput = &quot;Feltene oppfyller ikke krav&quot;;
+            for (var i = 0; i &lt; error.length; i++) {
+                errorOutput += &quot;&lt;br&gt;&quot;;
+                errorOutput += &quot;&lt;b&gt;&quot; + error[i] + &quot;&lt;/b&gt;&quot;;
+            }
+
+            showMessage(errorOutput, &quot;string&quot;);
         } else if (error.minFields.length &gt; 0) { // Felter som ikke er over minimum verdi
             error = error.minFields;
 
@@ -352,11 +383,12 @@ function submit(form) {
 // Param: form er et form element
 function validate(form) {
     var inputs = form.getElementsByTagName(&quot;input&quot;);
-    var errors = {};            // Samle errors i et object
-    var errorCheck = false;     // Bolean man kan skjekke for å se om det har blitt registrert noen errors, eller ikke
-    errors.requiredFields = []; // Array som skal inneholde alle påkrevde felter som ikke ble fylt ut
-    errors.matchingFields = []; // Array som skal inneholde alle felter som skal match et annet felt, ment ikke matcher
-    errors.minFields = [];      // Array som skal inneholde alle felter som ikke er større enn sin minimum verdi
+    var errors = {};             // Samle errors i et object
+    var errorCheck = false;      // bolean man kan skjekke for å se om det har blitt registrert noen errors, eller ikke
+    errors.requiredFields = [];  // påkrevde felter som ikke ble fylt ut
+    errors.matchingFields = [];  // felter som skal match et annet felt, ment ikke matcher
+    errors.minFields = [];       // felter som ikke er større enn sin minimum verdi
+    errors.minLengthFields = []; // felter som ikke er lengere enn sin minimum lengde
 
     function markField(field) {
         field.style.backgroundColor = &quot;#FF5254&quot;; // Rød
@@ -396,16 +428,24 @@ function validate(form) {
                 errors.matchingFields[errors.matchingFields.length] = match.getAttribute(&quot;placeholder&quot;);
                 errors.matchingFields[errors.matchingFields.length] = inputs[i].getAttribute(&quot;placeholder&quot;);
 
-                markField(match);     // Marker feltet
+                markField(match);
+                markField(inputs[i]);
+            }
+        } else if (inputs[i].hasAttribute(&quot;length-min&quot;)) { // Sjekk om feltene er lange nok
+            if (inputs[i].value.length &lt; inputs[i].getAttribute(&quot;length-min&quot;)) {
+                errorCheck = true;
+
+                errors.minLengthFields[errors.minLengthFields.length] = inputs[i].getAttribute(&quot;placeholder&quot;) + &quot; (Må være lengere enn &quot; + inputs[i].getAttribute(&quot;length-min&quot;) + &quot;)&quot;;
+
                 markField(inputs[i]);
             }
         } else if (inputs[i].hasAttribute(&quot;data-min&quot;)) { // Sjekk om felter er over minimum verdi
             if (parseInt(inputs[i].value) &lt; inputs[i].getAttribute(&quot;data-min&quot;)) {
                 errorCheck = true;
 
-                errors.minFields[errors.minFields.length] = inputs[i].getAttribute(&quot;placeholder&quot;);
+                errors.minFields[errors.minFields.length] = inputs[i].getAttribute(&quot;placeholder&quot;) + &quot; (Minst &quot; + inputs[i].getAttribute(&quot;data-min&quot;) + &quot;)&quot;;
 
-                markField(inputs[i]); // Marker feltet
+                markField(inputs[i]);
             }
         }
     }

@@ -62,10 +62,15 @@
         }
 
         #msg {
-            font-family: 'Lobster', cursive;
+            font-family: 'Hackregular', monospace;
             font-size: 6em;
-            font-weight: 300;
+            font-weight: 400;
+            font-style: normal;
             text-shadow: 0 0 1px #000;
+        }
+
+        #msg span {
+            font-family: 'Lobster', cursive;
         }
 
         #msg i {
@@ -125,8 +130,6 @@ function ready() {
 
 function setScene(hour) {
     var scene = document.getElementById(&quot;scene&quot;);
-
-    console.log(hour);
 
     if (hour &lt;= 12 && hour &gt;= 5) {                       // Fra og med 5 til og med 12
         morning();
@@ -219,8 +222,6 @@ function setMessage(msg) {
         function setScene(hour) {
             var scene = document.getElementById("scene");
 
-            console.log(hour);
-
             if (hour <= 12 && hour >= 5) {                       // Fra og med 5 til og med 12
                 morning();
             } else if (hour > 12 && hour < 18) {                 // Fra 12 til 18
@@ -237,34 +238,34 @@ function setMessage(msg) {
                 scene.style.color = "white";
                 scene.style.backgroundColor = "lightyellow";
                 scene.style.backgroundImage = "url('oppgave-4-materiale/morning.jpg')"
-                setMessage("God morgen <i class='icon-sun'></i>");
+                setMessage("<span>God morgen</span><i class='icon-sun'></i>");
             }
 
             function afternoon() {
                 scene.style.color = "white";
                 scene.style.backgroundColor = "lightblue";
                 scene.style.backgroundImage = "url('oppgave-4-materiale/afternoon.jpg')"
-                setMessage("God ettermiddag <i class='icon-sun-cloud'></i>");
+                setMessage("<span>God ettermiddag</span><i class='icon-sun-cloud'></i>");
             }
 
             function evening() {
                 scene.style.color = "white";
                 scene.style.backgroundColor = "grey";
                 scene.style.backgroundImage = "url('oppgave-4-materiale/evening.jpg')"
-                setMessage("God kveld <i class='icon-waning-crescent-moon'></i>");
+                setMessage("<span>God kveld</span><i class='icon-waning-crescent-moon'></i>");
             }
 
             function night() {
                 scene.style.color = "white";
                 scene.style.backgroundColor = "black";
                 scene.style.backgroundImage = "url('oppgave-4-materiale/night.jpg')"
-                setMessage("God natt <i class='icon-full-moon'></i>");
+                setMessage("<span>God natt</span><i class='icon-full-moon'></i>");
             }
 
             function magic() {
                 scene.style.color = "white";
                 scene.style.backgroundImage = "linear-gradient(135deg, #FF5254, #745cc4, #5CACC4, #8CD19D, #f4de7c, #FCB859)";
-                setMessage("Wait what <i class='icon-pacman'></i>");
+                setMessage("<span>Wait what</span><i class='icon-pacman'></i>");
             }
 
             return true;
