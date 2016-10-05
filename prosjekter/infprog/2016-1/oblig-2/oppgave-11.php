@@ -20,6 +20,7 @@
         #calendar .cal-row:first-child {
             color: #fff;
             background-color: #000;
+            text-shadow: 0 0 1px #000;
         }
 
         #calendar .cal-row span {

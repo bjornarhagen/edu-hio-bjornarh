@@ -3,7 +3,7 @@
         [
             'title' => 'Oblig 2 - Infprog',
             'excerpt' => 'Tema: Valgsetnigner og løkker',
-            'slug' => 'infprog/2016-1/oblig-1',
+            'slug' => 'infprog/2016-1/oblig-2',
             'type' => 'article'
         ],
         [

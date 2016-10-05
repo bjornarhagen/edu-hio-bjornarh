@@ -56,6 +56,10 @@
                     var height = document.getElementById("o5-height").value;
                     var gender = document.getElementById("o5-gender").value;
 
+                    if (name.length === 0 || age.length === 0 || height.length === 0 || gender.length === 0) {
+                        return false;
+                    }
+
                     var magic = magicFormula(gender, name.length, parseInt(age), parseInt(height));
 
                     var output = document.getElementById("the-future");
@@ -99,6 +103,10 @@ function getFuture() {
     var age = document.getElementById(&quot;o5-age&quot;).value;
     var height = document.getElementById(&quot;o5-height&quot;).value;
     var gender = document.getElementById(&quot;o5-gender&quot;).value;
+
+    if (name.length === 0 || age.length === 0 || height.length === 0 || gender.length === 0) {
+        return false;
+    }
 
     var magic = magicFormula(gender, name.length, parseInt(age), parseInt(height));
 
