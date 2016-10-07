@@ -70,37 +70,28 @@ footer {
             display: block;
             height: 100%;
         }
-    
-        &-toggle {
-            display: block;
-            height: 100%;
 
-            > a {
-                display: none;
-            }
-
-            ul {
-                display: block;
-                height: 100%;
-
-                li {
-                    display: inline-block;
-
-                    a {
-                        display: block;
-                        color: $cWhite;
-
-                        span {
-                            display: none;
-                        }
-                    }
-                }
-            }
+        &-logo {
+            display: none;
         }
 
         &-menu {
             display: block;
             height: 100%;
+            float: none;
+
+            li {
+                display: inline-block;
+
+                a {
+                    display: block;
+                    color: $cWhite;
+
+                    span {
+                        display: none;
+                    }
+                }
+            }
         }
     }
 }
@@ -182,13 +173,11 @@ footer {
             right: 0;
             height: $navigation-height;
 
-            &-toggle {
-                ul {
-                    li {
-                        padding: 0 $padding-small;
-                        height: $navigation-height;
-                        line-height: $navigation-height;
-                    }
+            &-menu {
+                li {
+                    padding: 0 $padding-small;
+                    height: $navigation-height;
+                    line-height: $navigation-height;
                 }
             }
         }
@@ -238,19 +227,17 @@ footer {
         &-main {
             height: $navigation-height * 1.5;
 
-            &-toggle {
-                ul {
-                    li {
-                        padding: 0 $padding-medium;
-                        height: $navigation-height * 1.5;
-                        line-height: $navigation-height * 1.5;
-                        font-size: 1.25em;
+            &-menu {
+                li {
+                    padding: 0 $padding-medium;
+                    height: $navigation-height * 1.5;
+                    line-height: $navigation-height * 1.5;
+                    font-size: 1.25em;
 
-                        a {
-                            &:focus,
-                            &:hover {
-                                opacity: 0.75;
-                            }
+                    a {
+                        &:focus,
+                        &:hover {
+                            opacity: 0.75;
                         }
                     }
                 }
@@ -271,10 +258,5 @@ footer {
     html,
     body {
         height: 100%;
-    }
-
-    body {
-        > article {
-        }
     }
 }
