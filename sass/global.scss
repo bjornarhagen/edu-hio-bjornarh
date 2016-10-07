@@ -203,9 +203,10 @@ body {
             > header,
             > section,
             > footer {
+                display: block;
+                margin: 0 auto;
+
                 &.full {
-                    display: block;
-                    margin: 0 auto;
                     padding: 0;
                 }
             }
