@@ -4,31 +4,39 @@
 </head>
 <body>
     <?php
-        $activeStep = 3;
+        $activeStep = 4;
         require_once('steps.php');
     ?>
     <?php require_once('../../../../templates/nav.php'); ?>
     <article>
         <header id="intro">
             <h1>Oppgave <?= $activeStep; ?></h1>
-            <p>Gå ut i fra at du har definert en array med navn på studenter. Denne definisjonen kan f.eks se ut som
-            følger:</p>
-            <div class="row input-field">
-                <input id="o3-org-array" type="text" readonly>
-            </div>
-            <p>Skriv kode som plukker ut tre tilfeldige navn fra denne arrayen (Tips: Math.random() ), og legger disse i
-            en egen/ny array. Skriv deretter ut denne nye arrayen.</p>
+            <p>Gjør endringer på koden i oppgave 3 slik at samme navn ikke blir plukket ut flere ganger.</p>
+            <p>Utfør denne oppgaven i to steg:</p>
+            <ul>
+                <li>Beskriv hvordan du ville gjort dette om det var en papirliste med navn (se bort i fra programmering).</li>
+                <li>Skriv koden som reflekterer denne fremgangsmåten.</li>
+            </ul>
         </header>
         <section id="result">
             <h2>Resultat</h2>
+            <p>Jeg ville skrevet navnene i en liste, så hadde jeg stryki over det navn som ble tilfeldig valgt. Et navn
+            som er stryki kan ikke bli valgt.</p>
             <div class="row input-field">
-                <input id="o3-new-array" type="text" readonly>
+                <input id="o4-new-array" class="col s8" type="text" readonly>
+                <button id="o4-get-names" class="btn black col s4">Hent navn</button>
+                <p id="o4-remaining"></p>
             </div>
             <script>
                 window.onload = ready;
 
                 function ready() {
-                    var output = document.getElementById("o3-new-array");
+                    showNames(); // Kjør funkjsonen med en gang
+                    document.getElementById("o4-get-names").onclick = showNames;
+                }
+
+                function showNames() {
+                    var output = document.getElementById("o4-new-array");
 
                     var studentsOrg = [
                         "Hans",
@@ -41,17 +49,17 @@
                         "Line",
                         "Pia"
                     ];
-                
-                    document.getElementById("o3-org-array").value = "Array = [\"" + studentsOrg.join("\", \"") + "\"];";
 
                     var studentsNew = [];
                     // Plukk ut 3 tilfeldig student og legg de til i array.
                     for (var i = 0; i < 3; i++) {
                         var random = Math.floor(Math.random() * studentsOrg.length);
                         studentsNew.push(studentsOrg[random]);
+                        studentsOrg.splice(random, 1); // Fjern student fra orginal listen
                     }
 
-                    output.value = "3 Random studenter: " + studentsNew.join(", ");
+                    output.value = "3 Random ulike studenter: " + studentsNew.join(", ");
+                    document.getElementById("o4-remaining").innerHTML = "Gjenværende studenter: " + studentsOrg.join(", ");
                 }
             </script>
         </section>
@@ -63,7 +71,12 @@
 window.onload = ready;
 
 function ready() {
-    var output = document.getElementById(&quot;o3-new-array&quot;);
+    showNames(); // Kjør funkjsonen med en gang
+    document.getElementById(&quot;o4-get-names&quot;).onclick = showNames;
+}
+
+function showNames() {
+    var output = document.getElementById(&quot;o4-new-array&quot;);
 
     var studentsOrg = [
         &quot;Hans&quot;,
@@ -77,16 +90,16 @@ function ready() {
         &quot;Pia&quot;
     ];
 
-    document.getElementById(&quot;o3-org-array&quot;).value = &quot;Array = [\&quot;&quot; + studentsOrg.join(&quot;\&quot;, \&quot;&quot;) + &quot;\&quot;];&quot;;
-
     var studentsNew = [];
     // Plukk ut 3 tilfeldig student og legg de til i array.
     for (var i = 0; i &lt; 3; i++) {
         var random = Math.floor(Math.random() * studentsOrg.length);
         studentsNew.push(studentsOrg[random]);
+        studentsOrg.splice(random, 1); // Fjern student fra orginal listen
     }
 
-    output.value = &quot;3 Random studenter: &quot; + studentsNew.join(&quot;, &quot;);
+    output.value = &quot;3 Random ulike studenter: &quot; + studentsNew.join(&quot;, &quot;);
+    document.getElementById(&quot;o4-remaining&quot;).innerHTML = &quot;Gjenværende studenter: &quot; + studentsOrg.join(&quot;, &quot;);
 }
                 </code>
             </pre>
@@ -94,7 +107,9 @@ function ready() {
             <pre class="language-html">
                 <code>
 &lt;div class=&quot;row input-field&quot;&gt;
-    &lt;input id=&quot;o3-new-array&quot; type=&quot;text&quot; readonly&gt;
+    &lt;input id=&quot;o4-new-array&quot; class=&quot;col s8&quot; type=&quot;text&quot; readonly&gt;
+    &lt;button id=&quot;o4-get-names&quot; class=&quot;btn black col s4&quot;&gt;Hent navn&lt;/button&gt;
+    &lt;p id=&quot;o4-remaining&quot;&gt;&lt;/p&gt;
 &lt;/div&gt;
                 </code>
             </pre>
