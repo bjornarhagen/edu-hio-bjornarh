@@ -1,7 +1,7 @@
 <ul id="steps">
     <li><a href="./">Oppgaver:</a></li>
     <?php
-        for ($i=1; $i < 12; $i++) { 
+        for ($i=1; $i <= 8; $i++) { 
             if ($i == $activeStep) {
                 echo '<li class="active"><a href="oppgave-' . $i . '.php">' . $i . '</a></li>';
             } else {
