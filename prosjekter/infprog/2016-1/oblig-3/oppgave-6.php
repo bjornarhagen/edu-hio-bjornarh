@@ -143,7 +143,7 @@
                         }
                     }
 
-                    tmpHTML += "<img src=\"oppgave-6-materiale/" + char + ".jpg\">";
+                    tmpHTML += "<img src=\"oppgave-6-materiale/" + char.toLowerCase() + ".jpg\">";
                 });
 
                 outputElement.innerHTML = tmpHTML;
