@@ -8,6 +8,7 @@
 
         body {
             overflow: hidden;
+            background-color: black;
         }
 
         #nav-main {
@@ -17,8 +18,6 @@
 
         #canvas {
             display: block;
-            width: 100%;
-            height: 100%;
         }
     </style>
 </head>
@@ -27,116 +26,150 @@
     <canvas id="canvas"></canvas>
     <?php require_once('../../../../templates/footer.php'); ?>
     <script>
-        window.onload = ready;
 
-        // Global vars
-        var ctx, gW, gH, gPosH, gPosV, gWorldH, gFigureSize, gPipeSize;
+        ;(function () {
+            "use strict";
+            window.onload = function() {
+                if (preload()) ready();
+            }
 
-        function ready() {
-            var canvas = document.getElementById("canvas");
+            var gCanvas,
+                ctx,
+                MyGame = {
+                    stopMain: null,
+                },
+                ball,
+                gRect;
 
-            gW = window.innerWidth;
-            gH = window.innerHeight;
-            gPosH = 0;
-            gPosV = 0;
-            gWorldH = 0;
-            gFigureSize = 50;
-            gPipeSize = gFigureSize*2;
+            var Figure = function(options) {
+                options        = options || {};
+                options.color  = options.hasOwnProperty("color")  ? options.color  : "black";
+                options.stroke = options.hasOwnProperty("stroke") ? options.stroke : "black";
+                options.radius = options.hasOwnProperty("radius") ? options.radius : 0;
+                options.size   = options.hasOwnProperty("size")   ? options.size   : [0, 0];
+                options.p      = options.hasOwnProperty("p")      ? options.p      : [gCanvas.width/2, gCanvas.height/2];
+                options.d      = options.hasOwnProperty("d")      ? options.d      : [0, 0];
 
-            canvas.width = gW;
-            canvas.height = gH;
-
-            ctx = canvas.getContext("2d");
-            drawBg(ctx);
-
-            document.addEventListener("keyup", function(e) {
-                if (e.key === "w" || e.key === " ") {
-                    jump();
-                }
-            });
-
-            document.addEventListener("click", jump);
-
-            var drawInterval = setInterval(function() {
-
-                if (gPosV < gH/(1.25)-gFigureSize) {
-                    gPosH += 3;
-                    gPosV += 3;
-
-                    // gPosH%3===0 ? drawBg() : "";
-                    drawBg();
-                    drawFigure(gW/3, gPosV, gFigureSize, gFigureSize);
-                    drawPipe();
-                } else {
-                    clearInterval(drawInterval);
-                    gameOver();
+                this.type = options.type;
+                switch(options.type) {
+                    case "arc":
+                        this.radius = options.radius;
+                        this.size = [options.radius, options.radius];
+                        break;
+                    case "rect":
+                        this.size = options.size; // Width & height [x, y]
+                        break;
+                    default:
+                        break;
                 }
 
-                if (gPosH > gW+gPipeSize+gPipeSize) {
-                    gPosH = 0;
+                this.p = options.p;            // Position  [x, y]
+                this.d = options.d;            // Direction [x, y]
+                this.color = options.color;
+                this.stroke = options.stroke;
+            }
+
+            Figure.prototype.switchDirection = function(axis) {
+                this.d[axis] = -this.d[axis];
+            }
+
+            Figure.prototype.update = function() {
+                var newPos = this.p[0] + this.d[0];
+                if (newPos > gCanvas.width-this.size[0] || newPos < 0) {
+                    this.switchDirection(0);
                 }
-            });
-        }
 
-        function jump() {
-            var count = 0;
-            var jump = setInterval(function() {
-                count++;
-                gPosV += -10;
-
-                if (count == 50) {
-                    clearInterval(jump);
+                newPos = this.p[1] + this.d[1];
+                if(newPos > gCanvas.height-this.size[1] || newPos < 0) {
+                    this.switchDirection(1);
                 }
-            });
-        }
 
-        function drawPipe() {
-            ctx.beginPath();
-            ctx.moveTo(0, 0);
-            ctx.fillStyle = "#3f9e56"; // Mørk grønn
-            ctx.lineStyle = "#000";
-            ctx.lineWidth = 10;
-            ctx.rect(gPipeSize+gW-gPosH, 0, gPipeSize, gH/(4));
-            ctx.rect(gPipeSize+gW-gPosH, gH/(2), gPipeSize, gH);
-            ctx.stroke();
-            ctx.fill();
+                // Set new pos
+                this.p[0] += this.d[0];
+                this.p[1] += this.d[1];
+            }
 
-            // Bakken
-            ctx.beginPath();
-            ctx.fillStyle = "#8CD19D"; // Grønn
-            ctx.rect(0, gH/(1.25), gW, gH);
-            ctx.stroke();
-            ctx.fill();
-        }
+            Figure.prototype.render = function() {
+                ctx.beginPath();
+                ctx.rect(this.p[0], this.p[1], this.size[0], this.size[1]);
+                ctx.fillStyle = this.color;
+                ctx.fill();
+                ctx.closePath();
+            }
 
-        function drawBg() {
-            ctx.beginPath();
-            ctx.moveTo(0, 0);
-            ctx.fillStyle = "#5CACC4"; // Blå
-            ctx.fillRect(0, 0, gW, gH/(1.25));
-        }
+            function preload() {
+                var sprites = [];
 
-        function drawFigure(x, y, width, height) {
-            ctx.beginPath();
-            ctx.fillStyle = "#000";
-            ctx.fillRect(x, y, width, height);
-        }
+                function loadSprites() {
+                    for (var i = 0; i < arguments.length; i++) {
+                        sprites[i] = new Image();
+                        sprites[i].src = arguments[i];
+                    }
+                }
 
-        function gameOver() {
-            ctx.beginPath();
-            ctx.fillStyle = "rgba(0, 0, 0, 0.5)";
-            ctx.fillRect(50, 50, gW-100, gH-100);
-            
-            ctx.beginPath();
-            ctx.fillStyle = "#fff";
-            ctx.font="30px Arial";
-            ctx.textAlign = "center";
-            ctx.fillText("Game over!", gW/2, gH/2);
+                loadSprites(
+                    "http://domain.tld/gallery/image-001.jpg",
+                    "http://domain.tld/gallery/image-002.jpg",
+                    "http://domain.tld/gallery/image-003.jpg"
+                )
 
-            setTimeout(function() {
-                document.location.reload();
-            }, 1000);
-        }
+                return true;
+            }
+
+            function main(tFrame) {
+                MyGame.stopMain = window.requestAnimationFrame(main);
+
+                update(tFrame); //Call your update method. In our case, we give it rAF's timestamp.
+                render();
+            }
+
+            function ready() {
+                gCanvas = document.getElementById("canvas");
+                gCanvas.setAttribute("width", window.innerWidth);
+                gCanvas.setAttribute("height", window.innerHeight);
+
+                ctx = gCanvas.getContext("2d");
+
+                ball = new Figure({
+                    type: "rect",
+                    color: "blue",
+                    size: [50, 50],
+                    p: [gCanvas.width/2, gCanvas.height/2],
+                    d: [10, -10]
+                });
+
+                gRect = new Figure({
+                    type: "rect",
+                    color: "red",
+                    size: [25, 25],
+                    p: [gCanvas.width/2, gCanvas.height/2],
+                    d: [7, -7]
+                });
+                
+                main(); // Start cycle
+            }
+
+            function update(tFrame) {
+                // Switch dir on edge hit
+                ball.update();
+                gRect.update();
+
+                // console.log("draw-update: " + tFrame);
+            }
+
+            function render() {
+                ctx.fillStyle = "#cecece";
+                ctx.fillRect(0, 0, gCanvas.width, gCanvas.height);
+                
+                    
+                ball.render();
+                gRect.render();
+            }
+
+            function stop() {
+                window.cancelAnimationFrame(MyGame.stopMain);
+            }
+        })();
     </script>
 </body>
 </html> 
