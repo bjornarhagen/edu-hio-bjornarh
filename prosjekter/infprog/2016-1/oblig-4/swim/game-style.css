@@ -1,0 +1,79 @@
+html,
+body {
+    height: 100%;
+}
+
+body {
+    overflow: hidden;
+    background-color: black;
+}
+
+#nav-main {
+    position: fixed;
+    display: none;
+}
+
+#canvas {
+    display: block;
+}
+
+#score {
+    position: fixed;
+    top: 25px;
+    right: 0;
+    left: 0;
+    display: block;
+    margin: 0 auto;
+    text-align: center;
+    color: #fff;
+    font-family: "Hack";
+    font-size: 2em;
+}
+
+#modal {
+    position: fixed;
+    top: 50%;
+    left: 0;
+    right: 0;
+    transform: translateY(-50%);
+    display: none;
+    margin: auto;
+    padding: 25px;
+    width: 95%;
+    max-width: 480px;
+    background-color: #FF5254;
+}
+
+#modal-inner {
+    display: block;
+    padding: 25px;
+    background-color: #fff;
+    text-align: center;
+}
+
+#game-title {
+    position: fixed;
+    top: 50%;
+    left: 0;
+    right: 0;
+    display: block;
+    margin: 0 auto;
+    font-size: 15em;
+    text-align: center;
+    font-family: "latolight";
+    color: #fff;
+    transform: translateY(-50%);
+    -webkit-animation: fadeOut ease-in 1;
+    -moz-animation: fadeOut ease-in 1;
+    animation: fadeOut ease-in 1;
+    -webkit-animation-fill-mode: forwards;
+    -moz-animation-fill-mode: forwards;
+    animation-fill-mode: forwards;
+    -webkit-animation-duration: 500ms;
+    -moz-animation-duration: 500ms;
+    animation-duration: 500ms;
+}
+
+@-webkit-keyframes fadeOut { from { opacity:1; } to { opacity:0; display: none; } }
+@-moz-keyframes fadeOut { from { opacity:1; } to { opacity:0; display: none; } }
+@keyframes fadeOut { from { opacity:1; } to { opacity:0; display: none; } }
