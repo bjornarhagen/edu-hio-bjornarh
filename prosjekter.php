@@ -1,6 +1,12 @@
 <?php
     $projects = [
         [
+            'title' => 'Infprog - Oblig 4',
+            'excerpt' => 'Tema: Prosjekt',
+            'slug' => 'infprog/2016-1/oblig-4',
+            'type' => 'article'
+        ],
+        [
             'title' => 'Infprog - Oblig 3',
             'excerpt' => 'Tema: Arrayer, funksjoner og oppsumemring',
             'slug' => 'infprog/2016-1/oblig-3',
