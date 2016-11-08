@@ -192,36 +192,42 @@
                     <ul id="o1-coming-list">
                         <?php
                             for ($i=0; $i < 3; $i++) {
-                                $extra_content = "";
-
-                                if ($i === 0) {
-                                    $extra_content = '<span style="padding: 2px 5px;" class="o1-red-bg white-text">Neste!</span>';
-                                }
-
                                 if ($i%2===0) {
                                     ?>
                                         <li class="row space-a-small">
-                                            <div class="col s12 m8">
-                                                <?= $extra_content; ?>
-                                                <h3>Microsoft Norge</h3>
-                                                <p>Lorem ipsum dolor sit amet</p>
-                                                <p>Amet sit dolor ipsum lorem</p>
+                                            <div class="col s12 m7 row">
+                                                <div class="col s12 l5 o1-cl-avatar">
+                                                    <img src="oppgave-1-2-3-materiale/microsoft_logo.svg.png" alt="Microsoft Norge logo">
+                                                    <h3>Microsoft Norge</h3>
+                                                </div>
+                                                <div class="col s12 l7 space-h-small">
+                                                    <h4>Informasjon</h4>
+                                                    <p>Lorem ipsum dolor sit amet</p>
+                                                    <p>Amet sit dolor ipsum lorem</p>
+                                                </div>
                                             </div>
-                                            <div class="col s12 m4 space-v-small">
-                                                <a href="#" class="btn greyDark">Meld deg på</a>
+                                            <div class="o1-cl-actions col s12 m5">
+                                                <p class="greyDark-text">Det er x av y plasser igjen</p>
+                                                <a href="#" class="btn black">Meld deg på</a>
                                             </div>
                                         </li>
                                     <?php
                                 } else {
                                     ?>
                                         <li class="row space-a-small o1-grey-bg">
-                                            <div class="col s12 m8">
-                                                <?= $extra_content; ?>
-                                                <h3>Microsoft Norge</h3>
-                                                <p>Lorem ipsum dolor sit amet</p>
-                                                <p>Amet sit dolor ipsum lorem</p>
+                                            <div class="col s12 m7 row">
+                                                <div class="col s12 l5 o1-cl-avatar">
+                                                    <img src="oppgave-1-2-3-materiale/microsoft_logo.svg.png" alt="Microsoft Norge logo">
+                                                    <h3>Microsoft Norge</h3>
+                                                </div>
+                                                <div class="col s12 l7 space-h-small">
+                                                    <h4>Informasjon</h4>
+                                                    <p>Lorem ipsum dolor sit amet</p>
+                                                    <p>Amet sit dolor ipsum lorem</p>
+                                                </div>
                                             </div>
-                                            <div class="col s12 m4 space-v-small">
+                                            <div class="o1-cl-actions col s12 m5">
+                                                <p class="greyDark-text">Det er x av y plasser igjen</p>
                                                 <a href="#" class="btn black">Meld deg på</a>
                                             </div>
                                         </li>
