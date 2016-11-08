@@ -3,7 +3,7 @@
 </head>
 <body>
     <?php
-        $activeStep = 0;
+        $activeStep = 1;
         require_once('steps.php');
     ?>
     <?php require_once('../../../../templates/nav.php'); ?>
@@ -17,11 +17,8 @@
         <section class="space-a-medium">
             <h2>Oppgaver</h2>
             <ul>
-                <?php
-                    for ($i=1; $i <= 4; $i++) { 
-                        echo '<li><a href="oppgave-' . $i . '.php">Oppgave ' . $i . '</a></li>';
-                    }
-                ?>
+                <li><a href="oppgave-1-2-3.php">Oppgave 1, 2 & 3</a></li>
+                <li><a href="oppgave-4.php">Oppgave 4</a></li>
             </ul>
         </section>
     </article>
