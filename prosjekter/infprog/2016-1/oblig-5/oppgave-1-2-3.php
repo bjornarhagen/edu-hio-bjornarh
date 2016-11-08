@@ -42,6 +42,31 @@
             color: #eaeaea;
         }
 
+        .btn.primary {
+            color: #17E1E3;
+            background-color: #3c225f;
+        }
+
+        .btn.primary:hover,
+        .btn.primary:focus {
+            color: #3c225f;
+            background-color: #fff;
+            outline: 10px solid #3c225f;
+        }
+
+
+        .btn.accent {
+            color: #3c225f;
+            background-color: #17E1E3;
+        }
+
+        .btn.accent:hover,
+        .btn.accent:focus {
+            color: #000;
+            background-color: #fff;
+            outline: 25px solid #17E1E3;
+        }
+
         #o1-intro,
         #o1-intro-overlay,
         #o1-intro-bg {
