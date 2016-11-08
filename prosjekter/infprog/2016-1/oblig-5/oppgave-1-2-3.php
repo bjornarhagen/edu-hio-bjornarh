@@ -244,16 +244,17 @@
         </section>
         </main>
         <section>
-            <div class="row bg-image bg-fixed" style="background-image: url('oppgave-1-2-3-materiale/_c-header-2.jpg');">
+            <div class="row bg-image bg-fixed" style="background-image: url('oppgave-1-2-3-materiale/_c-header-3.jpg');">
                 <div class="space-a-large"></div>
                 <div class="space-a-large"></div>
                 <div class="space-a-large"></div>
             </div>
-            <div class="row bg-image" style="background-image: url('oppgave-1-2-3-materiale/_c-header-3.jpg');">
+            <div class="row bg-image" style="background-image: url('oppgave-1-2-3-materiale/_c-header-2.jpg');">
                 <div class="space-a-large"></div>
                 <div class="space-a-large"></div>
-                <div class="space-a-large">
+                <div id="o1-gallery-fancy-text" class="space-v-large">
                     <h1 class="font-brand o1-primary-text o1-accent-bg font-medium space-a-small">Et spetakulært og høymoderne rom</h1>
+                    <p class="white-text font-small">hvor din bedrift kan vise seg frem fra sin beste side</p>
                 </div>
             </div>
             <div class="row bg-image bg-fixed" style="background-image: url('oppgave-1-2-3-materiale/_c-header-1.jpg');">
