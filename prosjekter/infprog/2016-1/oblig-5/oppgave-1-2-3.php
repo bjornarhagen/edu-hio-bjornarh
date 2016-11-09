@@ -369,9 +369,65 @@
             </div>
         </section>
     </main>
-    <?php require_once('../../../../templates/nav.php'); ?>
-    <?php require_once('../../../../templates/footer.php'); ?>
-    <script></script>
+    <footer id="footer">
+        <p>Bjørnar Hagen - <?= date("Y"); ?></p>
+        <div id="color-bar">
+            <nav id="nav-main">
+                <div id="nav-main-wrapper">
+                    <ul id="nav-main-logo">
+                        <li><a href="/~bjornarh/#hjem">Bjørnar Hagen</a></li>
+                    </ul>
+                    <ul id="nav-main-menu">
+                        <li>
+                            <a href="/~bjornarh/#hjem" title="Hjem">
+                                <i class="icon-house-2"></i>
+                                <span>Hjem</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/~bjornarh/#prosjekter" title="Prosjekter">
+                                <i class="icon-layers-1"></i>
+                                <span>Prosjekter</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/~bjornarh/#om" title="Om meg">
+                                <i class="icon-user-2"></i>
+                                <span>Om meg</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </footer>
+    <link rel="stylesheet" href="<?= $path; ?>/fonts/streamline/styles.css">
+    <script src="/~bjornarh/js/global.js"></script>
+    <script>
+        window.onload = ready;
+
+        function ready() {
+            (function() {
+                var video = document.getElementById("o1-intro-video-bg");
+                var header = document.getElementById("o1-intro-post-head");
+                var timeout;
+
+                window.addEventListener('scroll', function() {
+                    clearTimeout(timeout);
+
+                    timeout = setTimeout(function() {
+                        if (document.body.scrollTop > (header.offsetTop + header.offsetHeight/2)) {
+                            video.pause();
+                        } else {
+                            video.play();
+                            
+                        }
+                    }, 100);
+                });
+
+            })();
+        }
+    </script>
     <!-- <script src="/~bjornarh/js/prism/prism.js"></script> -->
     <!-- <link rel="stylesheet" href="/~bjornarh/css/prism/prism.css"> -->
 </body>
