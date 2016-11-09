@@ -72,10 +72,12 @@
         #o1-intro-bg {
             display: block;
             height: 100%;
+            width: 100%;
         }
 
         #o1-intro {
             position: relative;
+            overflow: hidden;
         }
 
         #o1-intro-overlay,
@@ -85,6 +87,16 @@
             left: 0;
             right: 0;
             bottom: 0;
+        }
+
+        #o1-intro-video-bg {
+            position: fixed;
+            display: block;
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            z-index: -1;
         }
 
         #o1-intro-overlay {
@@ -125,14 +137,16 @@
             font-size: 1.5em;
         }
 
+        #o1-intro-post-head {
+            background-image: url('oppgave-1-2-3-materiale/_c-header-1.jpg');
+        }
+
         #up-next-presentation img {
             width: 100%;
             max-width: 128px;
         }
 
         #o1-coming-list-wrapper {
-            margin-top: -100px;
-            margin-bottom: 100px;
             box-shadow: 0 0 25px rgba(60, 34, 95, 0.2);
         }
 
@@ -244,7 +258,11 @@
 <body>
     <header id="o1-intro" class="white-text">
         <div id="o1-intro-overlay"></div>
-        <div id="o1-intro-bg" class="bg-image bg-fixed" style="background-image: url('oppgave-1-2-3-materiale/_c-header-1.jpg');"></div>
+        <video id="o1-intro-video-bg" class="hide-on-medium-and-down" autoplay loop poster="oppgave-1-2-3-materiale/_c-header-1.jpg">
+            <source src="oppgave-1-2-3-materiale/video.mp4" type="video/mp4">
+            Your browser doesn't support video. Try downloading a modern browser like Chrome or Firefox.
+        </video>
+        <div id="o1-intro-bg" class="bg-image bg-fixed hide-on-medium-and-up" style="background-image: url('oppgave-1-2-3-materiale/_c-header-1.jpg');"></div>
         <div id="o1-intro-content" class="row center-v-h">
             <div class="col s12 m8 offset-m2">
                 <h1 class="font-brand"><span>Enigma</span><span>- bedriftspresentasjoner</span></h1>
@@ -253,25 +271,25 @@
         </div>
     </header>
     <main>
-        <section class="row bg-image bg-fixed" style="background-image: url('oppgave-1-2-3-materiale/_c-header-1.jpg');">
+        <section id="o1-intro-post-head" class="row bg-image bg-fixed">
             <div class="col s12 m8">
-                <div class="o1-primary-bg space-h-large space-v-small">
+                <div id="o1-up-next-text" class="o1-primary-bg space-h-large space-v-small">
                     <h1 class="o1-accent-text font-large font-thick">Up next...</h1>
                 </div>
             </div>
             <div class="col s12 m4 center-align">
                 <div id="up-next-presentation" class="white-bg space-h-small space-v-large">
-                    <img src="oppgave-1-2-3-materiale/microsoft_logo.svg.png" alt="Microsoft Norge logo">
-                    <h1>Microsoft Norge</h1>
-                    <a href="#" class="btn alert">Meld deg på</a>
+                    <img src="oppgave-1-2-3-materiale/google_-g-_logo.svg.png" alt="Google logo">
+                    <h1>Google Norway</h1>
+                    <a href="#" class="btn accent">Meld deg på</a>
                 </div>
             </div>
-            <div class="col s12">
+            <div class="col s12 hide-on-medium-and-down">
                 <div class="space-a-large"></div>
             </div>
         </section>
-        <section class="row">
-            <div id="o1-coming-list-wrapper" class="col row offset-s1 s10 offset-m2 m8">
+        <section class="row white-bg">
+            <div id="o1-coming-list-wrapper" class="col row s12 offset-m1 m10 offset-l2 l8">
                 <div class="col s12 grey-bg space-a-small center-align">
                     <h2>Kommende bedriftspresentasjoner</h2>
                 </div>
@@ -323,7 +341,7 @@
                             }
                         ?>
                         <li class="row space-a-small center-align white-bg">
-                            <a href="#" class="btn black">Se flere...</a>
+                            <a href="#" class="btn primary">Se flere...</a>
                         </li>
                     </ul>
                 </div>
