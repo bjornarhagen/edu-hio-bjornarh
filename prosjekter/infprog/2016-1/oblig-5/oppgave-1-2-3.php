@@ -141,16 +141,103 @@
             margin: 0;
             padding: 0;
         }
-
-        #o1-coming-list li {
-            -webkit-transition: all 0.25s cubic-bezier(.4,0,.2,1);
-            -o-transition: all 0.25s cubic-bezier(.4,0,.2,1);
-            transition: all 0.25s cubic-bezier(.4,0,.2,1);
+        
+        #o1-coming-list .o1-cl-avatar {
+            display: block;
+            text-align: center;
         }
 
-        #o1-coming-list li:hover {
-            color: #fff;
-            background-color: #3c225f;
+        #o1-coming-list .o1-cl-avatar img {
+            width: 100%;
+            max-width: 128px;
+        }
+
+        #o1-coming-list .o1-cl-actions {
+            text-align: center;
+        }
+
+        #o1-gallery-fancy-text {
+            font-size: 0.5em;
+            padding-right: 10px;
+            padding-left: 10px;
+        }
+
+        footer#footer {
+            height: 50%;
+        }
+        
+        footer#footer #color-bar {
+            height: 100%;
+        }
+
+        @media screen and (max-width: 480px) {
+            #o1-intro-content {
+                font-size: 0.5em;
+                padding: 0 10px;
+                text-align: center;
+            }
+
+            #o1-intro-content h1 span:last-child {
+                font-size: 1em;
+            }
+
+            #o1-intro-content h2 {
+                margin-top: 100px;
+                line-height: 200%;
+            }
+
+            #o1-up-next-text {
+                padding: 25px;
+            }
+
+            #o1-up-next-text h1 {
+                border: 1px solid #17E1E3;
+                padding: 25px;
+                letter-spacing: 10px;
+                word-spacing: 50px;
+                text-transform: uppercase;
+            }
+        }
+
+        @media screen and (min-width: 481px) and (max-width: 768px) {
+            #o1-intro-content {
+                font-size: 0.85em;
+                padding: 0 10px;
+            }
+
+            #o1-intro-content h1 span:last-child {
+                font-size: 1.15em;
+            }
+
+            #o1-intro-content h2 {
+                margin-top: 100px;
+                line-height: 200%;
+            }
+        }
+
+        @media screen and (min-width: 769px) {
+            #o1-intro-post-head {
+                background-image: none;
+            }
+
+            #up-next-presentation h1 {
+                letter-spacing: 5px;
+            }
+
+            #o1-coming-list-wrapper {
+                margin-top: -100px;
+                margin-bottom: 100px;
+            }
+
+            #o1-coming-list .o1-cl-actions {
+            }
+
+            #o1-gallery-fancy-text {
+                font-size: 1em;
+                padding-right: 100px;
+                padding-left: 100px;
+            }
+
         }
     </style>
 </head>
