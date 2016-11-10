@@ -279,8 +279,8 @@
             </div>
             <div class="col s12 m4 center-align">
                 <div id="up-next-presentation" class="white-bg space-h-small space-v-large">
-                    <img src="oppgave-1-2-3-materiale/google_-g-_logo.svg.png" alt="Google logo">
-                    <h1>Google Norway</h1>
+                    <img src="oppgave-1-2-3-materiale/placeholder.png" alt="logo">
+                    <h1>Bedriftnavn</h1>
                     <a href="#" class="btn accent">Meld deg på</a>
                 </div>
             </div>
@@ -296,19 +296,22 @@
                 <div class="col s12 grey-bg">
                     <ul id="o1-coming-list">
                         <?php
-                            for ($i=0; $i < 3; $i++) {
-                                if ($i%2===0) {
+                            $company_list = file_get_contents('oppgave-1-2-3-materiale/company-list.json');
+                            $company_list = json_decode($company_list);
+
+                            foreach ($company_list as $company_number => $company_info) {
+                                if ($company_number%2===0) {
                                     ?>
                                         <li class="row space-a-small">
                                             <div class="col s12 m7 row">
                                                 <div class="col s12 l5 o1-cl-avatar">
-                                                    <img src="oppgave-1-2-3-materiale/microsoft_logo.svg.png" alt="Microsoft Norge logo">
-                                                    <h3>Microsoft Norge</h3>
+                                                    <img src="oppgave-1-2-3-materiale/<?= $company_info->pictures->logo ?>" alt="<?= $company_info->company ?> logo">
+                                                    <h3><?= $company_info->company ?></h3>
                                                 </div>
                                                 <div class="col s12 l7 space-h-small">
                                                     <h4>Informasjon</h4>
-                                                    <p>Lorem ipsum dolor sit amet</p>
-                                                    <p>Amet sit dolor ipsum lorem</p>
+                                                    <p><?= '<b>' . $company_info->date . '</b> - ' . $company_info->time?></p>
+                                                    <p><?= $company_info->description ?></p>
                                                 </div>
                                             </div>
                                             <div class="o1-cl-actions col s12 m5">
@@ -322,13 +325,13 @@
                                         <li class="row space-a-small o1-grey-bg">
                                             <div class="col s12 m7 row">
                                                 <div class="col s12 l5 o1-cl-avatar">
-                                                    <img src="oppgave-1-2-3-materiale/microsoft_logo.svg.png" alt="Microsoft Norge logo">
-                                                    <h3>Microsoft Norge</h3>
+                                                    <img src="oppgave-1-2-3-materiale/<?= $company_info->pictures->logo ?>" alt="<?= $company_info->company ?> logo">
+                                                    <h3><?= $company_info->company ?></h3>
                                                 </div>
                                                 <div class="col s12 l7 space-h-small">
                                                     <h4>Informasjon</h4>
-                                                    <p>Lorem ipsum dolor sit amet</p>
-                                                    <p>Amet sit dolor ipsum lorem</p>
+                                                    <p><?= '<b>' . $company_info->date . '</b> - ' . $company_info->time?></p>
+                                                    <p><?= $company_info->description ?></p>
                                                 </div>
                                             </div>
                                             <div class="o1-cl-actions col s12 m5">
@@ -369,7 +372,16 @@
             </div>
         </section>
     </main>
-    <footer id="footer">
+    <footer class="o1-primary-bg white-text row space-v-large">
+        <div class="col s12 space-a-large hide-on-medium-and-down"></div>
+        <!-- div.col. -->
+        <div class="col s12 space-a-large"></div>
+        <div class="col s12 center-align">
+            <h2><span class="font-brand">ENIGMA</span> bedriftspresentasjoner</h2>
+            <p>Et prosjekt av Bjørnar Hagen</p>
+        </div>
+    </footer>
+    <footer id="footer" class="white-bg">
         <p>Bjørnar Hagen - <?= date("Y"); ?></p>
         <div id="color-bar">
             <nav id="nav-main">
