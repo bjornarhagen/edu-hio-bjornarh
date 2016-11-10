@@ -426,6 +426,53 @@
                 });
 
             })();
+
+            (function() {
+                var xhr = new XMLHttpRequest();
+
+                xhr.open("GET", "oppgave-1-2-3-materiale/company-list.dat", true);                
+                xhr.addEventListener("readystatechange", function() {
+                    if (xhr.readyState == xhr.DONE) {
+                        displayData(handleData(xhr.responseText));
+                    }
+                });
+                xhr.send();
+
+                function handleData(data) {
+                    var rows = data.split('\n');
+                    var dataObjects = [];
+                    var headers = rows[0].split(',');
+
+                    for(var row = 1; row < rows.length; row++){
+                        var obj = {};
+                        var currentline = rows[row].split(",");
+
+                        for(var column = 0; column < headers.length; column++){
+                            obj[headers[column]] = currentline[column];
+                        }
+
+                        dataObjects.push(obj);
+                    }
+
+                  return dataObjects;
+                }
+
+                function displayData(data) {
+                    var featured = document.getElementById("up-next-presentation");
+
+                    console.log(data);
+
+                    for (var i = 0; i < featured.children.length; i++) {
+                        if (featured.children[i].tagName === "IMG") {
+                            featured.children[i].setAttribute("src", "oppgave-1-2-3-materiale/" + data[0]["pictures/logo"]);
+                        }
+                        if (featured.children[i].tagName === "H1") {
+                            featured.children[i].innerHTML = data[0]["company"];
+                        }
+                    }
+
+                }
+            })();
         }
     </script>
     <!-- <script src="/~bjornarh/js/prism/prism.js"></script> -->
