@@ -447,6 +447,8 @@
         window.onload = ready;
 
         function ready() {
+            document.head.querySelector('meta[name="theme-color"]').setAttribute("content", "#3c225f");
+
             (function() {
                 var video = document.getElementById("o1-intro-video-bg");
                 var header = document.getElementById("o1-intro-post-head");
