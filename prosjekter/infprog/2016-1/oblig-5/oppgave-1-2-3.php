@@ -255,6 +255,37 @@
         }
     </style>
 </head>
+<?php
+    $csv = file_get_contents('oppgave-1-2-3-materiale/company-list.dat');
+    $array = array_map("str_getcsv", explode("\n", $csv));
+
+    $company_list = [];
+
+    // Turn each CSV line into an object
+    foreach ($array as $company_number => $companies) {
+        if (count($companies) > 1) {
+            $current_company = new stdClass();
+
+            foreach ($companies as $header_number => $company) {
+                $tmp = $array[0][$header_number];
+                $current_company->$tmp = $company;
+            }
+
+            $company_list[$company_number] = $current_company;
+        }
+    }
+
+    // Remove headers
+    unset($company_list[0]);
+
+    // Sort by date in ASC order
+    usort($company_list, function($a, $b) {
+        $date_a = new DateTime($a->date);
+        $date_b = new DateTime($b->date);
+
+        return ($date_a > $date_b);
+    });
+?>
 <body>
     <header id="o1-intro" class="white-text">
         <div id="o1-intro-overlay"></div>
@@ -279,8 +310,8 @@
             </div>
             <div class="col s12 m4 center-align">
                 <div id="up-next-presentation" class="white-bg space-h-small space-v-large">
-                    <img src="oppgave-1-2-3-materiale/placeholder.png" alt="logo">
-                    <h1>Bedriftnavn</h1>
+                    <img src="oppgave-1-2-3-materiale/<?= $company_list[0]->{'pictures/logo'}; ?>" alt="<?= $company_list[0]->company; ?> logo">
+                    <h1><?= $company_list[0]->company; ?></h1>
                     <a href="#" class="btn accent">Meld deg på</a>
                 </div>
             </div>
@@ -296,26 +327,23 @@
                 <div class="col s12 grey-bg">
                     <ul id="o1-coming-list">
                         <?php
-                            $company_list = file_get_contents('oppgave-1-2-3-materiale/company-list.json');
-                            $company_list = json_decode($company_list);
-
                             foreach ($company_list as $company_number => $company_info) {
                                 if ($company_number%2===0) {
                                     ?>
                                         <li class="row space-a-small">
                                             <div class="col s12 m7 row">
                                                 <div class="col s12 l5 o1-cl-avatar">
-                                                    <img src="oppgave-1-2-3-materiale/<?= $company_info->pictures->logo ?>" alt="<?= $company_info->company ?> logo">
-                                                    <h3><?= $company_info->company ?></h3>
+                                                    <img src="oppgave-1-2-3-materiale/<?= $company_info->{'pictures/logo'}; ?>" alt="<?= $company_info->company; ?> logo">
+                                                    <h3><?= $company_info->company; ?></h3>
                                                 </div>
                                                 <div class="col s12 l7 space-h-small">
                                                     <h4>Informasjon</h4>
-                                                    <p><?= '<b>' . $company_info->date . '</b> - ' . $company_info->time?></p>
-                                                    <p><?= $company_info->description ?></p>
+                                                    <p><?= '<b>' . $company_info->date . '</b> - ' . $company_info->time; ?></p>
+                                                    <p><?= $company_info->description; ?></p>
                                                 </div>
                                             </div>
                                             <div class="o1-cl-actions col s12 m5">
-                                                <p class="greyDark-text">Det er x av y plasser igjen</p>
+                                                <p class="greyDark-text">Det er x av <?= $company_info->seats; ?> plasser igjen</p>
                                                 <a href="#" class="btn black">Meld deg på</a>
                                             </div>
                                         </li>
@@ -325,17 +353,17 @@
                                         <li class="row space-a-small o1-grey-bg">
                                             <div class="col s12 m7 row">
                                                 <div class="col s12 l5 o1-cl-avatar">
-                                                    <img src="oppgave-1-2-3-materiale/<?= $company_info->pictures->logo ?>" alt="<?= $company_info->company ?> logo">
-                                                    <h3><?= $company_info->company ?></h3>
+                                                    <img src="oppgave-1-2-3-materiale/<?= $company_info->{'pictures/logo'}; ?>" alt="<?= $company_info->company; ?> logo">
+                                                    <h3><?= $company_info->company; ?></h3>
                                                 </div>
                                                 <div class="col s12 l7 space-h-small">
                                                     <h4>Informasjon</h4>
-                                                    <p><?= '<b>' . $company_info->date . '</b> - ' . $company_info->time?></p>
-                                                    <p><?= $company_info->description ?></p>
+                                                    <p><?= '<b>' . $company_info->date . '</b> - ' . $company_info->time; ?></p>
+                                                    <p><?= $company_info->description; ?></p>
                                                 </div>
                                             </div>
                                             <div class="o1-cl-actions col s12 m5">
-                                                <p class="greyDark-text">Det er x av y plasser igjen</p>
+                                                <p class="greyDark-text">Det er x av <?= $company_info->seats; ?> plasser igjen</p>
                                                 <a href="#" class="btn black">Meld deg på</a>
                                             </div>
                                         </li>
@@ -470,19 +498,18 @@
                 }
 
                 function displayData(data) {
-                    var featured = document.getElementById("up-next-presentation");
+                    // var featured = document.getElementById("up-next-presentation");
 
-                    console.log(data);
+                    // console.log(data);
 
-                    for (var i = 0; i < featured.children.length; i++) {
-                        if (featured.children[i].tagName === "IMG") {
-                            featured.children[i].setAttribute("src", "oppgave-1-2-3-materiale/" + data[0]["pictures/logo"]);
-                        }
-                        if (featured.children[i].tagName === "H1") {
-                            featured.children[i].innerHTML = data[0]["company"];
-                        }
-                    }
-
+                    // for (var i = 0; i < featured.children.length; i++) {
+                    //     if (featured.children[i].tagName === "IMG") {
+                    //         featured.children[i].setAttribute("src", "oppgave-1-2-3-materiale/" + data[0]["pictures/logo"]);
+                    //     }
+                    //     if (featured.children[i].tagName === "H1") {
+                    //         featured.children[i].innerHTML = data[0]["company"];
+                    //     }
+                    // }
                 }
             })();
         }
