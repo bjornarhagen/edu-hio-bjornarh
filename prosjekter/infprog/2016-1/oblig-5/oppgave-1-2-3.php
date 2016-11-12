@@ -68,9 +68,9 @@
         </section>
         <section class="row white-bg">
             <div id="o1-coming-list-wrapper" class="col row s12 offset-m1 m10 offset-l2 l8">
-                <div class="col s12 grey-bg space-a-small center-align">
+                <header class="col s12 grey-bg space-a-small center-align">
                     <h2>Kommende bedriftspresentasjoner</h2>
-                </div>
+                </header>
                 <div class="col s12 grey-bg">
                     <ul id="o1-coming-list">
                         <?php
@@ -125,28 +125,27 @@
                 </div>
             </div>
         </section>
-        </main>
-        <section>
-            <div class="row bg-image bg-fixed" style="background-image: url('oppgave-1-2-3-materiale/_c-header-3.jpg');">
-                <div class="space-a-large"></div>
-                <div class="space-a-large"></div>
-                <div class="space-a-large"></div>
-            </div>
-            <div class="row bg-image" style="background-image: url('oppgave-1-2-3-materiale/_c-header-2.jpg');">
-                <div class="space-a-large"></div>
-                <div class="space-a-large"></div>
-                <div id="o1-gallery-fancy-text" class="space-v-large">
-                    <h1 class="font-brand o1-primary-text o1-accent-bg font-medium space-a-small">Et spetakulært og høymoderne rom</h1>
-                    <p class="white-text font-small">hvor din bedrift kan vise seg frem fra sin beste side</p>
-                </div>
-            </div>
-            <div class="row bg-image bg-fixed" style="background-image: url('oppgave-1-2-3-materiale/_c-header-1.jpg');">
-                <div class="space-a-large"></div>
-                <div class="space-a-large"></div>
-                <div class="space-a-large"></div>
-            </div>
-        </section>
     </main>
+    <section>
+        <div class="row bg-image bg-fixed" style="background-image: url('oppgave-1-2-3-materiale/_c-header-3.jpg');">
+            <div class="space-a-large"></div>
+            <div class="space-a-large"></div>
+            <div class="space-a-large"></div>
+        </div>
+        <div class="row bg-image" style="background-image: url('oppgave-1-2-3-materiale/_c-header-2.jpg');">
+            <div class="space-a-large"></div>
+            <div class="space-a-large"></div>
+            <div id="o1-gallery-fancy-text" class="space-v-large">
+                <h1 class="font-brand o1-primary-text o1-accent-bg font-medium space-a-small">Et spetakulært og høymoderne rom</h1>
+                <p class="white-text font-small">hvor din bedrift kan vise seg frem fra sin beste side</p>
+            </div>
+        </div>
+        <div class="row bg-image bg-fixed" style="background-image: url('oppgave-1-2-3-materiale/_c-header-1.jpg');">
+            <div class="space-a-large"></div>
+            <div class="space-a-large"></div>
+            <div class="space-a-large"></div>
+        </div>
+    </section>
     <footer class="o1-primary-bg white-text row space-v-large">
         <div class="col s12 space-a-large hide-on-medium-and-down"></div>
         <!-- div.col. -->
