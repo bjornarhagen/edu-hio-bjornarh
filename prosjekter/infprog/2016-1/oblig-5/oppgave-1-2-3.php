@@ -91,7 +91,7 @@
                                             </div>
                                             <div class="o1-cl-actions col s12 m5">
                                                 <p class="greyDark-text">Det er x av <?= $company_info->seats; ?> plasser igjen</p>
-                                                <a href="#" class="btn black">Meld deg på</a>
+                                                <a href="#" class="btn black o1-register-btn">Meld deg på</a>
                                             </div>
                                         </li>
                                     <?php
@@ -111,7 +111,7 @@
                                             </div>
                                             <div class="o1-cl-actions col s12 m5">
                                                 <p class="greyDark-text">Det er x av <?= $company_info->seats; ?> plasser igjen</p>
-                                                <a href="#" class="btn black">Meld deg på</a>
+                                                <a href="#" class="btn black o1-register-btn">Meld deg på</a>
                                             </div>
                                         </li>
                                     <?php
@@ -193,7 +193,59 @@
         window.onload = ready;
 
         function ready() {
+            // Change browser theme color
             document.head.querySelector('meta[name="theme-color"]').setAttribute("content", "#3c225f");
+
+            (function() {
+                var registerButtons = document.getElementsByClassName("o1-register-btn");
+
+                for (var i = 0; i < registerButtons.length; i++) {
+                    registerButtons[i].addEventListener("click", showRegisterForm);
+                }
+
+                function showRegisterForm(e) {
+                    e.preventDefault();
+
+                    var listItem = e.target.parentNode.parentNode;
+                    var formWrapper = document.createElement("DIV");
+                    formWrapper.innerHTML += "<form id=\"o1-cl-form\">"
+                                           + "<div class=\"input-field row\">"
+                                              + "<input class=\"col s12\" placeholder=\"Navn\">"
+                                           + "</div>"
+                                           + "<div class=\"input-field row\">"
+                                              + "<input class=\"col s12\" placeholder=\"E-post\">"
+                                           + "</div>"
+                                       + "</form>";
+                    listItem.appendChild(formWrapper); 
+
+                    formWrapper.style.position = "absolute";
+                    formWrapper.style.top = "0px";
+                    formWrapper.style.right = "0px";
+                    formWrapper.style.backgroundColor = "#3c225f";
+                    formWrapper.style.height = listItem.offsetHeight + "px";
+
+                    var start = null, fWidth = 0, fHeight = 0;
+                    var fWidthMax = listItem.offsetWidth;
+
+                    // makes overlay
+                    function animate(timestamp) {
+                        if (!start) start = timestamp;
+                        var progress = timestamp - start;
+
+                        formWrapper.style.width = (fWidth += (fWidthMax/25)) + "px";
+
+                        if (fWidth < fWidthMax) {
+                            window.requestAnimationFrame(animate);
+                        } else {
+                            // Display form
+                            var form = document.getElementById("o1-cl-form");
+                            form.style.opacity = 1;
+                            form.style.padding = 25 + "px";
+                        }
+                    }
+                    window.requestAnimationFrame(animate, 0);
+                }
+            })();
 
             (function() {
                 var video = document.getElementById("o1-intro-video-bg");
