@@ -260,7 +260,6 @@
                             video.pause();
                         } else {
                             video.play();
-                            
                         }
                     }, 100);
                 });

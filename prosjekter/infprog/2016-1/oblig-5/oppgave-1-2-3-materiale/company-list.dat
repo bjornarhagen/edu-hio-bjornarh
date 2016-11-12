@@ -1,4 +1,4 @@
 company,date,time,topic,description,speaker,pictures/logo,pictures/speaker,seats,guests/0/name,guests/0/e-post,guests/1/name,guests/1/e-post,guests/2/name,guests/2/e-post
 Google,2016-11-30,17:30,Lorem ipsum,Lorem ipsum dolor sit amet,Larry page,google_-g-_logo.svg.png,google-larry_page,100,Bjørnar Hagen,bjornar@datahjelpen.org,Bjørnar Hagen,bjornar@datahjelpen.org,Bjørnar Hagen,bjornar@datahjelpen.org
-Microsoft,2017-01-10,18:00,Lorem ipsum,Lorem ipsum dolor sit amet,Larry page,google_-g-_logo.svg.png,google-larry_page,100,Bjørnar Hagen,bjornar@datahjelpen.org,Bjørnar Hagen,bjornar@datahjelpen.org,Bjørnar Hagen,bjornar@datahjelpen.org
-Uber,2017-02-01,19:00,Lorem ipsum,Lorem ipsum dolor sit amet,Larry page,google_-g-_logo.svg.png,google-larry_page,100,Bjørnar Hagen,bjornar@datahjelpen.org,Bjørnar Hagen,bjornar@datahjelpen.org,Bjørnar Hagen,bjornar@datahjelpen.org
+Microsoft,2017-01-10,18:00,Lorem ipsum,Lorem ipsum dolor sit amet,Larry page,microsoft_logo.svg.png,google-larry_page,100,Bjørnar Hagen,bjornar@datahjelpen.org,Bjørnar Hagen,bjornar@datahjelpen.org,Bjørnar Hagen,bjornar@datahjelpen.org
+Uber,2017-02-01,19:00,Lorem ipsum,Lorem ipsum dolor sit amet,Larry page,uber.png,google-larry_page,100,Bjørnar Hagen,bjornar@datahjelpen.org,Bjørnar Hagen,bjornar@datahjelpen.org,Bjørnar Hagen,bjornar@datahjelpen.org
