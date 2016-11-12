@@ -77,7 +77,7 @@
                             foreach ($company_list as $company_number => $company_info) {
                                 if ($company_number%2===0) {
                                     ?>
-                                        <li class="row space-a-small">
+                                        <li id="presentation-<?= $company_info->id; ?>" data-presentation="<?= $company_info->id; ?>" class="row space-a-small">
                                             <div class="col s12 m7 row">
                                                 <div class="col s12 l5 o1-cl-avatar">
                                                     <img src="oppgave-1-2-3-materiale/<?= $company_info->{'pictures/logo'}; ?>" alt="<?= $company_info->company; ?> logo">
@@ -97,7 +97,7 @@
                                     <?php
                                 } else {
                                     ?>
-                                        <li class="row space-a-small o1-grey-bg">
+                                        <li id="presentation-<?= $company_info->id; ?>" data-presentation="<?= $company_info->id; ?>" class="row space-a-small o1-grey-bg">
                                             <div class="col s12 m7 row">
                                                 <div class="col s12 l5 o1-cl-avatar">
                                                     <img src="oppgave-1-2-3-materiale/<?= $company_info->{'pictures/logo'}; ?>" alt="<?= $company_info->company; ?> logo">
