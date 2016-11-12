@@ -195,8 +195,24 @@
         function ready() {
             // Change browser theme color
             document.head.querySelector('meta[name="theme-color"]').setAttribute("content", "#3c225f");
+            var dataObject;
 
             (function() {
+                var xhr = new XMLHttpRequest();
+                xhr.open("GET", "oppgave-1-2-3-materiale/company-list.dat", true);                
+                xhr.addEventListener("readystatechange", function() {
+                    if (xhr.readyState == xhr.DONE) {
+                        dataObject = handleData(xhr.responseText);
+                    }
+                });
+                xhr.send();
+            })();
+
+
+            (function() {
+                var btn;
+                var formWrapper;
+                var formWrapperParent;
                 var registerButtons = document.getElementsByClassName("o1-register-btn");
 
                 for (var i = 0; i < registerButtons.length; i++) {
@@ -205,45 +221,89 @@
 
                 function showRegisterForm(e) {
                     e.preventDefault();
+                    btn = this;
 
-                    var listItem = e.target.parentNode.parentNode;
-                    var formWrapper = document.createElement("DIV");
-                    formWrapper.innerHTML += "<form id=\"o1-cl-form\">"
-                                           + "<div class=\"input-field row\">"
-                                              + "<input class=\"col s12\" placeholder=\"Navn\">"
-                                           + "</div>"
-                                           + "<div class=\"input-field row\">"
-                                              + "<input class=\"col s12\" placeholder=\"E-post\">"
-                                           + "</div>"
-                                       + "</form>";
-                    listItem.appendChild(formWrapper); 
+                    // Will remove the form if it's allready showing
+                    if (formWrapper) {
+                        animation(formWrapper, "leave", "#3c225f", 15);
+                    } else {
+                        formWrapperParent = this.parentNode.parentNode;
+                        formWrapper = document.createElement("DIV");
+                        formWrapper.setAttribute("id", "form-wrapper");
+                        
+                        // Put form inside
+                        formWrapper.innerHTML += '<?= str_replace(array("\r", "\n"), "", file_get_contents('oppgave-1-2-3-materiale/form.html')); ?>';
+                        formWrapperParent.appendChild(formWrapper); 
 
-                    formWrapper.style.position = "absolute";
-                    formWrapper.style.top = "0px";
-                    formWrapper.style.right = "0px";
-                    formWrapper.style.backgroundColor = "#3c225f";
-                    formWrapper.style.height = listItem.offsetHeight + "px";
+                        // Create list of presentations
+                        for (var i = 0; i < dataObject.length; i++) {
+                            var extraHTML = "";
 
-                    var start = null, fWidth = 0, fHeight = 0;
-                    var fWidthMax = listItem.offsetWidth;
+                            if (formWrapperParent.getAttribute("data-presentation") === dataObject[i].id) {
+                                extraHTML = "selected";
+                            }
 
-                    // makes overlay
-                    function animate(timestamp) {
-                        if (!start) start = timestamp;
-                        var progress = timestamp - start;
+                            document.getElementById("o1-cl-form-list").innerHTML += "<option value=\"" + dataObject[i].id + "\" " + extraHTML + ">" + dataObject[i].company + "</option>";
+                        }
 
-                        formWrapper.style.width = (fWidth += (fWidthMax/25)) + "px";
+                        animation(formWrapper, "enter", "#3c225f", 15);
+                    }
+                }
 
-                        if (fWidth < fWidthMax) {
-                            window.requestAnimationFrame(animate);
+                // makes overlay
+                function animation(element, direction, color, speed) {
+                    element.style.position = "absolute";
+                    element.style.top = "0px";
+                    element.style.right = "0px";
+                    element.style.backgroundColor = color;
+                    element.style.overflow = "hidden";
+                    element.style.width = "100%";
+
+                    var form = document.getElementById("o1-cl-form");
+                    var heightMax = element.parentNode.offsetHeight;
+                    element.style.maxHeight = heightMax + "px";
+
+                    if (direction == "enter") {
+                        var height = 0;
+                        element.style.height = "0px";
+                    } else {
+                        var height = 0;
+                        element.style.height = heightMax + "px";
+                        form.style.opacity = 0;
+                        // form.style.padding = 0;
+                    }
+
+                    function step(timestamp) {
+                        console.log("height: " + height);
+                        console.log("heightMax: " + heightMax);
+                        var check;
+
+                        if (direction == "enter") {
+                            check = ((height += (heightMax/speed)) < heightMax);
+                            element.style.height = height + "px";
                         } else {
-                            // Display form
-                            var form = document.getElementById("o1-cl-form");
-                            form.style.opacity = 1;
-                            form.style.padding = 25 + "px";
+                            check = ((height += (heightMax/speed)) < heightMax);
+                            element.style.top = height + "px";
+                        }
+
+                        if (check) {
+                            window.requestAnimationFrame(step);
+                        } else {
+                            if (direction == "enter") {
+                                // Display form
+                                form.style.opacity = 1;
+                                form.style.padding = 25 + "px";
+                            } else {
+                                element.remove();
+                                formWrapper = 0;
+                                formWrapperParent = 0;
+                                btn.click();
+                            }
                         }
                     }
-                    window.requestAnimationFrame(animate, 0);
+
+                     // Start animation
+                    window.requestAnimationFrame(step, 0);
                 }
             })();
 
@@ -266,23 +326,13 @@
 
             })();
 
-            (function() {
-                var xhr = new XMLHttpRequest();
+            function handleData(data) {
+                var rows = data.split('\n');
+                var dataObjects = [];
+                var headers = rows[0].split(',');
 
-                xhr.open("GET", "oppgave-1-2-3-materiale/company-list.dat", true);                
-                xhr.addEventListener("readystatechange", function() {
-                    if (xhr.readyState == xhr.DONE) {
-                        displayData(handleData(xhr.responseText));
-                    }
-                });
-                xhr.send();
-
-                function handleData(data) {
-                    var rows = data.split('\n');
-                    var dataObjects = [];
-                    var headers = rows[0].split(',');
-
-                    for(var row = 1; row < rows.length; row++){
+                for(var row = 1; row < rows.length; row++){
+                    if (rows[row].length) {
                         var obj = {};
                         var currentline = rows[row].split(",");
 
@@ -292,25 +342,25 @@
 
                         dataObjects.push(obj);
                     }
-
-                  return dataObjects;
                 }
 
-                function displayData(data) {
-                    // var featured = document.getElementById("up-next-presentation");
+              return dataObjects;
+            }
 
-                    // console.log(data);
+            function displayData(data) {
+                // var featured = document.getElementById("up-next-presentation");
 
-                    // for (var i = 0; i < featured.children.length; i++) {
-                    //     if (featured.children[i].tagName === "IMG") {
-                    //         featured.children[i].setAttribute("src", "oppgave-1-2-3-materiale/" + data[0]["pictures/logo"]);
-                    //     }
-                    //     if (featured.children[i].tagName === "H1") {
-                    //         featured.children[i].innerHTML = data[0]["company"];
-                    //     }
-                    // }
-                }
-            })();
+                // console.log(data);
+
+                // for (var i = 0; i < featured.children.length; i++) {
+                //     if (featured.children[i].tagName === "IMG") {
+                //         featured.children[i].setAttribute("src", "oppgave-1-2-3-materiale/" + data[0]["pictures/logo"]);
+                //     }
+                //     if (featured.children[i].tagName === "H1") {
+                //         featured.children[i].innerHTML = data[0]["company"];
+                //     }
+                // }
+            }
         }
     </script>
     <!-- <script src="/~bjornarh/js/prism/prism.js"></script> -->
