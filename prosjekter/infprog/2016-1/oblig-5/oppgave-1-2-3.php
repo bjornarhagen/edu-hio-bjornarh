@@ -4,17 +4,17 @@
 </head>
 <?php
     $csv = file_get_contents('oppgave-1-2-3-materiale/company-list.dat');
-    $array = array_map("str_getcsv", explode("\n", $csv));
+    $data = array_map("str_getcsv", explode("\n", $csv));
 
     $company_list = [];
 
     // Turn each CSV line into an object
-    foreach ($array as $company_number => $companies) {
+    foreach ($data as $company_number => $companies) {
         if (count($companies) > 1) {
             $current_company = new stdClass();
 
             foreach ($companies as $header_number => $company) {
-                $tmp = $array[0][$header_number];
+                $tmp = $data[0][$header_number];
                 $current_company->$tmp = $company;
             }
 
@@ -32,6 +32,22 @@
 
         return ($date_a > $date_b);
     });
+
+    $csv = file_get_contents('oppgave-1-2-3-materiale/paameldinger.dat');
+    $data = explode(PHP_EOL, $csv);
+    $attendees = new stdClass();
+
+    foreach ($data as $value) {
+        foreach ($company_list as $company_number => $company_info) {
+            if ($company_info->id == explode('¤', $value)[0]) {
+                if (isset($attendees->{$company_info->id})) {
+                    $attendees->{$company_info->id} += 1;
+                } else {
+                    $attendees->{$company_info->id} = 1;
+                }
+            }
+        }
+    }
 ?>
 <body>
     <header id="o1-intro" class="white-text">
@@ -59,7 +75,7 @@
                 <div id="up-next-presentation" class="white-bg space-h-small space-v-large">
                     <img src="oppgave-1-2-3-materiale/<?= $company_list[0]->{'pictures/logo'}; ?>" alt="<?= $company_list[0]->company; ?> logo">
                     <h1><?= $company_list[0]->company; ?></h1>
-                    <a href="#" class="btn accent">Meld deg på</a>
+                    <a id="up-next-presentation-btn" href="#presentation-<?= $company_list[0]->id; ?>" class="btn accent">Meld deg på</a>
                 </div>
             </div>
             <div class="col s12 hide-on-medium-and-down">
@@ -90,7 +106,7 @@
                                                 </div>
                                             </div>
                                             <div class="o1-cl-actions col s12 m5">
-                                                <p class="greyDark-text">Det er x av <?= $company_info->seats; ?> plasser igjen</p>
+                                                <p class="greyDark-text">Det er <?= ($company_info->seats - $attendees->{$company_info->id}); ?> av <?= $company_info->seats; ?> plasser igjen</p>
                                                 <a href="#" class="btn black o1-register-btn">Meld deg på</a>
                                             </div>
                                         </li>
@@ -110,7 +126,7 @@
                                                 </div>
                                             </div>
                                             <div class="o1-cl-actions col s12 m5">
-                                                <p class="greyDark-text">Det er x av <?= $company_info->seats; ?> plasser igjen</p>
+                                                <p class="greyDark-text">Det er <?= ($company_info->seats - $attendees->{$company_info->id}); ?> av <?= $company_info->seats; ?> plasser igjen</p>
                                                 <a href="#" class="btn black o1-register-btn">Meld deg på</a>
                                             </div>
                                         </li>
