@@ -193,8 +193,18 @@
         window.onload = ready;
 
         function ready() {
+            videoAutoPlayPause();
+
             // Change browser theme color
             document.head.querySelector('meta[name="theme-color"]').setAttribute("content", "#3c225f");
+
+            document.getElementById("up-next-presentation-btn").onclick = function() {
+                document.querySelector("#" + this.getAttribute("href").replace("\#", "") + " .o1-cl-actions a.btn").click();
+                setTimeout(function() {
+                    window.scrollBy(0, -100);
+                }, 50);
+            }
+
             var dataObject;
 
             (function() {
@@ -222,6 +232,13 @@
                 function showRegisterForm(e) {
                     e.preventDefault();
                     btn = this;
+
+                    if (btn.hasAttribute("disabled")) {
+                        btn.removeAttribute("disabled");
+                        return false;
+                    }
+
+                    btn.setAttribute("disabled", "");
 
                     // Will remove the form if it's allready showing
                     if (formWrapper) {
@@ -269,13 +286,9 @@
                     } else {
                         var height = 0;
                         element.style.height = heightMax + "px";
-                        form.style.opacity = 0;
-                        // form.style.padding = 0;
                     }
 
                     function step(timestamp) {
-                        console.log("height: " + height);
-                        console.log("heightMax: " + heightMax);
                         var check;
 
                         if (direction == "enter") {
@@ -293,10 +306,14 @@
                                 // Display form
                                 form.style.opacity = 1;
                                 form.style.padding = 25 + "px";
+                                form.addEventListener("submit", sendFormData);
+                                btn.removeAttribute("disabled");
                             } else {
-                                element.remove();
+                                element.parentNode.removeChild(element);
                                 formWrapper = 0;
                                 formWrapperParent = 0;
+                                form.removeEventListener("submit", sendFormData);
+                                btn.removeAttribute("disabled");
                                 btn.click();
                             }
                         }
@@ -305,25 +322,24 @@
                      // Start animation
                     window.requestAnimationFrame(step, 0);
                 }
-            })();
 
-            (function() {
-                var video = document.getElementById("o1-intro-video-bg");
-                var header = document.getElementById("o1-intro-post-head");
-                var timeout;
+                function sendFormData(e) {
+                    e.preventDefault();
+                    var form = e.target;
+                    var data = form.elements;
 
-                window.addEventListener('scroll', function() {
-                    clearTimeout(timeout);
-
-                    timeout = setTimeout(function() {
-                        if (document.body.scrollTop > (header.offsetTop + header.offsetHeight/2)) {
-                            video.pause();
-                        } else {
-                            video.play();
+                    var xhr = new XMLHttpRequest();
+                    xhr.open("GET", "register.php?kode=" + data.kode.value +
+                                                "&navn=" + data.navn.value +
+                                                "&epost=" + data.epost.value,
+                            true);
+                    xhr.addEventListener("readystatechange", function() {
+                        if (xhr.readyState == xhr.DONE) {
+                            form.innerHTML = "<h1 class=\"white-text center-align\">" + xhr.responseText + "</h1>";
                         }
-                    }, 100);
-                });
-
+                    });
+                    xhr.send(data);
+                }
             })();
 
             function handleData(data) {
@@ -346,24 +362,25 @@
 
               return dataObjects;
             }
+        }
 
-            function displayData(data) {
-                // var featured = document.getElementById("up-next-presentation");
+        function videoAutoPlayPause() {
+            var video = document.getElementById("o1-intro-video-bg");
+            var header = document.getElementById("o1-intro-post-head");
+            var timeout;
 
-                // console.log(data);
+            window.addEventListener('scroll', function() {
+                clearTimeout(timeout);
 
-                // for (var i = 0; i < featured.children.length; i++) {
-                //     if (featured.children[i].tagName === "IMG") {
-                //         featured.children[i].setAttribute("src", "oppgave-1-2-3-materiale/" + data[0]["pictures/logo"]);
-                //     }
-                //     if (featured.children[i].tagName === "H1") {
-                //         featured.children[i].innerHTML = data[0]["company"];
-                //     }
-                // }
-            }
+                timeout = setTimeout(function() {
+                    if (document.body.scrollTop > (header.offsetTop + header.offsetHeight/2)) {
+                        video.pause();
+                    } else {
+                        video.play();
+                    }
+                }, 100);
+            });
         }
     </script>
-    <!-- <script src="/~bjornarh/js/prism/prism.js"></script> -->
-    <!-- <link rel="stylesheet" href="/~bjornarh/css/prism/prism.css"> -->
 </body>
 </html>
