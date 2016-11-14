@@ -162,45 +162,37 @@
             <div class="space-a-large"></div>
         </div>
     </section>
-    <footer class="o1-primary-bg white-text row space-v-large">
-        <div class="col s12 space-a-large hide-on-medium-and-down"></div>
-        <!-- div.col. -->
-        <div class="col s12 space-a-large"></div>
+    <footer id="footer" class="o1-primary-bg white-text row">
         <div class="col s12 center-align">
             <h2><span class="font-brand">ENIGMA</span> bedriftspresentasjoner</h2>
             <p>Et prosjekt av Bjørnar Hagen</p>
         </div>
-    </footer>
-    <footer id="footer" class="white-bg">
-        <p>Bjørnar Hagen - <?= date("Y"); ?></p>
-        <div id="color-bar">
-            <nav id="nav-main">
-                <div id="nav-main-wrapper">
-                    <ul id="nav-main-logo">
-                        <li><a href="/~bjornarh/#hjem">Bjørnar Hagen</a></li>
-                    </ul>
-                    <ul id="nav-main-menu">
-                        <li>
-                            <a href="/~bjornarh/#hjem" title="Hjem">
-                                <i class="icon-house-2"></i>
-                                <span>Hjem</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="/~bjornarh/#prosjekter" title="Prosjekter">
-                                <i class="icon-layers-1"></i>
-                                <span>Prosjekter</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="/~bjornarh/#om" title="Om meg">
-                                <i class="icon-user-2"></i>
-                                <span>Om meg</span>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-            </nav>
+        <nav id="nav-main">
+            <div id="nav-main-wrapper">
+                <ul id="nav-main-menu">
+                    <li>
+                        <a href="/~bjornarh/#hjem" title="Hjem">
+                            <i class="icon-house-2"></i>
+                            <span>Hjem</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/~bjornarh/#prosjekter" title="Prosjekter">
+                            <i class="icon-layers-1"></i>
+                            <span>Prosjekter</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/~bjornarh/#om" title="Om meg">
+                            <i class="icon-user-2"></i>
+                            <span>Om meg</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <div id="o1-copyright">
+            <p>Bjørnar Hagen - <?= date("Y"); ?></p>
         </div>
     </footer>
     <link rel="stylesheet" href="<?= $path; ?>/fonts/streamline/styles.css">
@@ -214,6 +206,7 @@
             // Change browser theme color
             document.head.querySelector('meta[name="theme-color"]').setAttribute("content", "#3c225f");
 
+            // Make register buttons work
             document.getElementById("up-next-presentation-btn").onclick = function() {
                 document.querySelector("#" + this.getAttribute("href").replace("\#", "") + " .o1-cl-actions a.btn").click();
                 setTimeout(function() {
@@ -223,6 +216,7 @@
 
             var dataObject;
 
+            // Get CSV data
             (function() {
                 var xhr = new XMLHttpRequest();
                 xhr.open("GET", "oppgave-1-2-3-materiale/company-list.dat", true);                
@@ -264,7 +258,7 @@
                         formWrapper = document.createElement("DIV");
                         formWrapper.setAttribute("id", "form-wrapper");
                         
-                        // Put form inside
+                        // Put form inside        Gets form from a HTML file via PHP
                         formWrapper.innerHTML += '<?= str_replace(array("\r", "\n"), "", file_get_contents('oppgave-1-2-3-materiale/form.html')); ?>';
                         formWrapperParent.appendChild(formWrapper); 
 
@@ -283,7 +277,7 @@
                     }
                 }
 
-                // makes overlay
+                // Makes overlay and display/hides form
                 function animation(element, direction, color, speed) {
                     element.style.position = "absolute";
                     element.style.top = "0px";
@@ -308,9 +302,11 @@
                         var check;
 
                         if (direction == "enter") {
+                            // Shows form
                             check = ((height += (heightMax/speed)) < heightMax);
                             element.style.height = height + "px";
                         } else {
+                            // Hides form
                             check = ((height += (heightMax/speed)) < heightMax);
                             element.style.top = height + "px";
                         }
@@ -325,6 +321,7 @@
                                 form.addEventListener("submit", sendFormData);
                                 btn.removeAttribute("disabled");
                             } else {
+                                // Remove form
                                 element.parentNode.removeChild(element);
                                 formWrapper = 0;
                                 formWrapperParent = 0;
@@ -339,6 +336,7 @@
                     window.requestAnimationFrame(step, 0);
                 }
 
+                // Sends form data to a PHP script
                 function sendFormData(e) {
                     e.preventDefault();
                     var form = e.target;
@@ -358,6 +356,7 @@
                 }
             })();
 
+            // Converts CSV data to an object
             function handleData(data) {
                 var rows = data.split('\n');
                 var dataObjects = [];
@@ -380,6 +379,8 @@
             }
         }
 
+        // Stop the video header from playing when user has scrolled passed it
+        // This stops unnecessary rendering and makes the page more smooth.
         function videoAutoPlayPause() {
             var video = document.getElementById("o1-intro-video-bg");
             var header = document.getElementById("o1-intro-post-head");
