@@ -1,50 +1,101 @@
 <?php
-    // If JSON file doesn't exsist, or the file is older than 24 hours, make it again
-    // JSON file is made by a CSV file from yr.no
-    if (!file_exists('oppgave-4/norge.json') || filemtime('oppgave-4/norge.json') < time() - (3600*24)) {
-        $csv = file_get_contents('oppgave-4/norge.csv');
-        $data = array_map("str_getcsv", explode(PHP_EOL, $csv));
+    function generate_json_file($filename = null, $cache = 3600*24) {
+        if ($filename === null) {
+            $filename = 'oppgave-4/' . mt_rand(10000, 100000) . '.json'; // Make random filename
+        }
 
-        $placesList = [];
-        $headers = explode("\t", $data[0][0]);
+        // If JSON file doesn't exsist, or the file is older than 24 hours, make it again
+        // JSON file is made by a CSV file from yr.no
+        if (!file_exists($filename) || filemtime($filename) < time() - $cache) {
+            $csv = file_get_contents('oppgave-4/norge.csv');
+            $data = array_map("str_getcsv", explode("\n", $csv));
 
-        // Turn each CSV line into an object
-        foreach ($data as $place_id => $places) {
-            $places = explode("\t", $places[0]);
+            $placesList = [];
+            $headers = explode("\t", $data[0][0]);
 
-            if (count($places) > 1) {
-                $current_place = new stdClass();
+            // Turn each CSV line into an object
+            foreach ($data as $place_id => $places) {
+                $places = explode("\t", $places[0]);
 
-                foreach ($places as $header_number => $place) {
-                    if (strlen($headers[$header_number])) {
-                        $current_place->{strtolower($headers[$header_number])} = $place;
+                if (count($places) > 1) {
+                    $current_place = new stdClass();
+
+                    foreach ($places as $header_number => $place) {
+                        if (strlen($headers[$header_number])) {
+                            $current_place->{strtolower($headers[$header_number])} = $place;
+                        }
                     }
-                }
 
-                $placesList[$place_id] = $current_place;
+                    $placesList[$place_id] = $current_place;
+                }
+            }
+
+            unset($placesList[0]); // Remove the headers
+
+            // Write to file
+            $file = fopen($filename, 'w');
+            fwrite($file, json_encode($placesList));
+            fclose($file);
+        }
+
+        return $filename; // Return filename
+    }
+
+    function search($query) {
+        $json = json_decode(file_get_contents(generate_json_file('oppgave-4/norge.json')));
+        $result = null;
+
+        // Searches through the whole file to see if this place exsist
+        foreach($json as $struct) {
+            if (isset($struct->kommune)) {
+                if ($query == $struct->stadnamn) {
+                    $result = $struct;
+                    break; // Stop searching
+                }
             }
         }
 
-        unset($placesList[0]); // Remove the headers
-        $file = fopen('oppgave-4/norge.json', 'w');
-        fwrite($file, json_encode($placesList));
-        fclose($file);
+        if (!$result) {
+            // If nothing was found, send error
+            $result = new stdClass();
+            $result->search_result = 0;
+            $result->error = new stdClass();
+            $result->error->msg = 'Klarte ikke finne ' . $query;
+        } else {
+            $result->search_result = 1;
+            $result->error = null;
+        }
+
+        return $result;
     }
 
+    if (isset($_GET['s'])) {                                                // Search
+        header('Content-type: application/json');
 
-    $search = $_GET['s'];
-    $json = json_decode(file_get_contents('oppgave-4/norge.json'));
+        $result = json_encode(search(htmlspecialchars($_GET['s'])));
+    } else if (isset($_GET['xml']) && isset($_GET['place'])) {             // XML data
+        header('Content-type: application/xml');
 
-    var_dump($search);
+        $filename = htmlspecialchars($_GET['xml']);
+        $cacheFilename = 'oppgave-4/.cache/' . $_GET['place'] . ".xml";
 
-    $item = null;
-    foreach($json as $struct) {
-        if ($search == $struct->kommune && $search == $struct->stadnamn) {
-            $item = $struct;
-            break;
+        // If the cache file is present, and it's less than 1 hour old, read it
+        if (file_exists($cacheFilename) && filemtime($cacheFilename) > time() - 3600) {
+            $cacheFile = fopen($cacheFilename, 'r');
+            $result = fread($cacheFile, 8192);
+            fclose($cacheFile);
+        } else {
+            // If the file is not found, get live data from Yr
+            $file = fopen($filename, 'r');
+            $result = fread($file, 8192);
+            fclose($file);
+
+            // and make a cache file
+            $cacheFile = fopen($cacheFilename, 'w');
+            fwrite($cacheFile, '<!-- Cached data (from oppgave-4/.cache/location_name.xml) -->');
+            fwrite($cacheFile, $result);
+            fclose($cacheFile);
         }
     }
 
-    echo "<pre>";
-    var_dump($item);
-    echo "</pre>";
+    echo $result;
