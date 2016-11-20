@@ -1,0 +1,6 @@
+Client side:
+Nettleseren, det som brukeren kan se og interaktere med.
+
+Server side:
+Det brukeren ikke kan se.
+Det brukeren kan se blir ofte generert på server-siden av programmeringsspråk.

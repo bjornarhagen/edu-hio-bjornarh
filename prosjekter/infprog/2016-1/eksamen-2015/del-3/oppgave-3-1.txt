@@ -1,0 +1,19 @@
+a)
+	// Sorterer arrayen i DESC rekkefølge. Retunerer den første verdien
+	function maks(arr) {
+		return arr.sort(function(a, b) { return b-a })[0];
+	}
+
+
+b)
+	// Sjekker om summen av to tall er partall. Retunerer true eller false
+	function sumErPartall(tall1, tall2) {
+		return ((tall1 + tall2)%2 === 0);
+	}
+
+
+c)
+	// Retunerer summen av støreste og minste tallet i arrayen
+	function sumStorsteOgMinste(arr) {
+		return maks(arr) + min(arr);
+	}

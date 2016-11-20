@@ -1,0 +1,13 @@
+document.getElementById("utskrift").innerHTML = inflationCalc(1000, 3, 15);
+
+function inflationCalc(initialValue, inflation, years) {
+	var res = "";
+	var value = initialValue;
+
+	for (var i = 0; i <= years; i++) {
+		res += i + " år frem i tid er pengene verdt tilsvarende " + value + " kr i dag.<br>";
+		value = (value*(100-inflation)).toFixed(2);
+	}
+
+	return res;
+}

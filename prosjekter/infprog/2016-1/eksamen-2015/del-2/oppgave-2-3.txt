@@ -1,0 +1,2 @@
+JSON er en datastruktur, som f.eks XML.
+Det lar deg lagre ting i objects. Enklere å bruke med JavaScript.

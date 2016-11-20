@@ -1,0 +1,70 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Del 4 - Oppgave 4.2</title>
+		<style>
+			form {
+				display: block;
+				width: 100%;
+			}
+
+			form > input,
+			form > button,
+			form > select,
+			form > textarea,
+			form > label {
+				display: block;
+			}
+		</style>
+	</head>
+	<body>
+		<form id="form-register-weather" method="POST", action="save-weather-data.php">
+			<label for="frw-type">Værtype:</label>
+			<select id="frw-type" name="type">
+				<option value="null" disabled selected>Velg værtype</option>
+			</select>
+
+			<label for="frw-wind-direction">Vindretning:</label>
+			<input id="frw-wind-direction" name="wind-direction" type="text">
+
+			<label for="frw-wind-strength">Vindstyrke:</label>
+			<input id="frw-wind-strength" name="wind-strength" type="number">
+
+			<label for="frw-temperature">Temperatur:</label>
+			<input id="frw-temperature" name="temperature" type="number">
+
+			<button type="submit">Send</button>
+		<form>
+		<script>
+			window.onload = ready;
+
+			function ready() {
+				var form = document.querySelector("#form-register-weather");
+
+				vaertyper.forEach(function(val, i) {
+					document.querySelector("#frw-type").innerHTML += "<option value=\"" + val + "\">val</option>";
+				});
+
+				form.onsubmit = function(e) {
+					e.preventDefault(); // Stopp standard oppførsel til form elementet.
+					registerWeather(form);
+				}
+			}
+
+			function registerWeather(form) {
+				var xhr = new XMLHttpRequest();
+				xhr.onreadystatechange = function() {
+					form.innerHTML += " ... ";
+
+					if (xhr.readyState === xhr.DONE && xhr.status === 200) {
+						form.innerHTML += "Motatt!";
+					}
+				}
+				xhr.open(form.getAttribute("method"), form.getAttribute("action"));
+				xhr.send(new FormData(form));
+
+				form.innerHTML += "Sendt";
+			}
+		</script>
+	</body>
+</html>

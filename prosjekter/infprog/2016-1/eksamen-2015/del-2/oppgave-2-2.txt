@@ -1,0 +1,3 @@
+jQuery er et library til JavaScript, ikke et framework.
+Det fungerer som en slags utvidelse av språket.
+Man må laste ned en jQuery som en JavaScript fil og laste den inn på siden før man kan bruke jQuery.
