@@ -11,7 +11,7 @@
             <h2>Obliger - høsten 2016</h2>
             <ul>
                 <?php
-                    for ($i=0; $i < 4; $i++) { 
+                    for ($i=0; $i < 5; $i++) { 
                         echo '<li><a href="oblig-' . ($i + 1) . '">Oblig ' . ($i + 1) . '</a></li>';
                     }
                 ?>

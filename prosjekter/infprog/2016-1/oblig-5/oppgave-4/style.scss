@@ -20,6 +20,10 @@ main {
 	height: 100%;
 }
 
+html {
+	background-color: $color__brand-primary;
+}
+
 .o4 {
     &-primary {
         &-bg {
@@ -85,17 +89,9 @@ main {
 				@include transform(translateY, -50%);
 				color: $color__brand-black;
 				outline: 1px solid $color__brand-black;
+				overflow-y: auto;
 				outline-offset: -10px;
 				background-color: $cWhite;
-
-				&:hover {
-					outline-offset: -15px;
-				}
-				
-				&:active {
-					@include transition(0s);
-					outline-offset: -20px;
-				}
 
 				input,
 				button {
@@ -197,12 +193,49 @@ main {
 	display: block;
 	margin: 0 auto;
 	width: 100%;
-	max-width: 128px;
+	max-width: 127px;
 	height: auto;
 }
 
 #search-result {
+	overflow-y: auto;
 	text-align: left;
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    p,
+    div {
+        white-space: normal;
+    }
+}
+
+#results-fancy {
+	@include clear();
+
+	h1 {
+		margin: 50px 0 25px 0;
+		display: block;
+	}
+
+	p {
+		margin: 0;
+		color: $color__brand-black-dark;
+	}
+
+	h2,
+	img {
+		display: inline-block;
+		vertical-align: middle;
+	}
+
+	h2 {
+		margin: 0;
+		margin-left: 10px;
+	}
 }
 
 @media screen and (max-width: 480px) {

@@ -11,7 +11,7 @@
             <div class="o4-fullscreen-inner">
                 <section class="o4-fullscreen-inner-search">
                     <header id="search-wrapper" class="row before-search">
-                        <input id="search" type="search" class="col s8 m9 l10" autofocus autocomplete="off" placeholder="Søk etter sted ...">
+                        <input value="Halden" id="search" type="search" class="col s8 m9 l10" autofocus autocomplete="off" placeholder="Søk etter sted ...">
                         <button type="button" class="col s4 m3 l2" title="Søk"><i class="icon-magnifier"></i></button>
                     </header>
                     <img id="search-loading" src="oppgave-4/loading.svg">
@@ -44,7 +44,7 @@
                 var oldValue;
 
                 searchEl.addEventListener("focusout", function(e) {
-                    if (this.value != oldValue && this.value.length) {
+                    if (this.value != oldValue) {
                         oldValue = this.value;
                         searchInit(e);
                     }
@@ -94,7 +94,7 @@
         function searchComplete(qEl, q, rEl, r) {
             var searchEl = qEl;
             var searchElLoad = document.getElementById("search-loading");
-            var searchElParent = searchEl.parentNode
+            var searchElParent = searchEl.parentNode;
 
             // Hide loader
             searchElLoad.style.opacity = 0;
@@ -124,13 +124,6 @@
                     // Send results
                     handleData(r[this.getAttribute("data-object")], rEl);
                 });
-            }
-
-            // No results
-            if (!r.search_result) {
-                if (r.search_result === 0) {
-                    rEl.innerHTML = "<h1>Vi kunne ikke finne " + q + "</h1>"
-                }
             }
         }
 

@@ -11,8 +11,6 @@
         <header id="intro">
             <h1>Infoprog Oblig 5</h1>
             <p>Tema: Eksterne datakilder / prosjekt</p>
-            <p>Under er en oversikt over alle oppgavene. Det vil også være en link til hver oppgave på toppen av siden.</p>
-            <p>Hver oppgave er delt opp i 3 seksjoner: oppgaveteksten, resultet & koden.</p>
         </header>
         <section class="space-a-medium">
             <h2>Oppgaver</h2>
@@ -20,6 +18,23 @@
                 <li><a href="oppgave-1-2-3.php">Oppgave 1, 2 & 3</a></li>
                 <li><a href="oppgave-4.php">Oppgave 4</a></li>
             </ul>
+
+            Oppgave 4 sluttet å funke...
+            her er hvordan den ville sett ut:
+            <img src="http://i.imgur.com/IETfs7o.jpg">
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <img src="http://i.imgur.com/DJL3RcW.jpg">
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <img src="http://i.imgur.com/p4LoUEb.jpg">
+            du kan forsatt lese koden da :)
         </section>
     </article>
     <?php require_once('../../../../templates/footer.php'); ?>
