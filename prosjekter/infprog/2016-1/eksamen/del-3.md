@@ -43,4 +43,4 @@ Husk at du også skal lage selve PHP-fila som skal benyttes til skriving. Denne 
 (Eksamenssystemet støtter kun én "kodeboks" til hver oppgave. Skriv PHP-fila i samme kodeboks, skilt med en kommentar. Se bort i fra at fargekodingen da ikke helt stemmer for PHP-koden)
 
 ### [Besvarelse - HTML](del-3-2.html)
-### [Besvarelse - PHP](register.phps)
+### [Besvarelse - PHP](register.php)
