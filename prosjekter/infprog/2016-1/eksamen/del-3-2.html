@@ -1,0 +1,140 @@
+/*
+ * Har valgt å plassere JS på slutten av filen for å forhindre render-blocking
+ *
+ * Har valgt å ikke bruke alert() i koden pga. den er irriterende.
+ * Feilmeldingene blir i stedenfor sendt fra PHP filen via AJAX, og vist i HTMLen.
+**/
+
+<!DOCTYPE = HTML>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Registrer resultater - SIL & TIL Idrettsstevne 2016</title>
+    <style>
+        h1,
+        h2,
+        p {
+            display: block;
+        }
+    
+        h1,
+        h2 {
+            font-weight: 700;
+            font-family: serif;
+        }
+    
+        h1 {
+            font-size: 3em;
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <section>
+            <header>
+                <h1>Registrering</h1>
+            </header>
+            <form id="o3_2-form" method="POST" action="register.php">
+                <p>
+                    <label for="o3_2-f-number">Deltakernummer: </label>
+                    <input id="o3_2-f-number" name="o3_2-f-number" type="number" placeholder"1" min="1" required>
+                </p>
+                <p>
+                    <label for="o3_2-f-name_first">Fornavn: </label>
+                    <input id="o3_2-f-name_first" name="o3_2-f-name_first" type="text" placeholder"Ola" required>
+                </p>
+                <p>
+                    <label for="o3_2-f-name_last">Etternavn: </label>
+                    <input id="o3_2-f-name_last" name="o3_2-f-name_last" type="text" placeholder"Nordmann" required>
+                </p>
+                <p>
+                    <label for="o3_2-f-team">Lag: </label>
+                    <select id="o3_2-f-team" name="o3_2-f-team" required>
+                        <option selected disabled value="">Velg et lag ...</option>
+                    </select>
+                </p>
+                <p>
+                    <label for="o3_2-f-time">Tid (i sekunder): </label>
+                    <input id="o3_2-f-time" name="o3_2-f-time" type="number" placeholder"123" required>
+                </p>
+                <p>
+                    <button type="submit">Registrer</button>
+                </p>
+                <div id="o3_2-f-msgs"></div>
+            </form>
+        </section>
+    </main>
+    <script>
+        window.onload = function() {
+            // Generate list of teams
+            (function() {
+                // Faktiske systemet burde kanskje hente ut listen med lag via PHP
+                // Hadde man gjort det, ville registrering funket selv om brukeren sin nettleser ikke hadde støttet JS.
+
+                // Inneholder egentlig flere lag...
+                var lag = [
+                    {lagkode: "SIL", navn: "Smartøy Idrettslag"}, 
+                    {lagkode: "TIL", navn: "Turøy Idrettslag"}
+                ];
+                
+                var teams = document.getElementById("o3_2-f-team");
+                var teamsHTML = "";
+                
+                lag.forEach(function(team) {
+                    teamsHTML += '<option value="' + team.lagkode + '">' + team.navn + '</option>';
+                });
+                
+                teams.innerHTML += teamsHTML;
+            })();
+
+            // Stop default form action and make it send with AJAX instead
+            (function() {
+                var form = document.getElementById("o3_2-form");
+                form.onsubmit = function(e) {
+                    e.preventDefault();
+                    sendData(form);
+                }
+            })();
+        }
+        
+        function sendData(form) {
+            var xhr = new XMLHttpRequest();
+            var data = new FormData(form);
+            var msgEl = document.getElementById("o3_2-f-msgs");
+
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState == xhr.DONE && xhr.status === 200) {
+                    msgEl.innerHTML += xhr.responseText;
+                    formReset(form);
+                    
+                    setTimeout(function() {
+                        msgEl.innerHTML = "";
+                    }, 10000); // 10s
+                } else if (xhr.readyState == xhr.DONE) {
+                    var data = "<h2>Error</h2>";
+                    data += "<p>StatusCode: " + xhr.status + "</p>";
+                    data += "<p>Data: " + xhr.responseText + "</p>";
+
+                    msgEl.innerHTML += data;
+
+                    setTimeout(function() {
+                        msgEl.innerHTML = "";
+                    }, 10000); // 10s
+                }
+            }
+
+            xhr.open(form.getAttribute("method"), form.getAttribute("action"));
+            xhr.send(data);
+        }
+        
+        // Empty form fields
+        function formReset(form) {
+            var inputs = form.querySelectorAll("input");
+
+            for (var i = 0; i < inputs.length; i++) {
+                inputs[i].value = "";
+            }
+        }
+    </script>
+</body>
+</html>
