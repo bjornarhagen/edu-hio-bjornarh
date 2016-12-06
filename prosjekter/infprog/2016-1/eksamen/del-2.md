@@ -1,6 +1,6 @@
 # Fast* - del 2
 *Ikke faktisk fasit. Har bare kjørt koden og sett om det funket som forventet*
-*OBS! Dette er min kode, altså nødvendigvis ikke beste løsning i det hele tatt.*
+*OBS! Dette er min kode, altså nødvendigvis ikke beste løsning i det hele tatt, men den funker.*
 
 ---
 
