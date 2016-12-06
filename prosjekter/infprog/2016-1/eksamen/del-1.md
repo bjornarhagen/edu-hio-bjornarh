@@ -1,6 +1,8 @@
 # Fast* - del 1
 *Ikke faktisk fasit. Har bare kjørt koden og sett hva resultatet ble*
 
+---
+
 ## Oppgave 1.1
 *Hva blir utskriften fra følgende kode?*
 ```
@@ -13,6 +15,8 @@
 ```
 ### Svar
 `9`
+
+---
 
 ## Oppgave 1.2     
 *Hva blir utskriften fra følgende kode?*
@@ -29,6 +33,8 @@
 ```
 ### Svar
 `4`
+
+---
 
 ## Oppgave 1.3     
 *Hva blir utskriften fra følgende kode?* 
@@ -48,6 +54,8 @@
 ### Svar
 `5-5`
 
+---
+
 ## Oppgave 1.4
 *Hva blir utskriften fra følgende kode?*
  ```
@@ -59,6 +67,8 @@
 ### Svar
 `54`
 
+---
+
 ## Oppgave 1.5
 *Hva blir utskriften fra følgende kode?*
 ```
@@ -69,6 +79,8 @@
 ```
 ### Svar
 `6`
+
+---
 
 ## Oppgave 1.6
 *Hva blir utskriften fra følgende kode?*
@@ -84,6 +96,8 @@
 ### Svar
 `9`
 
+---
+
 ## Oppgave 1.7
 *Hva blir utskriften fra følgende kode?*
 ```
@@ -97,6 +111,8 @@
 ```
 ### Svar
 `1`
+
+---
 
 ## Oppgave 1.8
 *Hva blir utskriften fra følgende kode?*
@@ -119,6 +135,8 @@
 ### Svar 
 `19`
 
+---
+
 ## Oppgave 1.9
 *Hva blir utskriften fra følgende kode?*
 ```
@@ -138,6 +156,8 @@
 ### Svar 
 `A`
 
+---
+
 ##Oppgave 1.10
 *Hva blir utskriften fra følgende kode? I dette tilfellet vill siste kodelinje stå i ”oppstarts-funksjonen”, mens selve funksjonen er definert for seg selv.*
 ```
@@ -155,6 +175,8 @@
 ### Svar
 `5`
 
+---
+
 ## Oppgave 1.11
 *Hva blir utskriften fra følgende kode?*
 ```
@@ -163,6 +185,8 @@
 ```
 ### Svar 
 `A`
+
+---
 
 ## Oppgave 1.12
 *Hva blir utskriften fra følgende kode?*
@@ -177,6 +201,8 @@
 ```
 ### Svar 
 `0,1,2,`
+
+---
 
 ## Oppgave 1.13
 *Hva blir utskriften fra følgende kode?*
@@ -194,6 +220,8 @@
 ### Svar 
 `#0,0##0,1##1,0##1,1#`
 
+---
+
 ## Oppgave 1.14
 *Hva blir utskriften fra følgende kode?*
 ```
@@ -206,6 +234,8 @@
 ```
 ### Svar 
 `10`
+
+---
 
 ## Oppgave 1.15
 *Hva blir utskriften fra følgende kode?*
