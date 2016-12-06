@@ -89,6 +89,7 @@ function writeAllCombos(arr1, arr2) {
 
 ## Oppgave 2.3
 ![Canvas kunst](del-2-3.png "Canvas kunst")
+
 I denne oppgaven kan du gå ut i fra at følgende `<canvas>`-tagg står i HTML-dokumentet
 `<canvas id="tegneflate" width="400" height="400"></canvas>`
 Ved hjelp av løkker, produser følgende grafikk (du ser her hele canvaset)
