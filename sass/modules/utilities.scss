@@ -173,50 +173,6 @@ template {
 .layout-xl  { max-width: $size-xl;  }
 .layout-xxl { max-width: $size-xxl; }
 
-// Paddings (h = horizontal, v = vertical, left = left, etc.)
-.p-xs   { padding:        $pad-xs;  }
-.ph-xs  { padding-left:   $pad-xs;  padding-right:  $pad-xs;  }
-.pv-xs  { padding-top:    $pad-xs;  padding-bottom: $pad-xs;  }
-.pt-xs  { padding-top:    $pad-xs;  }
-.pr-xs  { padding-right:  $pad-xs;  }
-.pb-xs  { padding-bottom: $pad-xs;  }
-.pl-xs  { padding-left:   $pad-xs;  }
-.p-s    { padding:        $pad-s;   }
-.ph-s   { padding-left:   $pad-s;   padding-right:  $pad-s;   }
-.pv-s   { padding-top:    $pad-s;   padding-bottom: $pad-s;   }
-.pt-s   { padding-top:    $pad-s;   }
-.pr-s   { padding-right:  $pad-s;   }
-.pb-s   { padding-bottom: $pad-s;   }
-.pl-s   { padding-left:   $pad-s;   }
-.p-m    { padding:        $pad-m;   }
-.ph-m   { padding-left:   $pad-m;   padding-right:  $pad-m;   }
-.pv-m   { padding-top:    $pad-m;   padding-bottom: $pad-m;   }
-.pt-m   { padding-top:    $pad-m;   }
-.pr-m   { padding-right:  $pad-m;   }
-.pb-m   { padding-bottom: $pad-m;   }
-.pl-m   { padding-left:   $pad-m;   }
-.p-l    { padding:        $pad-l;   }
-.ph-l   { padding-left:   $pad-l;   padding-right:  $pad-l;   }
-.pv-l   { padding-top:    $pad-l;   padding-bottom: $pad-l;   }
-.pt-l   { padding-top:    $pad-l;   }
-.pr-l   { padding-right:  $pad-l;   }
-.pb-l   { padding-bottom: $pad-l;   }
-.pl-l   { padding-left:   $pad-l;   }
-.p-xl   { padding:        $pad-xl;  }
-.ph-xl  { padding-left:   $pad-xl;  padding-right:  $pad-xl;  }
-.pv-xl  { padding-top:    $pad-xl;  padding-bottom: $pad-xl;  }
-.pt-xl  { padding-top:    $pad-xl;  }
-.pr-xl  { padding-right:  $pad-xl;  }
-.pb-xl  { padding-bottom: $pad-xl;  }
-.pl-xl  { padding-left:   $pad-xl;  }
-.p-xxl  { padding:        $pad-xxl; }
-.ph-xxl { padding-left:   $pad-xxl; padding-right:  $pad-xxl; }
-.pv-xxl { padding-top:    $pad-xxl; padding-bottom: $pad-xxl; }
-.pt-xxl { padding-top:    $pad-xxl; }
-.pr-xxl { padding-right:  $pad-xxl; }
-.pb-xxl { padding-bottom: $pad-xxl; }
-.pl-xxl { padding-left:   $pad-xxl; }
-
 .hide-xs       { @include hide-on('xs');       }
 .hide-s-down   { @include hide-on('s-down');   }
 .hide-s        { @include hide-on('s');        }
@@ -232,82 +188,6 @@ template {
 .hide-xl-up    { @include hide-on('xl-up');    }
 .hide-xxl      { @include hide-on('xxl');      }
 .hide-xxl-up   { @include hide-on('xxl-up');   }
-
-.c-white            { color: $color-white;            }
-.c-black            { color: $color-black;            }
-.c-primary          { color: $color-primary;          }
-.c-primary-lightest { color: $color-primary-lightest; }
-.c-primary-light    { color: $color-primary-light;    }
-.c-primary-dark     { color: $color-primary-dark;     }
-.c-primary-darkest  { color: $color-primary-darkest;  }
-.c-accent           { color: $color-accent;           }
-.c-accent-lightest  { color: $color-accent-lightest;  }
-.c-accent-light     { color: $color-accent-light;     }
-.c-accent-dark      { color: $color-accent-dark;      }
-.c-accent-darkest   { color: $color-accent-darkest;   }
-.c-success          { color: $color-success;          }
-.c-success-lightest { color: $color-success-lightest; }
-.c-success-light    { color: $color-success-light;    }
-.c-success-dark     { color: $color-success-dark;     }
-.c-success-darkest  { color: $color-success-darkest;  }
-.c-error            { color: $color-error;            }
-.c-error-lightest   { color: $color-error-lightest;   }
-.c-error-light      { color: $color-error-light;      }
-.c-error-dark       { color: $color-error-dark;       }
-.c-error-darkest    { color: $color-error-darkest;    }
-.c-warning          { color: $color-warning;          }
-.c-warning-lightest { color: $color-warning-lightest; }
-.c-warning-light    { color: $color-warning-light;    }
-.c-warning-dark     { color: $color-warning-dark;     }
-.c-warning-darkest  { color: $color-warning-darkest;  }
-.c-info             { color: $color-info;             }
-.c-info-lightest    { color: $color-info-lightest;    }
-.c-info-light       { color: $color-info-light;       }
-.c-info-dark        { color: $color-info-dark;        }
-.c-info-darkest     { color: $color-info-darkest;     }
-.c-neutral          { color: $color-neutral;          }
-.c-neutral-lightest { color: $color-neutral-lightest; }
-.c-neutral-light    { color: $color-neutral-light;    }
-.c-neutral-dark     { color: $color-neutral-dark;     }
-.c-neutral-darkest  { color: $color-neutral-darkest;  }
-
-.c-white-bg            { background-color: $color-white;            }
-.c-black-bg            { background-color: $color-black;            }
-.c-primary-bg          { background-color: $color-primary;          }
-.c-primary-lightest-bg { background-color: $color-primary-lightest; }
-.c-primary-light-bg    { background-color: $color-primary-light;    }
-.c-primary-dark-bg     { background-color: $color-primary-dark;     }
-.c-primary-darkest-bg  { background-color: $color-primary-darkest;  }
-.c-accent-bg           { background-color: $color-accent;           }
-.c-accent-lightest-bg  { background-color: $color-accent-lightest;  }
-.c-accent-light-bg     { background-color: $color-accent-light;     }
-.c-accent-dark-bg      { background-color: $color-accent-dark;      }
-.c-accent-darkest-bg   { background-color: $color-accent-darkest;   }
-.c-success-bg          { background-color: $color-success;          }
-.c-success-lightest-bg { background-color: $color-success-lightest; }
-.c-success-light-bg    { background-color: $color-success-light;    }
-.c-success-dark-bg     { background-color: $color-success-dark;     }
-.c-success-darkest-bg  { background-color: $color-success-darkest;  }
-.c-error-bg            { background-color: $color-error;            }
-.c-error-lightest-bg   { background-color: $color-error-lightest;   }
-.c-error-light-bg      { background-color: $color-error-light;      }
-.c-error-dark-bg       { background-color: $color-error-dark;       }
-.c-error-darkest-bg    { background-color: $color-error-darkest;    }
-.c-warning-bg          { background-color: $color-warning;          }
-.c-warning-lightest-bg { background-color: $color-warning-lightest; }
-.c-warning-light-bg    { background-color: $color-warning-light;    }
-.c-warning-dark-bg     { background-color: $color-warning-dark;     }
-.c-warning-darkest-bg  { background-color: $color-warning-darkest;  }
-.c-info-bg             { background-color: $color-info;             }
-.c-info-lightest-bg    { background-color: $color-info-lightest;    }
-.c-info-light-bg       { background-color: $color-info-light;       }
-.c-info-dark-bg        { background-color: $color-info-dark;        }
-.c-info-darkest-bg     { background-color: $color-info-darkest;     }
-.c-neutral-bg          { background-color: $color-neutral;          }
-.c-neutral-lightest-bg { background-color: $color-neutral-lightest; }
-.c-neutral-light-bg    { background-color: $color-neutral-light;    }
-.c-neutral-dark-bg     { background-color: $color-neutral-dark;     }
-.c-neutral-darkest-bg  { background-color: $color-neutral-darkest;  }
 
 // So JS to detect what kind of device we are on
 #devicecheck {
