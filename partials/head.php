@@ -1,6 +1,7 @@
 <?php
   $_project_name = 'Bjørnar Hagen';
   $_project_path = "/~bjornarh";
+  $_project_path = "http://localhost:8080"; // TODO: remove in prod
 ?>
 <!doctype html>
 <html lang="no">
