@@ -1,0 +1,72 @@
+[
+  {
+    "slug": "oppgave-2",
+    "title": "Oppgave 2",
+    "excerpt": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error nam eligendi perferendis, enim repellendus molestiae exercitationem est dolore! Officiis soluta, eaque deserunt cumque harum, officia corrupti a eos doloribus quae.",
+    "image": {
+      "url": "/images/default.png",
+      "alt": "Oppgave 2 bilde"
+    },
+    "date": "2018-09-04",
+    "author": {
+      "name": "Bjørnar Hagen",
+      "email": "bjornarh@hiof.no"
+    }
+  },
+  {
+    "slug": "oppgave-3",
+    "title": "Oppgave 3",
+    "excerpt": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Numquam adipisci, modi nemo libero neque quis aspernatur deleniti tempora quod molestias tempore dolorem sit asperiores ab distinctio accusantium quam harum itaque!",
+    "image": {
+      "url": "/images/default.png",
+      "alt": "Oppgave 3 bilde"
+    },
+    "date": "2018-09-04",
+    "author": {
+      "name": "Bjørnar Hagen",
+      "email": "bjornarh@hiof.no"
+    }
+  },
+  {
+    "slug": "oppgave-4",
+    "title": "Oppgave 4",
+    "excerpt": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempore debitis, labore ducimus quis hic explicabo, odit voluptatem atque. Aliquam ab corrupti minus rerum, mollitia dolorum? Aut repellendus porro, consequatur a.",
+    "image": {
+      "url": "/images/default.png",
+      "alt": "Oppgave 4 bilde"
+    },
+    "date": "2018-09-04",
+    "author": {
+      "name": "Bjørnar Hagen",
+      "email": "bjornarh@hiof.no"
+    }
+  },
+  {
+    "slug": "oppgave-5",
+    "title": "Oppgave 5",
+    "excerpt": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate natus incidunt, dolor officia. Cumque fuga corrupti, laudantium officiis consequuntur eveniet earum, delectus distinctio molestias, laboriosam nemo accusantium laborum tempora nihil.",
+    "image": {
+      "url": "/images/default.png",
+      "alt": "Oppgave 5 bilde"
+    },
+    "date": "2018-09-04",
+    "author": {
+      "name": "Bjørnar Hagen",
+      "email": "bjornarh@hiof.no"
+    }
+  },
+  {
+    "slug": "oppgave-6",
+    "title": "Oppgave 6",
+    "excerpt": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Labore ea et nobis veritatis, hic asperiores tempora cupiditate vitae ut nam, libero fuga eaque similique, est facilis perferendis voluptas sapiente laudantium.",
+    "image": {
+      "url": "/images/default.png",
+      "alt": "Oppgave 6 bilde"
+    },
+    "date": "2018-09-04",
+    "author": {
+      "name": "Bjørnar Hagen",
+      "email": "bjornarh@hiof.no"
+    }
+  }
+]

@@ -41,3 +41,37 @@ body {
 }
 @import 'modules/media';
 @import 'modules/typography';
+
+#front-page {
+  .articles {
+    > header {
+      grid-column: 1/4;
+      padding: $pad-l 0 $pad-m;
+      font-size: 2em;
+    }
+
+    display: grid;
+    grid-template-columns: repeat(3, minmax(300px, max-content));
+    grid-template-rows: auto;
+    grid-gap: $pad-m;
+
+    .article {
+      background-color: $color-white;
+
+      &-header {
+      }
+
+      &-content {
+        padding: $pad-m $pad-m 0;
+      }
+
+      &-title {
+        margin: 0;
+      }
+
+      &-footer {
+        padding: 0 $pad-m $pad-m;
+      }
+    }
+  }
+}
