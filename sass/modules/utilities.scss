@@ -1,0 +1,339 @@
+// Clearfix
+@mixin clearfix() {
+	&:before,
+	&:after {
+		content: " ";
+		display: table
+	}
+
+	&:after{
+		clear: both
+	}
+}
+
+@mixin transition($properties, $duration: '250ms', $timing_function: cubic-bezier(0.4, 0.0, 0.2, 1)) {
+	transition-property: unquote($properties);
+	transition-duration: unquote($duration);
+	transition-timing-function: $timing_function;
+}
+
+@mixin shadow($depth: 1, $strength: 1) {
+	@if $depth == 0 { box-shadow: 0 0 0 rgba($color-shadow, 0); }
+
+	@if $strength == 1 {
+		@if $depth == 1 { box-shadow: 0 .25rem 1rem rgba($color-shadow, .05); }
+		@else if $depth == 2 { box-shadow: 0 .5rem 1rem rgba($color-shadow, .05);  }
+	}
+
+	@if $strength == 2 {
+		@if $depth == 1 { box-shadow: 0 .25rem 1rem rgba($color-shadow, .1); }
+		@else if $depth == 2 { box-shadow: 0 .5rem 1rem rgba($color-shadow, .1); }
+	}
+
+	@if $strength == 3 {
+		@if $depth == 1 { box-shadow: 0 .25rem 1rem rgba($color-shadow, .2); }
+		@else if $depth == 2 { box-shadow: 0 .5rem 1rem rgba($color-shadow, .2); }
+	}
+}
+
+@mixin hide-on($size) {
+	@if $size == 'xs' {
+		@media screen and (max-width: $size-xs) { display: none; }
+	}
+
+	@if $size == 's-down' {
+		@media screen and (max-width: $size-s) { display: none; }
+	}
+
+	@if $size == 's' {
+		@media screen and (min-width: $size-xs-up) and (max-width: $size-s) { display: none; }
+	}
+
+	@if $size == 's-up' {
+		@media screen and (min-width: $size-xs-up) { display: none; }
+	}
+
+	@if $size == 'm-down' {
+		@media screen and (max-width: $size-m) { display: none; }
+	}
+
+	@if $size == 'm' {
+		@media screen and (min-width: $size-s-up) and (max-width: $size-m) { display: none; }
+	}
+
+	@if $size == 'm-up' {
+		@media screen and (min-width: $size-s-up) { display: none; }
+	}
+
+	@if $size == 'l-down' {
+		@media screen and (max-width: $size-l) { display: none; }
+	}
+
+	@if $size == 'l' {
+		@media screen and (min-width: $size-m-up) and (max-width: $size-l) { display: none; }
+	}
+
+	@if $size == 'l-up' {
+		@media screen and (min-width: $size-m-up) { display: none; }
+	}
+
+	@if $size == 'xl-down' {
+		@media screen and (max-width: $size-xl) { display: none; }
+	}
+
+	@if $size == 'xl' {
+		@media screen and (min-width: $size-l-up) and (max-width: $size-xl) { display: none; }
+	}
+
+	@if $size == 'xl-up' {
+		@media screen and (min-width: $size-l-up) { display: none; }
+	}
+
+	@if $size == 'xxl' {
+		@media screen and (min-width: $size-xl-up) and (max-width: $size-xxl) { display: none; }
+	}
+
+	@if $size == 'xxl-up' {
+		@media screen and (min-width: $size-xl-up) { display: none; }
+	}
+}
+
+/* Document (https://html.spec.whatwg.org/multipage/semantics.html#semantics) */
+/**
+ * 1. Add border box sizing in all browsers (opinionated).
+ * 2. Add the default cursor in all browsers (opinionated).
+ * 3. Prevent font size adjustments after orientation changes in IE and iOS.
+ */
+/* Sections (https://html.spec.whatwg.org/multipage/semantics.html#sections) */
+/**
+ * Add the correct display in IE 9-.
+ */
+
+article,
+aside,
+footer,
+header,
+nav,
+section,
+figcaption,
+figure,
+main {
+	display: block;
+}
+
+/*
+ * Add the correct display in IE 9-.
+ * 1. Add the correct display in Edge, IE, and Firefox.
+ */
+details, /* 1 */
+menu {
+	display: block;
+}
+
+/*
+ * Add the correct display in all browsers.
+ */
+summary {
+	display: list-item;
+}
+
+/*
+ * Remove the tapping delay on clickable elements (opinionated).
+ */
+a,
+area,
+summary,
+[tabindex] {
+	touch-action: manipulation;
+}
+
+/**
+ * Add the correct display in IE.
+ */
+template {
+	display: none;
+}
+
+.clearfix {
+	@include clearfix();
+}
+
+.layout-xs, .layout-s, .layout-m,
+.layout-l, .layout-xl, .layout-xxl {
+	width: 100%;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.layout-xs  { max-width: $size-xs;  }
+.layout-s   { max-width: $size-s;   }
+.layout-m   { max-width: $size-m;   }
+.layout-l   { max-width: $size-l;   }
+.layout-xl  { max-width: $size-xl;  }
+.layout-xxl { max-width: $size-xxl; }
+
+// Paddings (h = horizontal, v = vertical, left = left, etc.)
+.p-xs   { padding:        $pad-xs;  }
+.ph-xs  { padding-left:   $pad-xs;  padding-right:  $pad-xs;  }
+.pv-xs  { padding-top:    $pad-xs;  padding-bottom: $pad-xs;  }
+.pt-xs  { padding-top:    $pad-xs;  }
+.pr-xs  { padding-right:  $pad-xs;  }
+.pb-xs  { padding-bottom: $pad-xs;  }
+.pl-xs  { padding-left:   $pad-xs;  }
+.p-s    { padding:        $pad-s;   }
+.ph-s   { padding-left:   $pad-s;   padding-right:  $pad-s;   }
+.pv-s   { padding-top:    $pad-s;   padding-bottom: $pad-s;   }
+.pt-s   { padding-top:    $pad-s;   }
+.pr-s   { padding-right:  $pad-s;   }
+.pb-s   { padding-bottom: $pad-s;   }
+.pl-s   { padding-left:   $pad-s;   }
+.p-m    { padding:        $pad-m;   }
+.ph-m   { padding-left:   $pad-m;   padding-right:  $pad-m;   }
+.pv-m   { padding-top:    $pad-m;   padding-bottom: $pad-m;   }
+.pt-m   { padding-top:    $pad-m;   }
+.pr-m   { padding-right:  $pad-m;   }
+.pb-m   { padding-bottom: $pad-m;   }
+.pl-m   { padding-left:   $pad-m;   }
+.p-l    { padding:        $pad-l;   }
+.ph-l   { padding-left:   $pad-l;   padding-right:  $pad-l;   }
+.pv-l   { padding-top:    $pad-l;   padding-bottom: $pad-l;   }
+.pt-l   { padding-top:    $pad-l;   }
+.pr-l   { padding-right:  $pad-l;   }
+.pb-l   { padding-bottom: $pad-l;   }
+.pl-l   { padding-left:   $pad-l;   }
+.p-xl   { padding:        $pad-xl;  }
+.ph-xl  { padding-left:   $pad-xl;  padding-right:  $pad-xl;  }
+.pv-xl  { padding-top:    $pad-xl;  padding-bottom: $pad-xl;  }
+.pt-xl  { padding-top:    $pad-xl;  }
+.pr-xl  { padding-right:  $pad-xl;  }
+.pb-xl  { padding-bottom: $pad-xl;  }
+.pl-xl  { padding-left:   $pad-xl;  }
+.p-xxl  { padding:        $pad-xxl; }
+.ph-xxl { padding-left:   $pad-xxl; padding-right:  $pad-xxl; }
+.pv-xxl { padding-top:    $pad-xxl; padding-bottom: $pad-xxl; }
+.pt-xxl { padding-top:    $pad-xxl; }
+.pr-xxl { padding-right:  $pad-xxl; }
+.pb-xxl { padding-bottom: $pad-xxl; }
+.pl-xxl { padding-left:   $pad-xxl; }
+
+.hide-xs       { @include hide-on('xs');       }
+.hide-s-down   { @include hide-on('s-down');   }
+.hide-s        { @include hide-on('s');        }
+.hide-s-up     { @include hide-on('s-up');     }
+.hide-m-down   { @include hide-on('m-down');   }
+.hide-m        { @include hide-on('m');        }
+.hide-m-up     { @include hide-on('m-up');     }
+.hide-l-down   { @include hide-on('l-down');   }
+.hide-l        { @include hide-on('l');        }
+.hide-l-up     { @include hide-on('l-up');     }
+.hide-xl-down  { @include hide-on('xl-down');  }
+.hide-xl       { @include hide-on('xl');       }
+.hide-xl-up    { @include hide-on('xl-up');    }
+.hide-xxl      { @include hide-on('xxl');      }
+.hide-xxl-up   { @include hide-on('xxl-up');   }
+
+.c-white            { color: $color-white;            }
+.c-black            { color: $color-black;            }
+.c-primary          { color: $color-primary;          }
+.c-primary-lightest { color: $color-primary-lightest; }
+.c-primary-light    { color: $color-primary-light;    }
+.c-primary-dark     { color: $color-primary-dark;     }
+.c-primary-darkest  { color: $color-primary-darkest;  }
+.c-accent           { color: $color-accent;           }
+.c-accent-lightest  { color: $color-accent-lightest;  }
+.c-accent-light     { color: $color-accent-light;     }
+.c-accent-dark      { color: $color-accent-dark;      }
+.c-accent-darkest   { color: $color-accent-darkest;   }
+.c-success          { color: $color-success;          }
+.c-success-lightest { color: $color-success-lightest; }
+.c-success-light    { color: $color-success-light;    }
+.c-success-dark     { color: $color-success-dark;     }
+.c-success-darkest  { color: $color-success-darkest;  }
+.c-error            { color: $color-error;            }
+.c-error-lightest   { color: $color-error-lightest;   }
+.c-error-light      { color: $color-error-light;      }
+.c-error-dark       { color: $color-error-dark;       }
+.c-error-darkest    { color: $color-error-darkest;    }
+.c-warning          { color: $color-warning;          }
+.c-warning-lightest { color: $color-warning-lightest; }
+.c-warning-light    { color: $color-warning-light;    }
+.c-warning-dark     { color: $color-warning-dark;     }
+.c-warning-darkest  { color: $color-warning-darkest;  }
+.c-info             { color: $color-info;             }
+.c-info-lightest    { color: $color-info-lightest;    }
+.c-info-light       { color: $color-info-light;       }
+.c-info-dark        { color: $color-info-dark;        }
+.c-info-darkest     { color: $color-info-darkest;     }
+.c-neutral          { color: $color-neutral;          }
+.c-neutral-lightest { color: $color-neutral-lightest; }
+.c-neutral-light    { color: $color-neutral-light;    }
+.c-neutral-dark     { color: $color-neutral-dark;     }
+.c-neutral-darkest  { color: $color-neutral-darkest;  }
+
+.c-white-bg            { background-color: $color-white;            }
+.c-black-bg            { background-color: $color-black;            }
+.c-primary-bg          { background-color: $color-primary;          }
+.c-primary-lightest-bg { background-color: $color-primary-lightest; }
+.c-primary-light-bg    { background-color: $color-primary-light;    }
+.c-primary-dark-bg     { background-color: $color-primary-dark;     }
+.c-primary-darkest-bg  { background-color: $color-primary-darkest;  }
+.c-accent-bg           { background-color: $color-accent;           }
+.c-accent-lightest-bg  { background-color: $color-accent-lightest;  }
+.c-accent-light-bg     { background-color: $color-accent-light;     }
+.c-accent-dark-bg      { background-color: $color-accent-dark;      }
+.c-accent-darkest-bg   { background-color: $color-accent-darkest;   }
+.c-success-bg          { background-color: $color-success;          }
+.c-success-lightest-bg { background-color: $color-success-lightest; }
+.c-success-light-bg    { background-color: $color-success-light;    }
+.c-success-dark-bg     { background-color: $color-success-dark;     }
+.c-success-darkest-bg  { background-color: $color-success-darkest;  }
+.c-error-bg            { background-color: $color-error;            }
+.c-error-lightest-bg   { background-color: $color-error-lightest;   }
+.c-error-light-bg      { background-color: $color-error-light;      }
+.c-error-dark-bg       { background-color: $color-error-dark;       }
+.c-error-darkest-bg    { background-color: $color-error-darkest;    }
+.c-warning-bg          { background-color: $color-warning;          }
+.c-warning-lightest-bg { background-color: $color-warning-lightest; }
+.c-warning-light-bg    { background-color: $color-warning-light;    }
+.c-warning-dark-bg     { background-color: $color-warning-dark;     }
+.c-warning-darkest-bg  { background-color: $color-warning-darkest;  }
+.c-info-bg             { background-color: $color-info;             }
+.c-info-lightest-bg    { background-color: $color-info-lightest;    }
+.c-info-light-bg       { background-color: $color-info-light;       }
+.c-info-dark-bg        { background-color: $color-info-dark;        }
+.c-info-darkest-bg     { background-color: $color-info-darkest;     }
+.c-neutral-bg          { background-color: $color-neutral;          }
+.c-neutral-lightest-bg { background-color: $color-neutral-lightest; }
+.c-neutral-light-bg    { background-color: $color-neutral-light;    }
+.c-neutral-dark-bg     { background-color: $color-neutral-dark;     }
+.c-neutral-darkest-bg  { background-color: $color-neutral-darkest;  }
+
+// So JS to detect what kind of device we are on
+#devicecheck {
+	display: none;
+	width: 0;
+	height: 0;
+	visibility: hidden;
+	content: '';
+
+	@media (max-width: $size-m) {
+		content: 'mobile';
+	}
+
+	@media (min-width: $size-m-up ) and (max-width: $size-l) {
+		content: 'tablet';
+	}
+
+	@media (min-width: $size-l-up ) {
+		content: 'desktop';
+	}
+}
+
+/**
+ * Add the correct display in IE 10-.
+ */
+
+[hidden] {
+	display: none;
+}

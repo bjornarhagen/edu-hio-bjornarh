@@ -1,0 +1,43 @@
+@import 'config/variables';
+@import 'modules/utilities';
+
+*,
+::after,
+::before {
+  box-sizing: inherit;
+}
+
+::after,
+::before {
+  text-decoration: inherit;
+  vertical-align: inherit;
+}
+
+body,
+html {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  color: $color-font-body;
+  background-color: $color-body-bg;
+  background-color: #fafafa;
+  font-family: $font-body;
+}
+
+html {
+  box-sizing: border-box;
+  cursor: default;
+  font-size: $font-base;
+}
+
+body {
+  position: relative;
+  font-size: $font-size;
+  line-height: $line-height;
+  @media screen and (min-width: $size-m-up) {
+    font-size: $font-size-desktop;
+    line-height: $line-height-desktop;
+  }
+}
+@import 'modules/media';
+@import 'modules/typography';

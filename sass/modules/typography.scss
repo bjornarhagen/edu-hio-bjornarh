@@ -1,0 +1,396 @@
+h1, h2,
+h3, h4 {
+	font-weight: $font-headings-weight;
+	font-family: $font-headings;
+	color: $color-font-headings;
+}
+
+// Set headings sizes, line-heights and margins
+@each $heading, $properties in $headings {
+	#{$heading} {
+		font-size:     nth($properties, 1);
+		line-height:   nth($properties, 2);
+		margin-top:    nth($properties, 3);
+		margin-bottom: nth($properties, 4);
+	}
+}
+
+// Set margins between headings
+h1 + h2,
+h2 + h3,
+h3 + h4,
+h4 + h5 {
+	margin-top: 0;
+}
+
+h5 + h6 {
+	margin-top: -$pad-xs;
+}
+
+h5, h6 {
+	font-family: $font-headings;
+	font-weight: $font-body-weight;
+	color: $color-font-headings;
+}
+
+p {
+	margin-top: 0;
+	margin-bottom: 0;
+}
+
+hgroup {
+	display: block;
+}
+
+blockquote {
+	font-style: $font-body-italic;
+	margin: 0;
+	padding-left: $pad-m;
+	max-width: #{$base*2.5}rem;
+
+	@media screen and (min-width: $size-m-up) {
+		padding-left: $pad-l;
+	}
+
+	p, cite {
+		margin-bottom: $line-height/2+em;
+	}
+
+	&.fancy {
+		margin-top: $line-height+em;
+		margin-bottom: $line-height/2+em;
+		padding-left: $line-height*2.5+em;
+		position: relative;
+
+		&.no-cite {
+			padding-bottom: $line-height/2+em;
+		}
+
+		// So the qoute marks don't go over the text
+		p, cite {
+			position: relative;
+			z-index: 2;
+		}
+
+		&:before,
+		&:after {
+			position: absolute;
+			font-size: 10em;
+			line-height: 1rem;
+			z-index: 1;
+			color: mix($color-body-bg, $color-font-body, 80%);
+		}
+
+		&:before {
+			content: '“';
+			top: $line-height*2+rem;
+			left: 0;
+		}
+
+		&:after {
+			content: '”';
+			bottom: -$line-height+rem;
+			right: 0;
+		}
+	}
+}
+
+cite {
+	position: relative;
+	display: block;
+	font-style: normal;
+	padding-left: $pad-m;
+
+	&:before {
+		content: '—';
+		position: absolute;
+		top: 0;
+		left: 0;
+	}
+}
+
+// Quotes
+figure blockquote {
+	padding: $pad-s 0;
+
+	@media screen and (min-width: $size-m-up) {
+		padding: $pad-l 0 $pad-m;
+		text-align: center;
+	}
+}
+
+/**
+ * 1. Add the correct box sizing in Firefox.
+ * 2. Show the overflow in Edge and IE.
+ */
+
+hr {
+	box-sizing: content-box; /* 1 */
+	height: 0; /* 1 */
+	overflow: visible; /* 2 */
+}
+
+// Clear margin for line breaks
+br {
+	margin-bottom: 0;
+}
+
+// Enable small caps if available & fix letter spacing
+abbr {
+	letter-spacing: 0.1em;
+}
+
+/**
+ * 1. Remove the bottom border in Firefox 39-.
+ * 2. Add the correct text decoration in Chrome, Edge, IE, Opera, and Safari.
+ */
+abbr[title] {
+	border-bottom: none; /* 1 */
+	text-decoration: underline; /* 2 */
+	text-decoration: underline dotted; /* 2 */
+}
+
+// Prevent the duplicate application of `bolder` by the next rule in Safari 6.
+strong {
+	font-weight: inherit;
+}
+
+// Address style set to `bolder` in Firefox 4+, Safari, and Chrome.
+strong {
+	font-weight: $font-weight-bold;
+}
+
+// Address styling not present in Safari and Chrome.
+dfn {
+	font-style: $font-body-italic;
+}
+
+// Prevent `em` and `i` affecting `line-height` in all browsers.
+em {
+	line-height: 0;
+	position: relative;
+	vertical-align: baseline;
+}
+
+// Address styling not present in IE 8/9.
+mark {
+	color: $color-black-yellow;
+	background: $color-yellow;
+	padding: 0 $pad-xs;
+}
+
+small {
+	line-height: ($line-height / 2);
+	font-size: 0.7em;
+}
+
+// Prevent `sub` and `sup` affecting `line-height` in all browsers.
+sub,
+sup {
+	font-size: 0.75em;
+	line-height: 0;
+	position: relative;
+	vertical-align: baseline;
+}
+
+sup {
+	top: -0.5em;
+}
+
+sub {
+	bottom: -0.25em;
+}
+
+// Description list
+dl {
+	margin: 0;
+	margin-bottom: $line-height/2+em;
+
+	dt {
+		margin-top: $line-height/2+em;
+		margin-bottom: $line-height/4+em;
+		font-weight: $font-weight-bold;
+	}
+
+	dd {
+		margin-left: 1em;
+		margin-bottom: 0;
+	}
+}
+
+// Lists
+ol,
+ul {
+	margin: 0;
+	padding-left: 1em;
+	margin-bottom: $line-height/2+em;
+
+	li {
+		margin: 0;
+	}
+}
+
+// Links
+a {
+	background: transparent;
+	color: $color-link-normal;
+	@include transition('color');
+	text-decoration-skip: objects; // Make underline skip over text
+
+	&:active,
+	&:hover {
+		outline: 0;
+	}
+
+	&:focus {
+		outline: 1px dotted $color-primary;
+		outline-offset: .2em;
+	}
+
+	&:focus,
+	&:hover {
+		color: $color-link-hover;
+	}
+
+	&:visited {
+		color: $color-link-visited;
+
+		&:focus,
+		&:hover {
+			color: $color-link-hover;
+		}
+	}
+
+	&:active {
+		color: $color-link-active;
+	}
+}
+
+// Code tags
+code,
+kbd,
+samp,
+pre {
+	font-size: 1em;
+	font-family: $font-code;
+	font-weight: $font-code-weight;
+}
+
+code {
+	border-radius: $border-radius-xs;
+	padding: 0 $pad-xs;
+	color: $color-gray-cold-light;
+	background-color: $color-gray-cold-dark;
+}
+
+kbd {
+	border-radius: $border-radius-xs;
+	border-style: solid;
+	border-width: 1px 2px 2px 1px;
+	border-color: darken($color-gray-warm-light, 5) $color-gray-warm-medium $color-gray-warm-medium darken($color-gray-warm-light, 5);
+	background-color: $color-gray-warm-light;
+	padding: 0 $pad-xs;
+}
+
+// Form elements
+
+// 1. Correct the inability to style clickable types in iOS and Safari.
+// 2. Change font properties to `inherit` in Safari.
+::-webkit-file-upload-button {
+	-webkit-appearance: button; // 1
+	font: inherit; // 2
+}
+
+label,
+input,
+select,
+textarea {
+	font-size: inherit;
+	line-height: inherit;
+}
+
+input,
+select,
+textarea {
+	font-family: $font-mono;
+	font-weight: $font-weight-normal;
+}
+
+// Buttons
+button,
+[type="button"],
+[type="reset"],
+[type="submit"],
+.button {
+	font-family: $font-body;
+	font-weight: $font-body-weight;
+	font-size: inherit;
+	line-height: inherit;
+	text-transform: none;
+}
+
+// Remove the text shadow on text selections (opinionated).
+// Restore the coloring undone by defining the text shadow (opinionated).
+::-moz-selection {
+	background-color: $color-accent;
+	color: $color-white;
+	text-shadow: none;
+}
+
+::selection {
+	background-color: $color-accent;
+	color: $color-white;
+	text-shadow: none;
+}
+
+// Other
+.content {
+	&-text {
+		p {
+			margin-bottom: $line-height/2+em;
+			font-weight: 300;
+		}
+	}
+}
+
+.read-wide {
+	max-width: #{$base*3}rem;
+}
+
+.read {
+	max-width: #{$base*2.5}rem;
+}
+
+.read-narrow {
+	max-width: #{$base*2}rem;
+}
+
+.text-xxl { font-size:  $font-size-xxl; }
+.text-xl  { font-size:  $font-size-xl; }
+.text-l   { font-size:  $font-size-l; }
+.text-m   { font-size:  $font-size-m; }
+.text-s   { font-size:  $font-size-s; }
+.text-xs  { font-size:  $font-size-xs; }
+
+.icon {
+	vertical-align: middle;
+	width: 1em;
+	height: 1em;
+	line-height: 1em;
+
+	& + span {
+		vertical-align: middle;
+	}
+
+	&:first-child {
+		margin: 0 $pad-s 0 0;
+	}
+
+	&:last-child {
+		margin: 0 0 0 $pad-s;
+	}
+
+	&:first-child:last-child {
+		margin: 0;
+	}
+}

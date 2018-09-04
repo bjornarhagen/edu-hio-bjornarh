@@ -16,5 +16,6 @@
   <link rel="manifest" href="<?= $_project_path ?>/manifest.json">
   <link rel="mask-icon" href="<?= $_project_path ?>/safari-pinned-tab.svg" color="#ff9514">
   <meta name="theme-color" content="#ff9514">
+  <link rel="stylesheet" href="<?= $_project_path ?>/css/stilark.css">
 </head>
 <body>
