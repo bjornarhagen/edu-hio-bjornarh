@@ -1,3 +1,0 @@
-21
-
-Egentlig: unexpected var, expected ";" on line 4
