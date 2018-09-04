@@ -3,10 +3,10 @@
   $_project_path = "/~bjornarh";
   $_project_path = "http://localhost:8080"; // TODO: remove in prod
 ?>
-<!doctype html>
-<html lang="no">
+<!DOCTYPE html>
+<html lang="no" dir="ltr">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="utf-8">
   <meta name="viewport" content="initial-scale=1 width=device-width, height=device-height">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title><?= $_project_name ?></title>
