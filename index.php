@@ -24,7 +24,7 @@
       </div>
       <header class="article-header">
         <img src="/images/icons/pixelv/document-1.png" class="article-icon" alt="">
-        <img itemprop="image" class="article-image" src="<?= $article->image->url ?>" alt="<?= $article->image->alt ?>">
+        <img itemprop="image" class="article-image" src="<?= $_project_path . $article->image->url ?>" alt="<?= $article->image->alt ?>">
       </header>
       <div class="article-content content-text">
         <h3 class="article-title" itemprop="name"><?= $article->title ?></h3>
