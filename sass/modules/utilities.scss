@@ -98,17 +98,7 @@
 	}
 }
 
-/* Document (https://html.spec.whatwg.org/multipage/semantics.html#semantics) */
-/**
- * 1. Add border box sizing in all browsers (opinionated).
- * 2. Add the default cursor in all browsers (opinionated).
- * 3. Prevent font size adjustments after orientation changes in IE and iOS.
- */
-/* Sections (https://html.spec.whatwg.org/multipage/semantics.html#sections) */
-/**
- * Add the correct display in IE 9-.
- */
-
+// Add the correct display in IE 9-.
 article,
 aside,
 footer,
@@ -117,29 +107,18 @@ nav,
 section,
 figcaption,
 figure,
-main {
-	display: block;
-}
-
-/*
- * Add the correct display in IE 9-.
- * 1. Add the correct display in Edge, IE, and Firefox.
- */
-details, /* 1 */
+main,
+details,
 menu {
 	display: block;
 }
 
-/*
- * Add the correct display in all browsers.
- */
+// Add the correct display in all browsers.
 summary {
 	display: list-item;
 }
 
-/*
- * Remove the tapping delay on clickable elements (opinionated).
- */
+// Remove the tapping delay on clickable elements (opinionated).
 a,
 area,
 summary,
@@ -147,9 +126,7 @@ summary,
 	touch-action: manipulation;
 }
 
-/**
- * Add the correct display in IE.
- */
+// Add the correct display in IE.
 template {
 	display: none;
 }
@@ -173,47 +150,28 @@ template {
 .layout-xl  { max-width: $size-xl;  }
 .layout-xxl { max-width: $size-xxl; }
 
-.hide-xs       { @include hide-on('xs');       }
-.hide-s-down   { @include hide-on('s-down');   }
-.hide-s        { @include hide-on('s');        }
-.hide-s-up     { @include hide-on('s-up');     }
-.hide-m-down   { @include hide-on('m-down');   }
-.hide-m        { @include hide-on('m');        }
-.hide-m-up     { @include hide-on('m-up');     }
-.hide-l-down   { @include hide-on('l-down');   }
-.hide-l        { @include hide-on('l');        }
-.hide-l-up     { @include hide-on('l-up');     }
-.hide-xl-down  { @include hide-on('xl-down');  }
-.hide-xl       { @include hide-on('xl');       }
-.hide-xl-up    { @include hide-on('xl-up');    }
-.hide-xxl      { @include hide-on('xxl');      }
-.hide-xxl-up   { @include hide-on('xxl-up');   }
-
 // So JS to detect what kind of device we are on
-#devicecheck {
-	display: none;
-	width: 0;
-	height: 0;
-	visibility: hidden;
-	content: '';
+// #devicecheck {
+// 	display: none;
+// 	width: 0;
+// 	height: 0;
+// 	visibility: hidden;
+// 	content: '';
+//
+// 	@media (max-width: $size-m) {
+// 		content: 'mobile';
+// 	}
+//
+// 	@media (min-width: $size-m-up ) and (max-width: $size-l) {
+// 		content: 'tablet';
+// 	}
+//
+// 	@media (min-width: $size-l-up ) {
+// 		content: 'desktop';
+// 	}
+// }
 
-	@media (max-width: $size-m) {
-		content: 'mobile';
-	}
-
-	@media (min-width: $size-m-up ) and (max-width: $size-l) {
-		content: 'tablet';
-	}
-
-	@media (min-width: $size-l-up ) {
-		content: 'desktop';
-	}
-}
-
-/**
- * Add the correct display in IE 10-.
- */
-
+// Add the correct display in IE 10-.
 [hidden] {
 	display: none;
 }
