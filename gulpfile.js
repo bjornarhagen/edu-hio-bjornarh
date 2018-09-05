@@ -19,7 +19,7 @@ gulp.task('js', function() {
 gulp.task('sass', function() {
   return gulp.src('./sass/**/*.scss')
     .pipe(sass({
-      outputStyle: 'extended'
+      outputStyle: 'expanded'
     }).on('error', sass.logError))
     .pipe(gulp.dest('./css'))
     .pipe(browserSync.stream());
