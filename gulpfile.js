@@ -4,6 +4,8 @@ var gulp = require('gulp');
 var sass = require('gulp-sass');
 var uglify = require('gulp-uglify');
 var rename = require('gulp-rename');
+var php = require('gulp-connect-php');
+var browserSync = require('browser-sync').create();
 
 gulp.task('js', function() {
   gulp.src('./js/**/*.js')
@@ -19,11 +21,32 @@ gulp.task('sass', function() {
     .pipe(sass({
       outputStyle: 'extended'
     }).on('error', sass.logError))
-    .pipe(gulp.dest('./css'));
+    .pipe(gulp.dest('./css'))
+    .pipe(browserSync.stream());
 });
 
 gulp.task('sass:watch', function() {
   gulp.watch('./sass/**/*.scss', ['sass']);
 });
 
-gulp.task('default', ['js', 'sass', 'sass:watch']);
+gulp.task('php', function() {
+  php.server({
+    base: './',
+    port: 8080,
+    keepalive: true
+  });
+});
+
+gulp.task('browser-sync', function() {
+  browserSync.init({
+    proxy: '127.0.0.1:8080',
+    open: true,
+    notify: false
+  });
+});
+
+gulp.task('default', ['js', 'sass', 'php', 'browser-sync', 'sass:watch'], function() {
+  gulp.watch(['./**/*.php'], [browserSync.reload]);
+});
+
+gulp.task('build', ['js', 'sass']);
