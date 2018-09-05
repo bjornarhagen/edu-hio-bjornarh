@@ -1,32 +1,36 @@
 <?php require('partials/head.php'); ?>
 <?php require('partials/navigation.php'); ?>
+<?php $articles = json_decode(file_get_contents(__DIR__ . '/artikler/summary.json')); ?>
 <main id="front-page">
-  <header>
-    <h1>Bjørnar Hagen</h1>
-    <!-- <img src="/images/graphics/water.jpg" alt=""> -->
+  <header class="intro-header">
+    <div class="header-content">
+      <h1>Bjørnar Hagen</h1>
+      <nav>
+        <?php foreach ($articles as $article): ?>
+        <a href="<?= $_project_path ?>/artikler/<?= $article->slug ?>"><?= $article->title ?></a>
+        <?php endforeach; ?>
+      </nav>
+    </div>
   </header>
   <section class="articles">
     <header>
       <h2>Oppgaver</h2>
     </header>
-    <?php $articles = json_decode(file_get_contents(__DIR__ . '/artikler/summary.json')); ?>
     <?php foreach ($articles as $article): ?>
-    <article class="article" itemscope itemtype="http://schema.org/Article">
+    <article class="article theme-brightness-<?= $article->theme->brightness ?> theme-color-<?= $article->theme->color ?>" itemscope itemtype="http://schema.org/Article">
+      <div class="article-bg">
+        <div class="border"></div>
+        <div class="color-wall"></div>
+      </div>
       <header class="article-header">
-        <h3 class="article-title" itemprop="name"><?= $article->title ?></h3>
+        <img src="/images/icons/pixelv/document-1.png" class="article-icon" alt="">
         <img itemprop="image" class="article-image" src="<?= $article->image->url ?>" alt="<?= $article->image->alt ?>">
       </header>
       <div class="article-content content-text">
+        <h3 class="article-title" itemprop="name"><?= $article->title ?></h3>
         <p class="article-excerpt" itemprop="description"><?= $article->excerpt ?></p>
-      </div>
-      <footer class="article-footer">
-        <div class="article-author" itemprop="author" itemscope itemtype="http://schema.org/Person">
-          <p class="article-author-name" itemprop="name"><?= $article->author->name ?></p>
-          <p class="article-author-email" itemprop="email"><?= $article->author->email ?></p>
-        </div>
-        <p class="article-date" itemprop="datePublished"><?= $article->date ?></p>
         <a itemprop="url" href="<?= $_project_path ?>/artikler/<?= $article->slug ?>" class="button article-button">Les mer</a>
-      </footer>
+      </div>
       <meta itemprop="headline" content="<?= $article->title ?>">
       <span itemprop="publisher" itemscope itemtype="http://schema.org/Person">
         <meta itemprop="name" content="<?= $article->author->name ?>">
