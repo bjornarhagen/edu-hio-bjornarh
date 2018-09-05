@@ -1,8 +1,10 @@
   <footer id="footer">
-    <p>Bjørnar Hagen - <?= date("Y"); ?></p>
     <p>
-      <a href="#">bjornarh@hiof.no</a>
+      <a href="mailto:bjornarh@hiof.no">bjornarh@hiof.no</a>
     </p>
+    <p>Bjørnar Hagen - <?= date("Y"); ?></p>
   </footer>
+  <link href="https://fonts.googleapis.com/css?family=Lato:300:400:700" rel="stylesheet">
+  <link href="https://cdn.datahjelpen.no/fonts/butler/butler-700.css" rel="stylesheet">
 </body>
 </html>
