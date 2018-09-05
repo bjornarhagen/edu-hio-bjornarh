@@ -20,7 +20,6 @@ html {
   overflow-x: hidden;
   color: $color-font-body;
   background-color: $color-body-bg;
-  background-color: #fafafa;
   font-family: $font-body;
 }
 
@@ -44,33 +43,67 @@ body {
 
 #front-page {
   .articles {
+    padding: $pad-l;
+
     > header {
-      grid-column: 1/4;
+      // grid-column: 1/4;
       padding: $pad-l 0 $pad-m;
       font-size: 2em;
     }
 
-    display: grid;
-    grid-template-columns: repeat(3, minmax(300px, max-content));
-    grid-template-rows: auto;
-    grid-gap: $pad-m;
+    // display: grid;
+    // grid-template-columns: repeat(3, minmax(300px, max-content));
+    // grid-template-rows: auto;
+    // grid-gap: $pad-m;
+
+    display: flex;
+    flex-direction: column;
 
     .article {
-      background-color: $color-white;
+      // background-color: $color-white;
+      position: relative;
+      height: 100vh;
+      min-height: $size-m;
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      grid-template-rows: auto;
+      grid-gap: 1em;
+      border: 1px solid black;
+
+      &:nth-child(odd) {
+      }
+
+      &:nth-child(even) {
+      }
 
       &-header {
+        overflow: hidden;
+        position: relative;
+        grid-column: 1/2;
+
+        .article-image {
+          width: 100%;
+        }
+
+        .article-title {
+          font-size: 3em;
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          text-align: center;
+        }
       }
 
       &-content {
-        padding: $pad-m $pad-m 0;
+        grid-column: 2/3;
+
       }
 
-      &-title {
-        margin: 0;
-      }
 
       &-footer {
-        padding: 0 $pad-m $pad-m;
+        grid-column: 2/3;
+        // padding: 0 $pad-m $pad-m;
       }
     }
   }

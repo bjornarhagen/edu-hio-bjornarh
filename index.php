@@ -3,9 +3,9 @@
 <main id="front-page">
   <header>
     <h1>Bjørnar Hagen</h1>
-    <img src="/images/graphics/water.jpg" alt="">
+    <!-- <img src="/images/graphics/water.jpg" alt=""> -->
   </header>
-  <section class="articles layout-xl">
+  <section class="articles">
     <header>
       <h2>Oppgaver</h2>
     </header>
@@ -13,12 +13,12 @@
     <?php foreach ($articles as $article): ?>
     <article class="article" itemscope itemtype="http://schema.org/Article">
       <header class="article-header">
+        <h3 class="article-title" itemprop="name"><?= $article->title ?></h3>
         <img itemprop="image" class="article-image" src="<?= $article->image->url ?>" alt="<?= $article->image->alt ?>">
       </header>
-      <section class="article-content content-text">
-        <h3 class="article-title" itemprop="name"><?= $article->title ?></h3>
+      <div class="article-content content-text">
         <p class="article-excerpt" itemprop="description"><?= $article->excerpt ?></p>
-      </section>
+      </div>
       <footer class="article-footer">
         <div class="article-author" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <p class="article-author-name" itemprop="name"><?= $article->author->name ?></p>
