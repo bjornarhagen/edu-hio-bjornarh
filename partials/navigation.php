@@ -1,4 +1,3 @@
-<?php /*
 <nav id="nav-main">
   <section class="logo">
     <a href="<?= $_project_path ?>"><?= $_project_name ?></a>
@@ -9,4 +8,3 @@
     <a href="<?= $_project_path ?>/om-meg">Om meg</a>
   </section>
 </nav>
-*/ ?>
