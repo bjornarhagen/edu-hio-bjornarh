@@ -10,7 +10,7 @@
       <h1>Bjørnar Hagen</h1>
       <nav>
         <?php foreach ($articles as $article): ?>
-        <a href="<?= $_project_path ?>/artikler/<?= $article->slug ?>"><?= $article->title ?></a>
+        <a href="<?= $_project_path ?>/artikler/<?= $article->slug ?>.php"><?= $article->title ?></a>
         <?php endforeach; ?>
       </nav>
     </div>
@@ -32,7 +32,7 @@
       <div class="article-content content-text">
         <h3 class="article-title" itemprop="name"><?= $article->title ?></h3>
         <p class="article-excerpt" itemprop="description"><?= $article->excerpt ?></p>
-        <a itemprop="url" href="<?= $_project_path ?>/artikler/<?= $article->slug ?>" class="button article-button">Les mer</a>
+        <a itemprop="url" href="<?= $_project_path ?>/artikler/<?= $article->slug ?>.php" class="button article-button">Les mer</a>
       </div>
       <meta itemprop="headline" content="<?= $article->title ?>">
       <span itemprop="publisher" itemscope itemtype="http://schema.org/Person">
