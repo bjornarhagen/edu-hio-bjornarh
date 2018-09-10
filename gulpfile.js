@@ -17,7 +17,7 @@ gulp.task('js', function() {
 })
 
 gulp.task('sass', function() {
-  return gulp.src('./sass/**/*.scss')
+  return gulp.src('./sass/stilark.scss')
     .pipe(sass({
       outputStyle: 'expanded'
     }).on('error', sass.logError))
