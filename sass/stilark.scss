@@ -333,3 +333,10 @@ body {
     }
   }
 }
+
+body.error-page {
+  main {
+    text-align: center;
+    padding: $pad-xl $pad-s;
+  }
+}
