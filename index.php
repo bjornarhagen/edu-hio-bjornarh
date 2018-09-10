@@ -1,7 +1,10 @@
+<?php
+  $body_id = 'front-page';
+?>
 <?php require('partials/head.php'); ?>
 <?php require('partials/navigation.php'); ?>
 <?php $articles = json_decode(file_get_contents(__DIR__ . '/artikler/summary.json')); ?>
-<main id="front-page">
+<main>
   <header class="intro-header">
     <div class="header-content">
       <h1>Bjørnar Hagen</h1>

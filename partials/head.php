@@ -2,6 +2,23 @@
   $_project_name = 'Bjørnar Hagen';
   $_project_path = "/~bjornarh";
   $_project_path = "http://localhost:8080"; // TODO: remove in prod
+
+  $body_attributes = '';
+  $body_classes_default = '';
+
+  if (isset($body_id)) {
+    $body_attributes .= ' id="'.$body_id.'"';
+  }
+
+  if (isset($body_classes)) {
+    $body_classes = $body_classes_default . ' ' . $body_classes;
+  } else {
+    $body_classes = $body_classes_default;
+  }
+
+  if (strlen($body_classes) > 0) {
+    $body_attributes .= ' class="'.$body_classes.'"';
+  }
 ?>
 <!DOCTYPE html>
 <html lang="no" dir="ltr">
@@ -18,4 +35,4 @@
   <meta name="theme-color" content="#ff9514">
   <link rel="stylesheet" href="<?= $_project_path ?>/css/stilark.css">
 </head>
-<body>
+<body<?= $body_attributes ?>>

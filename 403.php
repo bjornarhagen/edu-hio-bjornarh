@@ -1,3 +1,7 @@
+<?php
+  $body_id = 'error-page-403';
+  $body_classes = 'error-page';
+?>
 <?php require('partials/head.php'); ?>
 <?php require('partials/navigation.php'); ?>
 <main>
