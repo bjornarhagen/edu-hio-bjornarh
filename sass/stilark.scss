@@ -17,7 +17,6 @@ body,
 html {
   margin: 0;
   padding: 0;
-  overflow-x: hidden;
   color: $color-font-body;
   background-color: $color-body-bg;
   font-family: $font-body;
@@ -34,6 +33,7 @@ body {
   font-size: $font-size;
   line-height: $line-height;
   @media screen and (min-width: $size-m-up) {
+    overflow-x: hidden;
     font-size: $font-size-desktop;
     line-height: $line-height-desktop;
   }
@@ -55,34 +55,57 @@ body {
 #oblig1-index {
   .intro-header {
     position: relative;
-    height: 100vh;
+    height: 90vh;
     min-height: $size-s;
-    background-image: url("https://i.xdh.no/635943593258");
-    background-position: bottom center;
+    background-image: url("https://i.xdh.no/3561bdfc4ea6");
+    background-position: center center;
     background-size: cover;
+    background-attachment: fixed;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-end;
+    align-content: center;
 
     .header-content {
-      position: absolute;
-      top: 10%;
-      // transform: translateY(-50%);
-      position: absolute;
-      z-index: 2;
       width: 100%;
+      padding: $pad-m $pad-l;
+      max-width: $size-l;
       text-align: center;
+      background-color: $color-body-bg;
+
+      @media screen and (min-width: $size-l-up) {
+        text-align: left;
+      }
+
+      h1 {
+        margin-top: 0;
+      }
 
       nav {
         display: flex;
-        justify-content: space-around;
+        justify-content: center;
         width: 100%;
-        max-width: $size-l;
-        padding: $pad-m;
         margin: auto;
         flex-wrap: wrap;
+
+        @media screen and (min-width: $size-l-up) {
+          justify-content: flex-start;
+        }
 
         a {
           padding: $pad-xs $pad-s;
           text-decoration: none;
           color: $color-font-body;
+
+          @media screen and (min-width: $size-l-up) {
+            &:first-child {
+              padding-left: 0;
+            }
+
+            &:last-child {
+              right: 0;
+            }
+          }
 
           &:focus,
           &:hover {
@@ -100,12 +123,17 @@ body {
     justify-content: center;
     align-content: center;
     align-items: stretch;
-    padding-bottom: $pad-l;
+    padding: $pad-l 0;
 
     > header {
-      padding: $pad-s 0 $pad-l;
+      padding: $pad-s $pad-l 0;
       font-size: 2em;
-      text-align: center;
+
+      @media screen and (max-width: $size-l) {
+        padding: $pad-s $pad-s $pad-l;
+        text-align: center;
+        font-size: 1.5em;
+      }
     }
 
     .article {
