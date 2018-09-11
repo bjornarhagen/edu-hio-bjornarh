@@ -7,12 +7,14 @@
   <link href="https://fonts.googleapis.com/css?family=Lato:300:400:700" rel="stylesheet">
   <link href="https://cdn.datahjelpen.no/fonts/butler/butler-700.css" rel="stylesheet">
   <script type="text/javascript">
-    (function() {
-      var nav = document.querySelector('#nav-main');
-      var main = document.querySelector('main');
+    function padForNav(element) {
+      if (element == null) {
+        element = document.querySelector('main');
+      }
 
-      main.style.marginTop = nav.scrollHeight + 'px';
-    })();
+      var nav = document.querySelector('#nav-main');
+      element.style.paddingTop = nav.scrollHeight + 'px';
+    };
   </script>
 </body>
 </html>
