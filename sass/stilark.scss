@@ -52,19 +52,26 @@ body {
 @import 'modules/typography';
 @import 'modules/navigation';
 
+main > header {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  height: 50vh;
+  min-height: $size-s;
+  background-color: $color-light5;
+}
+
 #oblig1-index {
   .intro-header {
-    position: relative;
     height: 90vh;
-    min-height: $size-s;
     background-image: url("https://i.xdh.no/3561bdfc4ea6");
     background-position: center center;
     background-size: cover;
     background-attachment: fixed;
-    display: flex;
     justify-content: flex-start;
     align-items: flex-end;
-    align-content: center;
 
     .header-content {
       width: 100%;
