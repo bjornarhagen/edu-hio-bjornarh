@@ -39,6 +39,7 @@ body {
   }
 }
 
+
 #footer {
   padding: $pad-xl $pad-m;
   background-color: $color-white;
@@ -67,32 +68,135 @@ main > header {
   align-content: center;
   min-height: 50vh;
   height: auto;
-}
+  background-position: center center;
+  background-size: cover;
+  background-color: $color-light5;
 
-#oblig1-index {
-  .intro-header {
-    height: 90vh;
-    background-image: url("https://i.xdh.no/3561bdfc4ea6");
-    background-position: center center;
-    background-size: cover;
-    background-attachment: fixed;
+  &.header-fancy {
     justify-content: flex-start;
     align-items: flex-end;
+    min-height: 80vh;
 
     .header-content {
       width: 100%;
-      padding: $pad-m $pad-l;
+      padding: $pad-m;
       max-width: $size-l;
       text-align: center;
       background-color: $color-body-bg;
 
+      @media screen and (min-width: $size-m-up) {
+        padding: $pad-m $pad-l;
+      }
+
       @media screen and (min-width: $size-l-up) {
         text-align: left;
+        border-radius: 0 $border-radius-xs 0 0;
       }
 
       h1 {
-        margin-top: 0;
+        margin: 0;
       }
+    }
+  }
+
+  &.header-fixed {
+    background-attachment: fixed;
+  }
+}
+
+.page-section {
+  padding: $pad-m;
+
+  @media screen and (min-width: $size-m-up) {
+    padding: $pad-m $pad-l;
+  }
+
+  ul {
+    padding-left: $pad-m;
+  }
+}
+
+#front-page {
+  main > header {
+    min-height: 100vh;
+    background-image: url('https://i.xdh.no/432b05877e44');
+    background-color: mix($color-body-bg, #646446, 50%);
+
+    > nav {
+      width: 100%;
+      max-width: $size-m;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      padding: 0 $pad-s;
+
+      @media screen and (min-width: $size-m-up) {
+        flex-direction: row;
+      }
+
+      a {
+        @include transition('background-color, color', 250ms);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-content: center;
+        align-items: center;
+        color: $color-white;
+        border-radius: $border-radius-xs;
+        padding: $pad-s;
+        text-decoration: none;
+        background-color: rgba($color-black, 0.3);
+        box-shadow: 0 2em 2em -2em rgba($color-black, 0.3);
+        margin: $pad-m 0;
+        width: 10em;
+        height: 10em;
+
+        &:focus,
+        &:hover {
+          color: $color-black;
+          background-color: $color-white;
+        }
+
+        @media screen and (min-width: $size-m-up) {
+          margin: 0;
+        }
+
+        p {
+          margin: 0 0 $pad-s;
+          font-size: 1.25em;
+          font-weight: 400;
+        }
+
+        svg {
+          width: 100%;
+          max-width: 2.25em;
+        }
+      }
+
+    }
+  }
+}
+
+#obliger-page {
+  main > header {
+    background-image: url("https://i.xdh.no/3561bdfc4ea6");
+
+    .header-content {
+      display: flex;
+      justify-content: flex-start;
+      align-content: center;
+      align-items: center;
+
+      svg {
+        margin-right: 1em;
+        max-width: 3em;
+      }
+    }
+  }
+}
 
 #oblig1-index {
   .intro-header {
