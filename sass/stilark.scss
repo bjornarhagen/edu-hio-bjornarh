@@ -58,9 +58,8 @@ main > header {
   justify-content: center;
   align-items: center;
   align-content: center;
-  height: 50vh;
-  min-height: $size-s;
-  background-color: $color-light5;
+  min-height: 50vh;
+  height: auto;
 }
 
 #oblig1-index {
@@ -88,6 +87,12 @@ main > header {
         margin-top: 0;
       }
 
+#oblig1-index {
+  .intro-header {
+    height: 90vh;
+    background-image: url("https://i.xdh.no/3561bdfc4ea6");
+
+    .header-content {
       nav {
         display: flex;
         justify-content: center;

@@ -8,7 +8,7 @@
   $current_path = $_project_path . '/webutvikling/2018/oblig-1/';
 ?>
 <main>
-  <header class="intro-header">
+  <header class="intro-header header-fancy header-fixed">
     <div class="header-content">
       <h1>Oblig 1</h1>
       <nav>
