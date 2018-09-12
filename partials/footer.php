@@ -12,8 +12,8 @@
         element = document.querySelector('main');
       }
 
-      var nav = document.querySelector('#nav-main');
-      element.style.paddingTop = nav.scrollHeight + 'px';
+      var navWrapper = document.querySelector('#header-main');
+      element.style.paddingTop = navWrapper.scrollHeight + 'px';
     };
   </script>
 </body>
