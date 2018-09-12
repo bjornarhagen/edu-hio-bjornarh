@@ -52,6 +52,13 @@ body {
 @import 'modules/typography';
 @import 'modules/navigation';
 
+a {
+  &[disabled] {
+    opacity: 0.33;
+    text-decoration: line-through;
+  }
+}
+
 main > header {
   position: relative;
   display: flex;
