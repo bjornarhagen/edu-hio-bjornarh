@@ -8,7 +8,10 @@ var php = require('gulp-connect-php');
 var browserSync = require('browser-sync').create();
 
 gulp.task('js', function() {
-  gulp.src('./js/**/*.js')
+  gulp.src([
+    './js/**/*.js',
+    '!./js/**/*.min.js'
+  ])
     .pipe(uglify())
     .pipe(rename({
       suffix: '.min'
