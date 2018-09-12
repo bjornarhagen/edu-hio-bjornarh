@@ -156,6 +156,7 @@ main > header {
 
         &:focus,
         &:hover {
+          outline: none;
           color: $color-black;
           background-color: $color-white;
         }
