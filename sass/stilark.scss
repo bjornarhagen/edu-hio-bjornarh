@@ -29,6 +29,37 @@ body.article-page {
   }
 
   main > header {
+    .header-content {
+      nav {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        margin: auto;
+        flex-wrap: wrap;
+
+        a {
+          padding: $pad-xs $pad-s;
+          color: $color-font-body;
+          text-decoration: none;
+          text-align: left;
+
+          @media screen and (min-width: $size-m-up) {
+            width: (100%/3);
+          }
+
+          &.current {
+            font-weight: 700;
+          }
+
+          &:focus,
+          &:hover {
+            color: $color-primary;
+            text-decoration: underline;
+          }
+        }
+      }
+    }
+
     &.header-fancy {
       .header-content {
         text-align: center;
@@ -119,12 +150,170 @@ body.article-page {
       }
     }
   }
+
+  .box-model {
+    position: relative;
+    text-align: center;
+    margin-bottom: 3em;
+
+    .bm {
+      &-border,
+      &-padding,
+      &-margin,
+      &-content {
+        position: relative;
+
+        > span {
+          top: 0em;
+          left: 0;
+          display: block;
+          width: 100%;
+          text-align: center;
+          z-index: 5;
+          position: absolute;
+          color: $color-black;
+          padding: 1em 1em 0;
+          text-transform: uppercase;
+        }
+      }
+
+      &-padding,
+      &-margin,
+      &-content {
+        padding: 3em;
+      }
+
+      &-margin {
+        background-color: #F9CC9D;
+        z-index: 1;
+
+        &:hover {
+          background-color: darken(#F9CC9D, 15%);
+        }
+      }
+
+      &-border {
+        background-color: #FDDD9B;
+        padding: 1em;
+        z-index: 2;
+
+        > span { top: -1.25em; }
+
+        &:hover {
+          background-color: darken(#FDDD9B, 15%);
+        }
+      }
+
+      &-padding {
+        background-color: #C3D08B;
+        z-index: 3;
+
+        &:hover {
+          background-color: darken(#C3D08B, 15%);
+        }
+      }
+
+      &-content {
+        z-index: 4;
+        background-color: #8CB6C0;
+
+        > span { top: 1em; }
+
+        &:hover {
+          background-color: darken(#8CB6C0, 15%);
+        }
+      }
+    }
+  }
+
+  .boxes {
+    @include clearfix();
+    display: block;
+    width: 100%;
+    padding: 2em 0;
+
+    .box {
+      display: block;
+      float: left;
+      text-align: center;
+      vertical-align: middle;
+      width: 10em;
+      height: 10em;
+      max-width: 100%;
+      background-color: #8CB6C0;
+      line-height: 1em;
+
+      &:hover {
+        background-color: darken(#8CB6C0, 15%);
+      }
+    }
+  }
+
+  .everything-boxes {
+    .everything-1 {
+      box-sizing: border-box;
+      border: 1em solid #FDDD9B;
+      padding: 1em;
+      margin: 1em;
+      border-radius: 1em;
+    }
+
+    .everything-2 {
+      box-sizing: content-box;
+      border: 1em solid #FDDD9B;
+      padding: 1em;
+      margin: 1em;
+      border-radius: 1em;
+    }
+  }
+
+  .margin-boxes {
+    .margin-all {
+      margin: 1em;
+    }
+
+    .margin-side {
+      margin: 0 2em 0 2em;
+    }
+
+    .margin-negative {
+      margin: -1em 0 0 0;
+    }
+  }
+
+  .padding-boxes {
+    .padding-all {
+      padding: 1em;
+    }
+    .padding-side {
+      padding: 0 2em 0 0;
+    }
+  }
+
+  .border-boxes {
+    .border-all {
+      border: 1em solid #FDDD9B;
+    }
+    .border-side {
+      border-style: solid;
+      border-width: 0 1em 0 0;
+      border-color: #FDDD9B;
+    }
+  }
+
+  .overflow-boxes {
+    .overflow-1 { overflow: visible; }
+    .overflow-2 { overflow: hidden;  margin-left: 1em; }
+    .overflow-3 { overflow: auto;    margin-left: 1em; }
+    .overflow-4 { overflow: scroll;  margin-left: 1em; }
+  }
 }
 
 #oblig1-index {
   .intro-header {
-    height: 90vh;
-    background-image: url("https://i.xdh.no/3561bdfc4ea6");
+    min-height: 90vh;
+    background-image: url("https://i.xdh.no/acbc71a5eaea");
+    background-position: bottom center;
 
     .header-content {
       nav {
@@ -140,17 +329,11 @@ body.article-page {
 
         a {
           padding: $pad-xs $pad-s;
-          text-decoration: none;
           color: $color-font-body;
+          text-decoration: none;
 
-          @media screen and (min-width: $size-l-up) {
-            &:first-child {
-              padding-left: 0;
-            }
-
-            &:last-child {
-              right: 0;
-            }
+          @media screen and (min-width: $size-m-up) {
+            width: (100%/3);
           }
 
           &:focus,
@@ -292,8 +475,10 @@ body.article-page {
         .article-title {
           color: inherit;
           margin-top: 0;
+          margin-bottom: $pad-xs;
           font-size: 3em;
           font-weight: 900;
+          line-height: 1em;
         }
 
         .article-button {
@@ -360,14 +545,14 @@ body.article-page {
           }
         }
 
-        &-orange {
+        &-brown {
           .article-content .article-button {
-            color: #cb5135;
+            color: #847d77;
           }
 
           .article-bg .color-wall {
-            background-color: #cb5135;
-            box-shadow: 0 2em 2em -2em rgba(darken(#cb5135, 25%), 0.5);
+            background-color: #847d77;
+            box-shadow: 0 2em 2em -2em rgba(darken(#847d77, 25%), 0.5);
           }
         }
 
@@ -384,23 +569,34 @@ body.article-page {
 
         &-green {
           .article-content .article-button {
-            color: #adbaaa;
+            color: #519988;
           }
 
           .article-bg .color-wall {
-            background-color: #adbaaa;
-            box-shadow: 0 2em 2em -2em rgba(darken(#adbaaa, 25%), 0.5);
+            background-color: #519988;
+            box-shadow: 0 2em 2em -2em rgba(darken(#519988, 25%), 0.5);
           }
         }
 
-        &-gray {
+        &-blue {
           .article-content .article-button {
-            color: #dde5ea;
+            color: #1b789d;
           }
 
           .article-bg .color-wall {
-            background-color: #dde5ea;
-            box-shadow: 0 2em 2em -2em rgba(darken(#dde5ea, 25%), 0.5);
+            background-color: #1b789d;
+            box-shadow: 0 2em 2em -2em rgba(darken(#1b789d, 25%), 0.5);
+          }
+        }
+
+        &-lightbrown {
+          .article-content .article-button {
+            color: #dfdcd9;
+          }
+
+          .article-bg .color-wall {
+            background-color: #dfdcd9;
+            box-shadow: 0 2em 2em -2em rgba(darken(#dfdcd9, 25%), 0.5);
           }
         }
       }

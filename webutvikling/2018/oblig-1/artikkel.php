@@ -7,7 +7,7 @@
 
   $articles = json_decode(file_get_contents(__DIR__ . '/summary.json'));
   $current_path = $_project_path . '/webutvikling/2018/oblig-1/';
-  $current_slug = 'oppgave-2';
+  $current_slug = 'artikkel';
 ?>
 <main>
   <header class="intro-header header-fancy header-fixed" style="background-image: url('<?= $_project_path ?>/images/articles/laptop-mac.jpg')">
@@ -16,11 +16,13 @@
       <nav>
         <?php
           foreach ($articles as $article):
-          if ($current_slug != $article->slug):
+            if ($current_slug != $article->slug):
         ?>
         <a href="<?= $current_path . $article->slug ?>.php"><?= $article->title ?></a>
+        <?php else: ?>
+        <a href="<?= $current_path . $article->slug ?>.php" class="current"><?= $article->title ?></a>
         <?php
-          endif;
+            endif;
           endforeach;
         ?>
       </nav>
@@ -28,7 +30,7 @@
   </header>
   <article>
     <header>
-      <h2>Oppgave 2</h2>
+      <h2>02 - Artikkel</h2>
       <div class="meta">
         <span>Bjørnar Hagen</span>
         <span>—</span>
