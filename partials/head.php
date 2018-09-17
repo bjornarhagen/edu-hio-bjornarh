@@ -35,5 +35,6 @@
   <link rel="mask-icon" href="<?= $_project_path ?>/safari-pinned-tab.svg" color="#ff9514">
   <meta name="theme-color" content="#ff9514">
   <link rel="stylesheet" href="<?= $_project_path ?>/css/global.css">
+  <link href="https://fonts.googleapis.com/css?family=Lato:300:400:700" rel="stylesheet">
 </head>
 <body<?= $body_attributes ?>>
