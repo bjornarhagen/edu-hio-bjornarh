@@ -44,16 +44,13 @@
         <h3>Nye semantiske tagger</h3>
         <dl>
           <dt><code>&lt;section&gt;</code></dt>
-          <dd>Brukes<?= $_fingerprint ?>for å definere en generell seksjon. Gjerne når man ikke har
-          en mer beskrivende tag. Man bruker section mye sjeldnere enn f.eks. div.
-          Section kan brukes for å definere større seksjoner av en side. F.eks.
-          kan en avis deles inn i en seksjon for hver av sine hovedkategorier,
-          som sport/vær/kjendiser osv.</dd>
+          <dd>Brukes<?= $_fingerprint ?>for å definere en generell seksjon. Gjerne
+          når man ikke har en mer beskrivende tag. Section kan brukes for å
+          definere større seksjoner av en side. F.eks. kan en avis deles inn i en
+          seksjon for hver av sine hovedkategorier, som sport/vær/kjendiser osv.</dd>
           <dd>Hver section skal helst ha en heading.</dd>
           <dt><code>&lt;main&gt;</code></dt>
-          <dd>Brukes for å definere hovedinnholdet på en side. Har man en side for
-          en enkelt artikkel, men linker til flere relaterte artikler, vil det være
-          lurt for å sørge for at artikkelen man skal lese er inni main.</dd>
+          <dd>Brukes for å definere hovedinnholdet på en side.</dd>
           <dt><code>&lt;article&gt;</code></dt>
           <dd>Brukes for å definere en artikkel. Trenger ikke å brukes kun for
           hele artikkler, kan også brukes for oppsummerte artikkler. F.eks. på
