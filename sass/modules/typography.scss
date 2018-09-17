@@ -277,6 +277,16 @@ code {
 	padding: 0 $pad-xs;
 	color: $color-gray-cold-light;
 	background-color: $color-gray-cold-dark;
+
+	a,
+	a:visited {
+		color: $color-gray-cold-light;
+
+		&:hover,
+		&:focus {
+			color: $color-primary;
+		}
+	}
 }
 
 kbd {
