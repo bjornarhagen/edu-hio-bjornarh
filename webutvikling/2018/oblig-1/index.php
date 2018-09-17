@@ -4,7 +4,7 @@
   require('../../../partials/head.php');
   require('../../../partials/navigation.php');
 
-  $articles = json_decode(file_get_contents(__DIR__ . '/oppgaver/summary.json'));
+  $articles = json_decode(file_get_contents(__DIR__ . '/summary.json'));
   $current_path = $_project_path . '/webutvikling/2018/oblig-1/';
 ?>
 <main>
@@ -19,9 +19,6 @@
     </div>
   </header>
   <section class="articles">
-    <!-- <header>
-      <h2>Oppgaver</h2>
-    </header> -->
     <?php foreach ($articles as $article): ?>
     <article class="article theme-brightness-<?= $article->theme->brightness ?> theme-color-<?= $article->theme->color ?>" itemscope itemtype="http://schema.org/Article">
       <div class="article-bg">
@@ -45,6 +42,7 @@
     <?php endforeach; ?>
   </section>
 </main>
+<link rel="stylesheet" href="<?= $_project_path ?>/css/stilark.css">
 <script type="text/javascript">
   (function() {
     window.onload = function() {
