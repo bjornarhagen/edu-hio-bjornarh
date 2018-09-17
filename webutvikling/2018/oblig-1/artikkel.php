@@ -65,7 +65,7 @@
           praesentium iusto molestias esse similique quisquam! Assumenda, nobis!</p>
         </div>
         <figure>
-          <img src="/images/articles/laptop-mac.jpg" alt="Oppgave 2 image">
+          <img src="<?= $_project_path ?>/images/articles/laptop-mac.jpg" alt="Oppgave 2 image">
           <figcaption>Trykk og hold på bilde for å gjøre det større</figcaption>
         </figure>
       </div>

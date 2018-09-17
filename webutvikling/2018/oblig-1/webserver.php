@@ -63,7 +63,7 @@
           over HTTP/HTTPS protokollen. Helst på port 80 og 443.</p>
         </div>
         <figure>
-          <img src="/images/articles/servers.jpg" alt="Oppgave 4 image">
+          <img src="<?= $_project_path ?>/images/articles/servers.jpg" alt="Oppgave 4 image">
           <figcaption>Webservere</figcaption>
         </figure>
       </div>

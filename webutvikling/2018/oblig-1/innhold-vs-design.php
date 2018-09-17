@@ -62,7 +62,7 @@
           for skjermlesere.</p>
         </div>
         <figure>
-          <img src="/images/articles/colors.jpg" alt="Oppgave 3 image">
+          <img src="<?= $_project_path ?>/images/articles/colors.jpg" alt="Oppgave 3 image">
           <figcaption>Trykk og hold på bilde for å gjøre det større</figcaption>
         </figure>
       </div>
