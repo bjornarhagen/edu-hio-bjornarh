@@ -213,13 +213,51 @@ main > header {
     }
   }
 }
+
+#om_meg-page {
+  #me {
+    @include transition('transform, border-radius', 250ms);
+    transform: scale(1.0);
+    display: block;
+    max-width: 15em;
+    width: 100%;
+    border-radius: 100%;
+    margin: 0 auto;
+
+    &:hover {
+      border-radius: 1em;
+    }
+
+    &:active {
+      border-radius: 2em;
+      transform: scale(1.1);
+    }
+  }
+
+  .content-wrapper {
+    margin: 15em auto 0;
+  }
+}
 /* -------------------- spesifikke sider - slutt -------------------- */
 
 body {
+  &.article-page {
+    article {
+      padding-top: $pad-m;
+      padding-bottom: $pad-l;
+
+      @media screen and (max-width: $size-m) {
+        .content-wrapper {
+          padding: 0 $pad-m;
+        }
+      }
+    }
+  }
+
   &.error-page {
     main {
       text-align: center;
-      padding: $pad-xl $pad-s;
+      padding: $pad-xxl $pad-s;
     }
   }
 }
