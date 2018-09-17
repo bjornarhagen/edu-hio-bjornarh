@@ -7,6 +7,7 @@
   <link href="https://cdn.datahjelpen.no/fonts/butler/butler-700.css" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Roboto+Mono" rel="stylesheet">
   <script type="text/javascript">
+    // For å lage padding med navigasjonen sin høyde
     function padForNav(element) {
       if (element == null) {
         element = document.querySelector('main');

@@ -307,6 +307,7 @@ kbd {
 	font: inherit; // 2
 }
 
+/* reset for form elements */
 label,
 input,
 select,
@@ -322,6 +323,7 @@ textarea {
 	font-weight: $font-weight-normal;
 }
 
+/* reset for buttons */
 // Buttons
 button,
 [type="button"],
