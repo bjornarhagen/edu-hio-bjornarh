@@ -1,0 +1,87 @@
+@import 'config/variables';
+@import 'modules/utilities';
+
+/* -------------------- CSS reset - start -------------------- */
+
+// Add the correct display in IE 9-.
+article,
+aside,
+footer,
+header,
+nav,
+section,
+figcaption,
+figure,
+main,
+details,
+menu {
+	display: block;
+}
+
+// Add the correct display in all browsers.
+summary {
+	display: list-item;
+}
+
+// Remove the tapping delay on clickable elements (opinionated).
+a,
+area,
+summary,
+[tabindex] {
+	touch-action: manipulation;
+}
+
+// Add the correct display in IE.
+template {
+	display: none;
+}
+
+// Add the correct display in IE 10-.
+[hidden] {
+	display: none;
+}
+
+
+/* -------------------- CSS reset - slutt -------------------- */
+
+/* -------------------- Utility klasser - start -------------------- */
+.clearfix {
+	@include clearfix();
+}
+
+.layout-xs, .layout-s, .layout-m,
+.layout-l, .layout-xl, .layout-xxl {
+	width: 100%;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.layout-xs  { max-width: $size-xs;  }
+.layout-s   { max-width: $size-s;   }
+.layout-m   { max-width: $size-m;   }
+.layout-l   { max-width: $size-l;   }
+.layout-xl  { max-width: $size-xl;  }
+.layout-xxl { max-width: $size-xxl; }
+/* -------------------- Utility klasser - slutt -------------------- */
+
+// So JS to detect what kind of device we are on
+// #devicecheck {
+// 	display: none;
+// 	width: 0;
+// 	height: 0;
+// 	visibility: hidden;
+// 	content: '';
+//
+// 	@media (max-width: $size-m) {
+// 		content: 'mobile';
+// 	}
+//
+// 	@media (min-width: $size-m-up ) and (max-width: $size-l) {
+// 		content: 'tablet';
+// 	}
+//
+// 	@media (min-width: $size-l-up ) {
+// 		content: 'desktop';
+// 	}
+// }
