@@ -12,7 +12,7 @@
 <main>
   <header class="intro-header header-fancy header-fixed" style="background-image: url('<?= $_project_path ?>/images/articles/laptop-mac.jpg')">
     <div class="header-content">
-      <h1>Oblig 1</h1>
+      <h1><a href="<?= $current_path ?>index.php">Oblig 1</a></h1>
       <nav>
         <?php
           foreach ($articles as $article):

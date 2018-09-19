@@ -30,6 +30,17 @@ body.article-page {
 
   main > header {
     .header-content {
+      h1 a {
+        text-decoration: none;
+        color: $color-font-headings;
+
+        &:focus,
+        &:hover {
+          color: $color-primary;
+          text-decoration: underline;
+        }
+      }
+
       nav {
         display: flex;
         justify-content: center;
