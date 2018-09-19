@@ -1,3 +1,7 @@
+/*
+  Bruker noe CSS fra sanitize.css prosjektet https://csstools.github.io/sanitize.css/
+*/
+
 /* -------------------- Globale stiler som skal gjelde overalt -------------------- */
 
 @import 'config/variables';
@@ -118,7 +122,7 @@ main > header {
   }
 }
 
-/* -------------------- Forside - slutt -------------------- */
+/* -------------------- Forside - start -------------------- */
 #front-page {
   main > header {
     min-height: 100vh;
@@ -183,7 +187,7 @@ main > header {
     }
   }
 }
-/* -------------------- Forside - start -------------------- */
+/* -------------------- Forside - slutt -------------------- */
 
 /* -------------------- spesifikke sider - start -------------------- */
 #lab-page,

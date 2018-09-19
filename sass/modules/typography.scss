@@ -42,6 +42,7 @@ hgroup {
 	display: block;
 }
 
+/* Quotes */
 blockquote {
 	font-family: $font-sans-italic;
 	font-style: italic;
@@ -110,7 +111,6 @@ cite {
 	}
 }
 
-// Quotes
 figure blockquote {
 	padding: $pad-s 0;
 
@@ -122,7 +122,6 @@ figure blockquote {
 
 // 1. Add the correct box sizing in Firefox.
 // 2. Show the overflow in Edge and IE.
-
 hr {
 	height: 0; // 1
 	overflow: visible; // 2
@@ -146,30 +145,30 @@ abbr[title] {
 	text-decoration: underline dotted; // 2
 }
 
-// Prevent the duplicate application of `bolder` by the next rule in Safari 6.
+/* Forhindre duplikat bruk av `bolder` ved neste regel i Safari 6 */
 strong {
 	font-weight: inherit;
 }
 
-// Address style set to `bolder` in Firefox 4+, Safari, and Chrome.
+/* Fiks at 'font-weight' er satt til `bolder` i Firefox 4+, Safari, og Chrome. */
 strong {
 	font-weight: $font-weight-bold;
 }
 
-// Address styling not present in Safari and Chrome.
+/* Fiks manglende styling i Safari og Chrome. */
 dfn {
 	font-family: $font-sans-italic;
 	font-style: italic;
 }
 
-// Prevent `em` and `i` affecting `line-height` in all browsers.
+/* Fiks `em` and `i` slik at de ikke påvirker `line-height` i alle nettlesere. */
 em {
 	line-height: 0;
 	position: relative;
 	vertical-align: baseline;
 }
 
-// Address styling not present in IE 8/9.
+/* Fiks manglende styling i IE 8/9. */
 mark {
 	color: $color-black-yellow;
 	background: $color-yellow;
@@ -181,7 +180,7 @@ small {
 	font-size: 0.7em;
 }
 
-// Prevent `sub` and `sup` affecting `line-height` in all browsers.
+/* Fiks `sub` and `sup` slik at de ikke påvirker `line-height` i alle nettlesere. */
 sub,
 sup {
 	font-size: 0.75em;
@@ -198,7 +197,7 @@ sub {
 	bottom: -0.25em;
 }
 
-// Description list
+/* Description lists */
 dl {
 	margin: 0;
 	margin-bottom: $line-height/2+em;
@@ -215,7 +214,7 @@ dl {
 	}
 }
 
-// Lists
+/* Lister */
 ol,
 ul {
 	margin: 0;
@@ -227,7 +226,7 @@ ul {
 	}
 }
 
-// Links
+/* Linker */
 a {
 	background: transparent;
 	color: $color-link-normal;
