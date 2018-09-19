@@ -261,6 +261,11 @@ a {
 	&:active {
 		color: $color-link-active;
 	}
+
+	&[disabled] {
+		opacity: 0.33;
+		text-decoration: line-through;
+	}
 }
 
 // Code tags

@@ -63,13 +63,6 @@ body {
 @import 'modules/navigation';
 /* -------------------- Navigation - slutt -------------------- */
 
-a {
-  &[disabled] {
-    opacity: 0.33;
-    text-decoration: line-through;
-  }
-}
-
 main > header {
   position: relative;
   display: flex;
