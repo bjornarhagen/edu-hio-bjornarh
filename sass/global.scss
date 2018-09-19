@@ -37,7 +37,6 @@ body {
   font-size: $font-size;
   line-height: $line-height;
   @media screen and (min-width: $size-m-up) {
-    overflow-x: hidden;
     font-size: $font-size-desktop;
     line-height: $line-height-desktop;
   }
