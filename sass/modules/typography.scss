@@ -43,7 +43,8 @@ hgroup {
 }
 
 blockquote {
-	font-style: $font-body-italic;
+	font-family: $font-sans-italic;
+	font-style: italic;
 	margin: 0;
 	padding-left: $pad-m;
 	max-width: #{$base*2.5}rem;
@@ -158,7 +159,8 @@ strong {
 
 // Address styling not present in Safari and Chrome.
 dfn {
-	font-style: $font-body-italic;
+	font-family: $font-sans-italic;
+	font-style: italic;
 }
 
 // Prevent `em` and `i` affecting `line-height` in all browsers.
