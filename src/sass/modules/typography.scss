@@ -1,0 +1,77 @@
+h1, h2,
+h3, h4,
+h5 {
+	font-weight: $font-headings-weight;
+	font-family: $font-headings;
+	color: $color-font-headings;
+}
+
+// Set headings sizes, line-heights and margins
+@each $heading, $properties in $headings {
+	#{$heading} {
+		font-size:     nth($properties, 1);
+		line-height:   nth($properties, 2);
+		margin-top:    nth($properties, 3);
+		margin-bottom: nth($properties, 4);
+	}
+}
+
+// Set margins between headings
+h1 + h2,
+h2 + h3,
+h3 + h4,
+h4 + h5 {
+	margin-top: 0;
+}
+
+h5, h6 {
+	+ p {
+		margin-top: $headings-margin-top;
+	}
+}
+
+h6 {
+	font-family: $font-headings;
+	font-weight: $font-headings-weight-light;
+	color: $color-font-headings;
+}
+
+p {
+	margin-top: 0;
+	margin-bottom: 1em;
+}
+
+.read-wide {
+	max-width: #{10*$font-ratio*$font-ratio*$font-ratio*$font-ratio*$font-ratio*$font-ratio}em;
+}
+
+.read {
+	max-width: #{10*$font-ratio*$font-ratio*$font-ratio*$font-ratio}em;
+}
+
+.read-narrow {
+	max-width: #{10*$font-ratio*$font-ratio}em;
+}
+
+.icon {
+	vertical-align: middle;
+	width: 1em;
+	height: 1em;
+	line-height: 1em;
+
+	& + span {
+		vertical-align: middle;
+	}
+
+	&:first-child {
+		margin: 0 $pad-xs 0 0;
+	}
+
+	&:last-child {
+		margin: 0 0 0 $pad-xs;
+	}
+
+	&:first-child:last-child {
+		margin: 0;
+	}
+}
