@@ -6,6 +6,22 @@ var uglify = require('gulp-uglify');
 var rename = require('gulp-rename');
 var php = require('gulp-connect-php');
 var browserSync = require('browser-sync').create();
+var nunjucksRender = require('gulp-nunjucks-render');
+
+gulp.task('nunjucks', function() {
+  return gulp.src([       // Folder(s) to look in for content files
+    'src/**/*.+(html|nunjucks)',
+    '!src/partials/*.+(html|nunjucks)',
+  ])
+  .pipe(nunjucksRender({
+    path: ['src/partials'] // Folder to look in for partials that are included/extended
+  }))
+  .pipe(gulp.dest('dist')) // Output rendered HTML in folder
+});
+
+gulp.task('nunjucks:watch', function() {
+  gulp.watch('./src/**/*.nunjucks', ['nunjucks', browserSync.reload]);
+});
 
 gulp.task('js', function() {
   gulp.src([
@@ -43,7 +59,7 @@ gulp.task('php', function() {
   });
 });
 
-gulp.task('browser-sync', function() {
+gulp.task('browser-sync-php', function() {
   browserSync.init({
     proxy: '127.0.0.1:8080',
     open: true,
@@ -51,8 +67,20 @@ gulp.task('browser-sync', function() {
   });
 });
 
-gulp.task('default', ['js', 'sass', 'php', 'browser-sync', 'sass:watch'], function() {
+gulp.task('browser-sync', function() {
+  browserSync.init({
+    open: true,
+    notify: false,
+    server: {
+      baseDir: './dist'
+    }
+  });
+});
+
+gulp.task('default', ['js', 'sass', 'nunjucks', 'browser-sync', 'sass:watch', 'nunjucks:watch']);
+
+gulp.task('php', ['js', 'sass', 'browser-sync-php', 'sass:watch', 'php'], function() {
   gulp.watch(['./**/*.php'], [browserSync.reload]);
 });
 
-gulp.task('build', ['js', 'sass']);
+gulp.task('build', ['js', 'sass', 'nunjucks']);

@@ -1,0 +1,7 @@
+{% set title = "Forside" %}
+{# {% set body_id = "myid" %} #}
+{# {% set body_classes = "klasse1 klasse2 klasse3" %} #}
+{% extends "master.nunjucks" %}
+{% block content %}
+  <h1>Hello world</h1>
+{% endblock %}
