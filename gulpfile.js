@@ -37,18 +37,19 @@ gulp.task('js', function() {
 
 gulp.task('sass', function() {
   return gulp.src([
-    './sass/global.scss',
-    './sass/stilark.scss'
+    './src/sass/reset.scss',
+    './src/sass/global.scss',
+    './src/sass/stilark.scss'
   ])
     .pipe(sass({
       outputStyle: 'expanded'
     }).on('error', sass.logError))
-    .pipe(gulp.dest('./css'))
+    .pipe(gulp.dest('./dist/css'))
     .pipe(browserSync.stream());
 });
 
 gulp.task('sass:watch', function() {
-  gulp.watch('./sass/**/*.scss', ['sass']);
+  gulp.watch('./src/sass/**/*.scss', ['sass']);
 });
 
 gulp.task('php', function() {

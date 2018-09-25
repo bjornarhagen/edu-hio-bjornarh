@@ -35,3 +35,15 @@ body {
   color: $color-white;
   text-shadow: none;
 }
+
+@import 'modules/utility-classes';
+
+/* -------------------- Media - start -------------------- */
+@import 'modules/media';
+/* -------------------- Media - slutt -------------------- */
+/* -------------------- Typography - start -------------------- */
+@import 'modules/typography';
+/* -------------------- Typography - slutt -------------------- */
+/* -------------------- Navigation - start -------------------- */
+@import 'modules/navigation';
+/* -------------------- Navigation - slutt -------------------- */
