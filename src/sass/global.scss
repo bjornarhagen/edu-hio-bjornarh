@@ -1,0 +1,37 @@
+@import 'config/variables';
+@import 'modules/utilities';
+
+body,
+html {
+  margin: 0;
+  padding: 0;
+  font-family: $font-body;
+}
+
+html {
+  box-sizing: border-box;
+  font-size: $font-base;
+}
+
+body {
+  // position: relative;
+  font-size: $font-size;
+  line-height: $line-height;
+
+  @media screen and (min-width: $size-m-up) {
+    font-size: $font-size-desktop;
+    line-height: $line-height-desktop;
+  }
+}
+
+::-moz-selection {
+  background-color: $color-accent;
+  color: $color-white;
+  text-shadow: none;
+}
+
+::selection {
+  background-color: $color-accent;
+  color: $color-white;
+  text-shadow: none;
+}
