@@ -78,7 +78,12 @@ audio:not([controls]) {
 }
 
 img {
+  max-width: 100%;
   border-style: none;
+}
+
+figure {
+  margin: 0;
 }
 
 svg {
