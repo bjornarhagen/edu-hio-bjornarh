@@ -1,12 +1,13 @@
 'use strict';
 
-var gulp = require('gulp');
-var sass = require('gulp-sass');
-var uglify = require('gulp-uglify');
-var rename = require('gulp-rename');
-var php = require('gulp-connect-php');
-var browserSync = require('browser-sync').create();
-var nunjucksRender = require('gulp-nunjucks-render');
+const gulp = require('gulp');
+const sass = require('gulp-sass');
+const uglify = require('gulp-uglify');
+const rename = require('gulp-rename');
+const php = require('gulp-connect-php');
+const browserSync = require('browser-sync').create();
+const nunjucksRender = require('gulp-nunjucks-render');
+const imagemin = require('gulp-imagemin');
 
 gulp.task('nunjucks', function() {
   return gulp.src([       // Folder(s) to look in for content files
@@ -60,6 +61,32 @@ gulp.task('php', function() {
   });
 });
 
+
+gulp.task('image', function() {
+  gulp.src('src/images/*')
+    .pipe(imagemin([
+      imagemin.gifsicle({
+        interlaced: true
+      }),
+      imagemin.jpegtran({
+        progressive: true
+      }),
+      imagemin.optipng({
+        optimizationLevel: 5
+      }),
+      imagemin.svgo({
+        plugins: [{
+            removeViewBox: true
+          },
+          {
+            cleanupIDs: false
+          }
+        ]
+      })
+    ]))
+    .pipe(gulp.dest('dist/images'))
+});
+
 gulp.task('browser-sync-php', function() {
   browserSync.init({
     proxy: '127.0.0.1:8080',
@@ -78,7 +105,7 @@ gulp.task('browser-sync', function() {
   });
 });
 
-gulp.task('default', ['js', 'sass', 'nunjucks', 'browser-sync', 'sass:watch', 'nunjucks:watch']);
+gulp.task('default', ['js', 'sass', 'nunjucks', 'browser-sync', 'image', 'sass:watch', 'nunjucks:watch']);
 
 gulp.task('php', ['js', 'sass', 'browser-sync-php', 'sass:watch', 'php'], function() {
   gulp.watch(['./**/*.php'], [browserSync.reload]);
