@@ -10,11 +10,11 @@ var nunjucksRender = require('gulp-nunjucks-render');
 
 gulp.task('nunjucks', function() {
   return gulp.src([       // Folder(s) to look in for content files
-    'src/**/*.+(html|nunjucks)',
-    '!src/partials/*.+(html|nunjucks)',
+    'src/html/**/*.+(html|nunjucks)',
+    '!src/templates/*.+(html|nunjucks)',
   ])
   .pipe(nunjucksRender({
-    path: ['src/partials'] // Folder to look in for partials that are included/extended
+    path: ['src/html/templates'] // Folder to look in for templates that are included/extended
   }))
   .pipe(gulp.dest('dist')) // Output rendered HTML in folder
 });

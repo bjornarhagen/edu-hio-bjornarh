@@ -19,8 +19,9 @@
   <link rel="manifest" href="{{ path }}/manifest.json">
   <link rel="mask-icon" href="{{ path }}/safari-pinned-tab.svg" color="#ff9514">
   <meta name="theme-color" content="#ff9514">
-  <link rel="stylesheet" href="{{ path }}/styles.css">
-  <link href="https://fonts.googleapis.com/css?family=Lato:300:400:700" rel="stylesheet">
+  <link rel="stylesheet" href="{{ path }}/css/reset.css">
+  <link rel="stylesheet" href="{{ path }}/css/global.css">
+  <link href="https://fonts.googleapis.com/css?family=Rubik:300:400:700" rel="stylesheet">
   {%- block head -%}
   {%- endblock -%}
 </head>
@@ -42,7 +43,7 @@
     <p>Kildekode: <a href="https://github.com/bearhagen/edu-hio-bjornarh/tree/webutvikling-2018" target="_blank">github.com/bearhagen/edu-hio-bjornarh</a></p>
   </footer>
   {%- block scripts_before -%}{%- endblock %}
-  <link href="https://cdn.datahjelpen.no/fonts/butler/butler-700.css" rel="stylesheet">
+  <link href="https://cdn.datahjelpen.no/fonts/butler/butler-700-400.css" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Roboto+Mono" rel="stylesheet">
   {%- block scripts_after -%}{%- endblock %}
 </body>
