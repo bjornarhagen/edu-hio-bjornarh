@@ -14,13 +14,58 @@ html {
 }
 
 body {
-  // position: relative;
+  position: relative;
   font-size: $font-size;
   line-height: $line-height;
 
   @media screen and (min-width: $size-m-up) {
     font-size: $font-size-desktop;
     line-height: $line-height-desktop;
+  }
+
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: auto minmax(3em, 10vh) auto auto auto;
+  grid-template-areas: "h h h h h h h h h h h h"
+  "n n n n n n n n n n n n"
+  "m m m m m m m m m m m m"
+  "a a a a a a a a a a a a"
+  "f f f f f f f f f f f f";
+  background-color: $color-gray-cold-light;
+  justify-content: space-between;
+  align-items: flex-start;
+  align-content: flex-start;
+
+  >header {
+    grid-area: h;
+  }
+
+  >main {
+    grid-area: m;
+  }
+
+  >aside {
+    grid-area: a;
+  }
+
+  >footer {
+    grid-area: f;
+    position: relative;
+    z-index: 3;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    align-content: center;
+    padding: $pad-xxl $pad-m;
+    text-align: center;
+    background-color: $color-white;
+    height: 100%;
+    box-shadow: 0 1em 5em -2em rgba($color-shadow, 0.25);
+
+    p:last-child {
+      margin-top: 2em;
+    }
   }
 }
 
@@ -87,23 +132,12 @@ a {
 @import 'modules/navigation';
 /* -------------------- Navigation - slutt -------------------- */
 
-/* -------------------- Frontpage - start -------------------- */
-#fp {
-  display: grid;
-  grid-template-columns: repeat(12, 1fr);
-  grid-template-rows: auto minmax(3em, 10vh) auto auto auto;
-  grid-template-areas:
-    "h h h h h h h h h h h h"
-    "n n n n n n n n n n n n"
-    "m m m m m m m m m m m m"
-    "a a a a a a a a a a a a"
-    "f f f f f f f f f f f f";
-  background-color: $color-white;
-  background-color: $color-gray-cold-light;
-  justify-content: space-between;
-  align-items: flex-start;
-  align-content: flex-start;
+// .article-page,
+// #fp {}
 
+/* -------------------- Frontpage - start -------------------- */
+
+#fp {
   @media screen and (min-width: $size-m-up) {
   grid-template-areas:
     "h h h h h h h h h h h h"
@@ -114,7 +148,6 @@ a {
   }
 
   >header {
-    grid-area: h;
     display: flex;
     height: 100%;
     flex-wrap: wrap;
@@ -170,63 +203,14 @@ a {
     }
   }
 
-  >nav {
-    position: sticky;
-    top: 0;
-    z-index: 4;
-    grid-area: n;
-    display: flex;
-    width: 100%;
-    height: 100%;
-    justify-content: space-between;
-    align-items: center;
-    align-content: center;
-    background-color: $color-white;
-    padding: 0 $pad-m;
-
+  > nav {
     @media screen and (min-width: $size-m-up) {
       width: 75%;
-    }
-
-    .brand,
-    .links {
-      height: 100%;
-      display: flex;
-      flex-direction: row;
-      justify-content: space-between;
-      align-content: center;
-      align-items: center;
-    }
-
-    .brand {
-      a {
-        width: 2em;
-        height: 2em;
-      }
-
-      img {
-        height: 100%;
-        width: auto;
-      }
-    }
-
-    .links {
-      flex-grow: 1;
-
-      a {
-        padding: 0 $pad-s;
-        text-decoration: none;
-
-        &:first-child {
-          margin-left: auto;
-        }
-      }
     }
   }
 
   >main {
     position: relative;
-    grid-area: m;
     display: flex;
     justify-content: space-between;
     flex-direction: row;
@@ -292,7 +276,6 @@ a {
 
   >aside {
     position: relative;
-    grid-area: a;
     padding: $pad-l $pad-l;
     background-color: $color-white;
     z-index: 2;
@@ -345,26 +328,6 @@ a {
       height: 100vh;
       overflow-y: auto;
       overflow-x: hidden;
-    }
-  }
-
-  >footer {
-    position: relative;
-    z-index: 3;
-    grid-area: f;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    align-items: center;
-    align-content: center;
-    padding: $pad-xxl $pad-m;
-    text-align: center;
-    background-color: $color-white;
-    height: 100%;
-    box-shadow: 0 1em 5em -2em rgba($color-shadow, 0.25);
-
-    p:last-child {
-      margin-top: 2em;
     }
   }
 }
