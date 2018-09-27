@@ -1,0 +1,49 @@
+{% set title = "Artikkel" %}
+{% set body_id = "article-1" %}
+{% set body_classes = "article-page" %}
+{% extends "master.nunjucks" %}
+{% block content %}
+<main>
+  <article>
+    <header>
+      <section>
+        <h1>Artikkel</h1>
+        <div class="read">
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente suscipit natus in a accusamus quibusdam quisquam dolorem expedita quis necessitatibus tenetur facere aut voluptatum magni quidem, optio aspernatur dolores autem.</p>
+        </div>
+      </section>
+      <figure>
+        <div class="bg-image" style="background-image:url('images/aurora.jpg')"></div>
+        <img src="images/aurora.jpg" alt="Aurora">
+      </figure>
+    </header>
+    <section>
+      <h2>Lorem ipsum 1</h2>
+      <div class="read">
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia debitis, repellendus nemo ratione vero libero expedita harum earum, placeat fugit fuga, dolorum facilis commodi error nostrum sunt ipsam! Nostrum nobis dicta, cum debitis deleniti perspiciatis eius illo nisi explicabo, voluptate voluptatum minima quibusdam mollitia? Quae, velit corrupti? Aperiam ipsa in sunt sequi maiores libero fugit, perspiciatis ratione dolorem eum, architecto provident, voluptates tempore veritatis corrupti laborum iusto id. Provident voluptate ut et repudiandae iste deserunt, quae sequi magni temporibus fugit! Ut, magni dolor, ipsum perferendis obcaecati fugiat omnis suscipit quam cum doloribus fugit aliquid tempore cupiditate, optio est assumenda officiis.</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia debitis, repellendus nemo ratione vero libero expedita harum earum, placeat fugit fuga, dolorum facilis commodi error nostrum sunt ipsam! Nostrum nobis dicta, cum debitis deleniti perspiciatis eius illo nisi explicabo, voluptate voluptatum minima quibusdam mollitia? Quae, velit corrupti? Aperiam ipsa in sunt sequi maiores libero fugit, perspiciatis ratione dolorem eum, architecto provident, voluptates tempore veritatis corrupti laborum iusto id. Provident voluptate ut et repudiandae iste deserunt, quae sequi magni temporibus fugit! Ut, magni dolor, ipsum perferendis obcaecati fugiat omnis suscipit quam cum doloribus fugit aliquid tempore cupiditate, optio est assumenda officiis.</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia debitis, repellendus nemo ratione vero libero expedita harum earum, placeat fugit fuga, dolorum facilis commodi error nostrum sunt ipsam! Nostrum nobis dicta, cum debitis deleniti perspiciatis eius illo nisi explicabo, voluptate voluptatum minima quibusdam mollitia? Quae, velit corrupti? Aperiam ipsa in sunt sequi maiores libero fugit, perspiciatis ratione dolorem eum, architecto provident, voluptates tempore veritatis corrupti laborum iusto id. Provident voluptate ut et repudiandae iste deserunt, quae sequi magni temporibus fugit! Ut, magni dolor, ipsum perferendis obcaecati fugiat omnis suscipit quam cum doloribus fugit aliquid tempore cupiditate, optio est assumenda officiis.</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia debitis, repellendus nemo ratione vero libero expedita harum earum, placeat fugit fuga, dolorum facilis commodi error nostrum sunt ipsam! Nostrum nobis dicta, cum debitis deleniti perspiciatis eius illo nisi explicabo, voluptate voluptatum minima quibusdam mollitia? Quae, velit corrupti? Aperiam ipsa in sunt sequi maiores libero fugit, perspiciatis ratione dolorem eum, architecto provident, voluptates tempore veritatis corrupti laborum iusto id. Provident voluptate ut et repudiandae iste deserunt, quae sequi magni temporibus fugit! Ut, magni dolor, ipsum perferendis obcaecati fugiat omnis suscipit quam cum doloribus fugit aliquid tempore cupiditate, optio est assumenda officiis.</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia debitis, repellendus nemo ratione vero libero expedita harum earum, placeat fugit fuga, dolorum facilis commodi error nostrum sunt ipsam! Nostrum nobis dicta, cum debitis deleniti perspiciatis eius illo nisi explicabo, voluptate voluptatum minima quibusdam mollitia? Quae, velit corrupti? Aperiam ipsa in sunt sequi maiores libero fugit, perspiciatis ratione dolorem eum, architecto provident, voluptates tempore veritatis corrupti laborum iusto id. Provident voluptate ut et repudiandae iste deserunt, quae sequi magni temporibus fugit! Ut, magni dolor, ipsum perferendis obcaecati fugiat omnis suscipit quam cum doloribus fugit aliquid tempore cupiditate, optio est assumenda officiis.</p>
+      </div>
+    </section>
+    <section>
+      <h2>Lorem ipsum 2</h2>
+      <div class="read">
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia debitis, repellendus nemo ratione vero libero expedita harum earum, placeat fugit fuga, dolorum facilis commodi error nostrum sunt ipsam! Nostrum nobis dicta, cum debitis deleniti perspiciatis eius illo nisi explicabo, voluptate voluptatum minima quibusdam mollitia? Quae, velit corrupti? Aperiam ipsa in sunt sequi maiores libero fugit, perspiciatis ratione dolorem eum, architecto provident, voluptates tempore veritatis corrupti laborum iusto id. Provident voluptate ut et repudiandae iste deserunt, quae sequi magni temporibus fugit! Ut, magni dolor, ipsum perferendis obcaecati fugiat omnis suscipit quam cum doloribus fugit aliquid tempore cupiditate, optio est assumenda officiis.</p>
+      </div>
+      <div class="split">
+        <img src="images/aurora.jpg" alt="Aurora">
+        <div class="read-narrow">
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia debitis, repellendus nemo ratione vero libero expedita harum earum, placeat fugit fuga, dolorum facilis commodi error nostrum sunt ipsam! Nostrum nobis dicta, cum debitis deleniti perspiciatis eius illo nisi explicabo, voluptate voluptatum minima quibusdam mollitia? Quae, velit corrupti? Aperiam ipsa in sunt sequi maiores libero fugit, perspiciatis ratione dolorem eum, architecto provident, voluptates tempore veritatis corrupti laborum iusto id. Provident voluptate ut et repudiandae iste deserunt, quae sequi magni temporibus fugit! Ut, magni dolor, ipsum perferendis obcaecati fugiat omnis suscipit quam cum doloribus fugit aliquid tempore cupiditate, optio est assumenda officiis.</p>
+        </div>
+      <div class="split-reverse">
+        <div class="read-narrow">
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia debitis, repellendus nemo ratione vero libero expedita harum earum, placeat fugit fuga, dolorum facilis commodi error nostrum sunt ipsam! Nostrum nobis dicta, cum debitis deleniti perspiciatis eius illo nisi explicabo, voluptate voluptatum minima quibusdam mollitia? Quae, velit corrupti? Aperiam ipsa in sunt sequi maiores libero fugit, perspiciatis ratione dolorem eum, architecto provident, voluptates tempore veritatis corrupti laborum iusto id. Provident voluptate ut et repudiandae iste deserunt, quae sequi magni temporibus fugit! Ut, magni dolor, ipsum perferendis obcaecati fugiat omnis suscipit quam cum doloribus fugit aliquid tempore cupiditate, optio est assumenda officiis.</p>
+        </div>
+        <img src="images/aurora.jpg" alt="Aurora">
+      </div>
+    </section>
+  </article>
+</main>
+{% endblock %}
