@@ -17,27 +17,114 @@
 {% endblock %}
 {% block content %}
 <main>
-  <article>Main 1</article>
-  <article>Main 2</article>
-  <article>Main 3</article>
-  <article>Main 4</article>
-  <article>Main 5</article>
-  <article>Main 6</article>
-  <article>Main 7</article>
-  <article>Main 8</article>
-  <article>Main 9</article>
-  <article>Main 10</article>
+  <article>
+    <img src="images/aurora.jpg" alt="Image - Lorem ipsum 1">
+    <h2>Lorem ipsum 1</h2>
+    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Laudantium ut, alias veniam illo deleniti natus!</p>
+    <a class="button" href="article.html">Les mer</a>
+  </article>
+  <article>
+    <img src="images/aurora.jpg" alt="Image - Lorem ipsum 2">
+    <h2>Lorem ipsum</h2>
+    <p>Sit amet consectetur adipisicing elit. Laudantium ut, alias veniam illo deleniti natus!</p>
+    <a class="button" href="article.html">Les mer</a>
+  </article>
+  <article>
+    <img src="images/aurora.jpg" alt="Image - Lorem ipsum 3">
+    <h2>Lorem ipsum 3</h2>
+    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Laudantium ut, alias veniam illo deleniti natus!</p>
+    <a class="button" href="article.html">Les mer</a>
+  </article>
+  <article>
+    <img src="images/aurora.jpg" alt="Image - Lorem ipsum 4">
+    <h2>Lorem ipsum 4</h2>
+    <p>Alias veniam illo deleniti natus! Lorem ipsum dolor, sit amet consectetur</p>
+    <a class="button" href="article.html">Les mer</a>
+  </article>
+  <article>
+    <img src="images/aurora.jpg" alt="Image - Lorem ipsum 5">
+    <h2>Lorem ipsum 5</h2>
+    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Laudantium ut, alias veniam illo deleniti natus! Lorem ipsum dolor, sit amet consectetur adipisicing elit. Laudantium ut, alias veniam illo deleniti natus!</p>
+    <a class="button" href="article.html">Les mer</a>
+  </article>
+  <article>
+    <img src="images/aurora.jpg" alt="Image - Lorem ipsum 6">
+    <h2>Lorem ipsum</h2>
+    <p>dolor, sit amet consectetur adipisicing elit. Laudantium ut, alias veniam illo deleniti natus!</p>
+    <a class="button" href="article.html">Les mer</a>
+  </article>
+  <article>
+    <img src="images/aurora.jpg" alt="Image - Lorem ipsum 7">
+    <h2>Lorem ipsum 7</h2>
+    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Laudantium ut, alias veniam illo deleniti natus!</p>
+    <a class="button" href="article.html">Les mer</a>
+  </article>
+  <article>
+    <img src="images/aurora.jpg" alt="Image - Lorem ipsum 8">
+    <h2>Lorem ipsum 8</h2>
+    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Laudantium ut, alias veniam illo deleniti natus!</p>
+    <a class="button" href="article.html">Les mer</a>
+  </article>
+  <article>
+    <img src="images/aurora.jpg" alt="Image - Lorem ipsum 9">
+    <h2>Lorem ipsum 9</h2>
+    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Laudantium ut, alias veniam illo deleniti natus!</p>
+    <a class="button" href="article.html">Les mer</a>
+  </article>
+  <article>
+    <img src="images/aurora.jpg" alt="Image - Lorem ipsum 10">
+    <h2>Lorem ipsum 10</h2>
+    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Laudantium ut, alias veniam illo deleniti natus!</p>
+    <a class="button" href="article.html">Les mer</a>
+  </article>
 </main>
 <aside>
-  <p>Aside</p>
-  <p>Aside</p>
-  <p>Aside</p>
-  <p>Aside</p>
-  <p>Aside</p>
-  <p>Aside</p>
-  <p>Aside</p>
-  <p>Aside</p>
-  <p>Aside</p>
-  <p>Aside</p>
+  <nav class="links">
+    <h3>Artikler</h3>
+    <p>Her er noen artikler som omhandler responsivt design.</p>
+    <ul>
+      <li><a class="link" href="https://responsivedesign.is/" target="_blank" rel="noopener">Responsive Web Design Is</a></li>
+      <li><a class="link" href="https://johnpolacek.github.io/scrolldeck.js/decks/responsive/" target="_blank" rel="noopener">What The Heck Is Responsive Web Design?</a></li>
+      <li><a class="link" href="https://designmodo.com/responsive-design-examples/" target="_blank" rel="noopener">Responsive Web Design: 50 Examples and Best Practices</a></li>
+      <li><a class="link" href="https://www.w3schools.com/html/html_responsive.asp" target="_blank" rel="noopener">HTML Responsive Web Design</a></li>
+      <li><a class="link" href="https://en.wikipedia.org/wiki/Responsive_web_design" target="_blank" rel="noopener">Responsive web design</a></li>
+    </ul>
+  </nav>
+  <nav class="buttons">
+    <p>Google søk: Github</p>
+    <a id="button-google" class="button" href="https://www.google.com/search?q=github" target="_blank" rel="noopener">
+      <img src="images/google-icon.svg" alt="Google ikon" class="icon">
+      <span>Google</span>
+    </a>
+    <p>Video om: web design</p>
+    <a id="button-youtube" class="button" href="https://www.youtube.com/watch?v=jVkLVRt6c1U" target="_blank" rel="noopener">
+      <img src="images/youtube-icon.svg" alt="Youtube ikon" class="icon">
+      <span>Youtube</span>
+    </a>
+  </nav>
 </aside>
+<div id="modal-yt-video">
+  <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/jVkLVRt6c1U" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+</div>
+<script>
+  // Toggels the YouTube video modal
+  (function() {
+    var button = document.querySelector('#button-youtube');
+    var videoWrapper = document.querySelector('#modal-yt-video');
+
+    button.addEventListener('click', function(e) {
+      // Prevent the link from sending the user away
+      // If the user doesn't have javascript, the link will work and work as a fallback to the modal
+      e.preventDefault();
+
+      // Show the modal
+      videoWrapper.style.display = 'flex';
+    });
+
+    videoWrapper.addEventListener('click', function(e) {
+      // Hide the modal
+      videoWrapper.style.display = '';
+    });
+  })();
+</script>
 {% endblock %}
