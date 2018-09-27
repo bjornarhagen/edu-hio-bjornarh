@@ -2,7 +2,7 @@
 {% set body_id = "fp" %}
 {# {% set body_classes = "klasse1 klasse2 klasse3" %} #}
 {% extends "master.nunjucks" %}
-{% block content %}
+{% block header %}
 <header>
   <figure>
     <div class="bg-image" style="background-image:url('images/aurora.jpg')"></div>
@@ -11,19 +11,11 @@
   <section>
     <h1>Overskrift</h1>
     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente suscipit natus in a accusamus quibusdam quisquam dolorem expedita quis necessitatibus tenetur facere aut voluptatum magni quidem, optio aspernatur dolores autem.</p>
-    <a href="#readmore" class="button">Les mer</a>
+    <a href="article.html" class="button button-filled">Les mer</a>
   </section>
 </header>
-<nav>
-  <section>
-    <a href="#">Logo</a>
-  </section>
-  <section>
-    <a href="#">Link 1</a>
-    <a href="#">Link 2</a>
-    <a href="#">Link 3</a>
-  </section>
-</nav>
+{% endblock %}
+{% block content %}
 <main>
   <article>Main 1</article>
   <article>Main 2</article>

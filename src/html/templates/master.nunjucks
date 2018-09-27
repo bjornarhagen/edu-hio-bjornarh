@@ -34,6 +34,18 @@
     {{ (" id=\"" + body_classes + "\"") | safe }}
   {%- endif -%}
 >
+  {% block header %}{%- endblock %}
+  <nav>
+    <section class="brand">
+      <a href="#"><img src="images/brand/logo/logo-black-1x1.png" alt="Bjørnar Hagen - logo"></a>
+    </section>
+    <section class="links">
+      <a href="/">Hjem</a>
+      <a href="#Git/Github">Git/Github</a>
+      <a href="#Media Typer">Media Typer</a>
+      <a href="#CSS Layouts">CSS Layouts</a>
+    </section>
+  </nav>
   {% block content %}{%- endblock %}
   <footer id="footer">
     <p>
