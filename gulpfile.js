@@ -63,7 +63,7 @@ gulp.task('php', function() {
 
 
 gulp.task('image', function() {
-  gulp.src('src/images/*')
+  gulp.src('src/images/**/*.{png,gif,jpg,jpeg,svg}')
     .pipe(imagemin([
       imagemin.gifsicle({
         interlaced: true
