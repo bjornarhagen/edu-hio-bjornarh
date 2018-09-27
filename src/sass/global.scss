@@ -38,12 +38,15 @@ body {
 
 @import 'modules/utility-classes';
 
-/* -------------------- Media - start -------------------- */
-@import 'modules/media';
-/* -------------------- Media - slutt -------------------- */
 /* -------------------- Typography - start -------------------- */
 @import 'modules/typography';
 /* -------------------- Typography - slutt -------------------- */
+/* -------------------- Media - start -------------------- */
+@import 'modules/media';
+/* -------------------- Media - slutt -------------------- */
+/* -------------------- Buttons - start -------------------- */
+@import 'modules/buttons';
+/* -------------------- Buttons - slutt -------------------- */
 /* -------------------- Navigation - start -------------------- */
 @import 'modules/navigation';
 /* -------------------- Navigation - slutt -------------------- */
