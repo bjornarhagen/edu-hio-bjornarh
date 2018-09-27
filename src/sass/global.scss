@@ -36,6 +36,42 @@ body {
   text-shadow: none;
 }
 
+a {
+  @include transition('color', 250ms);
+  position: relative;
+  color: $color-gray-cold-dark;
+  text-decoration: none;
+
+  &:after {
+    @include transition('width', 500ms);
+    content: ' ';
+    z-index: 1;
+    position: absolute;
+    bottom: -0.1em;
+    right: 0;
+    width: 0;
+    height: 2px;
+    background-color: $color-gray-cold-dark;
+  }
+
+  &:focus,
+  &:hover {
+    color: $color-primary;
+
+    &:after {
+      left: 0;
+      right: auto;
+      width: 100%;
+    }
+  }
+
+  &.button:after,
+  &.link:after {
+    content: none;
+    display: none;
+  }
+}
+
 @import 'modules/utility-classes';
 
 /* -------------------- Typography - start -------------------- */
