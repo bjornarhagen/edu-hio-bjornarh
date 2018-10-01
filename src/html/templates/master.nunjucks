@@ -37,13 +37,13 @@
   {% block header %}{%- endblock %}
   <nav>
     <section class="brand">
-      <a href="#"><img src="images/brand/logo/logo-black-1x1.png" alt="Bjørnar Hagen - logo"></a>
+      <a href="{{ path }}/"><img src="{{ path }}/images/brand/logo/logo-black-1x1.png" alt="Bjørnar Hagen - logo"></a>
     </section>
     <section class="links">
-      <a href="/">Hjem</a>
-      <a href="#Git/Github">Git/Github</a>
-      <a href="#Media Typer">Media Typer</a>
-      <a href="#CSS Layouts">CSS Layouts</a>
+      <a href="{{ path }}/">Hjem</a>
+      <a href="{{ path }}/artikler/git-github.html">Git/Github</a>
+      <a href="{{ path }}/artikler/media-typer.html">Media Typer</a>
+      <a href="{{ path }}/artikler/css-layouts.html">CSS Layouts</a>
     </section>
   </nav>
   {% block content %}{%- endblock %}
