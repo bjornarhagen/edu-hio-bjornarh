@@ -9,9 +9,9 @@
     <img src="images/aurora.jpg" alt="Aurora">
   </figure>
   <section>
-    <h1>Overskrift</h1>
+    <h1>Bjørnars studiewebsted</h1>
     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente suscipit natus in a accusamus quibusdam quisquam dolorem expedita quis necessitatibus tenetur facere aut voluptatum magni quidem, optio aspernatur dolores autem.</p>
-    <a href="article.html" class="button button-filled">Les mer</a>
+    <a href="{{ path }}/om.html" class="button button-filled">Les mer</a>
   </section>
 </header>
 {% endblock %}
@@ -19,63 +19,21 @@
 <main>
   <article>
     <img src="images/aurora.jpg" alt="Image - Lorem ipsum 1">
-    <h2>Lorem ipsum 1</h2>
+    <h2>Git/Github</h2>
     <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Laudantium ut, alias veniam illo deleniti natus!</p>
-    <a class="button" href="article.html">Les mer</a>
+    <a class="button" href="{{ path }}/artikler/git-github.html">Les mer</a>
   </article>
   <article>
     <img src="images/aurora.jpg" alt="Image - Lorem ipsum 2">
-    <h2>Lorem ipsum</h2>
+    <h2>Media Typer</h2>
     <p>Sit amet consectetur adipisicing elit. Laudantium ut, alias veniam illo deleniti natus!</p>
-    <a class="button" href="article.html">Les mer</a>
+    <a class="button" href="{{ path }}/artikler/media-typer.html">Les mer</a>
   </article>
   <article>
     <img src="images/aurora.jpg" alt="Image - Lorem ipsum 3">
-    <h2>Lorem ipsum 3</h2>
+    <h2>CSS Layouts</h2>
     <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Laudantium ut, alias veniam illo deleniti natus!</p>
-    <a class="button" href="article.html">Les mer</a>
-  </article>
-  <article>
-    <img src="images/aurora.jpg" alt="Image - Lorem ipsum 4">
-    <h2>Lorem ipsum 4</h2>
-    <p>Alias veniam illo deleniti natus! Lorem ipsum dolor, sit amet consectetur</p>
-    <a class="button" href="article.html">Les mer</a>
-  </article>
-  <article>
-    <img src="images/aurora.jpg" alt="Image - Lorem ipsum 5">
-    <h2>Lorem ipsum 5</h2>
-    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Laudantium ut, alias veniam illo deleniti natus! Lorem ipsum dolor, sit amet consectetur adipisicing elit. Laudantium ut, alias veniam illo deleniti natus!</p>
-    <a class="button" href="article.html">Les mer</a>
-  </article>
-  <article>
-    <img src="images/aurora.jpg" alt="Image - Lorem ipsum 6">
-    <h2>Lorem ipsum</h2>
-    <p>dolor, sit amet consectetur adipisicing elit. Laudantium ut, alias veniam illo deleniti natus!</p>
-    <a class="button" href="article.html">Les mer</a>
-  </article>
-  <article>
-    <img src="images/aurora.jpg" alt="Image - Lorem ipsum 7">
-    <h2>Lorem ipsum 7</h2>
-    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Laudantium ut, alias veniam illo deleniti natus!</p>
-    <a class="button" href="article.html">Les mer</a>
-  </article>
-  <article>
-    <img src="images/aurora.jpg" alt="Image - Lorem ipsum 8">
-    <h2>Lorem ipsum 8</h2>
-    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Laudantium ut, alias veniam illo deleniti natus!</p>
-    <a class="button" href="article.html">Les mer</a>
-  </article>
-  <article>
-    <img src="images/aurora.jpg" alt="Image - Lorem ipsum 9">
-    <h2>Lorem ipsum 9</h2>
-    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Laudantium ut, alias veniam illo deleniti natus!</p>
-    <a class="button" href="article.html">Les mer</a>
-  </article>
-  <article>
-    <img src="images/aurora.jpg" alt="Image - Lorem ipsum 10">
-    <h2>Lorem ipsum 10</h2>
-    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Laudantium ut, alias veniam illo deleniti natus!</p>
-    <a class="button" href="article.html">Les mer</a>
+    <a class="button" href="{{ path }}/artikler/css-layouts.html">Les mer</a>
   </article>
 </main>
 <aside>
