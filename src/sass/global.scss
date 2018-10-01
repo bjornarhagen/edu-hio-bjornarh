@@ -444,6 +444,28 @@ body.article-page {
       h1 {
         margin-top: 0;
       }
+
+      .author {
+        display: flex;
+        justify-content: flex-start;
+        align-content: center;
+        align-items: center;
+        color: $gray7_cold;
+        margin-top: $pad-l;
+
+        a,
+        span,
+        img {
+          margin-right: $pad-xs;
+        }
+
+        img {
+          width: $pad-xxl;
+          height: $pad-xxl;
+          border-radius: 100%;
+          border: 1px solid $gray7_cold;
+        }
+      }
     }
 
     figure {
@@ -542,11 +564,12 @@ body.article-page {
           }
         }
       }
+    }
 
-      .split {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
+    .split {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
       align-content: flex-start;
       align-items: flex-start;
       flex-wrap: wrap;
@@ -556,9 +579,9 @@ body.article-page {
         width: 100%;
         margin-bottom: $pad-m;
 
-          @media screen and (min-width: $size-m-up) {
-            width: 55%;
-            margin-bottom: 0;
+        @media screen and (min-width: $size-m-up) {
+          width: 55%;
+          margin-bottom: 0;
         }
       }
 
@@ -566,24 +589,19 @@ body.article-page {
       .text {
         width: 100%;
 
-          @media screen and (min-width: $size-m-up) {
-            padding-left: $pad-xl;
-            width: 45%;
-          }
+        @media screen and (min-width: $size-m-up) {
+          padding-left: $pad-xl;
+          width: 45%;
         }
+      }
 
-        &.reverse {
-          flex-direction: row-reverse;
+      &.reverse {
+        flex-direction: row-reverse;
 
-          >p,
-          .text {
-            padding-left: 0;
-            padding-right: $pad-xl;
-          }
-        }
-
-        & + .wrapper {
-          margin-top: $pad-xl;
+        >p,
+        .text {
+          padding-left: 0;
+          padding-right: $pad-xl;
         }
       }
     }
@@ -595,3 +613,33 @@ body.article-page {
   }
 }
 /* -------------------- Articles - slutt -------------------- */
+/* -------------------- About - start -------------------- */
+#about {
+  article {
+    > section:last-child {
+      padding-top: $pad-xl;
+    }
+
+    img,p,h1,h2 {
+      max-width: $size-m;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    h2 {
+      margin-top: 0.5em;
+    }
+
+    img {
+      margin-top: $pad-xl;
+      display: block;
+      width: 20em;
+    }
+
+    .split {
+      align-items: center;
+      align-content: center;
+    }
+  }
+}
+/* -------------------- About - slutt -------------------- */

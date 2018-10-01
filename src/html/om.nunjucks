@@ -1,0 +1,27 @@
+{% set title = "Om" %}
+{% set body_id = "about" %}
+{% set body_classes = "article-page" %}
+{% extends "master.nunjucks" %}
+{% block content %}
+<main>
+  <article>
+    <section>
+      <div class="split">
+        <img class="round" src="{{ path }}/images/bjornar.jpg" alt="Bilde - Bjørnar Hagen">
+        <div class="text">
+          <h1>Hei!</h1>
+          <p>Jeg heter Bjørnar Hagen og er 21 år og går 3. året dataingenør. Jeg har en del bakgrunn i web-design og utvikling, blant annet fra å vært lærling i 2 år hos Optimale Systemer og deretter jobbet daglig med mitt eget selskapet, Datahjelpen AS. Har alltid hatt en lidenskap for alt som har med data å gjøre.</p>
+        </div>
+      </div>
+    </section>
+    <section>
+      <h2>Om nettstedet</h2>
+      <div class="wrapper">
+        <div class="read">
+          <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Autem amet cumque enim, eveniet corporis sunt incidunt iste animi esse pariatur corrupti aliquid aperiam voluptates sequi ab, quis tenetur delectus! Perspiciatis enim architecto velit asperiores vel accusantium non, pariatur voluptate rerum assumenda recusandae, a esse cum voluptates, est placeat omnis quibusdam?</p>
+        </div>
+      </div>
+    </section>
+  </article>
+</main>
+{% endblock %}

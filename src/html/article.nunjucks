@@ -11,6 +11,12 @@
         <div class="read">
           <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente suscipit natus in a accusamus quibusdam quisquam dolorem expedita quis necessitatibus tenetur facere aut voluptatum magni quidem, optio aspernatur dolores autem.</p>
         </div>
+        <div class="author">
+          <img src="{{ path }}/images/bjornar.jpg" alt="Bilde - Bjørnar Hagen">
+          <a href="{{ path }}/om.html" rel="author">Bjørnar Hagen</a>
+          <span> - </span>
+          <time datetime="2008-02-14 20:00">1. oktober 2018</time>
+        </div>
       </section>
       <figure>
         <img src="images/aurora.jpg" alt="Aurora">
@@ -29,43 +35,43 @@
         </figure>
         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia debitis, repellendus nemo ratione vero libero expedita harum earum, placeat fugit fuga, dolorum facilis commodi error nostrum sunt ipsam! Nostrum nobis dicta, cum debitis deleniti perspiciatis eius illo nisi explicabo, voluptate voluptatum minima quibusdam mollitia? Quae, velit corrupti? Aperiam ipsa in sunt sequi maiores libero fugit, perspiciatis ratione dolorem eum, architecto provident, voluptates tempore veritatis corrupti laborum iusto id. Provident voluptate ut et repudiandae iste deserunt, quae sequi magni temporibus fugit! Ut, magni dolor, ipsum perferendis obcaecati fugiat omnis suscipit quam cum doloribus fugit aliquid tempore cupiditate, optio est assumenda officiis.</p>
         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia debitis, repellendus nemo ratione vero libero expedita harum earum, placeat fugit fuga, dolorum facilis commodi error nostrum sunt ipsam! Nostrum nobis dicta, cum debitis deleniti perspiciatis eius illo nisi explicabo, voluptate voluptatum minima quibusdam mollitia? Quae, velit corrupti? Aperiam ipsa in sunt sequi maiores libero fugit, perspiciatis ratione dolorem eum, architecto provident, voluptates tempore veritatis corrupti laborum iusto id. Provident voluptate ut et repudiandae iste deserunt, quae sequi magni temporibus fugit! Ut, magni dolor, ipsum perferendis obcaecati fugiat omnis suscipit quam cum doloribus fugit aliquid tempore cupiditate, optio est assumenda officiis.</p>
-        <table>
-          <thead>
-            <tr>
-              <th>Data heading 1</th>
-              <th>Data heading 2</th>
-              <th>Data heading 3</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>Lorem ipsum</td>
-              <td>100</td>
-              <td>amet</td>
-            </tr>
-            <tr>
-              <td>Dolor sit</td>
-              <td>90</td>
-              <td>lorem</td>
-            </tr>
-            <tr>
-              <td>Lorem ipsum</td>
-              <td>500</td>
-              <td>amet</td>
-            </tr>
-            <tr>
-              <td>Amet lorem</td>
-              <td>250</td>
-              <td>dolor</td>
-            </tr>
-            <tr>
-              <td>Lorem ipsum</td>
-              <td>1300</td>
-              <td>amet</td>
-            </tr>
-          </tbody>
-        </table>
       </div>
+      <table>
+        <thead>
+          <tr>
+            <th>Data heading 1</th>
+            <th>Data heading 2</th>
+            <th>Data heading 3</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Lorem ipsum</td>
+            <td>100</td>
+            <td>amet</td>
+          </tr>
+          <tr>
+            <td>Dolor sit</td>
+            <td>90</td>
+            <td>lorem</td>
+          </tr>
+          <tr>
+            <td>Lorem ipsum</td>
+            <td>500</td>
+            <td>amet</td>
+          </tr>
+          <tr>
+            <td>Amet lorem</td>
+            <td>250</td>
+            <td>dolor</td>
+          </tr>
+          <tr>
+            <td>Lorem ipsum</td>
+            <td>1300</td>
+            <td>amet</td>
+          </tr>
+        </tbody>
+      </table>
     </section>
     <section>
       <h2>Lorem ipsum 2</h2>
