@@ -68,14 +68,14 @@ body {
 }
 
 ::-moz-selection {
-  background-color: $color-accent;
-  color: $color-white;
+  background-color: $color-primary;
+  color: $color-primary-darkest;
   text-shadow: none;
 }
 
 ::selection {
-  background-color: $color-accent;
-  color: $color-white;
+  background-color: $color-primary;
+  color: $color-primary-darkest;
   text-shadow: none;
 }
 
