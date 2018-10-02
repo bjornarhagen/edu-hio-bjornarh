@@ -1,0 +1,9 @@
+{% set title = "Error 500" %}
+{% set body_id = "error-page-500" %}
+{% set body_classes = "error-page" %}
+{% extends "master.nunjucks" %}
+{% block content %}
+<main>
+    <h1>500 error</h1>
+</main>
+{% endblock %}
