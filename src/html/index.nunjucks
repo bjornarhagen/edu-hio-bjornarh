@@ -35,6 +35,11 @@
     <p>Først brukte vi tables, så kom CSS, og vi kunne floate ting. I disse dager kan vi endelig bruke Flexbox og Grid, det gjør livet enklere.</p>
     <a class="button" href="{{ path }}/artikler/css-layouts.html">Les mer</a>
   </article>
+  <article>
+    <img src="{{ path }}/images/graphics/articles/wireframe-forside-desktop.png" alt="Wireframes">
+    <h2>Wireframes</h2>
+    <a class="button" href="{{ path }}/artikler/oblig2-wireframes.html">Les mer</a>
+  </article>
 </main>
 <aside>
   <nav class="links">

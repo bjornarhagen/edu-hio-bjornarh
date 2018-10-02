@@ -1,0 +1,38 @@
+{% set title = "Wireframes" %}
+{% set body_classes = "article-page" %}
+{% extends "master.nunjucks" %}
+{% block content %}
+<main>
+    <article>
+        <header>
+            <section>
+                <h1>{{ title }}</h1>
+                <div class="read">
+                    <p>Her er mine wireframes for forsiden og for artikkel-mal siden.</p>
+                </div>
+                <div class="author">
+                    <img src="{{ path }}/images/bjornar.jpg" alt="Bilde - Bjørnar Hagen">
+                    <a href="{{ path }}/om.html" rel="author">Bjørnar Hagen</a>
+                    <span> - </span>
+                    <time datetime="2018-10-02 23:25">2. oktober 2018 - 23:25</time>
+                </div>
+            </section>
+        </header>
+        <section>
+            <h2>Wireframe forside</h2>
+            <div class="wrapper">
+                <h3>Desktop</h3>
+                <img class="full-width" src="{{ path }}/images/graphics/articles/wireframe-forside-desktop.png" alt="Wireframe forside desktop">
+
+                <h3>Mobil</h3>
+                <img class="full-width" src="{{ path }}/images/graphics/articles/wireframe-forside-mobil.png" alt="Wireframe forside mobil">
+            </div>
+
+            <h2>Wireframe Artikkel</h2>
+            <div class="wrapper">
+                <img class="full-width" src="{{ path }}/images/graphics/articles/wireframe-artikkel.png" alt="Wireframe artikkel">
+            </div>
+        </section>
+    </article>
+</main>
+{% endblock %}
