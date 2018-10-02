@@ -674,3 +674,58 @@ body.error-page {
   }
 }
 /* -------------------- Error pages - slutt -------------------- */
+
+/* -------------------- Print - start -------------------- */
+@media print {
+  body {
+    grid-template-rows: 0fr 0fr auto auto 0fr;
+    font-family: serif;
+    color: #000;
+    background-color: #fff !important;
+    page-break-after: auto;
+
+    >nav,
+    >footer {
+      display: none;
+    }
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    color: #000;
+    page-break-after: auto;
+  }
+
+  p,
+  img {
+    page-break-after: auto;
+  }
+
+  body.article-page {
+
+    pre,
+    code {
+      border: 1px solid $color-black-green;
+      color: $color-black-green;
+      background-color: #fff;
+    }
+
+    .wrapper,
+    p,
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      display: block;
+      width: 100% !important;
+      max-width: 100% !important;
+    }
+  }
+}
+/* -------------------- Print - slutt -------------------- */
