@@ -1,0 +1,99 @@
+{% set title = "Forside" %}
+{% set body_id = "fp" %}
+{# {% set body_classes = "klasse1 klasse2 klasse3" %} #}
+{% extends "master.nunjucks" %}
+{% block header %}
+<header>
+  <figure>
+    <div class="bg-image" style="background-image:url('images/graphics/ice-water.jpg')"></div>
+    <img src="{{ path }}/images/graphics/ice-water.jpg" alt="Ice water">
+  </figure>
+  <section>
+    <h1><span>Bjørnars </span><span>studiewebsted</span></h1>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente suscipit natus in a accusamus quibusdam quisquam dolorem expedita quis necessitatibus tenetur facere aut voluptatum magni quidem, optio aspernatur dolores autem.</p>
+    <a href="{{ path }}/om.html" class="button button-filled">Les mer</a>
+  </section>
+</header>
+{% endblock %}
+{% block content %}
+<main>
+  <article>
+    <img src="{{ path }}/images/graphics/articles/git.png" alt="Git CLI">
+    <h2>Git & Github</h2>
+    <p>Git er først og fremst et versjonskontrollsystem. Brukes hovedsaklig under utvikling av software, nettsteder, e.l. Ved å bruke Git får man historikk over alle endringer, samt sikkerhetskopi. GitHub er et populært nettsted for å hoste git <em>repositories</em>.</p>
+    <a class="button" href="{{ path }}/artikler/git-github.html">Les mer</a>
+  </article>
+  <article>
+    <img src="{{ path }}/images/graphics/articles/css-media-types.jpg" alt="CSS Media Typer">
+    <h2>Media Typer</h2>
+    <p>Når man skriver media queries, kan man spesifisere en media type. Dette lar deg f.eks. ha et stilark for skjermer, og et stilark for printere.</p>
+    <a class="button" href="{{ path }}/artikler/css-media-typer.html">Les mer</a>
+  </article>
+  <article>
+    <img src="{{ path }}/images/graphics/articles/css-layouts.jpg" alt="CSS Layouts">
+    <h2>CSS Layouts</h2>
+    <p>Først brukte vi tables, så kom CSS, og vi kunne floate ting. I disse dager kan vi endelig bruke Flexbox og Grid, det gjør livet enklere.</p>
+    <a class="button" href="{{ path }}/artikler/css-layouts.html">Les mer</a>
+  </article>
+  <article>
+    <img src="{{ path }}/images/graphics/articles/wireframe-forside-desktop.png" alt="Wireframes">
+    <h2>Wireframes</h2>
+    <a class="button" href="{{ path }}/artikler/oblig2-wireframes.html">Les mer</a>
+  </article>
+  <article>
+    <img src="{{ path }}/images/graphics/articles/oblig-1.jpg" alt="Wireframes">
+    <h2>Oblig 1</h2>
+    <p>Min oblig 1 innleveren. Denne siden har en annen stil og layout.</p>
+    <a class="button" href="{{ path }}/oblig-1/index.html">Les mer</a>
+  </article>
+</main>
+<aside>
+  <nav class="links">
+    <h3>Artikler</h3>
+    <p>Her er noen artikler som omhandler responsivt design.</p>
+    <ul>
+      <li><a class="link" href="https://responsivedesign.is/" target="_blank" rel="noopener">Responsive Web Design Is</a></li>
+      <li><a class="link" href="https://johnpolacek.github.io/scrolldeck.js/decks/responsive/" target="_blank" rel="noopener">What The Heck Is Responsive Web Design?</a></li>
+      <li><a class="link" href="https://designmodo.com/responsive-design-examples/" target="_blank" rel="noopener">Responsive Web Design: 50 Examples and Best Practices</a></li>
+      <li><a class="link" href="https://www.w3schools.com/html/html_responsive.asp" target="_blank" rel="noopener">HTML Responsive Web Design</a></li>
+      <li><a class="link" href="https://en.wikipedia.org/wiki/Responsive_web_design" target="_blank" rel="noopener">Responsive web design</a></li>
+    </ul>
+  </nav>
+  <nav class="buttons">
+    <p>Google søk: Github</p>
+    <a id="button-google" class="button" href="https://www.google.com/search?q=github" target="_blank" rel="noopener">
+      <img src="images/google-icon.svg" alt="Google ikon" class="icon">
+      <span>Google</span>
+    </a>
+    <p>Video om: web design</p>
+    <a id="button-youtube" class="button" href="https://www.youtube.com/watch?v=jVkLVRt6c1U" target="_blank" rel="noopener">
+      <img src="images/youtube-icon.svg" alt="Youtube ikon" class="icon">
+      <span>Youtube</span>
+    </a>
+  </nav>
+</aside>
+<div id="modal-yt-video">
+  <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/jVkLVRt6c1U" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+</div>
+<script>
+  // Toggels the YouTube video modal
+  (function() {
+    var button = document.querySelector('#button-youtube');
+    var videoWrapper = document.querySelector('#modal-yt-video');
+
+    button.addEventListener('click', function(e) {
+      // Prevent the link from sending the user away
+      // If the user doesn't have javascript, the link will work and work as a fallback to the modal
+      e.preventDefault();
+
+      // Show the modal
+      videoWrapper.style.display = 'flex';
+    });
+
+    videoWrapper.addEventListener('click', function(e) {
+      // Hide the modal
+      videoWrapper.style.display = '';
+    });
+  })();
+</script>
+{% endblock %}

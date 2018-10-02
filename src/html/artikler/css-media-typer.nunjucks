@@ -1,0 +1,36 @@
+{% set title = "Media Typer" %}
+{% set body_classes = "article-page" %}
+{% extends "master.nunjucks" %}
+{% block content %}
+<main>
+  <article>
+    <header>
+      <section>
+        <h1>{{ title }}</h1>
+        <div class="read">
+          <p>Når man skriver media queries, kan man spesifisere en media type. Dette lar deg f.eks. ha et stilark for skjermer, og et stilark for printere.</p>
+        </div>
+        <div class="author">
+          <img src="{{ path }}/images/bjornar.jpg" alt="Bilde - Bjørnar Hagen">
+          <a href="{{ path }}/om.html" rel="author">Bjørnar Hagen</a>
+          <span> - </span>
+          <time datetime="2018-10-02 21:40">2. oktober 2018 - 21:40</time>
+        </div>
+      </section>
+    <img src="{{ path }}/images/graphics/articles/css-media-types.jpg" alt="CSS Media Typer">
+    </header>
+    <section>
+      <h2>@Media</h2>
+      <div class="wrapper">
+        <p>I CSS kan man <em>targete</em> forskjellig type enheter og størrelser ved å bruke <em>media queries</em>.</p>
+        <p>Når man skriver media queries, kan man spesifisere en <em>media type</em>. Dette lar deg f.eks. ha et stilark for skjermer, og et stilark for printere.</p>
+        <p>Per dags dato, så er det mange forskjellige media typer, mange som ikke blir så mye brukt. Ved neste versjon av media queries (CSS Media Queries Level 4), som nærmer seg (er foreløpig <em>Candidate Recommendation</em>) så fjernes alle media typer med untakk av <code>screen</code>, <code>print</code>, og <code>speech</code>. I nesten versjon kommer det også en del nye: <code>scripting</code>, <code>pointer</code>, <code>hover</code>, <code>update</code>, <code>overflow-block</code>, og <code>overflow-inline</code>.</p>
+      </div>
+      <h2>Fordeler og ulemper</h2>
+      <div class="wrapper">
+        <p>Fordeler ved media typer er at man kan style for forskjellig type enheter, og ikke bare etter størrelser. Det er visse stiler man aldri vil ha på et papirark, uansett hvor stort eller lite det er.</p>
+        <p>Ulemper ved media typer er at du får mer CSS, som gjør stilarket ditt større og mer komplekst. Samt at kanskje man skjuler noen ting ved visse media typer som folk egentlig vil ha med.</p>
+      </div>
+  </article>
+</main>
+{% endblock %}

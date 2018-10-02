@@ -1,0 +1,33 @@
+@import 'colors';
+@import 'typography';
+
+$grid_columns: 12;
+
+$size-xs:     239 / 10 / $font-ratio + rem;
+$size-xs-up:  240 / 10 / $font-ratio + rem;
+$size-s:      479 / 10 / $font-ratio + rem;
+$size-s-up:   480 / 10 / $font-ratio + rem;
+$size-m:      767 / 10 / $font-ratio + rem;
+$size-m-up:   768 / 10 / $font-ratio + rem;
+$size-l:      1023 / 10 / $font-ratio + rem;
+$size-l-up:   1024 / 10 / $font-ratio + rem;
+$size-xl:     1365 / 10 / $font-ratio + rem;
+$size-xl-up:  1366 / 10 / $font-ratio + rem;
+$size-xxl:    1919 / 10 / $font-ratio + rem;
+$size-xxl-up: 1920 / 10 / $font-ratio + rem;
+
+$pad-xxs: #{$base/$font-ratio/$font-ratio/$font-ratio}em;
+$pad-xs:  #{$base/$font-ratio/$font-ratio}em;
+$pad-s:   #{$base/$font-ratio}em;
+$pad-m:   #{$base}em;
+$pad-l:   #{$base*$font-ratio}em;
+$pad-xl:  #{$base*$font-ratio*$font-ratio}em;
+$pad-xxl: #{$base*$font-ratio*$font-ratio*$font-ratio}em;
+
+$border-radius-xxs: #{$base/$font-ratio/$font-ratio/$font-ratio}em;
+$border-radius-xs:  #{$base/$font-ratio/$font-ratio}em;
+$border-radius-s:   #{$base/$font-ratio}em;
+$border-radius-m:   #{$base}em;
+$border-radius-l:   #{$base*$font-ratio}em;
+$border-radius-xl:  #{$base*$font-ratio*$font-ratio}em;
+$border-radius-xxl: #{$base*$font-ratio*$font-ratio*$font-ratio}em;

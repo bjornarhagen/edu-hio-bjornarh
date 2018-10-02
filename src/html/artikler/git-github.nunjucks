@@ -1,0 +1,50 @@
+{% set title = "Git & Github" %}
+{% set body_classes = "article-page" %}
+{% extends "master.nunjucks" %}
+{% block content %}
+<main>
+  <article>
+    <header>
+      <section>
+        <h1>{{ title }}</h1>
+        <div class="read">
+          <p>Git er først og fremst et versjonskontrollsystem. Brukes hovedsaklig under utvikling av software, nettsteder, e.l. Ved å bruke Git får man historikk over alle endringer, samt sikkerhetskopi. GitHub er et populært nettsted for å hoste git <em>repositories</em>.</p>
+        </div>
+        <div class="author">
+          <img src="{{ path }}/images/bjornar.jpg" alt="Bilde - Bjørnar Hagen">
+          <a href="{{ path }}/om.html" rel="author">Bjørnar Hagen</a>
+          <span> - </span>
+          <time datetime="2018-10-02 19:15">2. oktober 2018 - 19:15</time>
+        </div>
+      </section>
+      <figure>
+        <img src="{{ path }}/images/graphics/articles/git.png" alt="Git CLI">
+        <figcaption>Output av noen forskjellige Git kommandoer i CLI. Til høyre: Git logo</figcaption>
+      </figure>
+    </header>
+    <section>
+      <h2>Git</h2>
+      <div class="wrapper">
+        <p>Git er først og fremst et versjonskontrollsystem. Det finnes mange slike, blant annet CVS, SVN, Mercurial, Bazaar, og Monotone, for å nevne noen. Git og SVN er de desitert mest populære systemene, og de siste årene har Git vokst ekstremt og endelig tatt igjen SVN. 🙏</p>
+        <p>Et versjonskontrollsystem er noe man hovedsaklig bruker under utvikling av software, nettsteder, eller lignende, men kan også brukes til andre typer prosjekter, som grafisk design og skriving av dokumenter. Ved å bruke Git får man historikk over alle endringer som noen gang har skjedd, samt en sikkerhetskopi av alle versjoner av alt.</p>
+      </div>
+      <div class="split reverse">
+        <figure>
+          <img src="{{ path }}/images/graphics/articles/git-branches.png" alt="Git branches">
+          <figcaption>Noen branches som blir merget i GitKraken</figcaption>
+        </figure>
+        <p>Noe annet man får ved å bruke Git er muligheten til å samarbeide med andre, uten å måtte tenke på at alle må sitte på siste versjon av filene. Skal man f.eks. legge inn en ny funksjon i en app, kan man <em>branche</em> kodebasen, legge inn det man skal, for å så <em>merge</em> sammen med den andre kodebasen igjen. Innen du er ferdig med å lage den nye funksjonen, kan det hende at kodebasen har fått andre funksjoner, og da blir det jo krøll i koden, men det er ikke noe problem for Git å finne ut hvilken kode som skal hvor.</p>
+      </div>
+    </section>
+    <section>
+      <h2>GitHub</h2>
+      <div class="wrapper">
+        <p>GitHub.com - Ikke til å forveksle med Git. GitHub er et populært nettsted for å hoste git <em>repositories</em>, og har blitt veldig populær for <em>Open Source</em> prosjekter. Ganske ironisk ettersom GitHub selv ikke er Open Source 🤷. Man må ikke bruke GitHub for å bruke git, man kan hoste sine egene repositories lokalt, eller hos andre nettstedet lignende GitHub. En konkurent som får mye populæritet om dagen er GitLab.</p>
+        <img class="full-width" src="{{ path }}/images/graphics/articles/github-universe.png" alt="Github">
+        <p>Github er et sentralt punkt å samle alle sine repositories. Det som er kjekt med Github er hvor lett det er å komme i gang og å bruke, samt det at det er gratis.</p>
+        <p>Forutenom å hoste repositories, lar GitHub deg også dele repositories med andre, lage informasjonssider om prosjektet, opprette saker (issues), og diskutere med andre.</p>
+      </div>
+    </section>
+  </article>
+</main>
+{% endblock %}

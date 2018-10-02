@@ -1,0 +1,9 @@
+{% set title = "Error 404" %}
+{% set body_id = "error-page-404" %}
+{% set body_classes = "error-page" %}
+{% extends "master.nunjucks" %}
+{% block content %}
+<main>
+  <h1>404 error</h1>
+</main>
+{% endblock %}

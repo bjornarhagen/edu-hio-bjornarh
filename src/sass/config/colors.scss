@@ -1,0 +1,128 @@
+@import 'datahjelpen-colors';
+
+// Tones & shades
+$color-white:  $white;
+$color-light1: $gray0_cold;
+$color-light2: $gray1_cold;
+$color-light3: $gray2_cold;
+$color-light4: $gray3_cold;
+$color-light5: $gray4_cold;
+$color-dark1:  $gray5_cold;
+$color-dark2:  $gray6_cold;
+$color-dark3:  $gray7_cold;
+$color-dark4:  $gray8_cold;
+$color-dark5:  $gray9_cold;
+$color-black:  $black;
+
+// Colored tints
+$color-white-red:       $red0;
+$color-white-orange:    $orange0;
+$color-white-yellow:    $yellow0;
+$color-white-lime:      $lime0;
+$color-white-green:     $green0;
+$color-white-teal:      $teal0;
+$color-white-cyan:      $cyan0;
+$color-white-blue:      $blue0;
+$color-white-indigo:    $indigo0;
+$color-white-violet:    $violet0;
+$color-white-fuschia:   $fuschia0;
+$color-white-pink:      $pink0;
+$color-white-gray:      $gray0;
+$color-white-gray_warm: $gray0_warm;
+$color-white-gray_cold: $gray0_cold;
+
+// Colored shades
+$color-black-red:       $black_red;
+$color-black-orange:    $black_orange;
+$color-black-yellow:    $black_yellow;
+$color-black-lime:      $black_lime;
+$color-black-green:     $black_green;
+$color-black-teal:      $black_teal;
+$color-black-cyan:      $black_cyan;
+$color-black-blue:      $black_blue;
+$color-black-indigo:    $black_indigo;
+$color-black-violet:    $black_violet;
+$color-black-fuschia:   $black_fuschia;
+$color-black-pink:      $black_pink;
+$color-black-gray:      $black_gray;
+$color-black-gray_warm: $black_gray_warm;
+$color-black-gray_cold: $black_gray_cold;
+
+// Grays
+$color-gray-cold-light:     $gray0_cold;
+$color-gray-cold-medium:    $gray5_cold;
+$color-gray-cold-dark:      $gray9_cold;
+$color-gray-neutral-light:  $color-light1;
+$color-gray-neutral-medium: $color-light4;
+$color-gray-neutral-dark:   $color-dark4;
+$color-gray-warm-light:     $gray0_warm;
+$color-gray-warm-medium:    $gray5_warm;
+$color-gray-warm-dark:      $gray9_warm;
+
+// Regular
+$color-red:            $red5;
+$color-red-light:      $red3;
+$color-red-dark:       $red7;
+$color-purple:         $violet5;
+$color-purple-light:   $violet3;
+$color-purple-dark:    $violet7;
+$color-blue:           $blue5;
+$color-blue-light:     $blue3;
+$color-blue-dark:      $blue7;
+$color-green:          $teal5;
+$color-green-light:    $teal3;
+$color-green-dark:     $teal7;
+$color-yellow:         $yellow5;
+$color-yellow-light:   $yellow3;
+$color-yellow-dark:    $yellow7;
+$color-yellow-darkest: $yellow9;
+$color-orange:         $orange5;
+$color-orange-light:   $orange3;
+$color-orange-dark:    $orange7;
+
+// Brand
+$color-primary:          $color-orange;
+$color-primary-lightest: $color-white-orange;
+$color-primary-light:    $color-orange-light;
+$color-primary-dark:     $color-orange-dark;
+$color-primary-darkest:  $color-black-orange;
+$color-accent:           $color-green;
+$color-accent-lightest:  $color-white-green;
+$color-accent-light:     $color-green-light;
+$color-accent-dark:      $color-green-dark;
+$color-accent-darkest:   $color-black-green;
+$color-success:          $color-green;
+$color-success-lightest: $color-white-green;
+$color-success-light:    $color-green-light;
+$color-success-dark:     $color-green-dark;
+$color-success-darkest:  $color-black-green;
+$color-error:            $color-orange;
+$color-error-lightest:   $color-white-orange;
+$color-error-light:      $color-orange-light;
+$color-error-dark:       $color-orange-dark;
+$color-error-darkest:    $color-black-orange;
+$color-warning:          $color-yellow;
+$color-warning-lightest: $color-white-yellow;
+$color-warning-light:    $color-yellow-light;
+$color-warning-dark:     $color-yellow-dark;
+$color-warning-darkest:  $color-black-yellow;
+$color-info:             $color-blue;
+$color-info-lightest:    $color-white-blue;
+$color-info-light:       $color-blue-light;
+$color-info-dark:        $color-blue-dark;
+$color-info-darkest:     $color-black-blue;
+$color-neutral:          $color-gray-neutral-medium;
+$color-neutral-lightest: $color-white-gray;
+$color-neutral-light:    $color-gray-neutral-light;
+$color-neutral-dark:     $color-gray-neutral-dark;
+$color-neutral-darkest:  $color-black-gray;
+
+// Utilities
+$color-shadow: $color-black-indigo;
+
+// Layout
+$color-body-bg: $color-white-gray_cold;
+
+// Typography
+$color-font-body:       $color-dark5;
+$color-font-headings:   $color-black-gray_cold;

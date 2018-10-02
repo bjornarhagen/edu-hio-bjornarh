@@ -1,0 +1,49 @@
+body>nav {
+  position: sticky;
+  top: 0;
+  z-index: 4;
+  grid-area: n;
+  display: flex;
+  width: 100%;
+  height: 100%;
+  justify-content: space-between;
+  align-items: center;
+  align-content: center;
+  background-color: $color-white;
+  padding: 0 $pad-m;
+
+  .brand,
+  .links {
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-content: center;
+    align-items: center;
+  }
+
+  .brand {
+    a {
+      width: 2em;
+      height: 2em;
+    }
+
+    img {
+      height: 100%;
+      width: auto;
+    }
+  }
+
+  .links {
+    flex-grow: 1;
+
+    a {
+      padding: 0 $pad-s;
+      text-decoration: none;
+
+      &:first-child {
+        margin-left: auto;
+      }
+    }
+  }
+}

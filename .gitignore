@@ -18,5 +18,9 @@ $RECYCLE.BIN/
 *.lnk
 
 .idea/
-lab/js
-prepros.cfg
+node_modules/
+
+css/
+dist/
+
+*.min.js

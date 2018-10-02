@@ -1,0 +1,40 @@
+button,
+[type=button],
+[type=reset],
+[type=submit],
+.button {
+  display: inline-block;
+  margin: 0;
+  padding: $pad-xs $pad-s;
+  width: auto;
+  text-decoration: none;
+  color: $color-gray-cold-dark;
+  background-color: $color-gray-cold-light;
+  border: 2px solid $color-gray-cold-dark;
+  @include transition('color, background-color, transform', 250ms);
+  transform: scale(1.0);
+
+  &:focus,
+  &:hover {
+    outline: none;
+    color: $color-gray-cold-light;
+    background-color: $color-gray-cold-dark;
+    transform: scale(1.1);
+  }
+
+  &:active {
+    @include transition('transform', 50ms);
+    transform: scale(1.0);
+  }
+
+  &.button-filled {
+    color: $color-gray-cold-light;
+    background-color: $color-gray-cold-dark;
+
+    &:focus,
+    &:hover {
+      color: $color-gray-cold-light;
+      background-color: $color-gray-cold-dark;
+    }
+  }
+}

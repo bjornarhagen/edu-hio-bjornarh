@@ -1,0 +1,56 @@
+// Fonts
+$font-sans:  'Rubik', sans-serif;
+$font-sans-italic: $font-sans;
+$font-serif: 'Butler', 'Playfair Display', serif;
+$font-serif-italic: $font-serif;
+$font-mono: 'Roboto Mono', monospace;
+$font-mono-italic: $font-mono;
+
+// Body, headings and code setup
+$font-body: $font-sans;
+$font-body-italic: $font-sans-italic;
+$font-body-weight-bold:  700;
+$font-body-weight:       400;
+$font-body-weight-light: 300;
+
+$font-headings: $font-serif;
+$font-headings-italic: $font-serif-italic;
+$font-headings-weight-bold:  700;
+$font-headings-weight:       700;
+$font-headings-weight-light: 400;
+
+$font-code: $font-mono;
+$font-code-italic: $font-mono-italic;
+$font-code-weight-bold:  400;
+$font-code-weight:       400;
+$font-code-weight-light: 400;
+
+// sizes
+$font-ratio: 1.33;
+$font-base: 100%; // Use the browser's default. This allows users to change it via settings
+$base: 1; // Base to use for calculations
+$font-size-desktop: #{1*$font-ratio}em;
+$font-size: 1em;
+$line-height-desktop: $font-ratio;
+$line-height: $line-height-desktop;
+
+// $font-size-xxl: 1em * $font-ratio*$font-ratio*$font-ratio/($font-ratio/2);
+$font-size-xxl: 1em * $font-ratio*$font-ratio*$font-ratio*$font-ratio;
+$font-size-xl:  1em * $font-ratio*$font-ratio*$font-ratio;
+$font-size-l:   1em * $font-ratio*$font-ratio;
+$font-size-m:   1em * $font-ratio;
+$font-size-s:   1em;
+$font-size-xs:  1em;
+
+// Headings: font-size, line-height, margin-top, margin-bottom
+$headings-margin-top: #{$line-height/$font-ratio/$font-ratio}em;
+$headings-margin-bottom: #{$line-height/$font-ratio/$font-ratio/$font-ratio/$font-ratio}em;
+
+$headings: (
+	h1: ($font-size-xxl, 1, $headings-margin-top, $headings-margin-bottom),
+	h2: ($font-size-xl,  1, $headings-margin-top, $headings-margin-bottom),
+	h3: ($font-size-l,   1, $headings-margin-top, $headings-margin-bottom),
+	h4: ($font-size-m,   1, $headings-margin-top, $headings-margin-bottom),
+	h5: ($font-size-s,   1, $headings-margin-top, $headings-margin-bottom),
+	h6: ($font-size-xs,  1, $headings-margin-top, $headings-margin-bottom)
+);
