@@ -24,6 +24,14 @@ gulp.task('nunjucks:watch', function() {
   gulp.watch('./src/**/*.nunjucks', ['nunjucks', browserSync.reload]);
 });
 
+gulp.task('copy', function () {
+  return gulp.src([
+    'src/html/**/*.+(css|jpg|png|svg|gif)',
+    'src/extra/**/*.+(css|jpg|png|svg|gif|xml|json|html)'
+  ])
+  .pipe(gulp.dest('./dist/'));
+});
+
 gulp.task('js', function() {
   gulp.src([
     './js/**/*.js',
@@ -106,9 +114,4 @@ gulp.task('browser-sync', function() {
 });
 
 gulp.task('default', ['js', 'sass', 'nunjucks', 'browser-sync', 'image', 'sass:watch', 'nunjucks:watch']);
-
-gulp.task('php', ['js', 'sass', 'browser-sync-php', 'sass:watch', 'php'], function() {
-  gulp.watch(['./**/*.php'], [browserSync.reload]);
-});
-
-gulp.task('build', ['js', 'sass', 'nunjucks', 'image']);
+gulp.task('build', ['copy', 'js', 'sass', 'nunjucks', 'image']);
