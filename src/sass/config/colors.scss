@@ -81,16 +81,16 @@ $color-orange-light:   $orange3;
 $color-orange-dark:    $orange7;
 
 // Brand
-$color-primary:          $color-red;
-$color-primary-lightest: $color-white-red;
-$color-primary-light:    $color-red-light;
-$color-primary-dark:     $color-red-dark;
-$color-primary-darkest:  $color-black-red;
-$color-accent:           $indigo5;
-$color-accent-lightest:  $color-white-indigo;
-$color-accent-light:     $indigo3;
-$color-accent-dark:      $indigo7;
-$color-accent-darkest:   $color-black-indigo;
+$color-primary:          $color-orange;
+$color-primary-lightest: $color-white-orange;
+$color-primary-light:    $color-orange-light;
+$color-primary-dark:     $color-orange-dark;
+$color-primary-darkest:  $color-black-orange;
+$color-accent:           $color-green;
+$color-accent-lightest:  $color-white-green;
+$color-accent-light:     $color-green-light;
+$color-accent-dark:      $color-green-dark;
+$color-accent-darkest:   $color-black-green;
 $color-success:          $color-green;
 $color-success-lightest: $color-white-green;
 $color-success-light:    $color-green-light;
@@ -126,36 +126,3 @@ $color-body-bg: $color-white-gray_cold;
 // Typography
 $color-font-body:       $color-dark5;
 $color-font-headings:   $color-black-gray_cold;
-$color-font-light:      $color-white;
-$color-font-figcaption: $color-font-body;
-
-// Links
-$color-link-normal:  $color-dark5;
-$color-link-hover:   $color-dark5;
-$color-link-active:  $color-red;
-$color-link-visited: $color-dark4;
-
-// Buttons
-$color-button-default:          $color-neutral-darkest;
-$color-button-default-bg:       $color-neutral;
-$color-button-default-hover:    $color-neutral-light;
-$color-button-default-bg-hover: $color-neutral-dark;
-
-// Inputs
-$color-input:        $color-font-body;
-$color-input-bg:     $color-white;
-$color-input-border: $color-light4;
-$color-input-focus:        $color-black;
-$color-input-focus-bg:     $color-white;
-$color-input-focus-border: $color-black;
-$color-input-disabled:        $color-light3;
-$color-input-disabled-bg:     $color-light1;
-$color-input-disabled-border: $color-light3;
-
-// Navigation
-$color-nav-bg: $color-white;
-$color-nav-link-normal-text: $color-dark5;
-$color-nav-link-normal-bg:   $color-nav-bg;
-$color-nav-link-hover-text:  $color-primary;
-$color-nav-link-hover-bg:    $color-nav-bg;
-$color-nav-backdrop-bg:      rgba($color-black, 0.25);
