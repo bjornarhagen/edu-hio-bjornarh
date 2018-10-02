@@ -40,7 +40,7 @@
       <a href="{{ path }}/"><img src="{{ path }}/images/brand/logo/logo-black-1x1.png" alt="Bjørnar Hagen - logo"></a>
     </section>
     <section class="links">
-      <a href="{{ path }}/">Hjem</a>
+      {# <a href="{{ path }}/">Hjem</a> #}
       <a href="{{ path }}/artikler/git-github.html">Git & Github</a>
       <a href="{{ path }}/artikler/css-media-typer.html">Media Typer</a>
       <a href="{{ path }}/artikler/css-layouts.html">CSS Layouts</a>
