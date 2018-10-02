@@ -32,9 +32,7 @@ body {
   "a a a a a a a a a a a a"
   "f f f f f f f f f f f f";
   background-color: $color-gray-cold-light;
-  justify-content: space-between;
   align-items: flex-start;
-  align-content: flex-start;
 
   >header {
     grid-area: h;
@@ -150,7 +148,7 @@ a {
     height: 100%;
     flex-wrap: wrap;
     justify-content: space-between;
-    align-items: flex-start;
+    align-items: center;
     align-content: flex-start;
     color: darken($icyblue, 35%);
     padding: 0;
@@ -203,6 +201,7 @@ a {
         position: sticky;
         top: 0;
         padding: 0 0 20vh;
+        align-self: center;
       }
 
       h1 {
