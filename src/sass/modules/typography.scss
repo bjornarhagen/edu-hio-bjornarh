@@ -41,6 +41,31 @@ p {
 	margin-bottom: $pad-m;
 }
 
+pre,
+code {
+	font-family: $font-code;
+	font-size: 0.9em;
+}
+
+pre {
+	max-width: 100vw;
+	overflow-x: auto;
+	padding: $pad-m;
+	color: $color-green;
+	background-color: $color-black-gray_cold;
+}
+
+code {
+	@include transition(250ms);
+	padding: 0.1em 0.2em;
+	background-color: $color-gray-cold-medium;
+
+	&:hover {
+		color: $color-green;
+		background-color: $color-black-gray_cold;
+	}
+}
+
 .read-wide {
 	max-width: #{10*$font-ratio*$font-ratio*$font-ratio*$font-ratio*$font-ratio*$font-ratio}em;
 }
