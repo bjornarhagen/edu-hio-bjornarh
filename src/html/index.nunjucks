@@ -40,6 +40,12 @@
     <h2>Wireframes</h2>
     <a class="button" href="{{ path }}/artikler/oblig2-wireframes.html">Les mer</a>
   </article>
+  <article>
+    <img src="{{ path }}/images/graphics/articles/oblig-1.jpg" alt="Wireframes">
+    <h2>Oblig 1</h2>
+    <p>Min oblig 1 innleveren. Denne siden har en annen stil og layout.</p>
+    <a class="button" href="{{ path }}/oblig-1/index.html">Les mer</a>
+  </article>
 </main>
 <aside>
   <nav class="links">
