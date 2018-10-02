@@ -18,21 +18,21 @@
 {% block content %}
 <main>
   <article>
-    <img src="images/aurora.jpg" alt="Image - Lorem ipsum 1">
-    <h2>Git/Github</h2>
-    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Laudantium ut, alias veniam illo deleniti natus!</p>
+    <img src="{{ path }}/images/graphics/articles/git.png" alt="Git CLI">
+    <h2>Git & Github</h2>
+    <p>Git er først og fremst et versjonskontrollsystem. Brukes hovedsaklig under utvikling av software, nettsteder, e.l. Ved å bruke Git får man historikk over alle endringer, samt sikkerhetskopi. GitHub er et populært nettsted for å hoste git <em>repositories</em>.</p>
     <a class="button" href="{{ path }}/artikler/git-github.html">Les mer</a>
   </article>
   <article>
-    <img src="images/aurora.jpg" alt="Image - Lorem ipsum 2">
+    <img src="{{ path }}/images/graphics/articles/css-media-types.jpg" alt="CSS Media Typer">
     <h2>Media Typer</h2>
-    <p>Sit amet consectetur adipisicing elit. Laudantium ut, alias veniam illo deleniti natus!</p>
-    <a class="button" href="{{ path }}/artikler/media-typer.html">Les mer</a>
+    <p>Når man skriver media queries, kan man spesifisere en media type. Dette lar deg f.eks. ha et stilark for skjermer, og et stilark for printere.</p>
+    <a class="button" href="{{ path }}/artikler/css-media-typer.html">Les mer</a>
   </article>
   <article>
-    <img src="images/aurora.jpg" alt="Image - Lorem ipsum 3">
+    <img src="{{ path }}/images/graphics/articles/css-layouts.jpg" alt="CSS Layouts">
     <h2>CSS Layouts</h2>
-    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Laudantium ut, alias veniam illo deleniti natus!</p>
+    <p>Først brukte vi tables, så kom CSS, og vi kunne floate ting. I disse dager kan vi endelig bruke Flexbox og Grid, det gjør livet enklere.</p>
     <a class="button" href="{{ path }}/artikler/css-layouts.html">Les mer</a>
   </article>
 </main>

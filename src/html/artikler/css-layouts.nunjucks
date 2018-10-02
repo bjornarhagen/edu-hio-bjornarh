@@ -1,0 +1,118 @@
+{% set title = "CSS Layouts" %}
+{% set body_classes = "article-page" %}
+{% extends "master.nunjucks" %}
+{% block content %}
+<main>
+  <article>
+    <header>
+      <section>
+        <h1>{{ title }}</h1>
+        <div class="read">
+          <p>Først brukte vi tables, så kom CSS, og vi kunne floate ting. I disse dager kan vi endelig bruke Flexbox og Grid, det gjør livet enklere.</p>
+        </div>
+        <div class="author">
+          <img src="{{ path }}/images/bjornar.jpg" alt="Bilde - Bjørnar Hagen">
+          <a href="{{ path }}/om.html" rel="author">Bjørnar Hagen</a>
+          <span> - </span>
+          <time datetime="2018-10-02 23:25">2. oktober 2018 - 23:25</time>
+        </div>
+      </section>
+    <img src="{{ path }}/images/graphics/articles/css-layouts.jpg" alt="CSS Layouts">
+    </header>
+    <section>
+        <h2>💀 Tables</h2>
+        <div class="wrapper">
+            <p>Før i tiden, nei ikke i gode gamledager, før det. Da brukte man tables for å "style" sider. Dette var før CSS fantes, og er heldigvis ikke nødvendig lenger. Takk og lov for det.</p>
+        </div>
+        <h2>😱 Floats</h2>
+        <div class="wrapper">
+            <p>CSS eksisterer og vi kan style ting! Floats lar deg på en måte ta elementer ut av foreldre elementet, og <em>floate</em> det. Om man f.eks. har tre elementer man vil ha ved siden av hverandre, så kan man gjøre dette helt greit med floats.</p>
+<pre>
+HTML:
+
+&lt;div class="row"&gt;
+    &lt;div class="col"&gt;1&lt;/div&gt;
+    &lt;div class="col"&gt;2&lt;/div&gt;
+    &lt;div class="col"&gt;3&lt;/div&gt;
+&lt;/div&gt;
+
+
+
+CSS:
+
+.row {
+    display: block;
+}
+
+.row .col {
+    float: left;
+    width: 33.333%;
+}
+</pre>
+            <p>Dette går fint så lenge man husker å <em>cleare</em> floatene sine. Med en gang man skal ha luft i mellom elementene vil man møte på store problemer. Det er vanlig å ønske luft i mellom elementene, men ikke på sidene. Lykke til sier jeg da.</p>
+        </div>
+        <h2>❤️ Flexbox</h2>
+        <div class="wrapper">
+            <p>Nåtid. Etter langt om lenge er flexbox endelig mainstream og har veldig bra støtte (ca 96%). Flexbox er 100 ganger bedre enn en hver float løsning. Med <code>display: flex</code> kan man endelig style elementer bortover i kolonner på en enkel måte, og posisjonere elementer vertikalt uten å skrive horible CSS hacks. Slik ser før vs etter ut:</p>
+            <h3>Før</h3>
+<pre>
+HTML:
+
+&lt;div class="dynamic-container"&gt;
+    &lt;div class="child-element"&gt;lorem ipsum&lt;/div&gt;
+&lt;/div&gt;
+
+
+
+CSS:
+
+.dynamic-container {
+    position: relative;
+    display: block;
+}
+
+.dynamic-container .child-element {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    left: 0;
+    transform: translateY(-50%)
+               translateZ(0); /* 1 */
+    zoom: 1; /* 1 */
+    backface-visibility: hidden; /* 1 */
+    display: block;
+    margin: 0 auto;
+    width: 50%;
+    /* 1: Fikser blurry tekst, hvis man er heldig */
+}
+</pre>
+            <h3>Nå</h3>
+<pre>
+HTML:
+
+&lt;div class="dynamic-container"&gt;
+    &lt;div class="child-element"&gt;lorem ipsum&lt;/div&gt;
+&lt;/div&gt;
+
+
+
+CSS:
+
+.dynamic-container {
+    position: flex;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+}
+</pre>
+            <p>Som du kan se, flexbox gjør livet enklere.</p>
+        </div>
+        <h2>😍 Grid 😍</h2>
+        <div class="wrapper">
+            <p>Fremtiden. CSS Grid er den nyeste layouten metoden, og har ganske bra støtte (ca 87%). Med grid får vi flexbox, men i to dimensjoner, og på steroider. Grid lar oss dele opp siden i kolonner og rader. Vi kan også lage områder ved å samle flere rader og navngi dem. Da kan vi si til elementer at de skal plassere seg selv i det område.</p>
+            <p>Grid løser også et problem med flexbox og floats, det med luft mellom elementene. Selv i flexbox kan det bli vanskelig å gi riktig luft mellom elementene, hvis man ikke ønsker å bruke <code>justify-content: space-around/between/evenly</code>, men ønsker å gi en spesifikk mengde padding, så er det vanskelig å ikke få padding på hver side av parent elementet. Da har CSS Grid en property som løser akkurat dette, <code>grid-gap</code>. Denne lager luft mellom elementene, men ikke på hver side av parent. Ganske fantastisk.</p>
+            <p>En vanlig misforståelse er å tenke at Grid erstatter Flexbox, det gjør det altså ikke. Man vil bruke Grid og Flexbox sammen. Det er ikke alltid Grid passer for formålet.</p>
+        </div>
+  </article>
+</main>
+{% endblock %}

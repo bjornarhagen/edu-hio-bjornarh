@@ -41,8 +41,8 @@
     </section>
     <section class="links">
       <a href="{{ path }}/">Hjem</a>
-      <a href="{{ path }}/artikler/git-github.html">Git/Github</a>
-      <a href="{{ path }}/artikler/media-typer.html">Media Typer</a>
+      <a href="{{ path }}/artikler/git-github.html">Git & Github</a>
+      <a href="{{ path }}/artikler/css-media-typer.html">Media Typer</a>
       <a href="{{ path }}/artikler/css-layouts.html">CSS Layouts</a>
     </section>
   </nav>
