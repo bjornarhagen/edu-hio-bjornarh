@@ -111,4 +111,4 @@ gulp.task('php', ['js', 'sass', 'browser-sync-php', 'sass:watch', 'php'], functi
   gulp.watch(['./**/*.php'], [browserSync.reload]);
 });
 
-gulp.task('build', ['js', 'sass', 'nunjucks']);
+gulp.task('build', ['js', 'sass', 'nunjucks', 'image']);
