@@ -6,10 +6,10 @@
 <header>
   <figure>
     <div class="bg-image" style="background-image:url('images/graphics/ice-water.jpg')"></div>
-    <img src="images/graphics/ice-water.jpg" alt="Ice water">
+    <img src="{{ path }}/images/graphics/ice-water.jpg" alt="Ice water">
   </figure>
   <section>
-    <h1><span>Bjørnars</span><span>studiewebsted</span></h1>
+    <h1><span>Bjørnars </span><span>studiewebsted</span></h1>
     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente suscipit natus in a accusamus quibusdam quisquam dolorem expedita quis necessitatibus tenetur facere aut voluptatum magni quidem, optio aspernatur dolores autem.</p>
     <a href="{{ path }}/om.html" class="button button-filled">Les mer</a>
   </section>
