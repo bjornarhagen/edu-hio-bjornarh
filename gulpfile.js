@@ -4,7 +4,6 @@ const gulp = require('gulp');
 const sass = require('gulp-sass');
 const uglify = require('gulp-uglify');
 const rename = require('gulp-rename');
-const php = require('gulp-connect-php');
 const browserSync = require('browser-sync').create();
 const nunjucksRender = require('gulp-nunjucks-render');
 const imagemin = require('gulp-imagemin');
@@ -62,15 +61,6 @@ gulp.task('sass:watch', function() {
   gulp.watch('./src/sass/**/*.scss', ['sass']);
 });
 
-gulp.task('php', function() {
-  php.server({
-    base: './',
-    port: 8080,
-    keepalive: true
-  });
-});
-
-
 gulp.task('image', function() {
   gulp.src('src/images/**/*.{png,gif,jpg,jpeg,svg}')
     .pipe(imagemin([
@@ -94,14 +84,6 @@ gulp.task('image', function() {
       })
     ]))
     .pipe(gulp.dest('dist/images'))
-});
-
-gulp.task('browser-sync-php', function() {
-  browserSync.init({
-    proxy: '127.0.0.1:8080',
-    open: true,
-    notify: false
-  });
 });
 
 gulp.task('browser-sync', function() {
