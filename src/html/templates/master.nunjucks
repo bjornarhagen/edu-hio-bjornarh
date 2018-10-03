@@ -39,6 +39,12 @@
     <section class="brand">
       <a href="{{ path }}/"><img src="{{ path }}/images/brand/logo/logo-black-1x1.png" alt="Bjørnar Hagen - logo"></a>
     </section>
+    <section class="menu-trigger">
+      <button>
+        <img src="{{ path }}/images/burger.svg" class="icon open" alt="Menu open">
+        <img src="{{ path }}/images/remove.svg" class="icon close" alt="Menu close">
+      </button>
+    </section>
     <section class="links">
       {# <a href="{{ path }}/">Hjem</a> #}
       <a href="{{ path }}/artikler/git-github.html">Git & Github</a>
@@ -57,6 +63,7 @@
   {%- block scripts_before -%}{%- endblock %}
   <link href="https://cdn.datahjelpen.no/fonts/butler/butler-700-400.css" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Roboto+Mono" rel="stylesheet">
+  <script src="{{ path }}/js/mobile-menu.js"></script>
   {%- block scripts_after -%}{%- endblock %}
 </body>
 </html>
