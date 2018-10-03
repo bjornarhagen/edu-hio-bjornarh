@@ -57,8 +57,8 @@
     <p>
       <a href="mailto:bjornarh@hiof.no">bjornarh@hiof.no</a>
     </p>
-    <p>Bjørnar Hagen - 2018</p>
-    <p>Kildekode: <a href="https://github.com/bearhagen/edu-hio-bjornarh/tree/webutvikling-2018" target="_blank">github.com/bearhagen/edu-hio-bjornarh</a></p>
+    <p>&copy; 2018 - <a href="https://bjornar.hagen.codes">Bjørnar Hagen</a></p>
+    <p>Kildekode: <a href="https://github.com/bjornarhagen/edu-hio-bjornarh" target="_blank" rel="noopener">github.com/bjornarhagen/edu-hio-bjornarh</a></p>
   </footer>
   {%- block scripts_before -%}{%- endblock %}
   <link href="https://cdn.datahjelpen.no/fonts/butler/butler-700-400.css" rel="stylesheet">
