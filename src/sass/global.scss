@@ -219,8 +219,10 @@ a {
   >main {
     position: relative;
     display: flex;
-    justify-content: flex-start;
     flex-direction: row;
+    justify-content: flex-start;
+    align-content: flex-start;
+    align-items: flex-start;
     flex-wrap: wrap;
     padding: $pad-m 0 $pad-xxl;
 
@@ -233,6 +235,7 @@ a {
       display: flex;
       flex-direction: column;
       justify-content: flex-start;
+      align-content: flex-start;
       align-items: flex-start;
 
       @media screen and (min-width: $size-s-up) and (max-width: $size-m) {
