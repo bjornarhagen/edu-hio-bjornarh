@@ -48,7 +48,7 @@ body>nav {
       }
     }
 
-    @media screen and (max-width: $size-m) {
+    @media screen and (max-width: $size-s) {
       display: none;
       position: absolute;
       top: 100%;
@@ -84,6 +84,10 @@ body>nav {
   }
 
   .menu-trigger {
+    @media screen and (min-width: $size-s-up) {
+      display: none;
+    }
+
     button {
       border: none;
       background-color: transparent;
