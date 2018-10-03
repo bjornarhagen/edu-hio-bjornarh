@@ -3,11 +3,10 @@
 
 /* -------------------- Print - start -------------------- */
 body {
-  grid-template-rows: 0fr 0fr auto auto 0fr;
+  display: block; // Fix print in all browsers
   font-family: serif;
   color: #000;
   background-color: #fff !important;
-  page-break-after: auto;
 
   >nav,
   >footer {
@@ -20,18 +19,32 @@ h2,
 h3,
 h4,
 h5,
-h6 {
-  color: #000;
-  page-break-after: auto;
+h6,
+p,
+img,
+figure {
+  color: #000 !important;
+  page-break-before: auto !important;
+  page-break-after: auto !important;
+  page-break-inside: avoid !important;
 }
 
-p,
-img {
-  page-break-after: auto;
+a {
+  &:after {
+    content: " (" attr(href) ")";
+    opacity: 0.8;
+    font-size: 0.8em;
+  }
+}
+
+img,
+figure {
+  max-width: 40rem !important;
+  margin: 0 !important;
+  height: auto !important;
 }
 
 body.article-page {
-
   pre,
   code {
     border: 1px solid $color-black-green;
@@ -39,14 +52,21 @@ body.article-page {
     background-color: #fff;
   }
 
-  .wrapper,
+  // .split,
+  // .split.reverse {
+  //   page-break-inside: avoid;
+  // }
+
   p,
   h1,
   h2,
   h3,
   h4,
   h5,
-  h6 {
+  h6,
+  .wrapper,
+  .split,
+  .split.reverse {
     display: block;
     width: 100% !important;
     max-width: 100% !important;
