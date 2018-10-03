@@ -34,14 +34,15 @@ gulp.task('copy', function () {
 
 gulp.task('js', function() {
   gulp.src([
-    './js/**/*.js',
-    '!./js/**/*.min.js'
+    './src/js/**/*.js',
+    '!./src/js/**/*.min.js'
   ])
-    .pipe(uglify())
-    .pipe(rename({
-      suffix: '.min'
-    }))
-    .pipe(gulp.dest('./js'))
+    .pipe(gulp.dest('./dist/js'))
+    // .pipe(uglify())
+    // .pipe(rename({
+    //   suffix: '.min'
+    // }))
+    // .pipe(gulp.dest('./dist/js'))
 })
 
 gulp.task('sass', function() {
