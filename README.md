@@ -4,6 +4,17 @@ Live on http://www.it-stud.hiof.no/~bjornarh/
 
 # Install
 
-`$ npm install`
+1. Download and install [Node JS](https://nodejs.org/en/)
+1. Open `src/html/templates/master.nunjucks` and change the `path` variable
+1. Open the root folder of the project in your terminal
+1. Run `npm install`
+1. Run `npm build`
 
-`$ gulp`
+You're done! Your project is now in the `dist` folder.
+
+# Development
+
+You can start a dev server by doing the following:
+
+1. Open the root folder of the project in your terminal
+1. Run `npm start`

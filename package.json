@@ -1,6 +1,6 @@
 {
   "name": "edu-hio-bjornarh",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "Bjørnar Hagen's student website.",
   "main": "gulpfile.js",
   "dependencies": {},
@@ -14,16 +14,18 @@
     "gulp-uglify": "^3.0.1"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "gulp",
+    "build": "gulp build"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/bearhagen/edu-hio-bjornarh.git"
+    "url": "git+https://github.com/bjornarhagen/edu-hio-bjornarh.git"
   },
   "author": "Bjørnar Hagen",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/bearhagen/edu-hio-bjornarh/issues"
+    "url": "https://github.com/bjornarhagen/edu-hio-bjornarh/issues"
   },
-  "homepage": "https://github.com/bearhagen/edu-hio-bjornarh#readme"
+  "homepage": "https://github.com/bjornarhagen/edu-hio-bjornarh#readme"
 }
