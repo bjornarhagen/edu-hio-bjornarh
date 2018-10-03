@@ -63,7 +63,7 @@ pre {
 }
 
 code {
-	@include transition(250ms);
+	@include transition('color, background-color', 250ms);
 	padding: 0.1em 0.2em;
 	background-color: $color-gray-cold-medium;
 
