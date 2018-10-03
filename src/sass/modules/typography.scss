@@ -54,9 +54,10 @@ code {
 }
 
 pre {
-	max-width: 100vw;
-	overflow-x: auto;
+	max-width: 100%;
+	overflow: auto;
 	padding: $pad-m;
+	white-space: pre-wrap;
 	color: $color-green;
 	background-color: $color-black-gray_cold;
 }
