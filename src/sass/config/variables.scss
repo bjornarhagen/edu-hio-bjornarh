@@ -3,18 +3,18 @@
 
 $grid_columns: 12;
 
-$size-xs:     239 / 10 / $font-ratio + rem;
-$size-xs-up:  240 / 10 / $font-ratio + rem;
-$size-s:      479 / 10 / $font-ratio + rem;
-$size-s-up:   480 / 10 / $font-ratio + rem;
-$size-m:      767 / 10 / $font-ratio + rem;
-$size-m-up:   768 / 10 / $font-ratio + rem;
-$size-l:      1023 / 10 / $font-ratio + rem;
-$size-l-up:   1024 / 10 / $font-ratio + rem;
-$size-xl:     1365 / 10 / $font-ratio + rem;
-$size-xl-up:  1366 / 10 / $font-ratio + rem;
-$size-xxl:    1919 / 10 / $font-ratio + rem;
-$size-xxl-up: 1920 / 10 / $font-ratio + rem;
+$size-xs:     240   / 10 / $font-ratio         + rem;
+$size-xs-up:  240   / 10 / $font-ratio + 0.001 + rem;
+$size-s:      480   / 10 / $font-ratio         + rem;
+$size-s-up:   480   / 10 / $font-ratio + 0.001 + rem;
+$size-m:      768   / 10 / $font-ratio         + rem;
+$size-m-up:   768   / 10 / $font-ratio + 0.001 + rem;
+$size-l:      1024  / 10 / $font-ratio         + rem;
+$size-l-up:   1024  / 10 / $font-ratio + 0.001 + rem;
+$size-xl:     1366  / 10 / $font-ratio         + rem;
+$size-xl-up:  1366  / 10 / $font-ratio + 0.001 + rem;
+$size-xxl:    1920  / 10 / $font-ratio         + rem;
+$size-xxl-up: 1920  / 10 / $font-ratio + 0.001 + rem;
 
 $pad-xxs: #{$base/$font-ratio/$font-ratio/$font-ratio}em;
 $pad-xs:  #{$base/$font-ratio/$font-ratio}em;
