@@ -4,6 +4,12 @@ h5 {
 	font-weight: $font-headings-weight;
 	font-family: $font-headings;
 	color: $color-font-headings;
+	word-wrap: break-word;
+	overflow-wrap: break-word;
+	-webkit-hyphens: auto;
+	-moz-hyphens: auto;
+	-ms-hyphens: auto;
+	hyphens: auto;
 }
 
 // Set headings sizes, line-heights and margins
