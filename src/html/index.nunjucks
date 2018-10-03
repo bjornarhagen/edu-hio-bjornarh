@@ -73,7 +73,7 @@
   </nav>
 </aside>
 <div id="modal-yt-video">
-  <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/jVkLVRt6c1U" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+  <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/jVkLVRt6c1U" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 </div>
 <script>
   // Toggels the YouTube video modal
