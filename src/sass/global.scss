@@ -85,6 +85,9 @@ a {
   color: $color-gray-cold-dark;
   text-decoration: none;
 
+  // iOS has an annoying bug with links needing to be clicked twice when having :hover effects.
+  // So let's only have this on medium and up sized devices
+  @media screen and (min-width: $size-m-up) {
   &:after {
     @include transition('width', 500ms);
     content: ' ';
@@ -113,6 +116,7 @@ a {
     content: none;
     display: none;
   }
+}
 }
 
 @import 'modules/utility-classes';
