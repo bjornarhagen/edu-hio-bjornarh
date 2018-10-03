@@ -11,6 +11,12 @@
         <div class="text">
           <h1>Hei!</h1>
           <p>Jeg heter Bjørnar Hagen og er 21 år og går 3. året dataingenør. Jeg har en del bakgrunn i web-design og utvikling, blant annet fra å vært lærling i 2 år hos Optimale Systemer og deretter jobbet daglig med mitt eget selskapet, Datahjelpen AS. Har alltid hatt en lidenskap for alt som har med data å gjøre.</p>
+          <ul>
+            <li>Tabs eller spaces? <strong>Tabs</strong></li>
+            <li>Vim elerl Emacs? <strong>Vim</strong></li>
+            <li>Favoritt OS? <strong>Linux</strong></li>
+            <li>Favoritt editor? <strong>VS Code</strong></li>
+          </ul>
         </div>
       </div>
     </section>
@@ -18,9 +24,44 @@
       <h2>Om nettstedet</h2>
       <div class="wrapper">
         <div class="read">
-          <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Autem amet cumque enim, eveniet corporis sunt incidunt iste animi esse pariatur corrupti aliquid aperiam voluptates sequi ab, quis tenetur delectus! Perspiciatis enim architecto velit asperiores vel accusantium non, pariatur voluptate rerum assumenda recusandae, a esse cum voluptates, est placeat omnis quibusdam?</p>
+          <p>Nettstedet er kodet med ren HTML/Nunjucks, JavaScript & SASS/CSS</p>
+
+          <h3>Nunjucks & HTML</h3>
+          <p>Å skrive rene HTML filer kan fort skape krøll. Se for deg å ha 10 HTML filer, også vil du f.eks. legge til en link i navigasjonen, da må du endre alle 10 filene. Dette scaler ikke så bra.</p>
+          <p>Derfor har jeg valgt å skrive HTML filene mine med templating engine Nunjucks. Nunjucks lar meg dele opp filene mine. F.eks kan navigasjonen være en egen fil. Da kan jeg skrive <code>{{ "{% include \"nav.nunjucks\" %}" | escape }}</code>, så blir navigasjonen inkludert i filen. Hvis vi da tar eksempelet med 10 HTML filer, så trenger jeg kun å endre på navigasjons filen, ikke alle 10 HTML filene.</p>
+          <p><a href="https://mozilla.github.io/nunjucks/" target="blank" rel="noopener">Les mer om Nunjucks</a></p>
+
+          <h3>SASS & CSS</h3>
+          <p>SASS er css, men med superkrefter. Vanligvis skriver du slik:</p>
+<pre>
+.parent {
+  color: red;
+}
+
+.parent .child {
+  color: blue;
+}
+</pre>
+          <p>Men, med SASS kan vi skrive det samme slik:</p>
+<pre>
+.parent {
+  color: red;
+
+  .child {
+    color: blue;
+  }
+}
+</pre>
+          <p>Dette kalles nesting, og er super kjekt. I SASS har man også variabler og funksjoner. Man kan bruke <code>if</code> statements og kjøre <code>for</code> loops. <strong>Once you go Sass you never go back.  </strong></p>
+          <p><a href="http://sass-lang.com/" target="blank" rel="noopener">Les mer om SASS</a></p>
+
+          <h3>Gulp</h3>
+          <p>Nunjucks og SASS må "oversettes" til vanlig HTML og CSS. For å gjøre dette bruker jeg Gulp. Jeg bruker også Gulp til å komprimere JavaScript og bildefiler, samt kopiere filer rundt om kring.</p>
+          <p><a href="https://gulpjs.com/" target="blank" rel="noopener">Les mer om Gulp</a></p>
         </div>
       </div>
+
+
     </section>
   </article>
 </main>

@@ -10,7 +10,7 @@
   </figure>
   <section>
     <h1><span>Bjørnars </span><span>studiewebsted</span></h1>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente suscipit natus in a accusamus quibusdam quisquam dolorem expedita quis necessitatibus tenetur facere aut voluptatum magni quidem, optio aspernatur dolores autem.</p>
+    <p>Hei! Jeg heter Bjørnar Hagen og er 21 år og går 3. året dataingenør. Nettstedet er kodet med ren HTML/Nunjucks, JavaScript & SASS/CSS</p>
     <a href="{{ path }}/om.html" class="button button-filled">Les mer</a>
   </section>
 </header>
