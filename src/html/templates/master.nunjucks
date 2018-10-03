@@ -61,7 +61,7 @@
     <p>Kildekode: <a href="https://github.com/bjornarhagen/edu-hio-bjornarh" target="_blank" rel="noopener">github.com/bjornarhagen/edu-hio-bjornarh</a></p>
   </footer>
   {%- block scripts_before -%}{%- endblock %}
-  <link href="https://cdn.datahjelpen.no/fonts/butler/butler-700-400.css" rel="stylesheet">
+  <link href="https://cdn.datahjelpen.no/fonts/butler/butler-700-300.css" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Roboto+Mono" rel="stylesheet">
   <script src="{{ path }}/js/mobile-menu.js"></script>
   {%- block scripts_after -%}{%- endblock %}
