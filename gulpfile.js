@@ -96,5 +96,6 @@ gulp.task('browser-sync', function() {
   });
 });
 
-gulp.task('default', ['js', 'sass', 'nunjucks', 'browser-sync', 'image', 'sass:watch', 'nunjucks:watch']);
+gulp.task('watch', ['browser-sync', 'sass:watch', 'nunjucks:watch']);
 gulp.task('build', ['copy', 'js', 'sass', 'nunjucks', 'image']);
+gulp.task('default', ['build', 'watch']);
