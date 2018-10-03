@@ -48,7 +48,7 @@ gulp.task('sass', function() {
   return gulp.src([
     './src/sass/reset.scss',
     './src/sass/global.scss',
-    './src/sass/stilark.scss'
+    './src/sass/print.scss'
   ])
     .pipe(sass({
       outputStyle: 'expanded'

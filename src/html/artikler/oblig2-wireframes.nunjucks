@@ -1,6 +1,9 @@
 {% set title = "Wireframes" %}
 {% set body_classes = "article-page" %}
 {% extends "master.nunjucks" %}
+{% block head %}
+  {% include "article-head.nunjucks" %}
+{% endblock %}
 {% block content %}
 <main>
     <article>
