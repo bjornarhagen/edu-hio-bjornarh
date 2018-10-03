@@ -43,7 +43,7 @@
       <h2>GitHub</h2>
       <div class="wrapper">
         <p>GitHub.com - Ikke til å forveksle med Git. GitHub er et populært nettsted for å hoste git <em>repositories</em>, og har blitt veldig populær for <em>Open Source</em> prosjekter. Ganske ironisk ettersom GitHub selv ikke er Open Source 🤷. Man må ikke bruke GitHub for å bruke git, man kan hoste sine egene repositories lokalt, eller hos andre nettstedet lignende GitHub. En konkurent som får mye populæritet om dagen er GitLab.</p>
-        <img class="full-width" src="{{ path }}/images/graphics/articles/github-universe.png" alt="Github">
+        <img class="full-width" src="{{ path }}/images/graphics/articles/github.jpg" alt="Github">
         <p>Github er et sentralt punkt å samle alle sine repositories. Det som er kjekt med Github er hvor lett det er å komme i gang og å bruke, samt det at det er gratis.</p>
         <p>Forutenom å hoste repositories, lar GitHub deg også dele repositories med andre, lage informasjonssider om prosjektet, opprette saker (issues), og diskutere med andre.</p>
       </div>
