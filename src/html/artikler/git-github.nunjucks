@@ -48,6 +48,14 @@
         <p>Forutenom å hoste repositories, lar GitHub deg også dele repositories med andre, lage informasjonssider om prosjektet, opprette saker (issues), og diskutere med andre.</p>
       </div>
     </section>
+    <section>
+      <h2>Siste commit</h2>
+      <div class="wrapper">
+        <p>Her er bilde av siste commit.</p>
+        <p>Link til <a href="https://github.com/bjornarhagen/edu-hio-bjornarh" target="_blank" rel="noopener">Git repository på GitHub.com</a></p>
+        <img class="full-width" src="{{ path }}/images/graphics/articles/github-latest.png" alt="Github siste commit">
+      </div>
+    </section>
   </article>
 </main>
 {% endblock %}
