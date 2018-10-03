@@ -514,6 +514,10 @@ body.article-page {
       }
     }
 
+    a {
+      border-bottom: 2px solid $color-primary;
+    }
+
     table {
       width: 100%;
 
