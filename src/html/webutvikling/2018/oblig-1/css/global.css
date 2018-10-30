@@ -1,0 +1,890 @@
+@charset "UTF-8";
+/*
+  Bruker noe CSS fra sanitize.css prosjektet https://csstools.github.io/sanitize.css/
+*/
+/* -------------------- Globale stiler som skal gjelde overalt -------------------- */
+/* -------------------- CSS reset - start -------------------- */
+article,
+aside,
+footer,
+header,
+nav,
+section,
+figcaption,
+figure,
+main,
+details,
+menu {
+  display: block;
+}
+
+summary {
+  display: list-item;
+}
+
+a,
+area,
+summary,
+[tabindex] {
+  touch-action: manipulation;
+}
+
+template {
+  display: none;
+}
+
+[hidden] {
+  display: none;
+}
+
+/* -------------------- CSS reset - slutt -------------------- */
+/* -------------------- Utility klasser - start -------------------- */
+.clearfix:before, .clearfix:after {
+  content: " ";
+  display: table;
+}
+
+.clearfix:after {
+  clear: both;
+}
+
+.layout-xs, .layout-s, .layout-m,
+.layout-l, .layout-xl, .layout-xxl {
+  width: 100%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.layout-xs {
+  max-width: 14.9375rem;
+}
+
+.layout-s {
+  max-width: 29.9375rem;
+}
+
+.layout-m {
+  max-width: 47.9375rem;
+}
+
+.layout-l {
+  max-width: 63.9375rem;
+}
+
+.layout-xl {
+  max-width: 85.3125rem;
+}
+
+.layout-xxl {
+  max-width: 119.9375rem;
+}
+
+/* -------------------- Utility klasser - slutt -------------------- */
+/* Fiks box-model */
+*,
+::after,
+::before {
+  box-sizing: inherit;
+}
+
+::after,
+::before {
+  text-decoration: inherit;
+  vertical-align: inherit;
+}
+
+body,
+html {
+  margin: 0;
+  padding: 0;
+  color: #393f47;
+  background-color: #f8f9fa;
+  font-family: "Lato", sans-serif;
+}
+
+html {
+  box-sizing: border-box;
+  cursor: default;
+  font-size: 100%;
+}
+
+body {
+  position: relative;
+  font-size: 1em;
+  line-height: 1.6;
+}
+
+@media screen and (min-width: 48rem) {
+  body {
+    font-size: 1.2em;
+    line-height: 1.6;
+  }
+}
+
+#footer {
+  padding: 6.4em 1.6em;
+  background-color: #ffffff;
+  text-align: center;
+}
+
+#footer a {
+  color: #7d8a99;
+}
+
+/* -------------------- Media - start -------------------- */
+img {
+  border-style: none;
+  max-width: 100%;
+  height: auto;
+}
+
+figure {
+  margin: 1em 40px;
+}
+
+audio,
+canvas,
+iframe,
+img,
+svg,
+video {
+  vertical-align: middle;
+}
+
+audio,
+video {
+  display: inline-block;
+}
+
+audio:not([controls]) {
+  display: none;
+  height: 0;
+}
+
+svg:not(:root) {
+  overflow: hidden;
+}
+
+canvas {
+  display: inline-block;
+}
+
+/* -------------------- Media - slutt -------------------- */
+/* -------------------- Typography - start -------------------- */
+h1, h2,
+h3, h4 {
+  font-weight: 700;
+  font-family: "Butler", "Playfair Display", serif;
+  color: #17191d;
+}
+
+h1 {
+  font-size: 3.15733em;
+  line-height: 1.6;
+  margin-top: 1.6rem;
+  margin-bottom: 0.4rem;
+}
+
+h2 {
+  font-size: 2.36859em;
+  line-height: 1.6;
+  margin-top: 1.6rem;
+  margin-bottom: 0.4rem;
+}
+
+h3 {
+  font-size: 1.77689em;
+  line-height: 1.6;
+  margin-top: 1.6rem;
+  margin-bottom: 0.4rem;
+}
+
+h4 {
+  font-size: 1.333em;
+  line-height: 1.6;
+  margin-top: 1.6rem;
+  margin-bottom: 0.4rem;
+}
+
+h5 {
+  font-size: 1.333em;
+  line-height: 1.6;
+  margin-top: 1.6rem;
+  margin-bottom: 0.4rem;
+}
+
+h6 {
+  font-size: 1em;
+  line-height: 1.6;
+  margin-top: 1.6rem;
+  margin-bottom: 0.4rem;
+}
+
+h1 + h2,
+h2 + h3,
+h3 + h4,
+h4 + h5 {
+  margin-top: 0;
+}
+
+h5 + h6 {
+  margin-top: -0.4em;
+}
+
+h5, h6 {
+  font-family: "Butler", "Playfair Display", serif;
+  font-weight: 400;
+  color: #17191d;
+}
+
+p {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+hgroup {
+  display: block;
+}
+
+/* Quotes */
+blockquote {
+  font-family: "Lato", sans-serif;
+  font-style: italic;
+  margin: 0;
+  padding-left: 1.6em;
+  max-width: 40rem;
+}
+
+@media screen and (min-width: 48rem) {
+  blockquote {
+    padding-left: 3.2em;
+  }
+}
+
+blockquote p, blockquote cite {
+  margin-bottom: 0.8em;
+}
+
+blockquote.fancy {
+  margin-top: 1.6em;
+  margin-bottom: 0.8em;
+  padding-left: 4em;
+  position: relative;
+}
+
+blockquote.fancy.no-cite {
+  padding-bottom: 0.8em;
+}
+
+blockquote.fancy p, blockquote.fancy cite {
+  position: relative;
+  z-index: 2;
+}
+
+blockquote.fancy:before, blockquote.fancy:after {
+  position: absolute;
+  font-size: 10em;
+  line-height: 1rem;
+  z-index: 1;
+  color: #d2d4d6;
+}
+
+blockquote.fancy:before {
+  content: '“';
+  top: 3.2rem;
+  left: 0;
+}
+
+blockquote.fancy:after {
+  content: '”';
+  bottom: -1.6rem;
+  right: 0;
+}
+
+cite {
+  position: relative;
+  display: block;
+  font-style: normal;
+  padding-left: 1.6em;
+}
+
+cite:before {
+  content: '—';
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+figure blockquote {
+  padding: 0.8em 0;
+}
+
+@media screen and (min-width: 48rem) {
+  figure blockquote {
+    padding: 3.2em 0 1.6em;
+    text-align: center;
+  }
+}
+
+hr {
+  height: 0;
+  overflow: visible;
+}
+
+br {
+  margin-bottom: 0;
+}
+
+abbr {
+  letter-spacing: 0.1em;
+}
+
+abbr[title] {
+  border-bottom: none;
+  text-decoration: underline;
+  text-decoration: underline dotted;
+}
+
+/* Forhindre duplikat bruk av `bolder` ved neste regel i Safari 6 */
+strong {
+  font-weight: inherit;
+}
+
+/* Fiks at 'font-weight' er satt til `bolder` i Firefox 4+, Safari, og Chrome. */
+strong {
+  font-weight: 700;
+}
+
+/* Fiks manglende styling i Safari og Chrome. */
+dfn {
+  font-family: "Lato", sans-serif;
+  font-style: italic;
+}
+
+/* Fiks `em` and `i` slik at de ikke påvirker `line-height` i alle nettlesere. */
+em {
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+
+/* Fiks manglende styling i IE 8/9. */
+mark {
+  color: #313404;
+  background: #f3ff14;
+  padding: 0 0.4em;
+}
+
+small {
+  line-height: 0.8;
+  font-size: 0.7em;
+}
+
+/* Fiks `sub` and `sup` slik at de ikke påvirker `line-height` i alle nettlesere. */
+sub,
+sup {
+  font-size: 0.75em;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+
+sup {
+  top: -0.5em;
+}
+
+sub {
+  bottom: -0.25em;
+}
+
+/* Description lists */
+dl {
+  margin: 0;
+  margin-bottom: 0.8em;
+}
+
+dl dt {
+  margin-top: 0.8em;
+  margin-bottom: 0.4em;
+  font-weight: 700;
+}
+
+dl dd {
+  margin-left: 1em;
+  margin-bottom: 0;
+}
+
+/* Lister */
+ol,
+ul {
+  margin: 0;
+  padding-left: 1em;
+  margin-bottom: 0.8em;
+}
+
+ol li,
+ul li {
+  margin: 0;
+}
+
+/* Linker */
+a {
+  background: transparent;
+  color: #393f47;
+  transition-property: color;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  text-decoration-skip: objects;
+}
+
+a:active, a:hover {
+  outline: 0;
+}
+
+a:focus {
+  outline: 1px dotted #ff2014;
+  outline-offset: .2em;
+}
+
+a:focus, a:hover {
+  color: #393f47;
+}
+
+a:visited {
+  color: #626d79;
+}
+
+a:visited:focus, a:visited:hover {
+  color: #393f47;
+}
+
+a:active {
+  color: #ff2014;
+}
+
+a[disabled] {
+  opacity: 0.33;
+  text-decoration: line-through;
+}
+
+code,
+kbd,
+samp,
+pre {
+  font-size: 1em;
+  font-family: "Roboto Mono", monospace;
+  font-weight: 400;
+}
+
+code {
+  border-radius: 0.4em;
+  padding: 0 0.4em;
+  color: #f8f9fa;
+  background-color: #393f47;
+}
+
+code a,
+code a:visited {
+  color: #f8f9fa;
+}
+
+code a:hover, code a:focus,
+code a:visited:hover,
+code a:visited:focus {
+  color: #ff2014;
+}
+
+kbd {
+  border-radius: 0.4em;
+  border-style: solid;
+  border-width: 1px 2px 2px 1px;
+  border-color: #ededea #bab1a7 #bab1a7 #ededea;
+  background-color: #f9f9f8;
+  padding: 0 0.4em;
+}
+
+::-webkit-file-upload-button {
+  -webkit-appearance: button;
+  font: inherit;
+}
+
+/* reset for form elements */
+label,
+input,
+select,
+textarea {
+  font-size: inherit;
+  line-height: inherit;
+}
+
+input,
+select,
+textarea {
+  font-family: "Roboto Mono", monospace;
+  font-weight: 400;
+}
+
+/* reset for buttons */
+button,
+[type="button"],
+[type="reset"],
+[type="submit"],
+.button {
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
+  font-size: inherit;
+  line-height: inherit;
+  text-transform: none;
+}
+
+::-moz-selection {
+  background-color: #2014ff;
+  color: #ffffff;
+  text-shadow: none;
+}
+
+::selection {
+  background-color: #2014ff;
+  color: #ffffff;
+  text-shadow: none;
+}
+
+.content-text p {
+  margin-bottom: 0.8em;
+  font-weight: 300;
+}
+
+.read-wide {
+  max-width: 48rem;
+}
+
+.read {
+  max-width: 40rem;
+}
+
+.read-narrow {
+  max-width: 32rem;
+}
+
+.icon {
+  vertical-align: middle;
+  width: 1em;
+  height: 1em;
+  line-height: 1em;
+}
+
+.icon + span {
+  vertical-align: middle;
+}
+
+.icon:first-child {
+  margin: 0 0.4em 0 0;
+}
+
+.icon:last-child {
+  margin: 0 0 0 0.4em;
+}
+
+.icon:first-child:last-child {
+  margin: 0;
+}
+
+/* -------------------- Typography - slutt -------------------- */
+/* -------------------- Navigation - start -------------------- */
+#header-main {
+  position: absolute;
+  width: 100%;
+  z-index: 10;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+}
+
+@media screen and (min-width: 30rem) {
+  #header-main {
+    padding: 1.6em 0;
+  }
+}
+
+#nav-main {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-content: center;
+  align-items: center;
+  padding: 1.6em;
+  width: 100%;
+  max-width: 29.9375rem;
+  background-color: #ffffff;
+  box-shadow: 0 1em 1em -1em rgba(4, 23, 47, 0.1);
+}
+
+@media screen and (min-width: 30rem) {
+  #nav-main {
+    border-radius: 0.4em;
+  }
+}
+
+@media screen and (min-width: 48rem) {
+  #nav-main {
+    max-width: 47.9375rem;
+    padding: 1.6em 3.2em;
+    flex-direction: row;
+  }
+}
+
+#nav-main a {
+  text-decoration: none;
+}
+
+#nav-main a:focus, #nav-main a:hover {
+  outline: none;
+  text-decoration: underline;
+}
+
+#nav-main .logo {
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+}
+
+@media screen and (max-width: 47.9375rem) {
+  #nav-main .logo {
+    order: 0;
+  }
+}
+
+#nav-main .logo a {
+  font-weight: 700;
+  font-family: "Butler", "Playfair Display", serif;
+  font-size: 2em;
+}
+
+#nav-main .links {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+@media screen and (max-width: 47.9375rem) {
+  #nav-main .links {
+    flex-direction: column;
+    order: 1;
+    width: 100%;
+    text-align: center;
+  }
+}
+
+#nav-main .links a {
+  margin: 0 0.8em;
+}
+
+@media screen and (min-width: 48rem) {
+  #nav-main .links a:first-child {
+    margin-left: 0;
+  }
+  #nav-main .links a:last-child {
+    margin-right: 0;
+  }
+}
+
+/* -------------------- Navigation - slutt -------------------- */
+main > header {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  min-height: 50vh;
+  height: auto;
+  background-position: center center;
+  background-size: cover;
+  background-color: #bec4cc;
+}
+
+main > header.header-fancy {
+  justify-content: flex-start;
+  align-items: flex-end;
+  min-height: 80vh;
+}
+
+main > header.header-fancy .header-content {
+  width: 100%;
+  padding: 1.6em;
+  max-width: 63.9375rem;
+  text-align: center;
+  background-color: #f8f9fa;
+}
+
+@media screen and (min-width: 48rem) {
+  main > header.header-fancy .header-content {
+    padding: 1.6em 3.2em;
+  }
+}
+
+@media screen and (min-width: 64rem) {
+  main > header.header-fancy .header-content {
+    text-align: left;
+    border-radius: 0 0.4em 0 0;
+  }
+}
+
+main > header.header-fancy .header-content h1 {
+  margin: 0;
+}
+
+main > header.header-fixed {
+  background-attachment: fixed;
+}
+
+.page-section {
+  padding: 1.6em;
+}
+
+@media screen and (min-width: 48rem) {
+  .page-section {
+    padding: 1.6em 3.2em;
+  }
+}
+
+.page-section ul {
+  padding-left: 1.6em;
+}
+
+/* -------------------- Forside - start -------------------- */
+#front-page main > header {
+  min-height: 100vh;
+  background-image: url("https://i.xdh.no/5a7ad1edb05e");
+  background-color: #aeafa0;
+}
+
+#front-page main > header > nav {
+  width: 100%;
+  max-width: 47.9375rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 0 0.8em;
+}
+
+@media screen and (min-width: 48rem) {
+  #front-page main > header > nav {
+    flex-direction: row;
+  }
+}
+
+#front-page main > header > nav a {
+  transition-property: background-color, color;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  color: #ffffff;
+  border-radius: 0.4em;
+  padding: 0.8em;
+  text-decoration: none;
+  background-color: rgba(0, 0, 0, 0.3);
+  box-shadow: 0 2em 2em -2em rgba(0, 0, 0, 0.3);
+  margin: 1.6em 0;
+  width: 10em;
+  height: 10em;
+}
+
+#front-page main > header > nav a:focus, #front-page main > header > nav a:hover {
+  outline: none;
+  color: #000000;
+  background-color: #ffffff;
+}
+
+@media screen and (min-width: 48rem) {
+  #front-page main > header > nav a {
+    margin: 0;
+  }
+}
+
+#front-page main > header > nav a p {
+  margin: 0 0 0.8em;
+  font-size: 1.25em;
+  font-weight: 400;
+}
+
+#front-page main > header > nav a svg {
+  width: 100%;
+  max-width: 2.25em;
+}
+
+/* -------------------- Forside - slutt -------------------- */
+/* -------------------- spesifikke sider - start -------------------- */
+#lab-page main > header,
+#om_meg-page main > header,
+#obliger-page main > header {
+  background-image: url("https://i.xdh.no/221ab97c497c");
+}
+
+#lab-page main > header .header-content,
+#om_meg-page main > header .header-content,
+#obliger-page main > header .header-content {
+  display: flex;
+  justify-content: flex-start;
+  align-content: center;
+  align-items: center;
+}
+
+#lab-page main > header .header-content svg,
+#om_meg-page main > header .header-content svg,
+#obliger-page main > header .header-content svg {
+  margin-right: 1em;
+  max-width: 3em;
+}
+
+#om_meg-page #me {
+  transition-property: transform, border-radius;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transform: scale(1);
+  display: block;
+  max-width: 15em;
+  width: 100%;
+  border-radius: 100%;
+  margin: 0 auto;
+}
+
+#om_meg-page #me:hover {
+  border-radius: 1em;
+}
+
+#om_meg-page #me:active {
+  border-radius: 2em;
+  transform: scale(1.1);
+}
+
+#om_meg-page .content-wrapper {
+  margin: 15em auto 0;
+}
+
+/* -------------------- spesifikke sider - slutt -------------------- */
+body.article-page article {
+  padding-top: 1.6em;
+  padding-bottom: 3.2em;
+}
+
+@media screen and (max-width: 47.9375rem) {
+  body.article-page article .content-wrapper {
+    padding: 0 1.6em;
+  }
+}
+
+body.error-page main {
+  text-align: center;
+  padding: 12.8em 0.8em;
+}

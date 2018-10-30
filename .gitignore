@@ -20,7 +20,7 @@ $RECYCLE.BIN/
 .idea/
 node_modules/
 
-css/
+src/css/
 dist/
 
 *.min.js
