@@ -1,8 +1,10 @@
-Bjørnar Hagen's student website.
+# Bjørnar Hagen's student website.
 
-Live on http://www.it-stud.hiof.no/~bjornarh/
+~~Live on http://www.it-stud.hiof.no/~bjornarh/~~
 
-# Install
+Live on https://edu-hio-bjornarh.vercel.app/
+
+## Install
 
 1. Download and install [Node JS](https://nodejs.org/en/)
 1. Open `src/html/templates/master.nunjucks` and change the `path` variable
@@ -12,7 +14,7 @@ Live on http://www.it-stud.hiof.no/~bjornarh/
 
 You're done! Your project is now in the `dist` folder.
 
-# Development
+## Development
 
 You can start a dev server by doing the following:
 
