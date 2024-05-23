@@ -69,28 +69,28 @@ task("sass:watch", function () {
   watch("./src/sass/**/*.scss", series("sass"));
 });
 
-task("image", function () {
-  return src("src/images/**/*.{png,gif,jpg,jpeg,svg}")
-    .pipe(
-      imagemin([
-        gulpImagemin.gifsicle({ interlaced: true }),
-        gulpImagemin.mozjpeg({ progressive: true }),
-        imageminPngquant({ quality: [0.6, 0.8] }),
-        gulpImagemin.svgo({
-          plugins: [
-            { name: "removeViewBox", active: true },
-            { name: "cleanupIDs", active: false },
-          ],
-        }),
-      ])
-    )
-    .pipe(dest("dist/images"));
-});
 // task("image", function () {
-//   return src("src/images/**/*.{png,gif,jpg,jpeg,svg}").pipe(
-//     dest("dist/images")
-//   );
+//   return src("src/images/**/*.{png,gif,jpg,jpeg,svg}")
+//     .pipe(
+//       imagemin([
+//         gulpImagemin.gifsicle({ interlaced: true }),
+//         gulpImagemin.mozjpeg({ progressive: true }),
+//         imageminPngquant({ quality: [0.6, 0.8] }),
+//         gulpImagemin.svgo({
+//           plugins: [
+//             { name: "removeViewBox", active: true },
+//             { name: "cleanupIDs", active: false },
+//           ],
+//         }),
+//       ])
+//     )
+//     .pipe(dest("dist/images"));
 // });
+task("image", function () {
+  return src("src/images/**/*.{png,gif,jpg,jpeg,svg}").pipe(
+    dest("dist/images")
+  );
+});
 
 task("browser-sync", function () {
   browserSync.init({
