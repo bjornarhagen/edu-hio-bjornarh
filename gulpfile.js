@@ -1,111 +1,107 @@
 "use strict";
 
-const gulp = require("gulp");
-const sass = require("gulp-sass");
-const uglify = require("gulp-uglify");
-const rename = require("gulp-rename");
-const browserSync = require("browser-sync").create();
-const nunjucksRender = require("gulp-nunjucks-render");
-const imagemin = require("gulp-imagemin");
+import { task, src, dest, watch, series, parallel } from "gulp";
+import gulpSass from "gulp-sass";
+import * as sass from "sass";
+import uglify from "gulp-uglify";
+import rename from "gulp-rename";
+import browserSync from "browser-sync";
+import nunjucksRender from "gulp-nunjucks-render";
+import imagemin, * as gulpImagemin from "gulp-imagemin";
+import imageminPngquant from "imagemin-pngquant";
 
-gulp.task("nunjucks", function() {
-  return gulp
-    .src([
-      // Folder(s) to look in for content files
-      "src/html/**/*.+(html|nunjucks)",
-      "!src/templates/*.+(html|nunjucks)"
-    ])
+// Configure gulp-sass with the sass compiler
+const sassCompiler = gulpSass(sass);
+
+// Define tasks
+task("nunjucks", function () {
+  return src([
+    "src/html/**/*.+(html|nunjucks)",
+    "!src/templates/*.+(html|nunjucks)",
+  ])
     .pipe(
       nunjucksRender({
-        path: ["src/html/templates"] // Folder to look in for templates that are included/extended
+        path: ["src/html/templates"],
       })
     )
-    .pipe(gulp.dest("dist")); // Output rendered HTML in folder
+    .pipe(dest("dist"));
 });
 
-gulp.task("nunjucks:watch", function() {
-  gulp.watch("./src/**/*.nunjucks", ["nunjucks", browserSync.reload]);
+task("nunjucks:watch", function () {
+  watch("./src/**/*.nunjucks", series("nunjucks", browserSync.reload));
 });
 
-gulp.task("copy", function() {
-  return gulp
-    .src([
-      "src/html/**/*.+(php|css|jpg|png|svg|gif)",
-      "src/extra/**/*.+(php|css|jpg|png|svg|gif|xml|json|html)"
-    ])
-    .pipe(gulp.dest("./dist/"));
+task("copy", function () {
+  return src([
+    "src/html/**/*.+(php|css|jpg|png|svg|gif)",
+    "src/extra/**/*.+(php|css|jpg|png|svg|gif|xml|json|html)",
+  ]).pipe(dest("./dist/"));
 });
 
-gulp.task("js", function() {
-  gulp
-    .src(["./src/js/**/*.js", "!./src/js/**/*.min.js"])
-    .pipe(gulp.dest("./dist/js"));
+task("js", function () {
+  return src(["./src/js/**/*.js", "!./src/js/**/*.min.js"]).pipe(
+    dest("./dist/js")
+  );
+  // Uncomment these lines to minify and rename the JS files
   // .pipe(uglify())
   // .pipe(rename({
   //   suffix: '.min'
   // }))
-  // .pipe(gulp.dest('./dist/js'))
+  // .pipe(dest("./dist/js"));
 });
 
-gulp.task("sass", function() {
-  return gulp
-    .src([
-      "./src/sass/reset.scss",
-      "./src/sass/global.scss",
-      "./src/sass/print.scss"
-    ])
+task("sass", function () {
+  return src([
+    "./src/sass/reset.scss",
+    "./src/sass/global.scss",
+    "./src/sass/print.scss",
+  ])
     .pipe(
-      sass({
-        outputStyle: "expanded"
-      }).on("error", sass.logError)
+      sassCompiler({
+        outputStyle: "expanded",
+      }).on("error", sassCompiler.logError)
     )
-    .pipe(gulp.dest("./dist/css"))
+    .pipe(dest("./dist/css"))
     .pipe(browserSync.stream());
 });
 
-gulp.task("sass:watch", function() {
-  gulp.watch("./src/sass/**/*.scss", ["sass"]);
+task("sass:watch", function () {
+  watch("./src/sass/**/*.scss", series("sass"));
 });
 
-gulp.task("image", function() {
-  gulp
-    .src("src/images/**/*.{png,gif,jpg,jpeg,svg}")
+task("image", function () {
+  return src("src/images/**/*.{png,gif,jpg,jpeg,svg}")
     .pipe(
       imagemin([
-        imagemin.gifsicle({
-          interlaced: true
-        }),
-        imagemin.jpegtran({
-          progressive: true
-        }),
-        imagemin.optipng({
-          optimizationLevel: 5
-        }),
-        imagemin.svgo({
+        gulpImagemin.gifsicle({ interlaced: true }),
+        gulpImagemin.mozjpeg({ progressive: true }),
+        imageminPngquant({ quality: [0.6, 0.8] }),
+        gulpImagemin.svgo({
           plugins: [
-            {
-              removeViewBox: true
-            },
-            {
-              cleanupIDs: false
-            }
-          ]
-        })
+            { name: "removeViewBox", active: true },
+            { name: "cleanupIDs", active: false },
+          ],
+        }),
       ])
     )
-    .pipe(gulp.dest("dist/images"));
+    .pipe(dest("dist/images"));
 });
+// task("image", function () {
+//   return src("src/images/**/*.{png,gif,jpg,jpeg,svg}").pipe(
+//     dest("dist/images")
+//   );
+// });
 
-gulp.task("browser-sync", function() {
+task("browser-sync", function () {
   browserSync.init({
     open: true,
     notify: false,
     server: {
-      baseDir: "./dist"
-    }
+      baseDir: "./dist",
+    },
   });
 });
 
-gulp.task("watch", ["browser-sync", "sass:watch", "nunjucks:watch"]);
-gulp.task("build", ["copy", "js", "sass", "nunjucks", "image"]);
-gulp.task("default", ["build", "watch"]);
+task("watch", parallel("browser-sync", "sass:watch", "nunjucks:watch"));
+task("build", series("copy", "js", "sass", "nunjucks", "image"));
+task("default", series("build", "watch"));

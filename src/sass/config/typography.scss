@@ -1,3 +1,5 @@
+@use 'sass:math';
+
 // Fonts
 $font-sans:  'Rubik', sans-serif;
 $font-sans-italic: $font-sans;
@@ -43,8 +45,10 @@ $font-size-s:   1em;
 $font-size-xs:  1em;
 
 // Headings: font-size, line-height, margin-top, margin-bottom
-$headings-margin-top: #{$line-height/$font-ratio/$font-ratio}em;
-$headings-margin-bottom: #{$line-height/$font-ratio/$font-ratio/$font-ratio/$font-ratio}em;
+$headings-margin-top: #{math.div(math.div($line-height, $font-ratio), $font-ratio)}em;
+$headings-margin-bottom: #{math.div(math.div(math.div($line-height, $font-ratio), $font-ratio), $font-ratio)}em;
+
+
 
 $headings: (
 	h1: ($font-size-xxl, 1, $headings-margin-top, $headings-margin-bottom),

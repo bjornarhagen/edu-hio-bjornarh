@@ -11,9 +11,9 @@
 	}
 }
 
-@mixin transition($properties, $duration: '250ms', $timing_function: cubic-bezier(0.4, 0.0, 0.2, 1)) {
-	transition-property: unquote($properties);
-	transition-duration: unquote($duration);
+@mixin transition($properties, $duration: 250ms, $timing_function: cubic-bezier(0.4, 0.0, 0.2, 1)) {
+	transition-property: #{$properties};
+	transition-duration: #{$duration};
 	transition-timing-function: $timing_function;
 }
 

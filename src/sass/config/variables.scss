@@ -1,33 +1,34 @@
+@use 'sass:math';
 @import 'colors';
 @import 'typography';
 
 $grid_columns: 12;
 
-$size-xs:     240   / 10 / $font-ratio         + rem;
-$size-xs-up:  240   / 10 / $font-ratio + 0.001 + rem;
-$size-s:      480   / 10 / $font-ratio         + rem;
-$size-s-up:   480   / 10 / $font-ratio + 0.001 + rem;
-$size-m:      768   / 10 / $font-ratio         + rem;
-$size-m-up:   768   / 10 / $font-ratio + 0.001 + rem;
-$size-l:      1024  / 10 / $font-ratio         + rem;
-$size-l-up:   1024  / 10 / $font-ratio + 0.001 + rem;
-$size-xl:     1366  / 10 / $font-ratio         + rem;
-$size-xl-up:  1366  / 10 / $font-ratio + 0.001 + rem;
-$size-xxl:    1920  / 10 / $font-ratio         + rem;
-$size-xxl-up: 1920  / 10 / $font-ratio + 0.001 + rem;
+$size-xs:     calc(math.div(240, 10) / $font-ratio) + rem;
+$size-xs-up:  calc(math.div(240, 10) / $font-ratio + 0.001) + rem;
+$size-s:      calc(math.div(480, 10) / $font-ratio) + rem;
+$size-s-up:   calc(math.div(480, 10) / $font-ratio + 0.001) + rem;
+$size-m:      calc(math.div(768, 10) / $font-ratio) + rem;
+$size-m-up:   calc(math.div(768, 10) / $font-ratio + 0.001) + rem;
+$size-l:      calc(math.div(1024, 10) / $font-ratio) + rem;
+$size-l-up:   calc(math.div(1024, 10) / $font-ratio + 0.001) + rem;
+$size-xl:     calc(math.div(1366, 10) / $font-ratio) + rem;
+$size-xl-up:  calc(math.div(1366, 10) / $font-ratio + 0.001) + rem;
+$size-xxl:    calc(math.div(1920, 10) / $font-ratio) + rem;
+$size-xxl-up: calc(math.div(1920, 10) / $font-ratio + 0.001) + rem;
 
-$pad-xxs: #{$base/$font-ratio/$font-ratio/$font-ratio}em;
-$pad-xs:  #{$base/$font-ratio/$font-ratio}em;
-$pad-s:   #{$base/$font-ratio}em;
+$pad-xxs: calc(math.div(math.div(math.div($base, $font-ratio), $font-ratio), $font-ratio))em;
+$pad-xs:  calc(math.div(math.div($base, $font-ratio), $font-ratio))em;
+$pad-s:   calc(math.div($base, $font-ratio))em;
 $pad-m:   #{$base}em;
-$pad-l:   #{$base*$font-ratio}em;
-$pad-xl:  #{$base*$font-ratio*$font-ratio}em;
-$pad-xxl: #{$base*$font-ratio*$font-ratio*$font-ratio}em;
+$pad-l:   calc($base * $font-ratio)em;
+$pad-xl:  calc($base * $font-ratio * $font-ratio)em;
+$pad-xxl: calc($base * $font-ratio * $font-ratio * $font-ratio)em;
 
-$border-radius-xxs: #{$base/$font-ratio/$font-ratio/$font-ratio}em;
-$border-radius-xs:  #{$base/$font-ratio/$font-ratio}em;
-$border-radius-s:   #{$base/$font-ratio}em;
+$border-radius-xxs: calc(math.div(math.div(math.div($base, $font-ratio), $font-ratio), $font-ratio))em;
+$border-radius-xs:  calc(math.div(math.div($base, $font-ratio), $font-ratio))em;
+$border-radius-s:   calc(math.div($base, $font-ratio))em;
 $border-radius-m:   #{$base}em;
-$border-radius-l:   #{$base*$font-ratio}em;
-$border-radius-xl:  #{$base*$font-ratio*$font-ratio}em;
-$border-radius-xxl: #{$base*$font-ratio*$font-ratio*$font-ratio}em;
+$border-radius-l:   calc($base * $font-ratio)em;
+$border-radius-xl:  calc($base * $font-ratio * $font-ratio)em;
+$border-radius-xxl: calc($base * $font-ratio * $font-ratio * $font-ratio)em;

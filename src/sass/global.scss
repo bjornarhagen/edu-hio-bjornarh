@@ -244,11 +244,11 @@ a {
       align-items: flex-start;
 
       @media screen and (min-width: $size-s-up) and (max-width: $size-m) {
-        width: (100%/2);
+        width: calc(100%/2);
       }
 
       @media screen and (min-width: $size-m-up) {
-        width: (100%/3);
+        width: calc(100%/3);
       }
 
       img {

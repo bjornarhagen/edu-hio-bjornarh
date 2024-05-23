@@ -1,0 +1,18 @@
+FROM node:20-alpine
+WORKDIR /app
+EXPOSE 3000
+
+RUN apk update && apk add \
+    autoconf \
+    automake \
+    libtool \
+    nasm \
+    build-base \
+    pkgconfig \
+    git \
+    python3 \
+    make \
+    zlib-dev \
+    libpng-dev
+
+CMD ["sh"]

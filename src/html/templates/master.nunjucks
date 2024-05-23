@@ -55,10 +55,7 @@
   </nav>
   {% block content %}{%- endblock %}
   <footer id="footer">
-    <p>
-      <a href="mailto:bjornarh@hiof.no">bjornarh@hiof.no</a>
-    </p>
-    <p>&copy; 2018 - <a href="https://bjornar.hagen.codes">Bjørnar Hagen</a></p>
+    <p>&copy; 2018 - <a href="https://bjornar.dev">Bjørnar Hagen</a></p>
     <p>Kildekode: <a href="https://github.com/bjornarhagen/edu-hio-bjornarh" target="_blank" rel="noopener">github.com/bjornarhagen/edu-hio-bjornarh</a></p>
   </footer>
   {%- block scripts_before -%}{%- endblock %}
