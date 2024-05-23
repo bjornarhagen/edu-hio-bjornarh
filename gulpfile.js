@@ -86,11 +86,11 @@ task("sass:watch", function () {
 //     )
 //     .pipe(dest("dist/images"));
 // });
-task("image", function () {
-  return src("src/images/**/*.{png,gif,jpg,jpeg,svg}").pipe(
-    dest("dist/images")
-  );
-});
+// task("image", function () {
+//   return src("src/images/**/*.{png,gif,jpg,jpeg,svg}").pipe(
+//     dest("dist/images")
+//   );
+// });
 
 task("browser-sync", function () {
   browserSync.init({
