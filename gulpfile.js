@@ -103,5 +103,6 @@ task("browser-sync", function () {
 });
 
 task("watch", parallel("browser-sync", "sass:watch", "nunjucks:watch"));
-task("build", series("copy", "js", "sass", "nunjucks", "image"));
+// task("build", series("copy", "js", "sass", "nunjucks", "image"));
+task("build", series("copy", "js", "sass", "nunjucks"));
 task("default", series("build", "watch"));
