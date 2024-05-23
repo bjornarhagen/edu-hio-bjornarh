@@ -1,0 +1,10 @@
+services:
+  edu-hio-bjornar-php:
+    build:
+      context: .
+      dockerfile: Dockerfile.local
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./:/usr/share/nginx/html
+    tty: true
