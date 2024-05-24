@@ -86,11 +86,11 @@ task("sass:watch", function () {
 //     )
 //     .pipe(dest("dist/images"));
 // });
-task("image", function () {
-  return src("./images/**/*.{png,gif,jpg,jpeg,svg}").pipe(
-    dest("dist/staticsite/images")
-  );
-});
+// task("image", function () {
+//   return src("./images/**/*.{png,gif,jpg,jpeg,svg}").pipe(
+//     dest("dist/staticsite/images")
+//   );
+// });
 
 task("browser-sync", function () {
   browserSync.init({
@@ -103,6 +103,6 @@ task("browser-sync", function () {
 });
 
 task("watch", parallel("browser-sync", "sass:watch", "nunjucks:watch"));
-task("build", series("copy", "js", "sass", "nunjucks", "image"));
-// task("build", series("copy", "js", "sass", "nunjucks"));
+// task("build", series("copy", "js", "sass", "nunjucks", "image"));
+task("build", series("copy", "js", "sass", "nunjucks"));
 task("default", series("build", "watch"));
