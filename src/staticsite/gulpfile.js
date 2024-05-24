@@ -16,36 +16,32 @@ const sassCompiler = gulpSass(sass);
 // Define tasks
 task("nunjucks", function () {
   return src([
-    "src/staticsite/html/**/*.+(html|nunjucks)",
-    "!src/staticsite/templates/*.+(html|nunjucks)",
+    "./html/**/*.+(html|nunjucks)",
+    "!./templates/*.+(html|nunjucks)",
   ])
     .pipe(
       nunjucksRender({
-        path: ["src/staticsite/html/templates"],
+        path: ["./html/templates"],
       })
     )
     .pipe(dest("dist/staticsite"));
 });
 
 task("nunjucks:watch", function () {
-  watch(
-    "./src/staticsite/**/*.nunjucks",
-    series("nunjucks", browserSync.reload)
-  );
+  watch("././**/*.nunjucks", series("nunjucks", browserSync.reload));
 });
 
 task("copy", function () {
   return src([
-    "src/staticsite/html/**/*.+(php|css|jpg|png|svg|gif)",
-    "src/staticsite/extra/**/*.+(php|css|jpg|png|svg|gif|xml|json|html)",
+    "./html/**/*.+(php|css|jpg|png|svg|gif)",
+    "./extra/**/*.+(php|css|jpg|png|svg|gif|xml|json|html)",
   ]).pipe(dest("./dist/staticsite/"));
 });
 
 task("js", function () {
-  return src([
-    "./src/staticsite/js/**/*.js",
-    "!./src/staticsite/js/**/*.min.js",
-  ]).pipe(dest("./dist/staticsite/js"));
+  return src(["././js/**/*.js", "!././js/**/*.min.js"]).pipe(
+    dest("./dist/staticsite/js")
+  );
   // Uncomment these lines to minify and rename the JS files
   // .pipe(uglify())
   // .pipe(rename({
@@ -56,9 +52,9 @@ task("js", function () {
 
 task("sass", function () {
   return src([
-    "./src/staticsite/sass/reset.scss",
-    "./src/staticsite/sass/global.scss",
-    "./src/staticsite/sass/print.scss",
+    "././sass/reset.scss",
+    "././sass/global.scss",
+    "././sass/print.scss",
   ])
     .pipe(
       sassCompiler({
@@ -70,11 +66,11 @@ task("sass", function () {
 });
 
 task("sass:watch", function () {
-  watch("./src/staticsite/sass/**/*.scss", series("sass"));
+  watch("././sass/**/*.scss", series("sass"));
 });
 
 // task("image", function () {
-//   return src("src/staticsite/images/**/*.{png,gif,jpg,jpeg,svg}")
+//   return src("./images/**/*.{png,gif,jpg,jpeg,svg}")
 //     .pipe(
 //       imagemin([
 //         gulpImagemin.gifsicle({ interlaced: true }),
@@ -91,7 +87,7 @@ task("sass:watch", function () {
 //     .pipe(dest("dist/images"));
 // });
 task("image", function () {
-  return src("src/staticsite/images/**/*.{png,gif,jpg,jpeg,svg}").pipe(
+  return src("./images/**/*.{png,gif,jpg,jpeg,svg}").pipe(
     dest("dist/staticsite/images")
   );
 });
