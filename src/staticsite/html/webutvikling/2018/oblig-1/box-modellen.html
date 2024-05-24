@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="no">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="initial-scale=1 width=device-width, height=device-height"
+    />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Bjørnar Hagen</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
+    <link rel="icon" type="image/png" href="favicon-32x32.png" sizes="32x32" />
+    <link rel="icon" type="image/png" href="favicon-16x16.png" sizes="16x16" />
+    <link rel="manifest" href="manifest.json" />
+    <link rel="mask-icon" href="safari-pinned-tab.svg" color="#ff9514" />
+    <meta name="theme-color" content="#ff9514" />
+    <link rel="stylesheet" href="css/global.css" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Lato:300:400:700"
+      rel="stylesheet"
+    />
+  </head>
+  <body id="article-oppgave-7" class="article-page">
+    <header id="header-main">
+      <nav id="nav-main">
+        <div class="links links-left">
+          <a href="http://itstud.hiof.no/phpsite/">Hjem</a>
+          <a href="http://itstud.hiof.no/phpsite/om-meg.php">Om meg</a>
+        </div>
+        <div class="logo">
+          <a href="http://itstud.hiof.no/phpsite/">Bjørnar Hagen</a>
+        </div>
+        <div class="links links-right">
+          <a href="http://itstud.hiof.no/phpsite/obliger.php">Obliger</a>
+          <a href="http://itstud.hiof.no/phpsite/lab.php">Lab</a>
+        </div>
+      </nav>
+    </header>
+    <main>
+      <header
+        class="intro-header header-fancy"
+        style="background-image: url('images/boxes.jpg')"
+      >
+        <div class="header-content">
+          <h1><a href="index.html">Oblig 1</a></h1>
+          <nav>
+            <a href="artikkel.html">02 - Artikkel</a>
+            <a href="innhold-vs-design.html">03 - Innhold vs design</a>
+            <a href="webserver.html">04 - Webserver</a>
+            <a href="semantikk.html">05 - Semantikk</a>
+            <a href="stilark.html">06 - Stilark</a>
+            <a href="box-modellen.html" class="current">07 - Box modellen</a>
+          </nav>
+        </div>
+      </header>
+      <article>
+        <header>
+          <h2>07 - Box modellen</h2>
+          <div class="meta">
+            <span>Bjørnar Hagen</span>
+            <span>—</span>
+            <time datetime="2018-09-17T22:15Z">2018-09-17 22:15</time>
+          </div>
+        </header>
+        <div class="content">
+          <div class="read">
+            <div class="box-model">
+              <span>Box model</span>
+              <div class="bm-margin">
+                <span>Margin</span>
+                <div class="bm-border">
+                  <span>Border</span>
+                  <div class="bm-padding">
+                    <span>padding</span>
+                    <div class="bm-content">
+                      <span>Content</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <p>Alle bokser har satt bredde og høyde til 10em.</p>
+            <h3>Box-sizing</h3>
+            <div class="boxes everything-boxes">
+              <div class="box everything-1">border-box</div>
+              <div class="box everything-2">content-box</div>
+            </div>
+          </div>
+          <h3>Margin</h3>
+          <div class="boxes margin-boxes">
+            <div class="box margin-all">Margin alle kanter</div>
+            <div class="box margin-side">Margin høre og venstre side</div>
+            <div class="box margin-negative">Negativ margin</div>
+          </div>
+          <h3>Padding</h3>
+          <div class="boxes padding-boxes">
+            <div class="box padding-all">Padding alle kanter</div>
+            <div class="box padding-side">Padding høyre side</div>
+          </div>
+          <h3>Border</h3>
+          <div class="boxes border-boxes">
+            <div class="box border-all">Border alle kanter</div>
+            <div class="box border-side">Border høyre side</div>
+          </div>
+          <h3>Overflow</h3>
+          <div class="boxes overflow-boxes">
+            <div class="box overflow-1">
+              <strong>overflow: visible;</strong> Lorem ipsum dolor sit amet,
+              consectetur adipisicing elit. Atque nihil, repellat beatae ullam
+              pariatur sed! Expedita facere, dignissimos tempora veritatis
+              repellendus nesciunt accusamus reprehenderit veniam ex sapiente
+              cupiditate alias molestiae odio eveniet, praesentium, hic unde!
+              Consectetur deleniti sit minima unde totam dignissimos debitis
+              tenetur laudantium qui culpa tempore, commodi incidunt saepe,
+              voluptatibus
+            </div>
+            <div class="box overflow-2">
+              <strong>overflow: hidden;</strong> Lorem ipsum dolor sit amet,
+              consectetur adipisicing elit. Atque nihil, repellat beatae ullam
+              pariatur sed! Expedita facere, dignissimos tempora veritatis
+              repellendus nesciunt accusamus reprehenderit veniam ex sapiente
+              cupiditate alias molestiae odio eveniet, praesentium, hic unde!
+              Consectetur deleniti sit minima unde totam dignissimos debitis
+              tenetur laudantium qui culpa tempore, commodi incidunt saepe,
+              voluptatibus
+            </div>
+            <div class="box overflow-3">
+              <strong>overflow: auto;</strong> Lorem ipsum dolor sit amet,
+              consectetur adipisicing elit. Reprehenderit delectus illo unde
+              eveniet earum excepturi cum velit facilis aliquam quo perferendis
+              quam praesentium, sit dolores voluptatum commodi, voluptate dicta.
+              Impedit dolore architecto id, nemo fugiat tenetur quia odit
+              eligendi nobis ex consequatur. Aut, ab at saepe aliquam, ullam
+              ratione mollitia delectus explicabo quia nobis est quaerat
+              pariatur eveniet iste officiis! Temporibus aut aliquid quaerat
+              odit optio magni reiciendis tempora est dicta dolor, autem, velit
+              necessitatibus corrupti repellat soluta fugiat at vero. Doloremque
+              reiciendis, rem eveniet quod dolor cupiditate, quisquam sit iusto
+              quaerat nisi culpa possimus in, libero perferendis iste ut!
+            </div>
+            <div class="box overflow-4">
+              <strong>overflow: scroll;</strong> Lorem ipsum dolor sit amet,
+              consectetur adipisicing elit. Reprehenderit delectus illo unde
+              eveniet earum excepturi cum velit facilis aliquam quo perferendis
+              quam praesentium, sit dolores voluptatum commodi, voluptate dicta.
+              Impedit dolore architecto id, nemo fugiat tenetur quia odit
+              eligendi nobis ex consequatur. Aut, ab at saepe aliquam, ullam
+              ratione mollitia delectus explicabo quia nobis est quaerat
+              pariatur eveniet iste officiis! Temporibus aut aliquid quaerat
+              odit optio magni reiciendis tempora est dicta dolor, autem, velit
+              necessitatibus corrupti repellat soluta fugiat at vero. Doloremque
+              reiciendis, rem eveniet quod dolor cupiditate, quisquam sit iusto
+              quaerat nisi culpa possimus in, libero perferendis iste ut!
+            </div>
+          </div>
+        </div>
+      </article>
+    </main>
+    <link rel="stylesheet" href="css/stilark.css" />
+    <footer id="footer">
+      <p>
+        <a href="mailto:bjornarh@hiof.no">bjornarh@hiof.no</a>
+      </p>
+      <p>Bjørnar Hagen - 2018</p>
+    </footer>
+    <link
+      href="https://cdn.datahjelpen.no/fonts/butler/butler-700.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Roboto+Mono"
+      rel="stylesheet"
+    />
+    <script type="text/javascript">
+      // For å lage padding med navigasjonen sin høyde
+      function padForNav(element) {
+        if (element == null) {
+          element = document.querySelector("main");
+        }
+
+        var navWrapper = document.querySelector("#header-main");
+        element.style.paddingTop = navWrapper.scrollHeight + "px";
+      }
+    </script>
+  </body>
+</html>

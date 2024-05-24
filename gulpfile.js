@@ -16,61 +16,65 @@ const sassCompiler = gulpSass(sass);
 // Define tasks
 task("nunjucks", function () {
   return src([
-    "src/html/**/*.+(html|nunjucks)",
-    "!src/templates/*.+(html|nunjucks)",
+    "src/staticsite/html/**/*.+(html|nunjucks)",
+    "!src/staticsite/templates/*.+(html|nunjucks)",
   ])
     .pipe(
       nunjucksRender({
-        path: ["src/html/templates"],
+        path: ["src/staticsite/html/templates"],
       })
     )
-    .pipe(dest("dist"));
+    .pipe(dest("dist/staticsite"));
 });
 
 task("nunjucks:watch", function () {
-  watch("./src/**/*.nunjucks", series("nunjucks", browserSync.reload));
+  watch(
+    "./src/staticsite/**/*.nunjucks",
+    series("nunjucks", browserSync.reload)
+  );
 });
 
 task("copy", function () {
   return src([
-    "src/html/**/*.+(php|css|jpg|png|svg|gif)",
-    "src/extra/**/*.+(php|css|jpg|png|svg|gif|xml|json|html)",
-  ]).pipe(dest("./dist/"));
+    "src/staticsite/html/**/*.+(php|css|jpg|png|svg|gif)",
+    "src/staticsite/extra/**/*.+(php|css|jpg|png|svg|gif|xml|json|html)",
+  ]).pipe(dest("./dist/staticsite/"));
 });
 
 task("js", function () {
-  return src(["./src/js/**/*.js", "!./src/js/**/*.min.js"]).pipe(
-    dest("./dist/js")
-  );
+  return src([
+    "./src/staticsite/js/**/*.js",
+    "!./src/staticsite/js/**/*.min.js",
+  ]).pipe(dest("./dist/staticsite/js"));
   // Uncomment these lines to minify and rename the JS files
   // .pipe(uglify())
   // .pipe(rename({
   //   suffix: '.min'
   // }))
-  // .pipe(dest("./dist/js"));
+  // .pipe(dest("./dist/staticsite/js"));
 });
 
 task("sass", function () {
   return src([
-    "./src/sass/reset.scss",
-    "./src/sass/global.scss",
-    "./src/sass/print.scss",
+    "./src/staticsite/sass/reset.scss",
+    "./src/staticsite/sass/global.scss",
+    "./src/staticsite/sass/print.scss",
   ])
     .pipe(
       sassCompiler({
         outputStyle: "expanded",
       }).on("error", sassCompiler.logError)
     )
-    .pipe(dest("./dist/css"))
+    .pipe(dest("./dist/staticsite/css"))
     .pipe(browserSync.stream());
 });
 
 task("sass:watch", function () {
-  watch("./src/sass/**/*.scss", series("sass"));
+  watch("./src/staticsite/sass/**/*.scss", series("sass"));
 });
 
 // task("image", function () {
-//   return src("src/images/**/*.{png,gif,jpg,jpeg,svg}")
+//   return src("src/staticsite/images/**/*.{png,gif,jpg,jpeg,svg}")
 //     .pipe(
 //       imagemin([
 //         gulpImagemin.gifsicle({ interlaced: true }),
@@ -86,11 +90,11 @@ task("sass:watch", function () {
 //     )
 //     .pipe(dest("dist/images"));
 // });
-// task("image", function () {
-//   return src("src/images/**/*.{png,gif,jpg,jpeg,svg}").pipe(
-//     dest("dist/images")
-//   );
-// });
+task("image", function () {
+  return src("src/staticsite/images/**/*.{png,gif,jpg,jpeg,svg}").pipe(
+    dest("dist/staticsite/images")
+  );
+});
 
 task("browser-sync", function () {
   browserSync.init({
@@ -103,6 +107,6 @@ task("browser-sync", function () {
 });
 
 task("watch", parallel("browser-sync", "sass:watch", "nunjucks:watch"));
-// task("build", series("copy", "js", "sass", "nunjucks", "image"));
-task("build", series("copy", "js", "sass", "nunjucks"));
+task("build", series("copy", "js", "sass", "nunjucks", "image"));
+// task("build", series("copy", "js", "sass", "nunjucks"));
 task("default", series("build", "watch"));

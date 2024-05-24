@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="no">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="initial-scale=1 width=device-width, height=device-height"
+    />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Bjørnar Hagen</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
+    <link rel="icon" type="image/png" href="favicon-32x32.png" sizes="32x32" />
+    <link rel="icon" type="image/png" href="favicon-16x16.png" sizes="16x16" />
+    <link rel="manifest" href="manifest.json" />
+    <link rel="mask-icon" href="safari-pinned-tab.svg" color="#ff9514" />
+    <meta name="theme-color" content="#ff9514" />
+    <link rel="stylesheet" href="css/global.css" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Lato:300:400:700"
+      rel="stylesheet"
+    />
+  </head>
+  <body id="article-oppgave-6" class="article-page">
+    <header id="header-main">
+      <nav id="nav-main">
+        <div class="links links-left">
+          <a href="http://itstud.hiof.no/phpsite/">Hjem</a>
+          <a href="http://itstud.hiof.no/phpsite/om-meg.php">Om meg</a>
+        </div>
+        <div class="logo">
+          <a href="http://itstud.hiof.no/phpsite/">Bjørnar Hagen</a>
+        </div>
+        <div class="links links-right">
+          <a href="http://itstud.hiof.no/phpsite/obliger.php">Obliger</a>
+          <a href="http://itstud.hiof.no/phpsite/lab.php">Lab</a>
+        </div>
+      </nav>
+    </header>
+    <main>
+      <header
+        class="intro-header header-fancy"
+        style="background-image: url('images/css-code.jpg')"
+      >
+        <div class="header-content">
+          <h1><a href="index.html">Oblig 1</a></h1>
+          <nav>
+            <a href="artikkel.html">02 - Artikkel</a>
+            <a href="innhold-vs-design.html">03 - Innhold vs design</a>
+            <a href="webserver.html">04 - Webserver</a>
+            <a href="semantikk.html">05 - Semantikk</a>
+            <a href="stilark.html" class="current">06 - Stilark</a>
+            <a href="box-modellen.html">07 - Box modellen</a>
+          </nav>
+        </div>
+      </header>
+      <article>
+        <header>
+          <h2>06 - stilark</h2>
+          <div class="meta">
+            <span>Bjørnar Hagen</span>
+            <span>—</span>
+            <time datetime="2018-09-17T22:15Z">2018-09-17 22:15</time>
+          </div>
+        </header>
+        <div class="content">
+          <div class="read">
+            <p>
+              <strong>Obs</strong>, denne er ikke lagt inn i head, ligger helt i
+              slutten av dokumentet, rett før footer.
+            </p>
+            <p>
+              <code
+                >&lt;link rel="stylesheet" href="<a href="css/stilark.css"
+                  >css/stilark.css</a
+                >"&gt;</code
+              >
+            </p>
+          </div>
+        </div>
+      </article>
+    </main>
+    <link rel="stylesheet" href="css/stilark.css" />
+    <footer id="footer">
+      <p>
+        <a href="mailto:bjornarh@hiof.no">bjornarh@hiof.no</a>
+      </p>
+      <p>Bjørnar Hagen - 2018</p>
+    </footer>
+    <link
+      href="https://cdn.datahjelpen.no/fonts/butler/butler-700.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Roboto+Mono"
+      rel="stylesheet"
+    />
+    <script type="text/javascript">
+      // For å lage padding med navigasjonen sin høyde
+      function padForNav(element) {
+        if (element == null) {
+          element = document.querySelector("main");
+        }
+
+        var navWrapper = document.querySelector("#header-main");
+        element.style.paddingTop = navWrapper.scrollHeight + "px";
+      }
+    </script>
+  </body>
+</html>

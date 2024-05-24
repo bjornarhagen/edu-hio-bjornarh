@@ -1,5 +1,5 @@
-{%- set path = "/~bjornarh" -%}
-{%- set path = "" -%}
+{%- set path = "/phpsite" -%}
+{%- set path = "/staticsite" -%}
 <!DOCTYPE html>
 <html lang="no" dir="ltr">
 <head>
