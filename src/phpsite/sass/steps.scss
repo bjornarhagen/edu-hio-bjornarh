@@ -1,0 +1,262 @@
+@import "_config/_getConfig.scss";
+
+body {
+    background-color: $cBlackLight;
+
+    > article {
+        background-color: $cGrey;
+
+        header {
+            h1 {
+                position: relative;
+                margin: 0 0 $padding-medium;
+                text-align: center;
+                font-size: 3em;
+
+                &:after {
+                    content: " ";
+                    position: absolute;
+                    top: 125%;
+                    right: 0;
+                    left: 0;
+                    @include center('block');
+                    width: 50%;
+                    max-width: $width-small / 2;
+                    height: 1px;
+                    background-color: $cGreyDark;
+                }
+            }
+        }
+
+        p {
+            color: $cGreyDark;
+        }
+
+        #code {
+            :not(pre)>code[class*="language-"],
+            pre[class*="language-"] {
+                margin-bottom: 0;
+                border-radius: 0;
+                background-color: $cBlack;
+            }
+        }
+    }
+}
+
+footer {
+    color: $cWhite;
+    padding: $padding-medium 0;
+
+    #color-bar {
+        display: none;
+    }
+}
+
+#nav {
+    &-main {
+        @include center('block');
+        width: 100%;
+        max-width: $width-medium;
+        text-align: center;
+        background-color: $cGreyBlue;
+
+        ul {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        &-wrapper {
+            display: block;
+            height: 100%;
+        }
+
+        &-logo {
+            display: none;
+        }
+
+        &-menu {
+            display: block;
+            height: 100%;
+            float: none;
+
+            li {
+                display: inline-block;
+
+                a {
+                    display: block;
+                    color: $cWhite;
+
+                    span {
+                        display: none;
+                    }
+                }
+            }
+        }
+    }
+}
+
+#steps {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    margin: 0;
+    padding: 0;
+    @include center('block');
+    width: 100%;
+    max-width: $width-medium;
+    height: $padding-medium;
+    text-align: center;
+
+    li {
+        display: inline-block;
+        color: $cWhite;
+        line-height: $padding-medium;
+        opacity: 0.5;
+
+        a {
+            display: block;
+            line-height: $padding-medium;
+            color: $cWhite;
+
+            &:focus,
+            &:hover {
+                opacity: 1;
+                color: $cPrimary;
+            }
+        }
+
+        &:hover {
+            opacity: 1;
+        }
+
+        &.active {
+            opacity: 1;
+
+            a {
+                color: $cPrimary;
+            }
+        }
+    }
+}
+
+
+@media #{$medium-and-down} {
+    body {
+        padding-top: $padding-medium;
+
+        > article {
+            #intro,
+            #result {
+                padding: 0 $padding-small;
+            }
+
+            #intro {
+                padding-top: $padding-small;
+            }
+
+            #code {
+                h2,
+                h3 {
+                    padding: 0 $padding-small;
+                }
+            }
+        }
+    }
+
+    #nav {
+        &-main {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: $navigation-height;
+
+            &-menu {
+                li {
+                    padding: 0 $padding-small;
+                    height: $navigation-height;
+                    line-height: $navigation-height;
+                }
+            }
+        }
+    }
+
+    #steps {
+        li {
+            &:first-child {
+                display: none;
+            }
+
+            a {
+                padding: 0 $padding-small / 3;
+
+            }
+        }
+    }
+}
+
+@media #{$medium-and-up} {
+    body {
+        padding-top: $padding-large;
+
+        > article {
+            @include center('block');
+            max-width: $width-medium;
+
+            #intro,
+            #result {
+                padding: 0 $padding-medium;
+            }
+
+            #intro {
+                padding-top: $padding-medium;
+            }
+
+            #code {
+                h2,
+                h3 {
+                    padding: 0 $padding-medium;
+                }
+            }
+        }
+    }
+
+    #nav {
+        &-main {
+            height: $navigation-height * 1.5;
+
+            &-menu {
+                li {
+                    padding: 0 $padding-medium;
+                    height: $navigation-height * 1.5;
+                    line-height: $navigation-height * 1.5;
+                    font-size: 1.25em;
+
+                    a {
+                        &:focus,
+                        &:hover {
+                            opacity: 0.75;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    #steps {
+        li {
+            a {
+                padding: 0 $padding-small / 2;
+            }
+        }
+    }
+}
+
+@media #{$large-and-up} {
+    html,
+    body {
+        height: 100%;
+    }
+}

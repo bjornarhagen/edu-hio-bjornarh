@@ -1,0 +1,41 @@
+@each $color, $color_value in $colors_light {
+	.#{$color} {
+		&-bg {
+			color: $cBlack;
+			background-color: $color_value !important;
+
+			a {
+				color: $cBlack;
+			}
+		}
+		
+		&-text {
+			color: $color_value !important;
+		}
+		
+		&-stroke {
+			border: 1px solid $color_value !important;
+		}
+	}
+}
+
+@each $color, $color_value in $colors_dark {
+	.#{$color} {
+		&-bg {
+			color: $cWhite;
+			background-color: $color_value !important;
+
+			a {
+				color: $cWhite;
+			}
+		}
+		
+		&-text {
+			color: $color_value !important;
+		}
+		
+		&-stroke {
+			border: 1px solid $color_value !important;
+		}
+	}
+}

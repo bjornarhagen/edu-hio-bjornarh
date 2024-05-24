@@ -1,0 +1,86 @@
+[
+    {
+        "id": 20161,
+        "company": "Google",
+        "date": "2016-11-30",
+        "time": "17:30",
+        "topic": "Lorem ipsum",
+        "description": "Lorem ipsum dolor sit amet",
+        "speaker": "Larry page",
+        "pictures": {
+            "logo": "google_-g-_logo.svg.png",
+            "speaker": "google-larry_page"
+        },
+        "seats": 100,
+        "guests": [
+            {
+                "name": "Bjørnar Hagen",
+                "e-post": "bjornar@datahjelpen.org"
+            },
+            {
+                "name": "Bjørnar Hagen",
+                "e-post": "bjornar@datahjelpen.org"
+            },
+            {
+                "name": "Bjørnar Hagen",
+                "e-post": "bjornar@datahjelpen.org"
+            }
+        ]
+    },
+    {
+        "id": 20171,
+        "company": "Microsoft",
+        "date": "2017-01-10",
+        "time": "18:00",
+        "topic": "Lorem ipsum",
+        "description": "Lorem ipsum dolor sit amet",
+        "speaker": "Larry page",
+        "pictures": {
+            "logo": "microsoft_logo.svg.png",
+            "speaker": "google-larry_page"
+        },
+        "seats": 100,
+        "guests": [
+            {
+                "name": "Bjørnar Hagen",
+                "e-post": "bjornar@datahjelpen.org"
+            },
+            {
+                "name": "Bjørnar Hagen",
+                "e-post": "bjornar@datahjelpen.org"
+            },
+            {
+                "name": "Bjørnar Hagen",
+                "e-post": "bjornar@datahjelpen.org"
+            }
+        ]
+    },
+    {
+        "id": 20172,
+        "company": "Uber",
+        "date": "2017-02-01",
+        "time": "19:00",
+        "topic": "Lorem ipsum",
+        "description": "Lorem ipsum dolor sit amet",
+        "speaker": "Larry page",
+        "pictures": {
+            "logo": "uber.png",
+            "speaker": "google-larry_page"
+        },
+        "seats": 100,
+        "guests": [
+            {
+                "name": "Bjørnar Hagen",
+                "e-post": "bjornar@datahjelpen.org"
+            },
+            {
+                "name": "Bjørnar Hagen",
+                "e-post": "bjornar@datahjelpen.org"
+            },
+            {
+                "name": "Bjørnar Hagen",
+                "e-post": "bjornar@datahjelpen.org"
+            }
+        ]
+    }
+]

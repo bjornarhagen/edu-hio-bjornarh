@@ -1,0 +1,161 @@
+/*! bearworks.css | bearhagen.com | A mini framework by Bjørnar Hagen*/
+
+@import "normalize.scss";
+
+@import "_config/_getConfig.scss";
+
+@import "components/_buttons.scss";
+@import "components/_colors.scss";
+@import "components/_grid.scss";
+@import "components/_helpers.scss";
+@import "components/_icons.scss";
+@import "components/_typography.scss";
+@import "components/_forms.scss";
+
+/* --- Main --- */
+
+* {
+	&,
+	&:before,
+	&:after {
+		-moz-box-sizing:border-box;
+		box-sizing: inherit;
+	}
+}
+
+html {
+	box-sizing: border-box;
+	position: relative;
+	font-size: 62.5%;
+}
+
+body {
+	position: relative;
+	color: $cText;
+	font-family: $fonts;
+	font-size: 16px;
+
+	&.bg-image {
+		background-size: 100%;
+		background-size: cover;
+		background-size: inherit;
+		background-repeat: no-repeat;
+		background-position: top center;
+		background-attachment: fixed;
+	}
+}
+
+body,
+div,
+section {
+	&.light {
+		color: $cWhite;
+	}
+
+	&.dark {
+		color: $cBlack;
+	}
+}
+
+section {
+	@include clear();
+	clear: both;
+}
+
+a {
+	color: $cText;
+	text-decoration: none;
+
+	&:hover,
+	&:focus,
+	&:active {
+		color: $cPrimary;
+	}
+
+	&:focus {
+		outline: 2px dashed $cAccent;
+		outline-offset: 5px;
+	}
+
+	&.dont-change {
+		&:hover,
+		&:focus,
+		&:active {
+			color: $cText;
+			text-decoration: none;
+		}
+	}
+}
+
+.link {
+	@mixin linkstyle() {
+		border-bottom: 1px solid $cGreyDark;
+
+		&:hover,
+		&:focus {
+			border-color: $cPrimary;
+		}
+	}
+
+	@include linkstyle();
+
+	&s {
+		a {
+			@include linkstyle();
+		}
+	}
+}
+
+::-webkit-selection {
+	color: $cWhite;
+	background: $cBlack;
+	text-shadow: none !important;
+}
+
+::-moz-selection {
+	color: $cWhite;
+	background: $cBlack;
+	text-shadow: none !important;
+}
+
+img {
+	max-width: 100%;
+	height: auto;
+	vertical-align: bottom;
+}
+
+p,
+li,
+tr {
+	line-height: 160%;
+}
+
+hr {
+	margin: 0;
+	padding: 0;
+	border: none;
+	height: 3px;
+	width: 25%;
+}
+
+/* --- General --- */
+
+.layout-square {
+	width: 100%;
+	@include center('block');
+
+	&-small {
+		@extend .layout-square;
+		max-width: $width-small;
+	}
+
+	&-medium {
+		@extend .layout-square;
+		max-width: $width-medium;
+	}
+
+	&-large {
+		@extend .layout-square;
+		max-width: $width-large;
+	}
+}

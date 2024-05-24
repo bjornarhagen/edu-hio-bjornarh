@@ -1,0 +1,117 @@
+$cWhite:        #FFFFFF;
+$cGrey:         #F7F7F7;
+$cGreyDark:     #5F5F5F;
+$cGreyBlue:     #687689;
+$cBlack:        #171717;
+$cBlackLight:   #272727;
+$cBlackLight2:  #373737;
+$cRed:          #FF5254;
+$cPurple:       #745cc4;
+$cBlue:         #5CACC4;
+$cGreen:        #8CD19D;
+$cYellow:       #f4de7c;
+$cOrange:       #FCB859;
+
+$cPrimary:      $cOrange;
+$cAccent:       $cBlue;
+$cText:         $cBlack;
+$cBackground:   $cGrey;
+
+$cAlert:        $cRed;
+$cWarning:      $cYellow;
+$cSuccess:      $cGreen;
+$cInfo:         $cBlue;
+
+$colors:
+    'primary' $cOrange,
+    'accent' $cBlue,
+    'alert' $cRed,
+    'warning' $cYellow,
+    'success' $cGreen,
+    'info' $cInfo,
+    'white' $cWhite,
+    'grey' $cGrey,
+    'greyDark' $cGreyDark,
+    'greyBlue' $cGreyBlue,
+    'black' $cBlack,
+    'blackLight' $cBlackLight,
+    'red' $cRed,
+    'purple' $cPurple,
+    'blue' $cBlue,
+    'green' $cGreen,
+    'yellow' $cYellow,
+    'orange' $cOrange;
+
+
+$colors_light:
+    'white' $cWhite,
+    'grey' $cGrey,
+    'primary' $cOrange,
+    'accent' $cBlue,
+    'success' $cGreen,
+    'warning' $cYellow,
+    'green' $cGreen,
+    'orange' $cOrange
+    'blue' $cBlue,
+    'yellow' $cYellow;
+
+$colors_dark:
+    'alert' $cRed,
+    'info' $cInfo,
+    'greyDark' $cGreyDark,
+    'black' $cBlack,
+    'blackLight' $cBlackLight,
+    'red' $cRed,
+    'purple' $cPurple;
+
+$cHioWhite:        #ffffff;
+$cHioGrey:         #ECEAE5;
+$cHioGrey2:        #C8C2BE; 
+$cHioGreyDark:     #817672;
+$cHioBlack:        #191616;
+$cHioBlackLight:   #23201F;
+$cHioRed:          #c26f7d;
+$cHioPurple:       #A396A3;
+$cHioBlue:         #6FC2B4;
+$cHioGreen:        #6FC2B4;
+$cHioGreenDark:    #347E84;    
+$cHioYellow:       #c2b46f;
+$cHioOrange:       #D77869;
+
+$cHioPrimary:      $cHioOrange;
+$cHioAccent:       $cHioBlue;
+$cHioText:         $cHioBlack;
+$cHioBackground:   $cHioGrey;
+
+$cHioAlert:        $cHioRed;
+$cHioWarning:      $cHioYellow;
+$cHioSuccess:      $cHioGreen;
+
+$colors_hio:
+    'cHioWhite' $cHioWhite,
+    'cHioGrey' $cHioGrey,
+    'cHioGreyDark' $cHioGreyDark,
+    'cHioBlack' $cHioBlack,
+    'cHioBlackLight' $cHioBlackLight,
+    'cHioRed' $cHioRed,
+    'cHioPurple' $cHioPurple,
+    'cHioBlue' $cHioBlue,
+    'cHioGreen' $cHioGreen,
+    'cHioYellow' $cHioYellow,
+    'cHioOrange' $cHioOrange;
+
+
+$colors_hio_light:
+    'cHioWhite' $cHioWhite,
+    'cHioGrey' $cHioGrey;
+
+$colors_hio_dark:
+    'cHioGreyDark' $cHioGreyDark,
+    'cHioBlack' $cHioBlack,
+    'cHioBlackLight' $cHioBlackLight,
+    'cHioRed' $cHioRed,
+    'cHioPurple' $cHioPurple,
+    'cHioBlue' $cHioBlue,
+    'cHioGreen' $cHioGreen,
+    'cHioYellow' $cHioYellow,
+    'cHioOrange' $cHioOrange;

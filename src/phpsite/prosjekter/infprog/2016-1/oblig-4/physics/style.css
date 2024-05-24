@@ -1,0 +1,18 @@
+html,
+body {
+    height: 100%;
+}
+
+body {
+    overflow: hidden;
+    background-color: black;
+}
+
+#nav-main {
+    position: fixed;
+    display: none;
+}
+
+#canvas {
+    display: block;
+}
