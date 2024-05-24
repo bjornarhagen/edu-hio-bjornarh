@@ -2,7 +2,7 @@
 
 ~~Live on http://www.it-stud.hiof.no/~bjornarh/~~
 
-Live on https://edu-hio-bjornarh.vercel.app/
+Live on https://edu-hio-bjornarh.vercel.app/staticsite
 
 ## Install
 
