@@ -24,3 +24,6 @@ src/css/
 dist/
 
 *.min.js
+
+# Local high-score data for the SWIM game
+src/phpsite/prosjekter/infprog/2016-1/oblig-4/swim/scores.json

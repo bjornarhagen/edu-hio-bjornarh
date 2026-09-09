@@ -1,0 +1,48 @@
+FROM php:8.2-apache-bookworm@sha256:d2d7559c815220accfb1b48704a1ce59623aa21f7d2dcc9bff13838749a678d4 AS v1
+RUN a2enmod expires headers \
+    && sed -i 's/Listen 80/Listen 8080/' /etc/apache2/ports.conf \
+    && rm /etc/apache2/sites-enabled/000-default.conf
+ENV APACHE_RUN_USER=www-data APACHE_RUN_GROUP=www-data \
+    APACHE_PID_FILE=/tmp/apache2.pid APACHE_RUN_DIR=/tmp APACHE_LOCK_DIR=/tmp
+COPY docker/production/apache.conf /etc/apache2/sites-enabled/student.conf
+COPY docker/production/mpm.conf /etc/apache2/mods-available/mpm_prefork.conf
+COPY docker/production/php.ini /usr/local/etc/php/conf.d/student.ini
+COPY src/phpsite/ /var/www/html/phpsite/
+# Only these known demo files may change. No source directory is writable.
+RUN mkdir /opt/student-seed \
+    && cp /var/www/html/phpsite/prosjekter/infprog/2016-1/oblig-5/oppgave-1-2-3-materiale/paameldinger.dat /opt/student-seed/registrations.dat \
+    && cp /var/www/html/phpsite/prosjekter/infprog/2016-1/oblig-5/oppgave-4/norge.json /opt/student-seed/norge.json \
+    && ln -sf /tmp/student/registrations.dat /var/www/html/phpsite/prosjekter/infprog/2016-1/oblig-5/oppgave-1-2-3-materiale/paameldinger.dat \
+    && ln -sf /tmp/student/norge.json /var/www/html/phpsite/prosjekter/infprog/2016-1/oblig-5/oppgave-4/norge.json \
+    && ln -sf /tmp/student/scores.json /var/www/html/phpsite/prosjekter/infprog/2016-1/oblig-4/swim/scores.json \
+    && ln -s /tmp/student/weather /var/www/html/phpsite/prosjekter/infprog/2016-1/oblig-5/oppgave-4/.cache
+COPY --chmod=755 docker/production/start-php.sh /usr/local/bin/start-student
+USER 1000:1000
+EXPOSE 8080
+ENTRYPOINT ["start-student"]
+
+FROM node:24-bookworm-slim@sha256:3638d9a6fe4030bd716be989438248074489337ba3275657f93595428be4fc03 AS build
+WORKDIR /app
+COPY src/staticsite/package.json src/staticsite/package-lock.json ./
+RUN npm ci --ignore-scripts --no-audit --no-fund
+COPY src/staticsite/ ./
+ENV NODE_OPTIONS=--no-experimental-require-module
+RUN npm run build \
+    && cp -a extra/. dist/staticsite/ \
+    && mkdir -p dist/staticsite/js \
+    && cp -a js/. dist/staticsite/js/ \
+    && cd html \
+    && find . -type f ! -name '*.nunjucks' ! -name '*.html' ! -name '*.php' \
+       -exec cp --parents '{}' /app/dist/staticsite/ \; \
+    && find /app/dist -name '*.php' -delete \
+    && rm -rf /app/dist/staticsite/templates
+
+FROM nginx:stable-alpine@sha256:dc5069ad14f19660b141b21236140b91656bf89bbc3e2417c70ae650cd66104c AS v2
+COPY docker/production/nginx.conf /etc/nginx/nginx.conf
+RUN rm -rf /usr/share/nginx/html/*
+COPY --from=build /app/dist/ /usr/share/nginx/html/
+COPY docker/production/index.html /usr/share/nginx/html/portal/index.html
+USER 1000:1000
+EXPOSE 8080
+ENTRYPOINT ["nginx"]
+CMD ["-g", "daemon off;"]

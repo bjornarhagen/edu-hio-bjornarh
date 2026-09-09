@@ -1,20 +1,7 @@
 <?php
     session_start();
 
-    $url = "http://www.it-stud.hiof.no/phpsite/prosjekter/infprog/2016-1/oblig-4/swim/anti-cheat.php";
-    $post = 'unique_id=' . session_id();
-
-    // Post our session id and get another one.
-    // I guess that makes it harder?
-    $ch = curl_init( $url );
-    curl_setopt($ch, CURLOPT_POST, 1);
-    curl_setopt($ch, CURLOPT_POSTFIELDS, $post);
-    curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
-    curl_setopt($ch, CURLOPT_HEADER, 0);
-    curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-
-    $unique_id = curl_exec($ch);
-    curl_close($ch);
+    $unique_id = session_id() . '-' . bin2hex(random_bytes(8));
 ?>
 <!DOCTYPE html>
 <html lang="no" prefix="og: http://ogp.me/ns">

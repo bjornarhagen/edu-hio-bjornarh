@@ -1,0 +1,11 @@
+FROM php:8.2-apache-bookworm@sha256:d2d7559c815220accfb1b48704a1ce59623aa21f7d2dcc9bff13838749a678d4
+RUN a2enmod rewrite expires headers \
+    && printf '<Directory /var/www/html>\n    AllowOverride All\n    Require all granted\n</Directory>\nRedirectMatch 302 ^/$ /phpsite/\n' > /etc/apache2/conf-available/student-site.conf \
+    && a2enconf student-site
+RUN printf "display_errors=Off\nlog_errors=On\nerror_log=/proc/self/fd/2\n" > /usr/local/etc/php/conf.d/preview.ini
+COPY src/phpsite/ /var/www/html/phpsite/
+# Existing exercises write registration records, game scores and weather caches.
+# Keep those writes inside this local container, away from the source checkout.
+RUN mkdir -p /var/www/html/phpsite/prosjekter/infprog/2016-1/oblig-5/oppgave-4/.cache \
+    && chown -R www-data:www-data /var/www/html/phpsite
+EXPOSE 80
