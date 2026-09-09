@@ -47,6 +47,11 @@ def check(image, edition):
             raise AssertionError('Container did not become ready')
         prefix = '/phpsite/prosjekter/infprog/2016-1/oblig-5/'
         if edition == 'v1':
+            # Check Location as well as status: Apache otherwise exposes port 8080.
+            for path, status in [('/', 302), ('/phpsite', 301), ('/phpsite/lab', 301)]:
+                _, headers = request(base, path, status, headers={'Host': 'edu-hio-bjornarh-v1.bjornar.dev', 'X-Forwarded-Proto': 'https'})
+                destination = '/phpsite/' if path == '/' else path + '/'
+                assert headers['Location'] == 'https://edu-hio-bjornarh-v1.bjornar.dev' + destination
             request(base, '/phpsite/', contains='Bjørnar')
             request(base, '/phpsite/lab/', contains='Ingen laboppgaver')
             body, _ = request(base, prefix + 'oppgave-1-2-3.php', contains='Enigma')
