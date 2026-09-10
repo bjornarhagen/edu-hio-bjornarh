@@ -336,7 +336,7 @@
                     });
 
                     // Åpne request, hent metode og action fra skjema
-                    xhr.open("POST", "http://www.it-stud.hiof.no/phpsite/prosjekter/infprog/2016-1/oblig-4/swim/send-result.php");
+                    xhr.open("POST", "send-result.php");
 
                     // Send data skrevet inn i skjema
                     xhr.send(data);

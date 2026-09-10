@@ -52,7 +52,7 @@
 <body>
     <header id="o1-intro" class="white-text">
         <div id="o1-intro-overlay"></div>
-        <video id="o1-intro-video-bg" class="hide-on-medium-and-down" autoplay loop poster="oppgave-1-2-3-materiale/_c-header-1.jpg">
+        <video id="o1-intro-video-bg" class="hide-on-medium-and-down" autoplay muted playsinline loop poster="oppgave-1-2-3-materiale/_c-header-1.jpg">
             <source src="oppgave-1-2-3-materiale/video.mp4" type="video/mp4">
             Your browser doesn't support video. Try downloading a modern browser like Chrome or Firefox.
         </video>
@@ -383,17 +383,20 @@
         // This stops unnecessary rendering and makes the page more smooth.
         function videoAutoPlayPause() {
             var video = document.getElementById("o1-intro-video-bg");
-            var header = document.getElementById("o1-intro-post-head");
+            var heading = document.querySelector("#o1-coming-list-wrapper h2");
             var timeout;
 
             window.addEventListener('scroll', function() {
                 clearTimeout(timeout);
 
                 timeout = setTimeout(function() {
-                    if (document.body.scrollTop > (header.offsetTop + header.offsetHeight/2)) {
+                    if (heading.getBoundingClientRect().bottom <= 0) {
                         video.pause();
                     } else {
-                        video.play();
+                        var playback = video.play();
+                        if (playback) {
+                            playback.catch(function() { /* Keep the poster if playback is blocked. */ });
+                        }
                     }
                 }, 100);
             });

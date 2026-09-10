@@ -1,58 +1,47 @@
 <?php
-    if ($_POST == NULL) {
+    if (empty($_POST)) {
         die("Ingen data ble motatt, noe gikk galt.");
     }
 
-    $data = $_POST;
+    $name  = trim((string)($_POST["name"]  ?? ""));
+    $score = (int)    ($_POST["score"] ?? 0);
 
-    // Escape post data
-    foreach($data as $name => $value) {
-        $data[$name] = htmlspecialchars($value);
+    if ($name === "") {
+        die("Navn mangler.");
     }
 
-    // Get old date
-    $post = "unique_id=" . $data["unique_id"];
-    $url = "https://bjornarhagen.no/_/skole/hio/infprog/2016-01/oblig-4/old-time.php";
-
-    $ch = curl_init($url);
-    curl_setopt($ch, CURLOPT_POST, 1);
-    curl_setopt($ch, CURLOPT_POSTFIELDS, $post);
-    curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
-    curl_setopt($ch, CURLOPT_HEADER, 0);
-    curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-    curl_setopt($ch, CURLOPT_SSLVERSION, CURL_SSLVERSION_TLSv1_2);
-    curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
-    curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
-
-    $old_date = curl_exec($ch);
-    curl_close($ch);
-
-    $old = date_create($old_date);
-    $new = date_create(date("Y-m-d h:i:s a"));
-    $diff = date_diff($old, $new);
-
-    if ($diff->s <= 10 && $data["score"] >= 70) {
-        echo "<h1>Fusk er ikke greit.</h1>";
-        die();
-    } else if ($data["score"] >= 300) {
+    // Rough client-side sanity check. The old server-timed anti-cheat is gone.
+    if ($score < 0 || $score >= 300) {
         echo "<h1>Fusk er ikke greit.</h1>";
         die();
     }
 
-    $post = $data;
-    $url = "https://bjornarhagen.no/_/skole/hio/infprog/2016-01/oblig-4/submit.php";
+    $scoresFile = __DIR__ . "/scores.json";
 
-    $ch = curl_init($url);
-    curl_setopt($ch, CURLOPT_POST, 1);
-    curl_setopt($ch, CURLOPT_POSTFIELDS, $post);
-    curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
-    curl_setopt($ch, CURLOPT_HEADER, 0);
-    curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-    curl_setopt($ch, CURLOPT_SSLVERSION, CURL_SSLVERSION_TLSv1_2);
-    curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
-    curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
+    $scores = [];
+    if (is_file($scoresFile)) {
+        $decoded = json_decode((string)file_get_contents($scoresFile), true);
+        if (is_array($decoded)) {
+            $scores = $decoded;
+        }
+    }
 
-    $response = curl_exec($ch);
-    curl_close($ch);
+    $scores[] = [
+        "name"  => mb_substr($name, 0, 32),
+        "score" => $score,
+        "date"  => date("Y-m-d H:i:s"),
+    ];
 
-    echo $response;
+    usort($scores, fn($a, $b) => ($b["score"] ?? 0) <=> ($a["score"] ?? 0));
+    $scores = array_slice($scores, 0, 50);
+
+    file_put_contents($scoresFile, json_encode($scores, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE));
+
+    echo "<h1>Høyeste poengsummer</h1>";
+    echo "<ol class='high-scores'>";
+    foreach (array_slice($scores, 0, 10) as $entry) {
+        $n = htmlspecialchars((string)($entry["name"]  ?? ""), ENT_QUOTES, "UTF-8");
+        $s = (int)($entry["score"] ?? 0);
+        echo "<li><span>{$n}</span> <span>{$s}</span></li>";
+    }
+    echo "</ol>";

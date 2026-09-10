@@ -1,0 +1,16 @@
+name: edu-hio-preview
+services:
+  v1:
+    build:
+      context: .
+      dockerfile: Dockerfile.v1
+    ports:
+      - "127.0.0.1:8181:80"
+  v2:
+    environment:
+      V1_ORIGIN: ${V1_ORIGIN:-http://localhost:8181}
+    build:
+      context: .
+      dockerfile: Dockerfile.v2
+    ports:
+      - "127.0.0.1:8182:80"

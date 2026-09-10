@@ -1,0 +1,20 @@
+FROM node:24-bookworm-slim@sha256:3638d9a6fe4030bd716be989438248074489337ba3275657f93595428be4fc03 AS build
+WORKDIR /app
+COPY src/staticsite/package.json src/staticsite/package-lock.json ./
+RUN npm ci --ignore-scripts --no-audit --no-fund
+COPY src/staticsite/ ./
+# Gulp's older loader expects require(ESM) to fail before falling back to import.
+ENV NODE_OPTIONS=--no-experimental-require-module
+RUN npm run build \
+    && cp -a extra/. dist/staticsite/ \
+    && mkdir -p dist/staticsite/js \
+    && cp -a js/. dist/staticsite/js/ \
+    && cd html \
+    && find . -type f ! -name '*.nunjucks' ! -name '*.html' ! -name '*.php' \
+       -exec cp --parents '{}' /app/dist/staticsite/ \;
+
+FROM nginx:stable-alpine@sha256:dc5069ad14f19660b141b21236140b91656bf89bbc3e2417c70ae650cd66104c
+ENV V1_ORIGIN=http://localhost:8181
+COPY docker/preview/nginx.conf /etc/nginx/templates/default.conf.template
+COPY --from=build /app/dist/ /usr/share/nginx/html/
+EXPOSE 80
