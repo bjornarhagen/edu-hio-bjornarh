@@ -72,3 +72,8 @@ Public source and Docker packaging live here. Production image publication,
 credentials, DNS and cluster declarations are managed separately in private
 infrastructure. Publishing or merging source changes here does not redeploy
 the cluster: releases use explicitly selected source commits and image digests.
+
+## Cluster delivery
+
+See [DEPLOYMENT.md](DEPLOYMENT.md) for the release branch, current automation
+status, CI policy, deployment ownership and rollback instructions.
