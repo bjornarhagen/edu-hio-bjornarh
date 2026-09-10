@@ -136,7 +136,15 @@ The PHP workload must have deny-all outbound NetworkPolicy: the old forecast
 proxy and obsolete external anti-cheat integration are not restored. Browser
 requests for external fonts/media remain unchanged.
 
-Production checks build both targets for linux/amd64 and run:
+Build both production targets for linux/amd64, then run their checks:
+
+```sh
+docker build --platform linux/amd64 -f Dockerfile.cluster --target v1 -t edu-v1:production .
+docker build --platform linux/amd64 -f Dockerfile.cluster --target v2 -t edu-v2:production .
+```
+
+The PHP production configuration uses its public HTTPS hostname for redirects;
+use the preview images above for local browsing. Run the production checks with:
 
 ```sh
 python3 docker/production/check.py edu-v1:production edu-v2:production
